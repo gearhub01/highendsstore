@@ -1,4 +1,5 @@
 import { Star, ExternalLink } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const picks = [
   {
@@ -47,55 +48,58 @@ const BestPicks = () => {
   return (
     <section id="reviews" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-3">
-            🏆 Best Of du <span className="text-primary text-glow-sm">Mois</span>
-          </h2>
-          <p className="text-muted-foreground max-w-md mx-auto">
-            Nos recommandations #1 dans chaque catégorie, mises à jour mensuellement
-          </p>
-        </div>
+        <AnimatedSection variant="fade-up">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-display font-bold mb-3">
+              🏆 Best Of du <span className="text-primary text-glow-sm">Mois</span>
+            </h2>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Nos recommandations #1 dans chaque catégorie, mises à jour mensuellement
+            </p>
+          </div>
+        </AnimatedSection>
 
         <div className="max-w-3xl mx-auto space-y-3">
-          {picks.map((pick) => (
-            <a
-              key={pick.name}
-              href="#"
-              className="group flex items-center gap-4 p-4 rounded-lg bg-card border border-border hover:border-primary/40 hover:box-glow transition-all duration-300"
-            >
-              {/* Rank */}
-              <div className="flex-shrink-0 w-10 h-10 rounded-md gradient-neon flex items-center justify-center font-display font-bold text-primary-foreground text-sm">
-                #{pick.rank}
-              </div>
+          {picks.map((pick, i) => (
+            <AnimatedSection key={pick.name} variant="fade-up" delay={i * 0.08}>
+              <a
+                href="#"
+                className="group flex items-center gap-4 p-4 rounded-lg bg-card border border-border hover:border-primary/40 hover:box-glow transition-all duration-300"
+              >
+                {/* Rank */}
+                <div className="flex-shrink-0 w-10 h-10 rounded-md gradient-neon flex items-center justify-center font-display font-bold text-primary-foreground text-sm">
+                  #{pick.rank}
+                </div>
 
-              {/* Info */}
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-0.5">
-                  <h3 className="font-display text-sm font-semibold tracking-wide group-hover:text-primary transition-colors truncate">
-                    {pick.name}
-                  </h3>
-                  <span className="hidden sm:block text-xs text-muted-foreground">
-                    — {pick.category}
+                {/* Info */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <h3 className="font-display text-sm font-semibold tracking-wide group-hover:text-primary transition-colors truncate">
+                      {pick.name}
+                    </h3>
+                    <span className="hidden sm:block text-xs text-muted-foreground">
+                      — {pick.category}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground">{pick.highlight}</p>
+                </div>
+
+                {/* Rating */}
+                <div className="flex-shrink-0 flex items-center gap-1.5">
+                  <Star className="h-4 w-4 text-primary fill-primary" />
+                  <span className="font-display text-sm font-bold text-primary">
+                    {pick.rating}
                   </span>
                 </div>
-                <p className="text-xs text-muted-foreground">{pick.highlight}</p>
-              </div>
 
-              {/* Rating */}
-              <div className="flex-shrink-0 flex items-center gap-1.5">
-                <Star className="h-4 w-4 text-primary fill-primary" />
-                <span className="font-display text-sm font-bold text-primary">
-                  {pick.rating}
+                {/* Price */}
+                <span className="hidden sm:block flex-shrink-0 text-sm font-semibold text-foreground">
+                  {pick.price}
                 </span>
-              </div>
 
-              {/* Price */}
-              <span className="hidden sm:block flex-shrink-0 text-sm font-semibold text-foreground">
-                {pick.price}
-              </span>
-
-              <ExternalLink className="flex-shrink-0 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-            </a>
+                <ExternalLink className="flex-shrink-0 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+              </a>
+            </AnimatedSection>
           ))}
         </div>
       </div>
