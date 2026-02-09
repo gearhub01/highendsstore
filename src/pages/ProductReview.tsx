@@ -7,6 +7,7 @@ import ReviewProsCons from "@/components/review/ReviewProsCons";
 import ReviewSpecs, { type SpecGroup } from "@/components/review/ReviewSpecs";
 import ReviewGallery from "@/components/review/ReviewGallery";
 import ReviewVerdict from "@/components/review/ReviewVerdict";
+import RelatedContent, { type RelatedItem } from "@/components/RelatedContent";
 
 // --- MOCK DATA ---
 
