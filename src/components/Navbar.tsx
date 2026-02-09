@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Monitor, Video, Sun, Moon } from "lucide-react";
+import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Monitor, Video, Sun, Moon, BookOpen, Star, GitCompareArrows, Newspaper, TrendingUp, Cpu, Wrench } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { Link } from "react-router-dom";
 
@@ -11,11 +11,31 @@ const categories = [
   { icon: Video, label: "Streaming", href: "/categories/streaming", count: "6 guides" },
 ];
 
+const guides = [
+  { icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards", tag: "Top 5" },
+  { icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides/best-gaming-mice", tag: "Bientôt" },
+  { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides/best-gaming-headsets", tag: "Bientôt" },
+  { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides/best-4k-monitors", tag: "Bientôt" },
+];
+
+const comparisons = [
+  { icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
+];
+
+const reviews = [
+  { icon: Star, label: "Test du Wooting 80HE", href: "/reviews/wooting-80he", rating: "9.6" },
+];
+
+const blogPosts = [
+  { icon: TrendingUp, label: "Hall Effect vs Mécanique : le guide ultime", href: "/#blog", tag: "Tendance" },
+  { icon: Cpu, label: "Comment choisir son polling rate en 2026", href: "/#blog", tag: "Tech" },
+  { icon: Wrench, label: "Modding : lubrifier ses switches comme un pro", href: "/#blog", tag: "Tuto" },
+  { icon: Newspaper, label: "CES 2026 : les meilleurs périphériques annoncés", href: "/#blog", tag: "Actu" },
+];
+
 const navItems = [
   { label: "Accueil", href: "/" },
-  { label: "Guides", href: "/#guides" },
   { label: "Comparaisons", href: "/comparaison/gaming-keyboards" },
-  { label: "Blog", href: "/#blog" },
 ];
 
 const Navbar = () => {
