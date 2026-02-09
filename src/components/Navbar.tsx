@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Monitor, Video } from "lucide-react";
+import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Monitor, Video, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
 import { Link } from "react-router-dom";
 
 const categories = [
