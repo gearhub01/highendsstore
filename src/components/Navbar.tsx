@@ -92,9 +92,16 @@ const Navbar = () => {
           </div>
 
           {/* Search + Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <button className="p-2 text-muted-foreground hover:text-primary transition-colors">
               <Search className="h-5 w-5" />
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Changer de thème"
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
             <button
               className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
