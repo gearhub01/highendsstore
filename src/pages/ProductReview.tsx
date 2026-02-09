@@ -7,6 +7,7 @@ import ReviewProsCons from "@/components/review/ReviewProsCons";
 import ReviewSpecs, { type SpecGroup } from "@/components/review/ReviewSpecs";
 import ReviewGallery from "@/components/review/ReviewGallery";
 import ReviewVerdict from "@/components/review/ReviewVerdict";
+import RelatedContent, { type RelatedItem } from "@/components/RelatedContent";
 
 // --- MOCK DATA ---
 
@@ -113,6 +114,13 @@ const ProductReview = () => {
           price="199€"
           verdict="Le Wooting 80HE est tout simplement le meilleur clavier gaming que nous ayons testé en 2026. Sa technologie Hall Effect avec actuation ajustable de 0.1mm et Rapid Trigger offre un avantage compétitif mesurable en FPS. La build quality en aluminium CNC, le son de frappe satisfaisant stock et le firmware open-source en font un investissement durable. Si vous êtes un joueur compétitif sérieux et que le filaire ne vous dérange pas, c'est LE clavier à prendre — sans hésiter."
           bestFor="Joueurs compétitifs FPS (Valorant, CS2, Apex)"
+        />
+
+        <RelatedContent
+          items={[
+            { type: "guide", title: "Meilleurs Claviers Gaming 2026", description: "Notre top 5 des claviers mécaniques et Hall Effect testés et comparés.", href: "/guides/best-gaming-keyboards" },
+            { type: "comparison", title: "Wooting 80HE vs Razer vs Keychron", description: "Tableau comparatif, radar et verdict détaillé de 3 claviers phares.", href: "/comparaison/gaming-keyboards" },
+          ]}
         />
 
         <Newsletter />

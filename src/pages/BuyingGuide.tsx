@@ -7,6 +7,7 @@ import GuideProductReview, { type ProductReview } from "@/components/guide/Guide
 import GuideFAQ, { type FAQItem } from "@/components/guide/GuideFAQ";
 import GuideVerdict from "@/components/guide/GuideVerdict";
 import Newsletter from "@/components/Newsletter";
+import RelatedContent from "@/components/RelatedContent";
 import { Target, Wallet, Zap } from "lucide-react";
 
 // --- MOCK DATA ---
@@ -267,6 +268,13 @@ const BuyingGuide = () => {
         />
 
         <GuideFAQ items={faqItems} />
+
+        <RelatedContent
+          items={[
+            { type: "review", title: "Test du Wooting 80HE", description: "Review complète après 3 mois — note 9.6/10, le meilleur clavier gaming.", href: "/reviews/wooting-80he" },
+            { type: "comparison", title: "Wooting vs Razer vs Keychron", description: "Comparaison côte-à-côte avec graphique radar et verdict détaillé.", href: "/comparaison/gaming-keyboards" },
+          ]}
+        />
 
         <Newsletter />
       </main>
