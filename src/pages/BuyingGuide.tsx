@@ -7,6 +7,7 @@ import GuideProductReview, { type ProductReview } from "@/components/guide/Guide
 import GuideFAQ, { type FAQItem } from "@/components/guide/GuideFAQ";
 import GuideVerdict from "@/components/guide/GuideVerdict";
 import Newsletter from "@/components/Newsletter";
+import RelatedContent from "@/components/RelatedContent";
 import { Target, Wallet, Zap } from "lucide-react";
 
 // --- MOCK DATA ---
