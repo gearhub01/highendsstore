@@ -71,31 +71,24 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {/* Categories Dropdown */}
             <div ref={dropdownRef} className="relative">
               <button
-                onClick={() => setCatOpen(!catOpen)}
+                onClick={() => { setCatOpen(!catOpen); setGuidesOpen(false); setBlogOpen(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
                 Catégories
                 <ChevronDown className={`h-4 w-4 transition-transform ${catOpen ? "rotate-180" : ""}`} />
               </button>
-
               {catOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 rounded-lg border border-border bg-popover shadow-xl z-50 overflow-hidden">
                   <div className="p-2">
                     {categories.map((cat) => (
-                      <Link
-                        key={cat.label}
-                        to={cat.href}
-                        onClick={() => setCatOpen(false)}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group"
-                      >
+                      <Link key={cat.label} to={cat.href} onClick={() => setCatOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
                         <cat.icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-                        <div className="flex-1">
-                          <span className="text-sm font-medium text-foreground">{cat.label}</span>
-                        </div>
+                        <span className="flex-1 text-sm font-medium text-foreground">{cat.label}</span>
                         <span className="text-xs text-muted-foreground">{cat.count}</span>
                       </Link>
                     ))}
@@ -104,33 +97,94 @@ const Navbar = () => {
               )}
             </div>
 
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+            {/* Guides Dropdown */}
+            <div ref={guidesRef} className="relative">
+              <button
+                onClick={() => { setGuidesOpen(!guidesOpen); setCatOpen(false); setBlogOpen(false); }}
+                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
+                Guides
+                <ChevronDown className={`h-4 w-4 transition-transform ${guidesOpen ? "rotate-180" : ""}`} />
+              </button>
+              {guidesOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-lg border border-border bg-popover shadow-xl z-50 overflow-hidden">
+                  <div className="p-1.5">
+                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Guides d'achat</p>
+                    {guides.map((g) => (
+                      <Link key={g.label} to={g.href} onClick={() => setGuidesOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
+                        <g.icon className="h-4 w-4 text-primary" />
+                        <span className="flex-1 text-sm font-medium text-foreground">{g.label}</span>
+                        <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${g.tag === "Bientôt" ? "bg-muted text-muted-foreground" : "bg-primary/10 text-primary"}`}>{g.tag}</span>
+                      </Link>
+                    ))}
+                    <div className="border-t border-border mt-1.5 pt-1.5">
+                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Comparaisons</p>
+                      {comparisons.map((c) => (
+                        <Link key={c.label} to={c.href} onClick={() => setGuidesOpen(false)}
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
+                          <c.icon className="h-4 w-4 text-primary" />
+                          <span className="flex-1 text-sm font-medium text-foreground">{c.label}</span>
+                        </Link>
+                      ))}
+                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary mt-1">Reviews</p>
+                      {reviews.map((r) => (
+                        <Link key={r.label} to={r.href} onClick={() => setGuidesOpen(false)}
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
+                          <r.icon className="h-4 w-4 text-primary" />
+                          <span className="flex-1 text-sm font-medium text-foreground">{r.label}</span>
+                          <span className="flex items-center gap-0.5 text-xs font-bold text-primary"><Star className="h-3 w-3 fill-primary" />{r.rating}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Blog Dropdown */}
+            <div ref={blogRef} className="relative">
+              <button
+                onClick={() => { setBlogOpen(!blogOpen); setCatOpen(false); setGuidesOpen(false); }}
+                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
+              >
+                Blog
+                <ChevronDown className={`h-4 w-4 transition-transform ${blogOpen ? "rotate-180" : ""}`} />
+              </button>
+              {blogOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-lg border border-border bg-popover shadow-xl z-50 overflow-hidden">
+                  <div className="p-1.5">
+                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Articles récents</p>
+                    {blogPosts.map((post) => (
+                      <Link key={post.label} to={post.href} onClick={() => setBlogOpen(false)}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
+                        <post.icon className="h-4 w-4 text-primary" />
+                        <span className="flex-1 text-sm font-medium text-foreground">{post.label}</span>
+                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary">{post.tag}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {navItems.map((item) => (
+              <Link key={item.label} to={item.href}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase">
                 {item.label}
               </Link>
             ))}
           </div>
 
-          {/* Search + Mobile Toggle */}
+          {/* Search + Theme + Mobile Toggle */}
           <div className="flex items-center gap-2">
             <button className="p-2 text-muted-foreground hover:text-primary transition-colors">
               <Search className="h-5 w-5" />
             </button>
-            <button
-              onClick={toggleTheme}
-              className="p-2 text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Changer de thème"
-            >
+            <button onClick={toggleTheme} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Changer de thème">
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
-            <button
-              className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
-              onClick={() => setIsOpen(!isOpen)}
-            >
+            <button className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
@@ -140,38 +194,49 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-border mt-2 pt-4 space-y-3">
             {/* Mobile Categories */}
-            <div className="space-y-1">
-              <button
-                onClick={() => setCatOpen(!catOpen)}
-                className="flex items-center gap-1 w-full text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
-              >
-                Catégories
-                <ChevronDown className={`h-4 w-4 transition-transform ${catOpen ? "rotate-180" : ""}`} />
-              </button>
-              {catOpen && (
-                <div className="pl-4 space-y-1 pt-1">
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat.label}
-                      to={cat.href}
-                      className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-                      onClick={() => { setIsOpen(false); setCatOpen(false); }}
-                    >
-                      <cat.icon className="h-4 w-4 text-primary" />
-                      {cat.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+            <MobileAccordion label="Catégories" open={catOpen} onToggle={() => setCatOpen(!catOpen)}>
+              {categories.map((cat) => (
+                <Link key={cat.label} to={cat.href}
+                  className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => { setIsOpen(false); setCatOpen(false); }}>
+                  <cat.icon className="h-4 w-4 text-primary" />{cat.label}
+                </Link>
+              ))}
+            </MobileAccordion>
+
+            {/* Mobile Guides */}
+            <MobileAccordion label="Guides" open={guidesOpen} onToggle={() => setGuidesOpen(!guidesOpen)}>
+              {guides.map((g) => (
+                <Link key={g.label} to={g.href}
+                  className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => { setIsOpen(false); setGuidesOpen(false); }}>
+                  <BookOpen className="h-4 w-4 text-primary" />{g.label}
+                </Link>
+              ))}
+              {reviews.map((r) => (
+                <Link key={r.label} to={r.href}
+                  className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => { setIsOpen(false); setGuidesOpen(false); }}>
+                  <Star className="h-4 w-4 text-primary" />{r.label}
+                </Link>
+              ))}
+            </MobileAccordion>
+
+            {/* Mobile Blog */}
+            <MobileAccordion label="Blog" open={blogOpen} onToggle={() => setBlogOpen(!blogOpen)}>
+              {blogPosts.map((post) => (
+                <Link key={post.label} to={post.href}
+                  className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  onClick={() => { setIsOpen(false); setBlogOpen(false); }}>
+                  <post.icon className="h-4 w-4 text-primary" />{post.label}
+                </Link>
+              ))}
+            </MobileAccordion>
 
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
+              <Link key={item.label} to={item.href}
                 className="block text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
-                onClick={() => setIsOpen(false)}
-              >
+                onClick={() => setIsOpen(false)}>
                 {item.label}
               </Link>
             ))}
@@ -181,5 +246,16 @@ const Navbar = () => {
     </nav>
   );
 };
+
+const MobileAccordion = ({ label, open, onToggle, children }: { label: string; open: boolean; onToggle: () => void; children: React.ReactNode }) => (
+  <div className="space-y-1">
+    <button onClick={onToggle}
+      className="flex items-center gap-1 w-full text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase">
+      {label}
+      <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+    </button>
+    {open && <div className="pl-4 space-y-1 pt-1">{children}</div>}
+  </div>
+);
 
 export default Navbar;
