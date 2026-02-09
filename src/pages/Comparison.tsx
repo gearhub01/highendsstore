@@ -136,6 +136,13 @@ const Comparison = () => {
           conclusion="Dans cette comparaison directe, le Wooting 80HE s'impose comme le meilleur clavier gaming grâce à sa technologie Hall Effect et son Rapid Trigger imbattables en compétitif. Le Razer Huntsman V3 Pro se distingue par son polling rate 8000 Hz et son écosystème logiciel riche — idéal si vous cherchez le premium absolu. Enfin, le Keychron Q1 Max offre un rapport qualité-prix exceptionnel avec triple connectivité et gasket mount pour seulement 149€. Le choix dépend de votre priorité : performance pure, fonctionnalités premium ou budget maîtrisé."
         />
 
+        <RelatedContent
+          items={[
+            { type: "guide", title: "Meilleurs Claviers Gaming 2026", description: "Notre sélection complète des 5 meilleurs claviers gaming testés.", href: "/guides/best-gaming-keyboards" },
+            { type: "review", title: "Test du Wooting 80HE", description: "Review détaillée du gagnant de notre comparatif — 3 mois d'utilisation.", href: "/reviews/wooting-80he" },
+          ]}
+        />
+
         <Newsletter />
       </main>
       <Footer />
