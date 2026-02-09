@@ -41,14 +41,18 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [catOpen, setCatOpen] = useState(false);
+  const [guidesOpen, setGuidesOpen] = useState(false);
+  const [blogOpen, setBlogOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const guidesRef = useRef<HTMLDivElement>(null);
+  const blogRef = useRef<HTMLDivElement>(null);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setCatOpen(false);
-      }
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) setCatOpen(false);
+      if (guidesRef.current && !guidesRef.current.contains(e.target as Node)) setGuidesOpen(false);
+      if (blogRef.current && !blogRef.current.contains(e.target as Node)) setBlogOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
