@@ -5,6 +5,7 @@ import ComparisonHero from "@/components/comparison/ComparisonHero";
 import ComparisonTable, { type ComparisonProduct } from "@/components/comparison/ComparisonTable";
 import ComparisonRadar, { type RadarProduct } from "@/components/comparison/ComparisonRadar";
 import ComparisonVerdict from "@/components/comparison/ComparisonVerdict";
+import RelatedContent from "@/components/RelatedContent";
 
 // --- MOCK DATA ---
 
