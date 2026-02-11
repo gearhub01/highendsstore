@@ -8,6 +8,8 @@ import BuyingGuide from "./pages/BuyingGuide";
 import Comparison from "./pages/Comparison";
 import ProductReview from "./pages/ProductReview";
 import NotFound from "./pages/NotFound";
+import Blog from "./pages/Blog";
+import BlogArticle from "./pages/BlogArticle";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +24,8 @@ const App = () => (
           <Route path="/guides/best-gaming-keyboards" element={<BuyingGuide />} />
           <Route path="/comparaison/gaming-keyboards" element={<Comparison />} />
           <Route path="/reviews/wooting-80he" element={<ProductReview />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
