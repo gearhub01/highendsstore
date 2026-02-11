@@ -31,7 +31,7 @@ const blogPosts = [
   { icon: Cpu, label: "Comment choisir son polling rate en 2026", href: "/blog/choisir-polling-rate-2026", tag: "Tech" },
   { icon: Wrench, label: "Modding : lubrifier ses switches comme un pro", href: "/blog/lubrifier-switches-pro", tag: "Tuto" },
   { icon: Newspaper, label: "CES 2026 : les meilleurs périphériques annoncés", href: "/blog/ces-2026-meilleurs-peripheriques", tag: "Actu" },
-];
+].slice(0, 4);
 
 const navItems = [
   { label: "Accueil", href: "/" },
@@ -163,6 +163,13 @@ const Navbar = () => {
                         <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary">{post.tag}</span>
                       </Link>
                     ))}
+                    <div className="border-t border-border mt-1.5 pt-1.5">
+                      <Link to="/blog" onClick={() => setBlogOpen(false)}
+                        className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors text-sm font-semibold text-primary">
+                        Voir tous les articles
+                        <ChevronDown className="h-3.5 w-3.5 -rotate-90" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
