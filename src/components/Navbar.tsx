@@ -27,10 +27,10 @@ const reviews = [
 ];
 
 const blogPosts = [
-  { icon: TrendingUp, label: "Hall Effect vs Mécanique : le guide ultime", href: "/#blog", tag: "Tendance" },
-  { icon: Cpu, label: "Comment choisir son polling rate en 2026", href: "/#blog", tag: "Tech" },
-  { icon: Wrench, label: "Modding : lubrifier ses switches comme un pro", href: "/#blog", tag: "Tuto" },
-  { icon: Newspaper, label: "CES 2026 : les meilleurs périphériques annoncés", href: "/#blog", tag: "Actu" },
+  { icon: TrendingUp, label: "Hall Effect vs Mécanique : le guide ultime", href: "/blog/hall-effect-vs-mecanique", tag: "Tendance" },
+  { icon: Cpu, label: "Comment choisir son polling rate en 2026", href: "/blog/choisir-polling-rate-2026", tag: "Tech" },
+  { icon: Wrench, label: "Modding : lubrifier ses switches comme un pro", href: "/blog/lubrifier-switches-pro", tag: "Tuto" },
+  { icon: Newspaper, label: "CES 2026 : les meilleurs périphériques annoncés", href: "/blog/ces-2026-meilleurs-peripheriques", tag: "Actu" },
 ];
 
 const navItems = [
