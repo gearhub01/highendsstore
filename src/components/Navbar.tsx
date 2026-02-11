@@ -137,6 +137,13 @@ const Navbar = () => {
                         </Link>
                       ))}
                     </div>
+                    <div className="border-t border-border mt-1.5 pt-1.5">
+                      <Link to="/guides" onClick={() => setGuidesOpen(false)}
+                        className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors text-sm font-semibold text-primary">
+                        Voir tous les guides
+                        <ChevronDown className="h-3.5 w-3.5 -rotate-90" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
