@@ -8,6 +8,10 @@ import ReviewSpecs, { type SpecGroup } from "@/components/review/ReviewSpecs";
 import ReviewGallery from "@/components/review/ReviewGallery";
 import ReviewVerdict from "@/components/review/ReviewVerdict";
 import RelatedContent, { type RelatedItem } from "@/components/RelatedContent";
+import SEOHead from "@/components/SEOHead";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import BackToTop from "@/components/BackToTop";
+import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 
 // --- MOCK DATA ---
 
@@ -78,17 +82,40 @@ const specGroups: SpecGroup[] = [
 ];
 
 const galleryImages = [
-  { src: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800&h=500&fit=crop", alt: "Wooting 80HE - Vue d'ensemble" },
-  { src: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=800&h=500&fit=crop", alt: "Wooting 80HE - Éclairage RGB" },
-  { src: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&h=500&fit=crop", alt: "Wooting 80HE - Vue latérale" },
-  { src: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=800&h=500&fit=crop", alt: "Wooting 80HE - Keycaps détail" },
+  { src: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800&h=500&fit=crop", alt: "Wooting 80HE - Vue d'ensemble du clavier gaming Hall Effect" },
+  { src: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=800&h=500&fit=crop", alt: "Wooting 80HE - Éclairage RGB per-key en action" },
+  { src: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&h=500&fit=crop", alt: "Wooting 80HE - Vue latérale châssis aluminium CNC" },
+  { src: "https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=800&h=500&fit=crop", alt: "Wooting 80HE - Détail keycaps PBT double-shot" },
 ];
 
 const ProductReview = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Test du Wooting 80HE — Review Complète 2026"
+        description="Review complète du Wooting 80HE après 3 mois de test. Note 9.6/10 : actuation Hall Effect ajustable, Rapid Trigger, build quality alu CNC. Le meilleur clavier gaming ?"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Review",
+          itemReviewed: {
+            "@type": "Product",
+            name: "Wooting 80HE",
+            brand: { "@type": "Brand", name: "Wooting" },
+            category: "Clavier Gaming",
+          },
+          reviewRating: { "@type": "Rating", ratingValue: "9.6", bestRating: "10" },
+          author: { "@type": "Organization", name: "GearHub" },
+          datePublished: "2026-02-03",
+        }}
+      />
       <Navbar />
+      <Breadcrumbs items={[
+        { label: "Reviews", href: "/guides" },
+        { label: "Claviers", href: "/categories/claviers" },
+        { label: "Wooting 80HE" },
+      ]} />
       <main>
+        <AffiliateDisclosure />
         <ReviewHero
           category="Claviers"
           categoryHref="/categories/claviers"
@@ -102,11 +129,8 @@ const ProductReview = () => {
         />
 
         <ReviewRatings overallScore={9.6} subRatings={subRatings} />
-
         <ReviewGallery images={galleryImages} />
-
         <ReviewProsCons pros={pros} cons={cons} />
-
         <ReviewSpecs specGroups={specGroups} />
 
         <ReviewVerdict
@@ -125,6 +149,7 @@ const ProductReview = () => {
 
         <Newsletter />
       </main>
+      <BackToTop />
       <Footer />
     </div>
   );
