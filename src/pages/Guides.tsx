@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, GitCompareArrows, Star, ArrowRight, Keyboard, Mouse, Headphones, Monitor } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -121,6 +122,11 @@ const ContentCard = ({ item }: { item: ContentItem }) => {
 
 const Guides = () => {
   const allContent: ContentItem[] = [...guidesData, ...comparisonsData, ...reviewsData];
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
+  const filteredContent = activeFilter
+    ? allContent.filter((item) => item.type === activeFilter)
+    : allContent;
 
   return (
     <div className="min-h-screen bg-background">
@@ -141,20 +147,38 @@ const Guides = () => {
           {/* Type filters */}
           <AnimatedSection variant="fade-up" delay={0.1}>
             <div className="flex flex-wrap gap-2 mb-8">
+              <button
+                onClick={() => setActiveFilter(null)}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors cursor-pointer ${
+                  activeFilter === null
+                    ? "border-primary bg-primary/15 text-primary"
+                    : "border-border bg-card text-muted-foreground hover:border-primary/40"
+                }`}
+              >
+                Tout
+              </button>
               {Object.entries(typeLabel).map(([key, { label, color }]) => (
-                <span key={key} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border border-border bg-card cursor-default ${color}`}>
+                <button
+                  key={key}
+                  onClick={() => setActiveFilter(key)}
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors cursor-pointer ${
+                    activeFilter === key
+                      ? `border-primary ${color}`
+                      : "border-border bg-card text-muted-foreground hover:border-primary/40"
+                  }`}
+                >
                   {key === "guide" && <BookOpen className="h-3.5 w-3.5" />}
                   {key === "comparison" && <GitCompareArrows className="h-3.5 w-3.5" />}
                   {key === "review" && <Star className="h-3.5 w-3.5" />}
                   {label}
-                </span>
+                </button>
               ))}
             </div>
           </AnimatedSection>
 
           {/* Content grid */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {allContent.map((item, i) => (
+            {filteredContent.map((item, i) => (
               <AnimatedSection key={item.href} variant="fade-up" delay={0.1 + i * 0.05}>
                 <ContentCard item={item} />
               </AnimatedSection>
