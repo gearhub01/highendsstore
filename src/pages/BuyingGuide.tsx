@@ -123,7 +123,7 @@ const BuyingGuide = () => {
       <Navbar />
       <Breadcrumbs items={[
         { label: "Guides", href: "/guides" },
-        { label: "Claviers", href: "/categories/claviers" },
+        { label: "Claviers", href: "/guides/best-gaming-keyboards" },
         { label: "Meilleurs Claviers Gaming 2026" },
       ]} />
       <main>
@@ -139,7 +139,7 @@ const BuyingGuide = () => {
         <div id="hero">
           <GuideHero
             category="Claviers"
-            categoryHref="/guides/claviers"
+            categoryHref="/guides"
             title="Meilleurs Claviers Gaming 2026"
             subtitle="Notre sélection des 12 meilleurs claviers mécaniques et Hall Effect testés et comparés. Du budget au premium, trouvez le clavier parfait pour votre style de jeu — guides complets, avis honnêtes et tableaux comparatifs."
             author="Équipe GearHub"

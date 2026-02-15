@@ -120,7 +120,7 @@ const Comparison = () => {
       <main>
         <ComparisonHero
           category="Claviers"
-          categoryHref="/categories/claviers"
+          categoryHref="/guides"
           title="Comparaison Claviers Gaming 2026"
           subtitle="Wooting 80HE vs Razer Huntsman V3 Pro vs Keychron Q1 Max — tableau côte-à-côte, graphique radar et verdict détaillé pour choisir le meilleur clavier gaming."
           productCount={3}

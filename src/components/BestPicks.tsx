@@ -1,4 +1,5 @@
 import { Star, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const picks = [
@@ -9,6 +10,7 @@ const picks = [
     rating: 9.4,
     price: "159€",
     highlight: "Meilleure souris sans-fil 2026",
+    href: "/guides",
   },
   {
     rank: 2,
@@ -17,6 +19,7 @@ const picks = [
     rating: 9.6,
     price: "199€",
     highlight: "Meilleur clavier Hall Effect",
+    href: "/reviews/wooting-80he",
   },
   {
     rank: 3,
@@ -25,6 +28,7 @@ const picks = [
     rating: 9.2,
     price: "249€",
     highlight: "Meilleur son spatial gaming",
+    href: "/guides",
   },
   {
     rank: 4,
@@ -33,6 +37,7 @@ const picks = [
     rating: 9.5,
     price: "799€",
     highlight: "Meilleur moniteur OLED gaming",
+    href: "/guides",
   },
   {
     rank: 5,
@@ -41,6 +46,7 @@ const picks = [
     rating: 9.0,
     price: "149€",
     highlight: "Indispensable pour streamers",
+    href: "/guides",
   },
 ];
 
@@ -62,8 +68,8 @@ const BestPicks = () => {
         <div className="max-w-3xl mx-auto space-y-3">
           {picks.map((pick, i) => (
             <AnimatedSection key={pick.name} variant="fade-up" delay={i * 0.08}>
-              <a
-                href="#"
+              <Link
+                to={pick.href}
                 className="group flex items-center gap-4 p-4 rounded-lg bg-card border border-border hover:border-primary/40 hover:box-glow transition-all duration-300"
               >
                 {/* Rank */}
@@ -98,7 +104,7 @@ const BestPicks = () => {
                 </span>
 
                 <ExternalLink className="flex-shrink-0 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
+              </Link>
             </AnimatedSection>
           ))}
         </div>
