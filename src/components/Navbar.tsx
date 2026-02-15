@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Monitor, Video, Sun, Moon, BookOpen, Star, GitCompareArrows, Newspaper, TrendingUp, Cpu, Wrench } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { Link } from "react-router-dom";
+import SearchCommand from "@/components/SearchCommand";
 
 const categories = [
   { icon: Keyboard, label: "Claviers", href: "/categories/claviers", count: "15 guides" },
@@ -40,6 +41,7 @@ const navItems = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [catOpen, setCatOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
   const [blogOpen, setBlogOpen] = useState(false);
@@ -192,7 +194,8 @@ const Navbar = () => {
 
           {/* Search + Theme + Mobile Toggle */}
           <div className="flex items-center gap-2">
-            <button className="p-2 text-muted-foreground hover:text-primary transition-colors">
+            <SearchCommand open={searchOpen} onOpenChange={setSearchOpen} />
+            <button onClick={() => setSearchOpen(true)} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Rechercher (Ctrl+K)">
               <Search className="h-5 w-5" />
             </button>
             <button onClick={toggleTheme} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Changer de thème">
