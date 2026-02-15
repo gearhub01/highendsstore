@@ -5,18 +5,18 @@ import { Link } from "react-router-dom";
 import SearchCommand from "@/components/SearchCommand";
 
 const categories = [
-  { icon: Keyboard, label: "Claviers", href: "/categories/claviers", count: "15 guides" },
-  { icon: Mouse, label: "Souris", href: "/categories/souris", count: "12 guides" },
-  { icon: Headphones, label: "Casques", href: "/categories/casques", count: "10 guides" },
-  { icon: Monitor, label: "Moniteurs", href: "/categories/moniteurs", count: "8 guides" },
-  { icon: Video, label: "Streaming", href: "/categories/streaming", count: "6 guides" },
+  { icon: Keyboard, label: "Claviers", href: "/guides/best-gaming-keyboards", count: "15 guides" },
+  { icon: Mouse, label: "Souris", href: "/guides", count: "12 guides" },
+  { icon: Headphones, label: "Casques", href: "/guides", count: "10 guides" },
+  { icon: Monitor, label: "Moniteurs", href: "/guides", count: "8 guides" },
+  { icon: Video, label: "Streaming", href: "/guides", count: "6 guides" },
 ];
 
 const guides = [
   { icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards", tag: "Top 5" },
-  { icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides/best-gaming-mice", tag: "Bientôt" },
-  { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides/best-gaming-headsets", tag: "Bientôt" },
-  { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides/best-4k-monitors", tag: "Bientôt" },
+  { icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides", tag: "Bientôt" },
+  { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides", tag: "Bientôt" },
+  { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides", tag: "Bientôt" },
 ];
 
 const comparisons = [

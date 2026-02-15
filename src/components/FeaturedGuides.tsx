@@ -19,7 +19,7 @@ const guides = [
     readTime: "12 min",
     category: "Souris",
     trending: true,
-    href: "#",
+    href: "/guides",
   },
   {
     tag: "REVIEW",
@@ -37,7 +37,7 @@ const guides = [
     readTime: "8 min",
     category: "Moniteurs",
     trending: false,
-    href: "#",
+    href: "/guides",
   },
 ];
 
@@ -55,59 +55,53 @@ const FeaturedGuides = () => {
                 Les guides les plus lus ce mois-ci
               </p>
             </div>
-            <a
-              href="#"
+            <Link
+              to="/guides"
               className="hidden sm:flex items-center gap-2 text-sm text-primary hover:underline font-medium"
             >
               Tous les guides <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {guides.map((guide, i) => {
-            const isInternal = guide.href !== "#";
-            const Comp = isInternal ? Link : "a";
-            const linkProps = isInternal ? { to: guide.href } : { href: guide.href };
-
-            return (
-              <AnimatedSection key={guide.title} variant="fade-up" delay={i * 0.1}>
-                <Comp
-                  {...(linkProps as any)}
-                  className="group flex flex-col p-6 rounded-lg bg-card border border-border hover:border-primary/40 transition-all duration-300 h-full"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="px-2 py-0.5 text-[10px] font-display font-bold tracking-widest uppercase gradient-neon text-primary-foreground rounded">
-                      {guide.tag}
-                    </span>
-                    <span className="text-xs text-muted-foreground">{guide.category}</span>
-                    {guide.trending && (
-                      <TrendingUp className="h-3.5 w-3.5 text-primary ml-auto" />
-                    )}
-                  </div>
-                  <h3 className="font-display text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {guide.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
-                    {guide.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Clock className="h-3.5 w-3.5" />
-                    <span>{guide.readTime} de lecture</span>
-                  </div>
-                </Comp>
-              </AnimatedSection>
-            );
-          })}
+          {guides.map((guide, i) => (
+            <AnimatedSection key={guide.title} variant="fade-up" delay={i * 0.1}>
+              <Link
+                to={guide.href}
+                className="group flex flex-col p-6 rounded-lg bg-card border border-border hover:border-primary/40 transition-all duration-300 h-full"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="px-2 py-0.5 text-[10px] font-display font-bold tracking-widest uppercase gradient-neon text-primary-foreground rounded">
+                    {guide.tag}
+                  </span>
+                  <span className="text-xs text-muted-foreground">{guide.category}</span>
+                  {guide.trending && (
+                    <TrendingUp className="h-3.5 w-3.5 text-primary ml-auto" />
+                  )}
+                </div>
+                <h3 className="font-display text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                  {guide.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
+                  {guide.description}
+                </p>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Clock className="h-3.5 w-3.5" />
+                  <span>{guide.readTime} de lecture</span>
+                </div>
+              </Link>
+            </AnimatedSection>
+          ))}
         </div>
 
         <div className="sm:hidden mt-8 text-center">
-          <a
-            href="#"
+          <Link
+            to="/guides"
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium"
           >
             Tous les guides <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

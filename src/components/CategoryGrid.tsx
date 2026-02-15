@@ -1,4 +1,5 @@
 import { Keyboard, Mouse, Headphones, Monitor, Video } from "lucide-react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const categories = [
@@ -7,35 +8,35 @@ const categories = [
     title: "Claviers",
     description: "Mécaniques, membrane, sans-fil — trouvez le switch parfait",
     count: "15 guides",
-    href: "#",
+    href: "/guides/best-gaming-keyboards",
   },
   {
     icon: Mouse,
     title: "Souris",
     description: "DPI, ergonomie, poids — la souris idéale pour votre grip",
     count: "12 guides",
-    href: "#",
+    href: "/guides",
   },
   {
     icon: Headphones,
     title: "Casques",
     description: "Son immersif, micro crystal clear, confort longue durée",
     count: "10 guides",
-    href: "#",
+    href: "/guides",
   },
   {
     icon: Monitor,
     title: "Moniteurs",
     description: "144Hz, 240Hz, 4K — l'écran qui change votre gameplay",
     count: "8 guides",
-    href: "#",
+    href: "/guides",
   },
   {
     icon: Video,
     title: "Streaming",
     description: "Webcams, éclairage, micros — setup de streamer pro",
     count: "6 guides",
-    href: "#",
+    href: "/guides",
   },
 ];
 
@@ -57,8 +58,8 @@ const CategoryGrid = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {categories.map((cat, i) => (
             <AnimatedSection key={cat.title} variant="fade-up" delay={i * 0.08}>
-              <a
-                href={cat.href}
+              <Link
+                to={cat.href}
                 className="group relative p-6 rounded-lg bg-card border border-border hover:border-primary/50 hover:box-glow transition-all duration-300 block h-full"
               >
                 <cat.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
@@ -69,7 +70,7 @@ const CategoryGrid = () => {
                   {cat.description}
                 </p>
                 <span className="text-xs font-medium text-primary">{cat.count}</span>
-              </a>
+              </Link>
             </AnimatedSection>
           ))}
         </div>

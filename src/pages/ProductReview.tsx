@@ -112,7 +112,7 @@ const ProductReview = () => {
       <Navbar />
       <Breadcrumbs items={[
         { label: "Reviews", href: "/guides" },
-        { label: "Claviers", href: "/categories/claviers" },
+        { label: "Claviers", href: "/guides/best-gaming-keyboards" },
         { label: "Wooting 80HE" },
       ]} />
       <main>
@@ -128,7 +128,7 @@ const ProductReview = () => {
         <div id="review-hero">
           <ReviewHero
             category="Claviers"
-            categoryHref="/categories/claviers"
+            categoryHref="/guides"
             productName="Wooting 80HE"
             tagline="Le clavier Hall Effect qui redéfinit le standard du gaming compétitif. Actuation ajustable de 0.1mm, Rapid Trigger, et build quality premium — notre test complet après 3 mois d'utilisation intensive."
             rating={9.6}

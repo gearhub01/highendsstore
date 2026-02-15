@@ -14,9 +14,9 @@ import { blogArticles } from "@/data/blog-articles";
 const searchableContent = [
   // Guides
   { type: "Guide", icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards" },
-  { type: "Guide", icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides/best-gaming-mice" },
-  { type: "Guide", icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides/best-gaming-headsets" },
-  { type: "Guide", icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides/best-4k-monitors" },
+  { type: "Guide", icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides" },
+  { type: "Guide", icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides" },
+  { type: "Guide", icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides" },
   // Reviews
   { type: "Review", icon: Star, label: "Test du Wooting 80HE", href: "/reviews/wooting-80he" },
   // Comparaisons
