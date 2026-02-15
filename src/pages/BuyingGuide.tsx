@@ -12,6 +12,7 @@ import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BackToTop from "@/components/BackToTop";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+import TableOfContents from "@/components/TableOfContents";
 import { Target, Wallet, Zap } from "lucide-react";
 
 // --- MOCK DATA ---
@@ -127,21 +128,35 @@ const BuyingGuide = () => {
       ]} />
       <main>
         <AffiliateDisclosure />
-        <GuideHero
-          category="Claviers"
-          categoryHref="/guides/claviers"
-          title="Meilleurs Claviers Gaming 2026"
-          subtitle="Notre sélection des 12 meilleurs claviers mécaniques et Hall Effect testés et comparés. Du budget au premium, trouvez le clavier parfait pour votre style de jeu — guides complets, avis honnêtes et tableaux comparatifs."
-          author="Équipe GearHub"
-          date="5 Février 2026"
-          readTime="15 min de lecture"
-          updatedDate="Février 2026"
-        />
+        <TableOfContents items={[
+          { id: "hero", label: "Introduction" },
+          { id: "top-picks", label: "Top 5 — Tableau" },
+          { id: "criteres", label: "Critères de sélection" },
+          { id: "reviews", label: "Reviews détaillées" },
+          { id: "verdict", label: "Verdict final" },
+          { id: "faq", label: "FAQ" },
+        ]} />
+        <div id="hero">
+          <GuideHero
+            category="Claviers"
+            categoryHref="/guides/claviers"
+            title="Meilleurs Claviers Gaming 2026"
+            subtitle="Notre sélection des 12 meilleurs claviers mécaniques et Hall Effect testés et comparés. Du budget au premium, trouvez le clavier parfait pour votre style de jeu — guides complets, avis honnêtes et tableaux comparatifs."
+            author="Équipe GearHub"
+            date="5 Février 2026"
+            readTime="15 min de lecture"
+            updatedDate="Février 2026"
+          />
+        </div>
 
-        <GuideSummaryTable products={summaryProducts} />
-        <GuideCriteria criteria={criteria} />
+        <div id="top-picks">
+          <GuideSummaryTable products={summaryProducts} />
+        </div>
+        <div id="criteres">
+          <GuideCriteria criteria={criteria} />
+        </div>
 
-        <section className="py-12">
+        <section id="reviews" className="py-12">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-display font-bold mb-8">
@@ -156,16 +171,20 @@ const BuyingGuide = () => {
           </div>
         </section>
 
-        <GuideVerdict
-          picks={[
-            { icon: <Target className="h-8 w-8" />, label: "Meilleur Global", productName: "Wooting 80HE", reason: "Imbattable en compétitif avec son actuation ajustable et Rapid Trigger." },
-            { icon: <Wallet className="h-8 w-8" />, label: "Meilleur Rapport Q/P", productName: "Keychron Q1 Max", reason: "Triple connectivité, gasket mount et hot-swap pour seulement 149€." },
-            { icon: <Zap className="h-8 w-8" />, label: "Meilleur Premium", productName: "Razer Huntsman V3 Pro", reason: "Le nec plus ultra en finition et technologie, pour les joueurs exigeants." },
-          ]}
-          conclusion="Le marché des claviers gaming en 2026 est dominé par la technologie Hall Effect, qui offre un avantage compétitif mesurable. Le Wooting 80HE reste notre recommandation #1 pour les joueurs sérieux. Pour un budget plus serré, le Keychron Q1 Max offre un rapport qualité-prix imbattable. Et si vous voulez le premium absolu, le Razer Huntsman V3 Pro ne déçoit pas. Quel que soit votre choix, investir dans un bon clavier gaming transformera votre expérience de jeu."
-        />
+        <div id="verdict">
+          <GuideVerdict
+            picks={[
+              { icon: <Target className="h-8 w-8" />, label: "Meilleur Global", productName: "Wooting 80HE", reason: "Imbattable en compétitif avec son actuation ajustable et Rapid Trigger." },
+              { icon: <Wallet className="h-8 w-8" />, label: "Meilleur Rapport Q/P", productName: "Keychron Q1 Max", reason: "Triple connectivité, gasket mount et hot-swap pour seulement 149€." },
+              { icon: <Zap className="h-8 w-8" />, label: "Meilleur Premium", productName: "Razer Huntsman V3 Pro", reason: "Le nec plus ultra en finition et technologie, pour les joueurs exigeants." },
+            ]}
+            conclusion="Le marché des claviers gaming en 2026 est dominé par la technologie Hall Effect, qui offre un avantage compétitif mesurable. Le Wooting 80HE reste notre recommandation #1 pour les joueurs sérieux. Pour un budget plus serré, le Keychron Q1 Max offre un rapport qualité-prix imbattable. Et si vous voulez le premium absolu, le Razer Huntsman V3 Pro ne déçoit pas. Quel que soit votre choix, investir dans un bon clavier gaming transformera votre expérience de jeu."
+          />
+        </div>
 
-        <GuideFAQ items={faqItems} />
+        <div id="faq">
+          <GuideFAQ items={faqItems} />
+        </div>
 
         <RelatedContent
           items={[

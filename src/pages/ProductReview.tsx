@@ -12,6 +12,7 @@ import SEOHead from "@/components/SEOHead";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BackToTop from "@/components/BackToTop";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
+import TableOfContents from "@/components/TableOfContents";
 
 // --- MOCK DATA ---
 
@@ -116,29 +117,49 @@ const ProductReview = () => {
       ]} />
       <main>
         <AffiliateDisclosure />
-        <ReviewHero
-          category="Claviers"
-          categoryHref="/categories/claviers"
-          productName="Wooting 80HE"
-          tagline="Le clavier Hall Effect qui redéfinit le standard du gaming compétitif. Actuation ajustable de 0.1mm, Rapid Trigger, et build quality premium — notre test complet après 3 mois d'utilisation intensive."
-          rating={9.6}
-          author="Équipe GearHub"
-          date="3 Février 2026"
-          readTime="12 min de lecture"
-          updatedDate="Février 2026"
-        />
+        <TableOfContents items={[
+          { id: "review-hero", label: "Introduction" },
+          { id: "review-ratings", label: "Notes détaillées" },
+          { id: "review-gallery", label: "Galerie" },
+          { id: "review-proscons", label: "Pour / Contre" },
+          { id: "review-specs", label: "Fiche technique" },
+          { id: "review-verdict", label: "Verdict" },
+        ]} />
+        <div id="review-hero">
+          <ReviewHero
+            category="Claviers"
+            categoryHref="/categories/claviers"
+            productName="Wooting 80HE"
+            tagline="Le clavier Hall Effect qui redéfinit le standard du gaming compétitif. Actuation ajustable de 0.1mm, Rapid Trigger, et build quality premium — notre test complet après 3 mois d'utilisation intensive."
+            rating={9.6}
+            author="Équipe GearHub"
+            date="3 Février 2026"
+            readTime="12 min de lecture"
+            updatedDate="Février 2026"
+          />
+        </div>
 
-        <ReviewRatings overallScore={9.6} subRatings={subRatings} />
-        <ReviewGallery images={galleryImages} />
-        <ReviewProsCons pros={pros} cons={cons} />
-        <ReviewSpecs specGroups={specGroups} />
+        <div id="review-ratings">
+          <ReviewRatings overallScore={9.6} subRatings={subRatings} />
+        </div>
+        <div id="review-gallery">
+          <ReviewGallery images={galleryImages} />
+        </div>
+        <div id="review-proscons">
+          <ReviewProsCons pros={pros} cons={cons} />
+        </div>
+        <div id="review-specs">
+          <ReviewSpecs specGroups={specGroups} />
+        </div>
 
-        <ReviewVerdict
-          rating={9.6}
-          price="199€"
-          verdict="Le Wooting 80HE est tout simplement le meilleur clavier gaming que nous ayons testé en 2026. Sa technologie Hall Effect avec actuation ajustable de 0.1mm et Rapid Trigger offre un avantage compétitif mesurable en FPS. La build quality en aluminium CNC, le son de frappe satisfaisant stock et le firmware open-source en font un investissement durable. Si vous êtes un joueur compétitif sérieux et que le filaire ne vous dérange pas, c'est LE clavier à prendre — sans hésiter."
-          bestFor="Joueurs compétitifs FPS (Valorant, CS2, Apex)"
-        />
+        <div id="review-verdict">
+          <ReviewVerdict
+            rating={9.6}
+            price="199€"
+            verdict="Le Wooting 80HE est tout simplement le meilleur clavier gaming que nous ayons testé en 2026. Sa technologie Hall Effect avec actuation ajustable de 0.1mm et Rapid Trigger offre un avantage compétitif mesurable en FPS. La build quality en aluminium CNC, le son de frappe satisfaisant stock et le firmware open-source en font un investissement durable. Si vous êtes un joueur compétitif sérieux et que le filaire ne vous dérange pas, c'est LE clavier à prendre — sans hésiter."
+            bestFor="Joueurs compétitifs FPS (Valorant, CS2, Apex)"
+          />
+        </div>
 
         <RelatedContent
           items={[
