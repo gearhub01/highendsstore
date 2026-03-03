@@ -1,6 +1,13 @@
 import { Keyboard, Mouse, Headphones, Monitor, Video } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 const categories = [
   {
@@ -55,25 +62,42 @@ const CategoryGrid = () => {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {categories.map((cat, i) => (
-            <AnimatedSection key={cat.title} variant="fade-up" delay={i * 0.08}>
-              <Link
-                to={cat.href}
-                className="group relative p-6 rounded-lg bg-card border border-border hover:border-primary/50 hover:box-glow transition-all duration-300 block h-full"
-              >
-                <cat.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="font-display text-sm font-semibold tracking-wider uppercase mb-2 text-foreground">
-                  {cat.title}
-                </h3>
-                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
-                  {cat.description}
-                </p>
-                <span className="text-xs font-medium text-primary">{cat.count}</span>
-              </Link>
-            </AnimatedSection>
-          ))}
-        </div>
+        <AnimatedSection variant="fade-up" delay={0.1}>
+          <div className="px-12">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {categories.map((cat) => (
+                  <CarouselItem
+                    key={cat.title}
+                    className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/5"
+                  >
+                    <Link
+                      to={cat.href}
+                      className="group relative p-6 rounded-lg bg-card border border-border hover:border-primary/50 hover:box-glow transition-all duration-300 block h-full"
+                    >
+                      <cat.icon className="h-8 w-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                      <h3 className="font-display text-sm font-semibold tracking-wider uppercase mb-2 text-foreground">
+                        {cat.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                        {cat.description}
+                      </p>
+                      <span className="text-xs font-medium text-primary">{cat.count}</span>
+                    </Link>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
