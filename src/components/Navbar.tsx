@@ -3,6 +3,7 @@ import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Mo
 import { useTheme } from "@/hooks/use-theme";
 import { Link } from "react-router-dom";
 import SearchCommand from "@/components/SearchCommand";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const categories = [
   { icon: Keyboard, label: "Claviers", href: "/guides/best-gaming-keyboards", count: "15 guides" },
@@ -198,6 +199,7 @@ const Navbar = () => {
             <button onClick={() => setSearchOpen(true)} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Rechercher (Ctrl+K)">
               <Search className="h-5 w-5" />
             </button>
+            <LanguageSwitcher />
             <button onClick={toggleTheme} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Changer de thème">
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
