@@ -84,7 +84,7 @@ const Navbar = () => {
                 onClick={() => { setCatOpen(!catOpen); setGuidesOpen(false); setBlogOpen(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
-                Catégories
+                {t("nav.categories")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${catOpen ? "rotate-180" : ""}`} />
               </button>
               {catOpen && (
@@ -109,13 +109,13 @@ const Navbar = () => {
                 onClick={() => { setGuidesOpen(!guidesOpen); setCatOpen(false); setBlogOpen(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
-                Guides
+                {t("nav.guides")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${guidesOpen ? "rotate-180" : ""}`} />
               </button>
               {guidesOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-lg border border-border bg-popover shadow-xl z-50 overflow-hidden">
                   <div className="p-1.5">
-                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Guides d'achat</p>
+                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">{t("nav.buyingGuides")}</p>
                     {guides.map((g) => (
                       <Link key={g.label} to={g.href} onClick={() => setGuidesOpen(false)}
                         className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -125,7 +125,7 @@ const Navbar = () => {
                       </Link>
                     ))}
                     <div className="border-t border-border mt-1.5 pt-1.5">
-                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Comparaisons</p>
+                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">{t("nav.comparisons")}</p>
                       {comparisons.map((c) => (
                         <Link key={c.label} to={c.href} onClick={() => setGuidesOpen(false)}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -133,7 +133,7 @@ const Navbar = () => {
                           <span className="flex-1 text-sm font-medium text-foreground">{c.label}</span>
                         </Link>
                       ))}
-                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary mt-1">Reviews</p>
+                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary mt-1">{t("nav.reviews")}</p>
                       {reviews.map((r) => (
                         <Link key={r.label} to={r.href} onClick={() => setGuidesOpen(false)}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -146,7 +146,7 @@ const Navbar = () => {
                     <div className="border-t border-border mt-1.5 pt-1.5">
                       <Link to="/guides" onClick={() => setGuidesOpen(false)}
                         className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors text-sm font-semibold text-primary">
-                        Voir tous les guides
+                        {t("nav.viewAllGuides")}
                         <ChevronDown className="h-3.5 w-3.5 -rotate-90" />
                       </Link>
                     </div>
@@ -161,13 +161,13 @@ const Navbar = () => {
                 onClick={() => { setBlogOpen(!blogOpen); setCatOpen(false); setGuidesOpen(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
-                Blog
+                {t("nav.blog")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${blogOpen ? "rotate-180" : ""}`} />
               </button>
               {blogOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-lg border border-border bg-popover shadow-xl z-50 overflow-hidden">
                   <div className="p-1.5">
-                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Articles récents</p>
+                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">{t("nav.recentArticles")}</p>
                     {blogPosts.map((post) => (
                       <Link key={post.label} to={post.href} onClick={() => setBlogOpen(false)}
                         className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -179,7 +179,7 @@ const Navbar = () => {
                     <div className="border-t border-border mt-1.5 pt-1.5">
                       <Link to="/blog" onClick={() => setBlogOpen(false)}
                         className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors text-sm font-semibold text-primary">
-                        Voir tous les articles
+                        {t("nav.viewAllArticles")}
                         <ChevronDown className="h-3.5 w-3.5 -rotate-90" />
                       </Link>
                     </div>
@@ -199,11 +199,11 @@ const Navbar = () => {
           {/* Search + Theme + Mobile Toggle */}
           <div className="flex items-center gap-2">
             <SearchCommand open={searchOpen} onOpenChange={setSearchOpen} />
-            <button onClick={() => setSearchOpen(true)} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Rechercher (Ctrl+K)">
+            <button onClick={() => setSearchOpen(true)} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label={t("nav.search") + " (Ctrl+K)"}>
               <Search className="h-5 w-5" />
             </button>
             <LanguageSwitcher />
-            <button onClick={toggleTheme} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Changer de thème">
+            <button onClick={toggleTheme} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label={t("nav.theme")}>
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
             <button className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(!isOpen)}>
@@ -216,7 +216,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-border mt-2 pt-4 space-y-3">
             {/* Mobile Categories */}
-            <MobileAccordion label="Catégories" open={catOpen} onToggle={() => setCatOpen(!catOpen)}>
+            <MobileAccordion label={t("nav.categories")} open={catOpen} onToggle={() => setCatOpen(!catOpen)}>
               {categories.map((cat) => (
                 <Link key={cat.label} to={cat.href}
                   className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -227,7 +227,7 @@ const Navbar = () => {
             </MobileAccordion>
 
             {/* Mobile Guides */}
-            <MobileAccordion label="Guides" open={guidesOpen} onToggle={() => setGuidesOpen(!guidesOpen)}>
+            <MobileAccordion label={t("nav.guides")} open={guidesOpen} onToggle={() => setGuidesOpen(!guidesOpen)}>
               {guides.map((g) => (
                 <Link key={g.label} to={g.href}
                   className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -245,7 +245,7 @@ const Navbar = () => {
             </MobileAccordion>
 
             {/* Mobile Blog */}
-            <MobileAccordion label="Blog" open={blogOpen} onToggle={() => setBlogOpen(!blogOpen)}>
+            <MobileAccordion label={t("nav.blog")} open={blogOpen} onToggle={() => setBlogOpen(!blogOpen)}>
               {blogPosts.map((post) => (
                 <Link key={post.label} to={post.href}
                   className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
