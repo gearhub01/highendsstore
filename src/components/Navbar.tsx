@@ -2,43 +2,47 @@ import { useState, useRef, useEffect } from "react";
 import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Monitor, Video, Sun, Moon, BookOpen, Star, GitCompareArrows, Newspaper, TrendingUp, Cpu, Wrench } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SearchCommand from "@/components/SearchCommand";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-const categories = [
-  { icon: Keyboard, label: "Claviers", href: "/guides/best-gaming-keyboards", count: "15 guides" },
-  { icon: Mouse, label: "Souris", href: "/guides", count: "12 guides" },
-  { icon: Headphones, label: "Casques", href: "/guides", count: "10 guides" },
-  { icon: Monitor, label: "Moniteurs", href: "/guides", count: "8 guides" },
-  { icon: Video, label: "Streaming", href: "/guides", count: "6 guides" },
-];
+const Navbar = () => {
+  const { t } = useTranslation();
 
-const guides = [
-  { icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards", tag: "Top 5" },
-  { icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides", tag: "Bientôt" },
-  { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides", tag: "Bientôt" },
-  { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides", tag: "Bientôt" },
-];
+  const categories = [
+    { icon: Keyboard, label: t("cats.keyboards"), href: "/guides/best-gaming-keyboards", count: t("nav.countGuides", { count: 15 }) },
+    { icon: Mouse, label: t("cats.mice"), href: "/guides", count: t("nav.countGuides", { count: 12 }) },
+    { icon: Headphones, label: t("cats.headsets"), href: "/guides", count: t("nav.countGuides", { count: 10 }) },
+    { icon: Monitor, label: t("cats.monitors"), href: "/guides", count: t("nav.countGuides", { count: 8 }) },
+    { icon: Video, label: t("cats.streaming"), href: "/guides", count: t("nav.countGuides", { count: 6 }) },
+  ];
 
-const comparisons = [
-  { icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
-];
+  const guides = [
+    { icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards", tag: t("nav.top5") },
+    { icon: Mouse, label: "Meilleures Souris FPS 2026", href: "/guides", tag: t("nav.soon") },
+    { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides", tag: t("nav.soon") },
+    { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides", tag: t("nav.soon") },
+  ];
 
-const reviews = [
-  { icon: Star, label: "Test du Wooting 80HE", href: "/reviews/wooting-80he", rating: "9.6" },
-];
+  const comparisons = [
+    { icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
+  ];
 
-const blogPosts = [
-  { icon: TrendingUp, label: "Hall Effect vs Mécanique : le guide ultime", href: "/blog/hall-effect-vs-mecanique", tag: "Tendance" },
-  { icon: Cpu, label: "Comment choisir son polling rate en 2026", href: "/blog/choisir-polling-rate-2026", tag: "Tech" },
-  { icon: Wrench, label: "Modding : lubrifier ses switches comme un pro", href: "/blog/lubrifier-switches-pro", tag: "Tuto" },
-  { icon: Newspaper, label: "CES 2026 : les meilleurs périphériques annoncés", href: "/blog/ces-2026-meilleurs-peripheriques", tag: "Actu" },
-].slice(0, 4);
+  const reviews = [
+    { icon: Star, label: "Wooting 80HE", href: "/reviews/wooting-80he", rating: "9.6" },
+  ];
 
-const navItems = [
-  { label: "Accueil", href: "/" },
-  { label: "Comparaisons", href: "/comparaison/gaming-keyboards" },
-];
+  const blogPosts = [
+    { icon: TrendingUp, label: "Hall Effect vs Mécanique", href: "/blog/hall-effect-vs-mecanique", tag: "Tendance" },
+    { icon: Cpu, label: "Polling rate en 2026", href: "/blog/choisir-polling-rate-2026", tag: "Tech" },
+    { icon: Wrench, label: "Lubrifier ses switches", href: "/blog/lubrifier-switches-pro", tag: "Tuto" },
+    { icon: Newspaper, label: "CES 2026", href: "/blog/ces-2026-meilleurs-peripheriques", tag: "Actu" },
+  ];
+
+  const navItems = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.comparisons"), href: "/comparaison/gaming-keyboards" },
+  ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
