@@ -44,7 +44,6 @@ const Navbar = () => {
     { label: t("nav.comparisons"), href: "/comparaison/gaming-keyboards" },
   ];
 
-const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [catOpen, setCatOpen] = useState(false);
