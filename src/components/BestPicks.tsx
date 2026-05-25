@@ -1,67 +1,27 @@
 import { Star, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const picks = [
-  {
-    rank: 1,
-    name: "Razer Viper V3 Pro",
-    category: "Souris Gaming",
-    rating: 9.4,
-    price: "159€",
-    highlight: "Meilleure souris sans-fil 2026",
-    href: "/guides",
-  },
-  {
-    rank: 2,
-    name: "Wooting 80HE",
-    category: "Clavier Gaming",
-    rating: 9.6,
-    price: "199€",
-    highlight: "Meilleur clavier Hall Effect",
-    href: "/reviews/wooting-80he",
-  },
-  {
-    rank: 3,
-    name: "SteelSeries Arctis Nova Pro",
-    category: "Casque Gaming",
-    rating: 9.2,
-    price: "249€",
-    highlight: "Meilleur son spatial gaming",
-    href: "/guides",
-  },
-  {
-    rank: 4,
-    name: "LG 27GR95QE",
-    category: "Moniteur OLED",
-    rating: 9.5,
-    price: "799€",
-    highlight: "Meilleur moniteur OLED gaming",
-    href: "/guides",
-  },
-  {
-    rank: 5,
-    name: "Elgato Stream Deck MK.2",
-    category: "Streaming",
-    rating: 9.0,
-    price: "149€",
-    highlight: "Indispensable pour streamers",
-    href: "/guides",
-  },
+  { rank: 1, name: "Razer Viper V3 Pro", category: "Souris Gaming", rating: 9.4, price: "159€", highlight: "Meilleure souris sans-fil 2026", href: "/guides" },
+  { rank: 2, name: "Wooting 80HE", category: "Clavier Gaming", rating: 9.6, price: "199€", highlight: "Meilleur clavier Hall Effect", href: "/reviews/wooting-80he" },
+  { rank: 3, name: "SteelSeries Arctis Nova Pro", category: "Casque Gaming", rating: 9.2, price: "249€", highlight: "Meilleur son spatial gaming", href: "/guides" },
+  { rank: 4, name: "LG 27GR95QE", category: "Moniteur OLED", rating: 9.5, price: "799€", highlight: "Meilleur moniteur OLED gaming", href: "/guides" },
+  { rank: 5, name: "Elgato Stream Deck MK.2", category: "Streaming", rating: 9.0, price: "149€", highlight: "Indispensable pour streamers", href: "/guides" },
 ];
 
 const BestPicks = () => {
+  const { t } = useTranslation();
   return (
     <section id="reviews" className="py-20">
       <div className="container mx-auto px-4">
         <AnimatedSection variant="fade-up">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold mb-3">
-              🏆 Best Of du <span className="text-primary text-glow-sm">Mois</span>
+              {t("best.title_1")} <span className="text-primary text-glow-sm">{t("best.title_accent")}</span>
             </h2>
-            <p className="text-muted-foreground max-w-md mx-auto">
-              Nos recommandations #1 dans chaque catégorie, mises à jour mensuellement
-            </p>
+            <p className="text-muted-foreground max-w-md mx-auto">{t("best.subtitle")}</p>
           </div>
         </AnimatedSection>
 

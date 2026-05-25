@@ -1,47 +1,49 @@
 import { ArrowRight, Clock, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import AnimatedSection from "@/components/AnimatedSection";
 
-const guides = [
-  {
-    tag: "TOP PICK",
-    title: "Best Gaming Keyboards 2026",
-    description: "Notre sélection des 12 meilleurs claviers mécaniques testés et comparés, du budget au premium.",
-    readTime: "15 min",
-    category: "Claviers",
-    trending: true,
-    href: "/guides/best-gaming-keyboards",
-  },
-  {
-    tag: "NOUVEAU",
-    title: "Meilleure Souris Gaming FPS",
-    description: "Les souris les plus précises pour Valorant, CS2 et Overwatch — testées par des joueurs compétitifs.",
-    readTime: "12 min",
-    category: "Souris",
-    trending: true,
-    href: "/guides",
-  },
-  {
-    tag: "REVIEW",
-    title: "Test Wooting 80HE — Le Roi du Compétitif",
-    description: "Notre test complet du Wooting 80HE après 3 mois d'utilisation intensive en FPS.",
-    readTime: "12 min",
-    category: "Claviers",
-    trending: true,
-    href: "/reviews/wooting-80he",
-  },
-  {
-    tag: "COMPARAISON",
-    title: "144Hz vs 240Hz : La Différence Vaut-elle le Prix ?",
-    description: "Test en aveugle et benchmarks réels pour savoir si le 240Hz change vraiment votre gameplay.",
-    readTime: "8 min",
-    category: "Moniteurs",
-    trending: false,
-    href: "/guides",
-  },
-];
-
 const FeaturedGuides = () => {
+  const { t } = useTranslation();
+  const guides = [
+    {
+      tag: t("featured.tags.top"),
+      title: "Best Gaming Keyboards 2026",
+      description: "Notre sélection des 12 meilleurs claviers mécaniques testés et comparés.",
+      readTime: "15 min",
+      category: t("cats.keyboards"),
+      trending: true,
+      href: "/guides/best-gaming-keyboards",
+    },
+    {
+      tag: t("featured.tags.new"),
+      title: "Meilleure Souris Gaming FPS",
+      description: "Les souris les plus précises pour Valorant, CS2 et Overwatch.",
+      readTime: "12 min",
+      category: t("cats.mice"),
+      trending: true,
+      href: "/guides",
+    },
+    {
+      tag: t("featured.tags.review"),
+      title: "Test Wooting 80HE — Le Roi du Compétitif",
+      description: "Notre test complet du Wooting 80HE après 3 mois d'utilisation intensive.",
+      readTime: "12 min",
+      category: t("cats.keyboards"),
+      trending: true,
+      href: "/reviews/wooting-80he",
+    },
+    {
+      tag: t("featured.tags.comparison"),
+      title: "144Hz vs 240Hz : La Différence Vaut-elle le Prix ?",
+      description: "Test en aveugle et benchmarks réels pour le 240Hz.",
+      readTime: "8 min",
+      category: t("cats.monitors"),
+      trending: false,
+      href: "/guides",
+    },
+  ];
+
   return (
     <section id="guides" className="py-20 bg-card/50">
       <div className="container mx-auto px-4">
@@ -49,17 +51,15 @@ const FeaturedGuides = () => {
           <div className="flex items-end justify-between mb-12">
             <div>
               <h2 className="text-3xl font-display font-bold mb-3">
-                Guides <span className="gradient-neon-text">Populaires</span>
+                {t("featured.title_1")} <span className="gradient-neon-text">{t("featured.title_accent")}</span>
               </h2>
-              <p className="text-muted-foreground">
-                Les guides les plus lus ce mois-ci
-              </p>
+              <p className="text-muted-foreground">{t("featured.subtitle")}</p>
             </div>
             <Link
               to="/guides"
               className="hidden sm:flex items-center gap-2 text-sm text-primary hover:underline font-medium"
             >
-              Tous les guides <ArrowRight className="h-4 w-4" />
+              {t("featured.all")} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </AnimatedSection>
@@ -88,7 +88,7 @@ const FeaturedGuides = () => {
                 </p>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <Clock className="h-3.5 w-3.5" />
-                  <span>{guide.readTime} de lecture</span>
+                  <span>{t("featured.readTime", { time: guide.readTime })}</span>
                 </div>
               </Link>
             </AnimatedSection>
@@ -100,7 +100,7 @@ const FeaturedGuides = () => {
             to="/guides"
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline font-medium"
           >
-            Tous les guides <ArrowRight className="h-4 w-4" />
+            {t("featured.all")} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

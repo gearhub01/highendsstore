@@ -2,45 +2,48 @@ import { useState, useRef, useEffect } from "react";
 import { Menu, X, Search, Gamepad2, ChevronDown, Keyboard, Mouse, Headphones, Monitor, Video, Sun, Moon, BookOpen, Star, GitCompareArrows, Newspaper, TrendingUp, Cpu, Wrench } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SearchCommand from "@/components/SearchCommand";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-const categories = [
-  { icon: Keyboard, label: "Claviers", href: "/guides/best-gaming-keyboards", count: "15 guides" },
-  { icon: Mouse, label: "Souris", href: "/guides", count: "12 guides" },
-  { icon: Headphones, label: "Casques", href: "/guides", count: "10 guides" },
-  { icon: Monitor, label: "Moniteurs", href: "/guides", count: "8 guides" },
-  { icon: Video, label: "Streaming", href: "/guides", count: "6 guides" },
-];
-
-const guides = [
-  { icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards", tag: "Top 5" },
-  { icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides", tag: "Bientôt" },
-  { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides", tag: "Bientôt" },
-  { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides", tag: "Bientôt" },
-];
-
-const comparisons = [
-  { icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
-];
-
-const reviews = [
-  { icon: Star, label: "Test du Wooting 80HE", href: "/reviews/wooting-80he", rating: "9.6" },
-];
-
-const blogPosts = [
-  { icon: TrendingUp, label: "Hall Effect vs Mécanique : le guide ultime", href: "/blog/hall-effect-vs-mecanique", tag: "Tendance" },
-  { icon: Cpu, label: "Comment choisir son polling rate en 2026", href: "/blog/choisir-polling-rate-2026", tag: "Tech" },
-  { icon: Wrench, label: "Modding : lubrifier ses switches comme un pro", href: "/blog/lubrifier-switches-pro", tag: "Tuto" },
-  { icon: Newspaper, label: "CES 2026 : les meilleurs périphériques annoncés", href: "/blog/ces-2026-meilleurs-peripheriques", tag: "Actu" },
-].slice(0, 4);
-
-const navItems = [
-  { label: "Accueil", href: "/" },
-  { label: "Comparaisons", href: "/comparaison/gaming-keyboards" },
-];
-
 const Navbar = () => {
+  const { t } = useTranslation();
+
+  const categories = [
+    { icon: Keyboard, label: t("cats.keyboards"), href: "/guides/best-gaming-keyboards", count: t("nav.countGuides", { count: 15 }) },
+    { icon: Mouse, label: t("cats.mice"), href: "/guides", count: t("nav.countGuides", { count: 12 }) },
+    { icon: Headphones, label: t("cats.headsets"), href: "/guides", count: t("nav.countGuides", { count: 10 }) },
+    { icon: Monitor, label: t("cats.monitors"), href: "/guides", count: t("nav.countGuides", { count: 8 }) },
+    { icon: Video, label: t("cats.streaming"), href: "/guides", count: t("nav.countGuides", { count: 6 }) },
+  ];
+
+  const guides = [
+    { icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards", tag: t("nav.top5") },
+    { icon: Mouse, label: "Meilleures Souris FPS 2026", href: "/guides", tag: t("nav.soon") },
+    { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides", tag: t("nav.soon") },
+    { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides", tag: t("nav.soon") },
+  ];
+
+  const comparisons = [
+    { icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
+  ];
+
+  const reviews = [
+    { icon: Star, label: "Wooting 80HE", href: "/reviews/wooting-80he", rating: "9.6" },
+  ];
+
+  const blogPosts = [
+    { icon: TrendingUp, label: "Hall Effect vs Mécanique", href: "/blog/hall-effect-vs-mecanique", tag: "Tendance" },
+    { icon: Cpu, label: "Polling rate en 2026", href: "/blog/choisir-polling-rate-2026", tag: "Tech" },
+    { icon: Wrench, label: "Lubrifier ses switches", href: "/blog/lubrifier-switches-pro", tag: "Tuto" },
+    { icon: Newspaper, label: "CES 2026", href: "/blog/ces-2026-meilleurs-peripheriques", tag: "Actu" },
+  ];
+
+  const navItems = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.comparisons"), href: "/comparaison/gaming-keyboards" },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [catOpen, setCatOpen] = useState(false);
@@ -81,7 +84,7 @@ const Navbar = () => {
                 onClick={() => { setCatOpen(!catOpen); setGuidesOpen(false); setBlogOpen(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
-                Catégories
+                {t("nav.categories")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${catOpen ? "rotate-180" : ""}`} />
               </button>
               {catOpen && (
@@ -106,13 +109,13 @@ const Navbar = () => {
                 onClick={() => { setGuidesOpen(!guidesOpen); setCatOpen(false); setBlogOpen(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
-                Guides
+                {t("nav.guides")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${guidesOpen ? "rotate-180" : ""}`} />
               </button>
               {guidesOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-lg border border-border bg-popover shadow-xl z-50 overflow-hidden">
                   <div className="p-1.5">
-                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Guides d'achat</p>
+                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">{t("nav.buyingGuides")}</p>
                     {guides.map((g) => (
                       <Link key={g.label} to={g.href} onClick={() => setGuidesOpen(false)}
                         className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -122,7 +125,7 @@ const Navbar = () => {
                       </Link>
                     ))}
                     <div className="border-t border-border mt-1.5 pt-1.5">
-                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Comparaisons</p>
+                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">{t("nav.comparisons")}</p>
                       {comparisons.map((c) => (
                         <Link key={c.label} to={c.href} onClick={() => setGuidesOpen(false)}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -130,7 +133,7 @@ const Navbar = () => {
                           <span className="flex-1 text-sm font-medium text-foreground">{c.label}</span>
                         </Link>
                       ))}
-                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary mt-1">Reviews</p>
+                      <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary mt-1">{t("nav.reviews")}</p>
                       {reviews.map((r) => (
                         <Link key={r.label} to={r.href} onClick={() => setGuidesOpen(false)}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -143,7 +146,7 @@ const Navbar = () => {
                     <div className="border-t border-border mt-1.5 pt-1.5">
                       <Link to="/guides" onClick={() => setGuidesOpen(false)}
                         className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors text-sm font-semibold text-primary">
-                        Voir tous les guides
+                        {t("nav.viewAllGuides")}
                         <ChevronDown className="h-3.5 w-3.5 -rotate-90" />
                       </Link>
                     </div>
@@ -158,13 +161,13 @@ const Navbar = () => {
                 onClick={() => { setBlogOpen(!blogOpen); setCatOpen(false); setGuidesOpen(false); }}
                 className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors tracking-wide uppercase"
               >
-                Blog
+                {t("nav.blog")}
                 <ChevronDown className={`h-4 w-4 transition-transform ${blogOpen ? "rotate-180" : ""}`} />
               </button>
               {blogOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 rounded-lg border border-border bg-popover shadow-xl z-50 overflow-hidden">
                   <div className="p-1.5">
-                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">Articles récents</p>
+                    <p className="px-3 py-1.5 text-[10px] font-display uppercase tracking-widest text-primary">{t("nav.recentArticles")}</p>
                     {blogPosts.map((post) => (
                       <Link key={post.label} to={post.href} onClick={() => setBlogOpen(false)}
                         className="flex items-center gap-3 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors group">
@@ -176,7 +179,7 @@ const Navbar = () => {
                     <div className="border-t border-border mt-1.5 pt-1.5">
                       <Link to="/blog" onClick={() => setBlogOpen(false)}
                         className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-md hover:bg-secondary transition-colors text-sm font-semibold text-primary">
-                        Voir tous les articles
+                        {t("nav.viewAllArticles")}
                         <ChevronDown className="h-3.5 w-3.5 -rotate-90" />
                       </Link>
                     </div>
@@ -196,11 +199,11 @@ const Navbar = () => {
           {/* Search + Theme + Mobile Toggle */}
           <div className="flex items-center gap-2">
             <SearchCommand open={searchOpen} onOpenChange={setSearchOpen} />
-            <button onClick={() => setSearchOpen(true)} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Rechercher (Ctrl+K)">
+            <button onClick={() => setSearchOpen(true)} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label={t("nav.search") + " (Ctrl+K)"}>
               <Search className="h-5 w-5" />
             </button>
             <LanguageSwitcher />
-            <button onClick={toggleTheme} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label="Changer de thème">
+            <button onClick={toggleTheme} className="p-2 text-muted-foreground hover:text-primary transition-colors" aria-label={t("nav.theme")}>
               {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </button>
             <button className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors" onClick={() => setIsOpen(!isOpen)}>
@@ -213,7 +216,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden pb-4 border-t border-border mt-2 pt-4 space-y-3">
             {/* Mobile Categories */}
-            <MobileAccordion label="Catégories" open={catOpen} onToggle={() => setCatOpen(!catOpen)}>
+            <MobileAccordion label={t("nav.categories")} open={catOpen} onToggle={() => setCatOpen(!catOpen)}>
               {categories.map((cat) => (
                 <Link key={cat.label} to={cat.href}
                   className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -224,7 +227,7 @@ const Navbar = () => {
             </MobileAccordion>
 
             {/* Mobile Guides */}
-            <MobileAccordion label="Guides" open={guidesOpen} onToggle={() => setGuidesOpen(!guidesOpen)}>
+            <MobileAccordion label={t("nav.guides")} open={guidesOpen} onToggle={() => setGuidesOpen(!guidesOpen)}>
               {guides.map((g) => (
                 <Link key={g.label} to={g.href}
                   className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
@@ -242,7 +245,7 @@ const Navbar = () => {
             </MobileAccordion>
 
             {/* Mobile Blog */}
-            <MobileAccordion label="Blog" open={blogOpen} onToggle={() => setBlogOpen(!blogOpen)}>
+            <MobileAccordion label={t("nav.blog")} open={blogOpen} onToggle={() => setBlogOpen(!blogOpen)}>
               {blogPosts.map((post) => (
                 <Link key={post.label} to={post.href}
                   className="flex items-center gap-2 py-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
