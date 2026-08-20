@@ -6,6 +6,7 @@ import ComparisonTable, { type ComparisonProduct } from "@/components/comparison
 import ComparisonRadar, { type RadarProduct } from "@/components/comparison/ComparisonRadar";
 import ComparisonVerdict from "@/components/comparison/ComparisonVerdict";
 import RelatedContent from "@/components/RelatedContent";
+import SEOHead, { SITE_URL } from "@/components/SEOHead";
 
 // --- MOCK DATA ---
 
@@ -116,6 +117,41 @@ const verdicts = [
 const Comparison = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Comparatif Claviers Gaming 2026 — Wooting vs Razer vs Keychron"
+        description="Comparatif détaillé de 3 claviers gaming : specs côte-à-côte, graphique radar et verdict pour choisir entre Wooting 80HE, Razer Huntsman V3 Pro et Keychron Q1 Max."
+        canonical="/comparaison/gaming-keyboards"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Comparaison Claviers Gaming 2026",
+            itemListElement: products.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "Product",
+                name: p.name,
+                offers: { "@type": "Offer", price: p.price.replace("\u20ac", ""), priceCurrency: "EUR" },
+                review: {
+                  "@type": "Review",
+                  reviewRating: { "@type": "Rating", ratingValue: String(p.rating), bestRating: "10" },
+                  author: { "@type": "Organization", name: "GearHub" },
+                },
+              },
+            })),
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Accueil", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Guides", item: `${SITE_URL}/guides` },
+              { "@type": "ListItem", position: 3, name: "Comparatif Claviers Gaming", item: `${SITE_URL}/comparaison/gaming-keyboards` },
+            ],
+          },
+        ]}
+      />
       <Navbar />
       <main>
         <ComparisonHero

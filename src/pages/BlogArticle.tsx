@@ -6,6 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import RelatedContent from "@/components/RelatedContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useArticle, useArticles, FALLBACK_IMAGE } from "@/hooks/use-content";
+import SEOHead, { SITE_URL } from "@/components/SEOHead";
 
 const categoryIcon: Record<string, typeof TrendingUp> = {
   Tendance: TrendingUp,
