@@ -59,8 +59,41 @@ const BlogArticle = () => {
       href: `/blog/${a.slug}`,
     }));
 
+  const articleUrl = `${SITE_URL}/blog/${article.slug}`;
+  const articleImage = article.image || FALLBACK_IMAGE;
+
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={article.title}
+        description={article.excerpt ?? `${article.title} — article GearHub sur les périphériques gaming.`}
+        canonical={`/blog/${article.slug}`}
+        type="article"
+        image={articleImage}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: article.title,
+            description: article.excerpt ?? undefined,
+            image: [articleImage],
+            datePublished: article.date,
+            author: { "@type": article.author ? "Person" : "Organization", name: article.author || "GearHub" },
+            publisher: { "@type": "Organization", name: "GearHub", url: SITE_URL },
+            mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+            articleSection: article.category ?? undefined,
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Accueil", item: SITE_URL },
+              { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+              { "@type": "ListItem", position: 3, name: article.title, item: articleUrl },
+            ],
+          },
+        ]}
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
