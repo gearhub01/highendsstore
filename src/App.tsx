@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import Guides from "./pages/Guides";
+import Reviews from "./pages/Reviews";
 import MentionsLegales from "./pages/MentionsLegales";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/guides/best-gaming-keyboards" element={<BuyingGuide />} />
           <Route path="/comparaison/gaming-keyboards" element={<Comparison />} />
+          <Route path="/reviews" element={<Reviews />} />
           <Route path="/reviews/wooting-80he" element={<ProductReview />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/guides" element={<Guides />} />
