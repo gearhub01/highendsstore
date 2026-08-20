@@ -3,7 +3,8 @@ import { Calendar, Clock, ArrowRight, TrendingUp, Cpu, Wrench, Newspaper } from 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import { blogArticles, type BlogArticle } from "@/data/blog-articles";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useArticles, FALLBACK_IMAGE, type DbArticle } from "@/hooks/use-content";
 
 const categoryIcon: Record<string, typeof TrendingUp> = {
   Tendance: TrendingUp,
@@ -19,8 +20,8 @@ const categoryColor: Record<string, string> = {
   Actu: "bg-amber-500/15 text-amber-500",
 };
 
-const BlogCard = ({ article, featured = false }: { article: BlogArticle; featured?: boolean }) => {
-  const Icon = categoryIcon[article.category] ?? Newspaper;
+const BlogCard = ({ article, featured = false }: { article: DbArticle; featured?: boolean }) => {
+  const Icon = categoryIcon[article.category ?? ""] ?? Newspaper;
   return (
     <Link
       to={`/blog/${article.slug}`}
@@ -28,7 +29,7 @@ const BlogCard = ({ article, featured = false }: { article: BlogArticle; feature
     >
       <div className={`overflow-hidden ${featured ? "h-64 md:h-full" : "h-48"}`}>
         <img
-          src={article.image}
+          src={article.image || FALLBACK_IMAGE}
           alt={article.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
@@ -37,20 +38,20 @@ const BlogCard = ({ article, featured = false }: { article: BlogArticle; feature
       <div className="p-5 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-2 mb-3">
-            <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${categoryColor[article.category]}`}>
+            <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${categoryColor[article.category ?? ""] ?? "bg-muted text-muted-foreground"}`}>
               <Icon className="h-3 w-3" />
-              {article.tag}
+              {article.tag || article.category || "Article"}
             </span>
           </div>
           <h3 className={`font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors ${featured ? "text-xl md:text-2xl" : "text-base"}`}>
             {article.title}
           </h3>
-          <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{article.excerpt}</p>
+          {article.excerpt && <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{article.excerpt}</p>}
         </div>
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <div className="flex items-center gap-3">
             <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{new Date(article.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}</span>
-            <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.readTime}</span>
+            {article.read_time && <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.read_time}</span>}
           </div>
           <span className="inline-flex items-center gap-1 text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
             Lire <ArrowRight className="h-3 w-3" />
@@ -62,7 +63,8 @@ const BlogCard = ({ article, featured = false }: { article: BlogArticle; feature
 };
 
 const Blog = () => {
-  const [featured, ...rest] = blogArticles;
+  const { data: articles = [], isLoading } = useArticles();
+  const [featured, ...rest] = articles;
 
   return (
     <div className="min-h-screen bg-background">
@@ -91,15 +93,27 @@ const Blog = () => {
             </div>
           </AnimatedSection>
 
-          {/* Featured article */}
-          <AnimatedSection variant="fade-up" delay={0.15}>
-            <BlogCard article={featured} featured />
-          </AnimatedSection>
+          {isLoading && (
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {Array.from({ length: 3 }).map((_, i) => (
+                <Skeleton key={i} className="h-72 rounded-xl" />
+              ))}
+            </div>
+          )}
 
-          {/* Other articles */}
+          {!isLoading && articles.length === 0 && (
+            <p className="text-muted-foreground">Aucun article publié pour le moment.</p>
+          )}
+
+          {featured && (
+            <AnimatedSection variant="fade-up" delay={0.15}>
+              <BlogCard article={featured} featured />
+            </AnimatedSection>
+          )}
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-8">
             {rest.map((article, i) => (
-              <AnimatedSection key={article.slug} variant="fade-up" delay={0.1 + i * 0.05}>
+              <AnimatedSection key={article.id} variant="fade-up" delay={0.1 + i * 0.05}>
                 <BlogCard article={article} />
               </AnimatedSection>
             ))}
