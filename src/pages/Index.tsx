@@ -14,6 +14,7 @@ const Index = () => {
       <SEOHead
         title="Guides d'Achat & Reviews Périphériques Gaming"
         description="Tests indépendants, comparaisons et guides d'achat des meilleurs claviers, souris, casques et moniteurs gaming. Avis honnêtes par des gamers."
+        canonical="/"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebSite",

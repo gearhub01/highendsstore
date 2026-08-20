@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGuides, useComparisons, useReviews, FALLBACK_IMAGE } from "@/hooks/use-content";
+import SEOHead from "@/components/SEOHead";
 
 type ContentItem = {
   id: string;
@@ -119,6 +120,11 @@ const Guides = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Guides d'Achat, Comparatifs & Reviews Gaming"
+        description="Le hub GearHub : guides d'achat, comparatifs et tests de périphériques gaming pour choisir le bon matériel selon votre budget."
+        canonical="/guides"
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">

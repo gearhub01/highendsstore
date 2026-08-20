@@ -5,12 +5,18 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useReviews, FALLBACK_IMAGE } from "@/hooks/use-content";
+import SEOHead from "@/components/SEOHead";
 
 const Reviews = () => {
   const { data: reviews = [], isLoading } = useReviews();
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Reviews Gaming — Tests Complets de Périphériques"
+        description="Toutes nos reviews de périphériques gaming avec notes détaillées : claviers, souris, casques et moniteurs testés en conditions réelles."
+        canonical="/reviews"
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
