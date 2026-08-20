@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useArticles, FALLBACK_IMAGE, type DbArticle } from "@/hooks/use-content";
+import SEOHead from "@/components/SEOHead";
 
 const categoryIcon: Record<string, typeof TrendingUp> = {
   Tendance: TrendingUp,
@@ -68,6 +69,11 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Blog Gaming — Actus, Tests & Tutos Périphériques"
+        description="Actualités, analyses et tutoriels sur les périphériques gaming : claviers, souris, casques et moniteurs. Nos articles mis à jour régulièrement."
+        canonical="/blog"
+      />
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
