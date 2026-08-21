@@ -137,6 +137,24 @@ const IphoneHub = () => {
                       {article.title}
                     </h3>
                     <p className="text-sm text-muted-foreground line-clamp-3">{article.excerpt}</p>
+
+                    {/* CTA Amazon sur la carte produit — un bouton par modèle concerné */}
+                    <div className="mt-4 space-y-3">
+                      {articleModels(article.model).map((m) => {
+                        const link = article.amazon[m];
+                        if (!link) return null;
+                        return (
+                          <PriceCTA
+                            key={m}
+                            model={m}
+                            url={link.url}
+                            productName={link.productName}
+                            label={article.amazonLabel}
+                          />
+                        );
+                      })}
+                    </div>
+
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
                       Lire l'article <ArrowRight className="h-3.5 w-3.5" />
                     </span>
