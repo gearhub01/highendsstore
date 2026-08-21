@@ -1,7 +1,8 @@
 import { ShoppingCart, ExternalLink } from "lucide-react";
+import { MODEL_LABELS } from "@/config/iphone-collection";
 
 /**
- * Bouton d'affiliation Amazon réutilisable.
+ * Bouton d'affiliation Amazon réutilisable, paramétrable par modèle.
  *
  * IMPORTANT (programme Amazon Associates) : ce composant n'affiche JAMAIS
  * de prix, de réduction ni d'information de stock. Seul un lien sortant est
@@ -10,7 +11,9 @@ import { ShoppingCart, ExternalLink } from "lucide-react";
  * Si `url` est vide, le bloc n'est pas affiché (article en préparation).
  */
 interface PriceCTAProps {
-  /** URL affiliée fournie par article. Vide = bouton masqué. */
+  /** Modèle concerné : "pro" ou "pro_max". Affiché sur le bouton. */
+  model: "pro" | "pro_max";
+  /** URL affiliée fournie par article et par modèle. Vide = bouton masqué. */
   url: string;
   /** Nom du produit affiché au-dessus du bouton. */
   productName: string;
@@ -18,14 +21,19 @@ interface PriceCTAProps {
   label?: string;
 }
 
-const PriceCTA = ({ url, productName, label = "Voir le prix sur Amazon" }: PriceCTAProps) => {
+const PriceCTA = ({ model, url, productName, label = "Voir le prix sur Amazon" }: PriceCTAProps) => {
   if (!url) return null;
 
   return (
     <div className="my-8 rounded-xl border border-primary/30 bg-card p-5 shadow-sm">
-      <p className="text-[11px] font-display uppercase tracking-widest text-primary mb-1">
-        Lien partenaire
-      </p>
+      <div className="flex flex-wrap items-center gap-2 mb-1">
+        <p className="text-[11px] font-display uppercase tracking-widest text-primary">
+          Lien partenaire
+        </p>
+        <span className="rounded-full border border-border px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+          {MODEL_LABELS[model]}
+        </span>
+      </div>
       <p className="text-sm font-semibold text-foreground mb-4">{productName}</p>
 
       <a
@@ -35,7 +43,7 @@ const PriceCTA = ({ url, productName, label = "Voir le prix sur Amazon" }: Price
         className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
       >
         <ShoppingCart className="h-4 w-4" />
-        {label}
+        {label} — {MODEL_LABELS[model]}
         <ExternalLink className="h-3.5 w-3.5 opacity-70" />
       </a>
 
