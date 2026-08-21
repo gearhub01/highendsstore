@@ -98,42 +98,47 @@ const IphoneArticle = () => {
             </div>
 
             {/* Sections H2 */}
-            {article.sections.map((section) => (
-              <AnimatedSection key={section.id} variant="fade-up">
-                <section id={section.id} className="scroll-mt-24 mt-10">
-                  <h2 className="text-2xl font-display font-bold mb-4">{section.heading}</h2>
-                  {section.paragraphs.map((p, i) => (
-                    <p key={i} className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      {p}
-                    </p>
-                  ))}
-                  {section.bullets && (
-                    <ul className="mb-4 space-y-2">
-                      {section.bullets.map((b, i) => (
-                        <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-                          <span className="text-primary">•</span>
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {/* CTA Amazon : un bouton par modèle concerné, jamais de prix en dur */}
-                  {articleModels(article.model).map((m) => {
-                    const link = article.amazon[m];
-                    if (!link) return null;
-                    return (
-                      <PriceCTA
-                        key={m}
-                        model={m}
-                        url={link.url}
-                        productName={link.productName}
-                        label={article.amazonLabel}
-                      />
-                    );
-                  })}
-                </section>
-              </AnimatedSection>
-            ))}
+            {article.sections.map((section) => {
+              // Chaque section peut avoir ses propres liens ; sinon on fallback sur ceux de l'article.
+              const sectionLinks = section.amazon ?? article.amazon;
+
+              return (
+                <AnimatedSection key={section.id} variant="fade-up">
+                  <section id={section.id} className="scroll-mt-24 mt-10">
+                    <h2 className="text-2xl font-display font-bold mb-4">{section.heading}</h2>
+                    {section.paragraphs.map((p, i) => (
+                      <p key={i} className="text-sm text-muted-foreground leading-relaxed mb-4">
+                        {p}
+                      </p>
+                    ))}
+                    {section.bullets && (
+                      <ul className="mb-4 space-y-2">
+                        {section.bullets.map((b, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-muted-foreground">
+                            <span className="text-primary">•</span>
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {/* CTA Amazon : un bouton par modèle concerné, jamais de prix en dur */}
+                    {articleModels(article.model).map((m) => {
+                      const link = sectionLinks[m];
+                      if (!link) return null;
+                      return (
+                        <PriceCTA
+                          key={m}
+                          model={m}
+                          url={link.url}
+                          productName={link.productName}
+                          label={article.amazonLabel}
+                        />
+                      );
+                    })}
+                  </section>
+                </AnimatedSection>
+              );
+            })}
           </div>
         </article>
 
