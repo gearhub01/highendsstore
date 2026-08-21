@@ -121,23 +121,25 @@ const IphoneArticle = () => {
                         ))}
                       </ul>
                     )}
-                    {/* CTA Amazon : un bouton par modèle concerné, jamais de prix en dur */}
-                    {articleModels(article.model).map((m) => {
-                      const link = sectionLinks[m];
-                      if (!link) return null;
-                      return (
-                        <PriceCTA
-                          key={m}
-                          model={m}
-                          url={link.url}
-                          productName={link.productName}
-                          label={article.amazonLabel}
-                          articleSlug={article.slug}
-                          sectionId={section.id}
-                          placement="article-section"
-                        />
-                      );
-                    })}
+                    {/* CTA Amazon : affiché uniquement quand showCta est true,
+                        pour ne pas surcharger la lecture (un CTA par plusieurs sections). */}
+                    {section.showCta &&
+                      articleModels(article.model).map((m) => {
+                        const link = sectionLinks[m];
+                        if (!link) return null;
+                        return (
+                          <PriceCTA
+                            key={m}
+                            model={m}
+                            url={link.url}
+                            productName={link.productName}
+                            label={article.amazonLabel}
+                            articleSlug={article.slug}
+                            sectionId={section.id}
+                            placement="article-section"
+                          />
+                        );
+                      })}
                   </section>
                 </AnimatedSection>
               );
