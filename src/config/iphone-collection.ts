@@ -217,6 +217,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Câble USB-C data pour iPhone 18 Pro",
           },
         },
+        showCta: true,
       },
       {
         id: "reglages-obs",
