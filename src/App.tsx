@@ -15,6 +15,9 @@ import Reviews from "./pages/Reviews";
 import MentionsLegales from "./pages/MentionsLegales";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
+// Collection temporaire iPhone 18 Pro (voir src/config/iphone-collection.ts)
+import IphoneHub from "./pages/IphoneHub";
+import IphoneArticle from "./pages/IphoneArticle";
 
 const queryClient = new QueryClient();
 
