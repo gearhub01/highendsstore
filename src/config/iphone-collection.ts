@@ -7,7 +7,7 @@
  * les métadonnées SEO sans toucher au reste du code.
  *
  * RÈGLE AMAZON ASSOCIATES : ne JAMAIS écrire de prix ni de disponibilité
- * en dur. Les boutons affichent uniquement "Voir le prix sur Amazon".
+ * en dur. Les boutons affichent uniquement "Voir sur Amazon".
  * ============================================================================
  */
 
@@ -87,19 +87,6 @@ export interface CollectionSeo {
   ogImage?: string;
 }
 
-export interface ArticleSection {
-  /** Ancre utilisée par le sommaire (minuscules, sans accent ni espace). */
-  id: string;
-  /** Titre H2 de la section. */
-  heading: string;
-  /** Paragraphes de la section. */
-  paragraphs: string[];
-  /** Liste à puces optionnelle affichée après les paragraphes. */
-  bullets?: string[];
-  /** Affiche un bouton Amazon à la fin de la section. */
-  showCta?: boolean;
-}
-
 /**
  * Liens Amazon par modèle.
  * Laisse une chaîne vide tant que tu n'as pas le lien affilié : le bouton
@@ -110,6 +97,22 @@ export interface AmazonLink {
   url: string;
   /** Nom du produit affiché au-dessus du bouton. */
   productName: string;
+}
+
+export interface ArticleSection {
+  /** Ancre utilisée par le sommaire (minuscules, sans accent ni espace). */
+  id: string;
+  /** Titre H2 de la section. */
+  heading: string;
+  /** Paragraphes de la section. */
+  paragraphs: string[];
+  /** Liste à puces optionnelle affichée après les paragraphes. */
+  bullets?: string[];
+  /**
+   * Liens Amazon spécifiques à cette section.
+   * S'ils ne sont pas renseignés, l'article utilise ses liens généraux (`amazon`).
+   */
+  amazon?: Partial<Record<"pro" | "pro_max", AmazonLink>>;
 }
 
 export interface CollectionArticle {
@@ -134,9 +137,10 @@ export interface CollectionArticle {
   /**
    * Boutons Amazon par modèle. Un article "pro" n'a besoin que de `pro`,
    * un comparatif ("both") peut renseigner les deux.
+   * Utilisés comme fallback si une section n'a pas de liens propres.
    */
   amazon: Partial<Record<"pro" | "pro_max", AmazonLink>>;
-  /** Texte du bouton (par défaut « Voir le prix sur Amazon »). */
+  /** Texte du bouton (par défaut « Voir sur Amazon »). */
   amazonLabel?: string;
   /** Métadonnées SEO propres à l'article. */
   seo: CollectionSeo;
@@ -147,6 +151,18 @@ export const HUB_SEO: CollectionSeo = {
   title: "iPhone 18 Pro & Pro Max — L'accessoire ultime de votre setup",
   description:
     "Collection lancement iPhone 18 Pro et Pro Max : webcam 4K pour votre PC, connexion au setup gaming et accessoires USB-C partagés. Guides, tests et comparatifs.",
+};
+
+/** CTA principaux du hub : un lien pour chaque iPhone. */
+export const HUB_IPHONE_CTAS: Record<"pro" | "pro_max", AmazonLink> = {
+  pro: {
+    url: "https://www.amazon.fr/s?k=iPhone+18+Pro&tag=gearhub-21",
+    productName: "iPhone 18 Pro",
+  },
+  pro_max: {
+    url: "https://www.amazon.fr/s?k=iPhone+18+Pro+Max&tag=gearhub-21",
+    productName: "iPhone 18 Pro Max",
+  },
 };
 
 /** Texte de l'encart « pourquoi ici » sur le hub. */
@@ -189,7 +205,12 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
           "Un support de bureau ou un bras articulé pour cadrer à hauteur d'yeux",
           "Optionnel : un éclairage LED pour compenser le bruit en basse lumière",
         ],
-        showCta: true,
+        amazon: {
+          pro: {
+            url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone+18+pro&tag=gearhub-21",
+            productName: "Câble USB-C data pour iPhone 18 Pro",
+          },
+        },
       },
       {
         id: "reglages-obs",
@@ -205,7 +226,12 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
         paragraphs: [
           "La chauffe reste le point faible sur les sessions longues : au-delà d'une heure de capture 4K, le capteur réduit la qualité. Un support ventilé ou un passage en 1080p règle le problème.",
         ],
-        showCta: true,
+        amazon: {
+          pro: {
+            url: "https://www.amazon.fr/s?k=support+ventile+smartphone+iphone&tag=gearhub-21",
+            productName: "Support ventilé pour iPhone 18 Pro",
+          },
+        },
       },
     ],
     faq: [
@@ -221,8 +247,10 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
       },
     ],
     amazon: {
-      // Remplace l'URL ci-dessous par ton lien affilié Amazon réel.
-      pro: { url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone&tag=gearhub-21", productName: "Câble USB-C data pour iPhone 18 Pro" },
+      pro: {
+        url: "https://www.amazon.fr/s?k=iPhone+18+Pro&tag=gearhub-21",
+        productName: "iPhone 18 Pro",
+      },
     },
     seo: {
       title: "iPhone 18 Pro en webcam 4K sur PC — Guide de branchement",
@@ -248,7 +276,12 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
         paragraphs: [
           "Branché en USB-C data sur un dock alimenté, le Pro Max se recharge pendant la capture. Sa batterie plus grande absorbe mieux les pics de consommation liés à l'encodage 4K.",
         ],
-        showCta: true,
+        amazon: {
+          pro_max: {
+            url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+iphone+pro+max&tag=gearhub-21",
+            productName: "Dock USB-C alimenté pour iPhone 18 Pro Max",
+          },
+        },
       },
       {
         id: "chauffe",
@@ -268,7 +301,12 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
         paragraphs: [
           "Le poids supplémentaire demande un bras articulé rigide : un support souple vibre à chaque frappe clavier, ce qui se voit immédiatement en 4K.",
         ],
-        showCta: true,
+        amazon: {
+          pro_max: {
+            url: "https://www.amazon.fr/s?k=bras+articule+smartphone+pro+max&tag=gearhub-21",
+            productName: "Bras articulé pour iPhone 18 Pro Max",
+          },
+        },
       },
     ],
     faq: [
@@ -284,8 +322,10 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
       },
     ],
     amazon: {
-      // Remplace l'URL ci-dessous par ton lien affilié Amazon réel.
-      pro_max: { url: "https://www.amazon.fr/s?k=bras+articule+smartphone&tag=gearhub-21", productName: "Bras articulé pour iPhone 18 Pro Max" },
+      pro_max: {
+        url: "https://www.amazon.fr/s?k=iPhone+18+Pro+Max&tag=gearhub-21",
+        productName: "iPhone 18 Pro Max",
+      },
     },
     seo: {
       title: "iPhone 18 Pro Max en webcam 4K — Endurance et cadrage",
@@ -311,7 +351,16 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
         paragraphs: [
           "Un dock alimenté avec sortie DisplayPort et plusieurs ports data permet de brancher l'iPhone comme n'importe quelle source, sans débrancher le clavier ni le casque.",
         ],
-        showCta: true,
+        amazon: {
+          pro: {
+            url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc&tag=gearhub-21",
+            productName: "Dock USB-C alimenté — iPhone 18 Pro & PC",
+          },
+          pro_max: {
+            url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc&tag=gearhub-21",
+            productName: "Dock USB-C alimenté — iPhone 18 Pro Max & PC",
+          },
+        },
       },
       {
         id: "cables",
@@ -331,7 +380,16 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
         paragraphs: [
           "Un SSD NVMe externe accepte les rushes ProRes du téléphone et sert de disque de montage sur le PC. C'est l'accessoire le plus rentable de la liste.",
         ],
-        showCta: true,
+        amazon: {
+          pro: {
+            url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc&tag=gearhub-21",
+            productName: "SSD NVMe externe USB-C — iPhone 18 Pro & PC",
+          },
+          pro_max: {
+            url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc&tag=gearhub-21",
+            productName: "SSD NVMe externe USB-C — iPhone 18 Pro Max & PC",
+          },
+        },
       },
     ],
     faq: [
@@ -347,9 +405,14 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
       },
     ],
     amazon: {
-      // Remplace les URLs ci-dessous par tes liens affiliés Amazon réels.
-      pro: { url: "https://www.amazon.fr/s?k=dock+usb+c+iphone+pc&tag=gearhub-21", productName: "Dock USB-C — configuration iPhone 18 Pro" },
-      pro_max: { url: "https://www.amazon.fr/s?k=dock+usb+c+iphone+pc&tag=gearhub-21", productName: "Dock USB-C — configuration iPhone 18 Pro Max" },
+      pro: {
+        url: "https://www.amazon.fr/s?k=iPhone+18+Pro&tag=gearhub-21",
+        productName: "iPhone 18 Pro",
+      },
+      pro_max: {
+        url: "https://www.amazon.fr/s?k=iPhone+18+Pro+Max&tag=gearhub-21",
+        productName: "iPhone 18 Pro Max",
+      },
     },
     seo: {
       title: "Accessoires USB-C iPhone 18 Pro et Pro Max pour PC gaming",
