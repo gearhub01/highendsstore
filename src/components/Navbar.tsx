@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SearchCommand from "@/components/SearchCommand";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { isCollectionVisible, IPHONE_BASE_PATH } from "@/config/iphone-collection";
 
 const Navbar = () => {
   const { t } = useTranslation();
