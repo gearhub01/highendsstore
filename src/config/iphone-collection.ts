@@ -373,6 +373,16 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
           "USB4 / Thunderbolt pour la vidéo et les SSD",
           "Longueur 1 m maximum pour conserver le débit",
         ],
+        amazon: {
+          pro: {
+            url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc&tag=gearhub-21",
+            productName: "Câble USB-C 240 W / USB4 — iPhone 18 Pro & PC",
+          },
+          pro_max: {
+            url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc&tag=gearhub-21",
+            productName: "Câble USB-C 240 W / USB4 — iPhone 18 Pro Max & PC",
+          },
+        },
       },
       {
         id: "stockage",
