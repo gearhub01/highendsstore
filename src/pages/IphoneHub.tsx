@@ -16,7 +16,7 @@ import {
   COLLECTION_NAME,
   MODEL_TABS,
   HUB_SEO,
-  HUB_IPHONE_CTAS,
+  
   IPHONE_BASE_PATH,
   WHY_HERE,
   HIDE_PAGES_WHEN_DISABLED,
@@ -82,22 +82,6 @@ const IphoneHub = () => {
                   une collection temporaire centrée sur ce que l'iPhone 18 Pro et le Pro Max
                   apportent réellement à un bureau gaming.
                 </p>
-
-                {/* CTA principaux : un lien par iPhone */}
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <PriceCTA
-                    model="pro"
-                    url={HUB_IPHONE_CTAS.pro.url}
-                    productName={HUB_IPHONE_CTAS.pro.productName}
-                    label="Voir sur Amazon"
-                  />
-                  <PriceCTA
-                    model="pro_max"
-                    url={HUB_IPHONE_CTAS.pro_max.url}
-                    productName={HUB_IPHONE_CTAS.pro_max.productName}
-                    label="Voir sur Amazon"
-                  />
-                </div>
               </div>
               <LaunchCountdown />
             </div>
@@ -155,22 +139,25 @@ const IphoneHub = () => {
                     </h3>
                     <p className="text-sm text-muted-foreground line-clamp-3">{article.excerpt}</p>
 
-                    {/* CTA Amazon sur la carte produit — un bouton par modèle concerné */}
-                    <div className="mt-4 flex flex-wrap items-center gap-3">
-                      {articleModels(article.model).map((m) => {
-                        const link = article.amazon[m];
-                        if (!link) return null;
-                        return (
+                    {/* CTA Amazon : un seul bouton par article (modèle principal) */}
+                    {(() => {
+                      const mainModel = articleModels(article.model)[0];
+                      const link = mainModel ? article.amazon[mainModel] : undefined;
+                      if (!mainModel || !link) return null;
+                      return (
+                        <div className="mt-4">
                           <PriceCTA
-                            key={m}
-                            model={m}
+                            model={mainModel}
                             url={link.url}
                             productName={link.productName}
                             label={article.amazonLabel}
+                            articleSlug={article.slug}
+                            sectionId="hub-card"
+                            placement="hub-card"
                           />
-                        );
-                      })}
-                    </div>
+                        </div>
+                      );
+                    })()}
 
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
                       Lire l'article <ArrowRight className="h-3.5 w-3.5" />

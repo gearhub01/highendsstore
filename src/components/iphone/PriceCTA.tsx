@@ -1,5 +1,6 @@
 import { ShoppingCart, ExternalLink } from "lucide-react";
 import { MODEL_LABELS } from "@/config/iphone-collection";
+import { trackCtaClick } from "@/lib/track-cta";
 
 /**
  * Bouton d'affiliation Amazon compact et paramétrable par modèle.
@@ -7,6 +8,9 @@ import { MODEL_LABELS } from "@/config/iphone-collection";
  * IMPORTANT (programme Amazon Associates) : ce composant n'affiche JAMAIS
  * de prix, de réduction ni d'information de stock. Seul un lien sortant est
  * rendu. Le prix reste consultable uniquement sur Amazon.
+ *
+ * Chaque clic est envoyé à l'analytics (table `cta_clicks`) pour mesurer
+ * quelles sections et quels modèles convertissent le mieux.
  *
  * Si `url` est vide, le bloc n'est pas affiché (article en préparation).
  */
@@ -19,6 +23,12 @@ interface PriceCTAProps {
   productName?: string;
   /** Libellé du bouton. */
   label?: string;
+  /** Analytics : slug de l'article d'où part le clic. */
+  articleSlug?: string;
+  /** Analytics : identifiant de la section (ou "hub-card"). */
+  sectionId?: string;
+  /** Analytics : emplacement du bouton. */
+  placement?: "hub-card" | "article-section" | "hub-header";
 }
 
 const PriceCTA = ({
@@ -26,8 +36,22 @@ const PriceCTA = ({
   url,
   productName,
   label = "Voir sur Amazon",
+  articleSlug,
+  sectionId,
+  placement = "article-section",
 }: PriceCTAProps) => {
   if (!url) return null;
+
+  const handleClick = () => {
+    trackCtaClick({
+      articleSlug: articleSlug ?? "inconnu",
+      sectionId,
+      model,
+      productName,
+      destinationUrl: url,
+      placement,
+    });
+  };
 
   return (
     <div className="my-5">
@@ -40,6 +64,7 @@ const PriceCTA = ({
         href={url}
         target="_blank"
         rel="nofollow sponsored noopener noreferrer"
+        onClick={handleClick}
         className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
       >
         <ShoppingCart className="h-4 w-4" />
@@ -51,5 +76,6 @@ const PriceCTA = ({
     </div>
   );
 };
+
 
 export default PriceCTA;

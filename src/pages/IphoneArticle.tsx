@@ -132,6 +132,9 @@ const IphoneArticle = () => {
                           url={link.url}
                           productName={link.productName}
                           label={article.amazonLabel}
+                          articleSlug={article.slug}
+                          sectionId={section.id}
+                          placement="article-section"
                         />
                       );
                     })}

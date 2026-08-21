@@ -153,6 +153,42 @@ export type Database = {
           },
         ]
       }
+      cta_clicks: {
+        Row: {
+          article_slug: string
+          collection: string
+          created_at: string
+          destination_url: string | null
+          id: string
+          model: string
+          placement: string
+          product_name: string | null
+          section_id: string | null
+        }
+        Insert: {
+          article_slug: string
+          collection?: string
+          created_at?: string
+          destination_url?: string | null
+          id?: string
+          model: string
+          placement?: string
+          product_name?: string | null
+          section_id?: string | null
+        }
+        Update: {
+          article_slug?: string
+          collection?: string
+          created_at?: string
+          destination_url?: string | null
+          id?: string
+          model?: string
+          placement?: string
+          product_name?: string | null
+          section_id?: string | null
+        }
+        Relationships: []
+      }
       guides: {
         Row: {
           category_id: string | null
