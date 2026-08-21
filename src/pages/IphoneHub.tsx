@@ -16,6 +16,7 @@ import {
   COLLECTION_NAME,
   MODEL_TABS,
   HUB_SEO,
+  HUB_IPHONE_CTAS,
   IPHONE_BASE_PATH,
   WHY_HERE,
   HIDE_PAGES_WHEN_DISABLED,
@@ -64,7 +65,7 @@ const IphoneHub = () => {
 
       <main className="pb-16">
         <div className="container mx-auto px-4">
-          {/* En-tête + compte à rebours */}
+          {/* En-tête + compte à rebours + CTAs iPhone */}
           <AnimatedSection variant="fade-up">
             <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] items-start mt-4">
               <div>
@@ -81,6 +82,22 @@ const IphoneHub = () => {
                   une collection temporaire centrée sur ce que l'iPhone 18 Pro et le Pro Max
                   apportent réellement à un bureau gaming.
                 </p>
+
+                {/* CTA principaux : un lien par iPhone */}
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <PriceCTA
+                    model="pro"
+                    url={HUB_IPHONE_CTAS.pro.url}
+                    productName={HUB_IPHONE_CTAS.pro.productName}
+                    label="Voir sur Amazon"
+                  />
+                  <PriceCTA
+                    model="pro_max"
+                    url={HUB_IPHONE_CTAS.pro_max.url}
+                    productName={HUB_IPHONE_CTAS.pro_max.productName}
+                    label="Voir sur Amazon"
+                  />
+                </div>
               </div>
               <LaunchCountdown />
             </div>
@@ -139,7 +156,7 @@ const IphoneHub = () => {
                     <p className="text-sm text-muted-foreground line-clamp-3">{article.excerpt}</p>
 
                     {/* CTA Amazon sur la carte produit — un bouton par modèle concerné */}
-                    <div className="mt-4 space-y-3">
+                    <div className="mt-4 flex flex-wrap items-center gap-3">
                       {articleModels(article.model).map((m) => {
                         const link = article.amazon[m];
                         if (!link) return null;
