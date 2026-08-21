@@ -10,8 +10,11 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import SEOHead, { SITE_URL } from "@/components/SEOHead";
 import PriceCTA from "@/components/iphone/PriceCTA";
 import LaunchBadge from "@/components/iphone/LaunchBadge";
+import ModelBadge from "@/components/iphone/ModelBadge";
 import {
   getCollectionArticle,
+  articleModels,
+  COLLECTION_NAME,
   IPHONE_BASE_PATH,
   HIDE_PAGES_WHEN_DISABLED,
   isCollectionVisible,
