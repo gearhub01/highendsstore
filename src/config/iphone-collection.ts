@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * COLLECTION TEMPORAIRE — iPhone 18 Pro / Pro Max
+ * COLLECTION TEMPORAIRE — iPhone 18 Pro & Pro Max
  * ============================================================================
  * Tout le contenu éditorial de la collection se trouve DANS CE FICHIER.
  * Tu peux modifier les textes, les articles, les FAQ, les liens Amazon et
@@ -13,6 +13,9 @@
 
 /** Chemin de base de la collection (utilisé pour les URLs et le sitemap). */
 export const IPHONE_BASE_PATH = "/iphone-18-pro";
+
+/** Nom affiché partout (menu, H1, breadcrumb). */
+export const COLLECTION_NAME = "iPhone 18 Pro & Pro Max";
 
 /**
  * ---------------------------------------------------------------------------
@@ -38,6 +41,31 @@ export const KEYNOTE_DATE = "2026-09-09T19:00:00+02:00";
 
 /** Libellé du badge affiché sur toutes les cartes de la collection. */
 export const COLLECTION_BADGE = "Lancement";
+
+/**
+ * ---------------------------------------------------------------------------
+ * MODÈLES COUVERTS PAR LA COLLECTION
+ * ---------------------------------------------------------------------------
+ * "pro"      → article dédié à l'iPhone 18 Pro
+ * "pro_max"  → article dédié à l'iPhone 18 Pro Max
+ * "both"     → article comparatif / valable pour les deux modèles
+ */
+export type IphoneModel = "pro" | "pro_max" | "both";
+
+/** Libellés affichés pour chaque modèle (badges, onglets, boutons). */
+export const MODEL_LABELS: Record<IphoneModel, string> = {
+  pro: "iPhone 18 Pro",
+  pro_max: "iPhone 18 Pro Max",
+  both: "Pro & Pro Max",
+};
+
+/** Onglets de filtrage affichés sur la page hub. */
+export const MODEL_TABS: { id: "all" | IphoneModel; label: string }[] = [
+  { id: "all", label: "Tous" },
+  { id: "pro", label: "Pro" },
+  { id: "pro_max", label: "Pro Max" },
+  { id: "both", label: "Comparatif" },
+];
 
 /**
  * Renvoie `true` si la collection doit être visible (menu, accueil, sitemap).
@@ -72,9 +100,23 @@ export interface ArticleSection {
   showCta?: boolean;
 }
 
+/**
+ * Liens Amazon par modèle.
+ * Laisse une chaîne vide tant que tu n'as pas le lien affilié : le bouton
+ * correspondant est alors masqué. AUCUN prix ni stock ne doit figurer ici.
+ */
+export interface AmazonLink {
+  /** URL affiliée du produit pour ce modèle. */
+  url: string;
+  /** Nom du produit affiché au-dessus du bouton. */
+  productName: string;
+}
+
 export interface CollectionArticle {
   /** Identifiant d'URL : /iphone-18-pro/<slug> */
   slug: string;
+  /** Modèle concerné par l'article : "pro", "pro_max" ou "both" (comparatif). */
+  model: IphoneModel;
   /** Titre H1 de la page. */
   title: string;
   /** Résumé affiché sur les cartes du hub. */
@@ -90,15 +132,12 @@ export interface CollectionArticle {
   /** Questions/réponses affichées en accordéon. */
   faq: { question: string; answer: string }[];
   /**
-   * Bouton Amazon : renseigne l'URL affiliée du produit.
-   * Laisse vide ("") tant que tu n'as pas le lien : le bouton est alors masqué.
-   * AUCUN prix ni stock ne doit figurer ici.
+   * Boutons Amazon par modèle. Un article "pro" n'a besoin que de `pro`,
+   * un comparatif ("both") peut renseigner les deux.
    */
-  amazonUrl: string;
+  amazon: Partial<Record<"pro" | "pro_max", AmazonLink>>;
   /** Texte du bouton (par défaut « Voir le prix sur Amazon »). */
   amazonLabel?: string;
-  /** Nom du produit affiché au-dessus du bouton. */
-  productName: string;
   /** Métadonnées SEO propres à l'article. */
   seo: CollectionSeo;
 }
@@ -107,14 +146,14 @@ export interface CollectionArticle {
 export const HUB_SEO: CollectionSeo = {
   title: "iPhone 18 Pro & Pro Max — L'accessoire ultime de votre setup",
   description:
-    "Collection lancement iPhone 18 Pro : webcam 4K pour votre PC, connexion au setup gaming et accessoires USB-C partagés. Guides, tests et liens Amazon.",
+    "Collection lancement iPhone 18 Pro et Pro Max : webcam 4K pour votre PC, connexion au setup gaming et accessoires USB-C partagés. Guides, tests et comparatifs.",
 };
 
 /** Texte de l'encart « pourquoi ici » sur le hub. */
 export const WHY_HERE = {
   title: "Pourquoi une collection iPhone sur GearHub ?",
   paragraphs: [
-    "GearHub parle de setup, pas de smartphones. Mais l'iPhone 18 Pro entre dans le setup par la porte du PC : capté en USB-C, il devient une webcam 4K qui écrase n'importe quelle webcam à 150 €, un micro d'appoint correct et une seconde source de capture pour le stream.",
+    "GearHub parle de setup, pas de smartphones. Mais l'iPhone 18 Pro et le Pro Max entrent dans le setup par la porte du PC : captés en USB-C, ils deviennent une webcam 4K qui écrase n'importe quelle webcam à 150 €, un micro d'appoint correct et une seconde source de capture pour le stream.",
     "Ajoute à cela des accessoires USB-C mutualisés — dock, câbles 240 W, SSD externes, supports de bureau — qui servent aussi bien au PC qu'au téléphone, et la logique devient évidente : on couvre ce qui touche à votre bureau, rien d'autre.",
   ],
 };
@@ -124,11 +163,12 @@ export const WHY_HERE = {
  * ARTICLES DE LA COLLECTION
  * ---------------------------------------------------------------------------
  * Duplique un bloc pour ajouter un article : il utilise automatiquement le
- * gabarit (H1, sommaire, sections H2, date de mise à jour, FAQ, CTA Amazon).
+ * gabarit (H1, badge modèle, sommaire, sections H2, date, FAQ, CTA Amazon).
  */
 export const COLLECTION_ARTICLES: CollectionArticle[] = [
   {
     slug: "webcam-4k-pc",
+    model: "pro",
     title: "iPhone 18 Pro en webcam 4K sur PC : le guide complet",
     excerpt:
       "Brancher l'iPhone 18 Pro en USB-C pour obtenir un flux 4K propre sur OBS, Discord et Teams — matériel, réglages et limites.",
@@ -180,8 +220,9 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
           "Oui, l'iPhone est exposé comme périphérique audio séparé. Pour du contenu publié, un micro dédié reste supérieur.",
       },
     ],
-    amazonUrl: "",
-    productName: "Câble USB-C data pour capture vidéo",
+    amazon: {
+      pro: { url: "", productName: "Câble USB-C data pour iPhone 18 Pro" },
+    },
     seo: {
       title: "iPhone 18 Pro en webcam 4K sur PC — Guide de branchement",
       description:
@@ -189,15 +230,78 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
     },
   },
   {
-    slug: "accessoires-usb-c-setup",
-    title: "Accessoires USB-C partagés entre l'iPhone 18 Pro et le PC",
+    slug: "webcam-4k-pc-pro-max",
+    model: "pro_max",
+    title: "iPhone 18 Pro Max en webcam 4K : ce que le grand modèle change",
     excerpt:
-      "Docks, câbles 240 W, SSD externes : les accessoires qui servent au téléphone comme au reste du setup gaming.",
+      "Autonomie, chauffe et stabilisation : pourquoi le Pro Max tient mieux les longues sessions de capture 4K sur PC.",
+    image:
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1200&q=80",
+    updatedAt: "2026-08-21",
+    intro:
+      "Même capteur principal, châssis plus grand : sur une session de stream de trois heures, l'iPhone 18 Pro Max ne se comporte pas comme le Pro. Voici ce qui change concrètement pour un usage webcam.",
+    sections: [
+      {
+        id: "autonomie",
+        heading: "Autonomie et alimentation continue",
+        paragraphs: [
+          "Branché en USB-C data sur un dock alimenté, le Pro Max se recharge pendant la capture. Sa batterie plus grande absorbe mieux les pics de consommation liés à l'encodage 4K.",
+        ],
+        showCta: true,
+      },
+      {
+        id: "chauffe",
+        heading: "Chauffe sur les longues sessions",
+        paragraphs: [
+          "La surface de dissipation supérieure du Pro Max repousse le seuil de bridage thermique. En pratique, la qualité 4K tient plus longtemps avant que le flux ne descende en définition.",
+        ],
+        bullets: [
+          "Support ventilé recommandé au-delà de deux heures",
+          "1080p60 comme repli si la pièce est chaude",
+          "Éviter la charge rapide pendant la capture",
+        ],
+      },
+      {
+        id: "cadrage",
+        heading: "Cadrage et stabilisation",
+        paragraphs: [
+          "Le poids supplémentaire demande un bras articulé rigide : un support souple vibre à chaque frappe clavier, ce qui se voit immédiatement en 4K.",
+        ],
+        showCta: true,
+      },
+    ],
+    faq: [
+      {
+        question: "Le Pro Max filme-t-il mieux que le Pro ?",
+        answer:
+          "La qualité d'image est identique. La différence porte sur l'endurance thermique et l'autonomie sur les captures longues.",
+      },
+      {
+        question: "Faut-il un support différent du Pro ?",
+        answer:
+          "Oui, privilégiez un bras articulé prévu pour le poids du grand modèle afin d'éviter les micro-vibrations.",
+      },
+    ],
+    amazon: {
+      pro_max: { url: "", productName: "Bras articulé pour iPhone 18 Pro Max" },
+    },
+    seo: {
+      title: "iPhone 18 Pro Max en webcam 4K — Endurance et cadrage",
+      description:
+        "Webcam 4K avec l'iPhone 18 Pro Max : autonomie, tenue thermique sur les longues sessions et support adapté au grand modèle.",
+    },
+  },
+  {
+    slug: "accessoires-usb-c-setup",
+    model: "both",
+    title: "Accessoires USB-C partagés entre l'iPhone 18 Pro / Pro Max et le PC",
+    excerpt:
+      "Docks, câbles 240 W, SSD externes : les accessoires qui servent aux deux modèles comme au reste du setup gaming.",
     image:
       "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=1200&q=80",
     updatedAt: "2026-08-21",
     intro:
-      "L'intérêt de l'USB-C généralisé, c'est d'arrêter d'acheter deux fois le même accessoire. Voici ce qui se mutualise réellement entre l'iPhone 18 Pro et un PC de bureau.",
+      "L'intérêt de l'USB-C généralisé, c'est d'arrêter d'acheter deux fois le même accessoire. Voici ce qui se mutualise réellement entre l'iPhone 18 Pro, le Pro Max et un PC de bureau.",
     sections: [
       {
         id: "dock",
@@ -240,12 +344,14 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
           "Non, l'USB-C n'impose pas de certification MFi. Cherchez plutôt la certification USB-IF.",
       },
     ],
-    amazonUrl: "",
-    productName: "Dock USB-C de bureau",
+    amazon: {
+      pro: { url: "", productName: "Dock USB-C — configuration iPhone 18 Pro" },
+      pro_max: { url: "", productName: "Dock USB-C — configuration iPhone 18 Pro Max" },
+    },
     seo: {
-      title: "Accessoires USB-C partagés iPhone 18 Pro et PC gaming",
+      title: "Accessoires USB-C iPhone 18 Pro et Pro Max pour PC gaming",
       description:
-        "Dock, câbles 240 W et SSD externes : les accessoires USB-C à mutualiser entre l'iPhone 18 Pro et votre setup PC.",
+        "Comparatif des accessoires USB-C à mutualiser entre l'iPhone 18 Pro, le Pro Max et votre setup PC : dock, câbles 240 W et SSD externes.",
     },
   },
 ];
@@ -253,4 +359,9 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
 /** Retrouve un article par son slug. */
 export function getCollectionArticle(slug?: string) {
   return COLLECTION_ARTICLES.find((a) => a.slug === slug);
+}
+
+/** Modèles concernés par un article (un comparatif en couvre deux). */
+export function articleModels(model: IphoneModel): ("pro" | "pro_max")[] {
+  return model === "both" ? ["pro", "pro_max"] : [model];
 }

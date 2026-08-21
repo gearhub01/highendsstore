@@ -10,8 +10,11 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import SEOHead, { SITE_URL } from "@/components/SEOHead";
 import PriceCTA from "@/components/iphone/PriceCTA";
 import LaunchBadge from "@/components/iphone/LaunchBadge";
+import ModelBadge from "@/components/iphone/ModelBadge";
 import {
   getCollectionArticle,
+  articleModels,
+  COLLECTION_NAME,
   IPHONE_BASE_PATH,
   HIDE_PAGES_WHEN_DISABLED,
   isCollectionVisible,
@@ -56,7 +59,7 @@ const IphoneArticle = () => {
       />
       <Navbar />
       <Breadcrumbs
-        items={[{ label: "iPhone 18 Pro", href: IPHONE_BASE_PATH }, { label: article.title }]}
+        items={[{ label: COLLECTION_NAME, href: IPHONE_BASE_PATH }, { label: article.title }]}
       />
 
       <main className="pb-16">
@@ -64,7 +67,11 @@ const IphoneArticle = () => {
           <div className="max-w-3xl mx-auto">
             {/* En-tête */}
             <AnimatedSection variant="fade-up">
-              <LaunchBadge className="mb-4" />
+              <div className="mb-4 flex flex-wrap items-center gap-2">
+                <LaunchBadge />
+                {/* Badge du modèle concerné (Pro, Pro Max ou comparatif) */}
+                <ModelBadge model={article.model} />
+              </div>
               <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">{article.title}</h1>
               <p className="text-muted-foreground leading-relaxed">{article.intro}</p>
 
@@ -110,14 +117,21 @@ const IphoneArticle = () => {
                       ))}
                     </ul>
                   )}
-                  {/* CTA Amazon : jamais de prix en dur, uniquement le lien */}
-                  {section.showCta && (
-                    <PriceCTA
-                      url={article.amazonUrl}
-                      productName={article.productName}
-                      label={article.amazonLabel}
-                    />
-                  )}
+                  {/* CTA Amazon : un bouton par modèle concerné, jamais de prix en dur */}
+                  {section.showCta &&
+                    articleModels(article.model).map((m) => {
+                      const link = article.amazon[m];
+                      if (!link) return null;
+                      return (
+                        <PriceCTA
+                          key={m}
+                          model={m}
+                          url={link.url}
+                          productName={link.productName}
+                          label={article.amazonLabel}
+                        />
+                      );
+                    })}
                 </section>
               </AnimatedSection>
             ))}
