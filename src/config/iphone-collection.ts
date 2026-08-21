@@ -113,6 +113,12 @@ export interface ArticleSection {
    * S'ils ne sont pas renseignés, l'article utilise ses liens généraux (`amazon`).
    */
   amazon?: Partial<Record<"pro" | "pro_max", AmazonLink>>;
+  /**
+   * Afficher un CTA Amazon à la fin de cette section.
+   * Par défaut `false` : les CTA ne s'affichent que là où tu les demandes,
+   * pour ne pas surcharger la lecture de l'article.
+   */
+  showCta?: boolean;
 }
 
 export interface CollectionArticle {
