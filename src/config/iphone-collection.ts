@@ -411,6 +411,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "SSD NVMe externe USB-C — iPhone 18 Pro Max & PC",
           },
         },
+        showCta: true,
       },
     ],
     faq: [
