@@ -118,20 +118,19 @@ const IphoneArticle = () => {
                     </ul>
                   )}
                   {/* CTA Amazon : un bouton par modèle concerné, jamais de prix en dur */}
-                  {section.showCta &&
-                    articleModels(article.model).map((m) => {
-                      const link = article.amazon[m];
-                      if (!link) return null;
-                      return (
-                        <PriceCTA
-                          key={m}
-                          model={m}
-                          url={link.url}
-                          productName={link.productName}
-                          label={article.amazonLabel}
-                        />
-                      );
-                    })}
+                  {articleModels(article.model).map((m) => {
+                    const link = article.amazon[m];
+                    if (!link) return null;
+                    return (
+                      <PriceCTA
+                        key={m}
+                        model={m}
+                        url={link.url}
+                        productName={link.productName}
+                        label={article.amazonLabel}
+                      />
+                    );
+                  })}
                 </section>
               </AnimatedSection>
             ))}

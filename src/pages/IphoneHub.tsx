@@ -10,6 +10,7 @@ import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import LaunchCountdown from "@/components/iphone/LaunchCountdown";
 import LaunchBadge from "@/components/iphone/LaunchBadge";
 import ModelBadge from "@/components/iphone/ModelBadge";
+import PriceCTA from "@/components/iphone/PriceCTA";
 import {
   COLLECTION_ARTICLES,
   COLLECTION_NAME,
@@ -19,6 +20,7 @@ import {
   WHY_HERE,
   HIDE_PAGES_WHEN_DISABLED,
   isCollectionVisible,
+  articleModels,
 } from "@/config/iphone-collection";
 
 /**
