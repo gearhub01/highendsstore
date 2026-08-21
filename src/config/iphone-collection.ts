@@ -290,6 +290,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Dock USB-C alimenté pour iPhone 18 Pro Max",
           },
         },
+        showCta: true,
       },
       {
         id: "chauffe",
