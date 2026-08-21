@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SearchCommand from "@/components/SearchCommand";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { isCollectionVisible, IPHONE_BASE_PATH } from "@/config/iphone-collection";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -42,6 +43,9 @@ const Navbar = () => {
   const navItems = [
     { label: t("nav.home"), href: "/" },
     { label: t("nav.comparisons"), href: "/comparaison/gaming-keyboards" },
+    // Entrée temporaire : disparaît automatiquement quand la collection
+    // iPhone 18 Pro est désactivée (src/config/iphone-collection.ts).
+    ...(isCollectionVisible() ? [{ label: "iPhone 18 Pro", href: IPHONE_BASE_PATH }] : []),
   ];
 
   const [isOpen, setIsOpen] = useState(false);

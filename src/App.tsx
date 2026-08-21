@@ -15,6 +15,9 @@ import Reviews from "./pages/Reviews";
 import MentionsLegales from "./pages/MentionsLegales";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
+// Collection temporaire iPhone 18 Pro (voir src/config/iphone-collection.ts)
+import IphoneHub from "./pages/IphoneHub";
+import IphoneArticle from "./pages/IphoneArticle";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,9 @@ const App = () => (
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/login" element={<AdminLogin />} />
+          {/* Collection temporaire iPhone 18 Pro */}
+          <Route path="/iphone-18-pro" element={<IphoneHub />} />
+          <Route path="/iphone-18-pro/:slug" element={<IphoneArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

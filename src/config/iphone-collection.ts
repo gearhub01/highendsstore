@@ -1,0 +1,256 @@
+/**
+ * ============================================================================
+ * COLLECTION TEMPORAIRE — iPhone 18 Pro / Pro Max
+ * ============================================================================
+ * Tout le contenu éditorial de la collection se trouve DANS CE FICHIER.
+ * Tu peux modifier les textes, les articles, les FAQ, les liens Amazon et
+ * les métadonnées SEO sans toucher au reste du code.
+ *
+ * RÈGLE AMAZON ASSOCIATES : ne JAMAIS écrire de prix ni de disponibilité
+ * en dur. Les boutons affichent uniquement "Voir le prix sur Amazon".
+ * ============================================================================
+ */
+
+/** Chemin de base de la collection (utilisé pour les URLs et le sitemap). */
+export const IPHONE_BASE_PATH = "/iphone-18-pro";
+
+/**
+ * ---------------------------------------------------------------------------
+ * INTERRUPTEUR PRINCIPAL DE LA COLLECTION
+ * ---------------------------------------------------------------------------
+ * `COLLECTION_ENABLED` : mets `false` pour masquer d'un coup la collection
+ * du menu, de la page d'accueil et du sitemap (le contenu reste en place et
+ * les pages restent accessibles en direct — voir HIDE_PAGES_WHEN_DISABLED).
+ *
+ * `AUTO_HIDE_AFTER` : masquage automatique après cette date (30/09/2026).
+ * Mets `null` pour désactiver le masquage automatique.
+ *
+ * `HIDE_PAGES_WHEN_DISABLED` : si `true`, les pages elles-mêmes renvoient
+ * vers la 404 une fois la collection désactivée. `false` = les pages restent
+ * lisibles (recommandé pour ne pas casser les liens déjà partagés).
+ */
+export const COLLECTION_ENABLED = true;
+export const AUTO_HIDE_AFTER: string | null = "2026-09-30T23:59:59+02:00";
+export const HIDE_PAGES_WHEN_DISABLED = false;
+
+/** Date du keynote Apple visée par le compte à rebours. */
+export const KEYNOTE_DATE = "2026-09-09T19:00:00+02:00";
+
+/** Libellé du badge affiché sur toutes les cartes de la collection. */
+export const COLLECTION_BADGE = "Lancement";
+
+/**
+ * Renvoie `true` si la collection doit être visible (menu, accueil, sitemap).
+ * Combine l'interrupteur manuel et la date de masquage automatique.
+ */
+export function isCollectionVisible(now: Date = new Date()): boolean {
+  if (!COLLECTION_ENABLED) return false;
+  if (AUTO_HIDE_AFTER && now.getTime() > new Date(AUTO_HIDE_AFTER).getTime()) return false;
+  return true;
+}
+
+/** Métadonnées SEO éditables, une par page. */
+export interface CollectionSeo {
+  /** Balise <title> (sans le suffixe « | GearHub », ajouté automatiquement). */
+  title: string;
+  /** Meta description + og:description (≈ 150-160 caractères). */
+  description: string;
+  /** Image Open Graph (URL absolue https). Optionnel. */
+  ogImage?: string;
+}
+
+export interface ArticleSection {
+  /** Ancre utilisée par le sommaire (minuscules, sans accent ni espace). */
+  id: string;
+  /** Titre H2 de la section. */
+  heading: string;
+  /** Paragraphes de la section. */
+  paragraphs: string[];
+  /** Liste à puces optionnelle affichée après les paragraphes. */
+  bullets?: string[];
+  /** Affiche un bouton Amazon à la fin de la section. */
+  showCta?: boolean;
+}
+
+export interface CollectionArticle {
+  /** Identifiant d'URL : /iphone-18-pro/<slug> */
+  slug: string;
+  /** Titre H1 de la page. */
+  title: string;
+  /** Résumé affiché sur les cartes du hub. */
+  excerpt: string;
+  /** Image de couverture (URL absolue). */
+  image: string;
+  /** Date de dernière mise à jour, format ISO AAAA-MM-JJ. */
+  updatedAt: string;
+  /** Chapeau affiché sous le H1. */
+  intro: string;
+  /** Corps de l'article : une entrée = une section H2. */
+  sections: ArticleSection[];
+  /** Questions/réponses affichées en accordéon. */
+  faq: { question: string; answer: string }[];
+  /**
+   * Bouton Amazon : renseigne l'URL affiliée du produit.
+   * Laisse vide ("") tant que tu n'as pas le lien : le bouton est alors masqué.
+   * AUCUN prix ni stock ne doit figurer ici.
+   */
+  amazonUrl: string;
+  /** Texte du bouton (par défaut « Voir le prix sur Amazon »). */
+  amazonLabel?: string;
+  /** Nom du produit affiché au-dessus du bouton. */
+  productName: string;
+  /** Métadonnées SEO propres à l'article. */
+  seo: CollectionSeo;
+}
+
+/** SEO de la page hub /iphone-18-pro. */
+export const HUB_SEO: CollectionSeo = {
+  title: "iPhone 18 Pro & Pro Max — L'accessoire ultime de votre setup",
+  description:
+    "Collection lancement iPhone 18 Pro : webcam 4K pour votre PC, connexion au setup gaming et accessoires USB-C partagés. Guides, tests et liens Amazon.",
+};
+
+/** Texte de l'encart « pourquoi ici » sur le hub. */
+export const WHY_HERE = {
+  title: "Pourquoi une collection iPhone sur GearHub ?",
+  paragraphs: [
+    "GearHub parle de setup, pas de smartphones. Mais l'iPhone 18 Pro entre dans le setup par la porte du PC : capté en USB-C, il devient une webcam 4K qui écrase n'importe quelle webcam à 150 €, un micro d'appoint correct et une seconde source de capture pour le stream.",
+    "Ajoute à cela des accessoires USB-C mutualisés — dock, câbles 240 W, SSD externes, supports de bureau — qui servent aussi bien au PC qu'au téléphone, et la logique devient évidente : on couvre ce qui touche à votre bureau, rien d'autre.",
+  ],
+};
+
+/**
+ * ---------------------------------------------------------------------------
+ * ARTICLES DE LA COLLECTION
+ * ---------------------------------------------------------------------------
+ * Duplique un bloc pour ajouter un article : il utilise automatiquement le
+ * gabarit (H1, sommaire, sections H2, date de mise à jour, FAQ, CTA Amazon).
+ */
+export const COLLECTION_ARTICLES: CollectionArticle[] = [
+  {
+    slug: "webcam-4k-pc",
+    title: "iPhone 18 Pro en webcam 4K sur PC : le guide complet",
+    excerpt:
+      "Brancher l'iPhone 18 Pro en USB-C pour obtenir un flux 4K propre sur OBS, Discord et Teams — matériel, réglages et limites.",
+    image:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80",
+    updatedAt: "2026-08-21",
+    intro:
+      "Une webcam 4K correcte coûte le prix d'un bon clavier. L'iPhone 18 Pro, lui, est déjà sur votre bureau : voici comment en faire la caméra principale de votre setup PC, sans logiciel douteux.",
+    sections: [
+      {
+        id: "materiel",
+        heading: "Le matériel nécessaire",
+        paragraphs: [
+          "Le flux vidéo passe par l'USB-C : un câble certifié et un support stable suffisent pour démarrer. Évitez les adaptateurs bon marché, principale cause de coupures de flux.",
+        ],
+        bullets: [
+          "Un câble USB-C vers USB-C data (pas un câble de charge seul)",
+          "Un support de bureau ou un bras articulé pour cadrer à hauteur d'yeux",
+          "Optionnel : un éclairage LED pour compenser le bruit en basse lumière",
+        ],
+        showCta: true,
+      },
+      {
+        id: "reglages-obs",
+        heading: "Réglages OBS et Discord",
+        paragraphs: [
+          "Ajoutez une source « Périphérique de capture vidéo », sélectionnez l'iPhone puis forcez la résolution en 3840x2160 à 30 fps. En 60 fps, descendez en 1080p : la plupart des cartes graphiques encodent mieux et la latence chute.",
+          "Sur Discord et Teams, l'iPhone apparaît comme une caméra standard une fois la connexion établie ; aucun pilote supplémentaire n'est nécessaire.",
+        ],
+      },
+      {
+        id: "limites",
+        heading: "Les limites à connaître",
+        paragraphs: [
+          "La chauffe reste le point faible sur les sessions longues : au-delà d'une heure de capture 4K, le capteur réduit la qualité. Un support ventilé ou un passage en 1080p règle le problème.",
+        ],
+        showCta: true,
+      },
+    ],
+    faq: [
+      {
+        question: "Faut-il une application payante ?",
+        answer:
+          "Non. La capture USB-C est reconnue nativement par Windows 11 et par OBS. Les applications tierces servent surtout à ajouter des filtres.",
+      },
+      {
+        question: "Le son passe-t-il aussi par le câble ?",
+        answer:
+          "Oui, l'iPhone est exposé comme périphérique audio séparé. Pour du contenu publié, un micro dédié reste supérieur.",
+      },
+    ],
+    amazonUrl: "",
+    productName: "Câble USB-C data pour capture vidéo",
+    seo: {
+      title: "iPhone 18 Pro en webcam 4K sur PC — Guide de branchement",
+      description:
+        "Transformez l'iPhone 18 Pro en webcam 4K pour votre PC : câble USB-C, réglages OBS et Discord, limites de chauffe et alternatives.",
+    },
+  },
+  {
+    slug: "accessoires-usb-c-setup",
+    title: "Accessoires USB-C partagés entre l'iPhone 18 Pro et le PC",
+    excerpt:
+      "Docks, câbles 240 W, SSD externes : les accessoires qui servent au téléphone comme au reste du setup gaming.",
+    image:
+      "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=1200&q=80",
+    updatedAt: "2026-08-21",
+    intro:
+      "L'intérêt de l'USB-C généralisé, c'est d'arrêter d'acheter deux fois le même accessoire. Voici ce qui se mutualise réellement entre l'iPhone 18 Pro et un PC de bureau.",
+    sections: [
+      {
+        id: "dock",
+        heading: "Le dock de bureau",
+        paragraphs: [
+          "Un dock alimenté avec sortie DisplayPort et plusieurs ports data permet de brancher l'iPhone comme n'importe quelle source, sans débrancher le clavier ni le casque.",
+        ],
+        showCta: true,
+      },
+      {
+        id: "cables",
+        heading: "Câbles et charge",
+        paragraphs: [
+          "Les câbles USB-C 240 W (EPR) chargent aussi bien un portable gaming que le téléphone. Vérifiez la mention « USB4 » ou « Thunderbolt » si vous comptez transférer de la vidéo.",
+        ],
+        bullets: [
+          "240 W pour la charge rapide du portable",
+          "USB4 / Thunderbolt pour la vidéo et les SSD",
+          "Longueur 1 m maximum pour conserver le débit",
+        ],
+      },
+      {
+        id: "stockage",
+        heading: "Stockage externe",
+        paragraphs: [
+          "Un SSD NVMe externe accepte les rushes ProRes du téléphone et sert de disque de montage sur le PC. C'est l'accessoire le plus rentable de la liste.",
+        ],
+        showCta: true,
+      },
+    ],
+    faq: [
+      {
+        question: "Un dock Thunderbolt PC fonctionne-t-il avec l'iPhone ?",
+        answer:
+          "Oui pour la charge et les données. Les fonctions vidéo dépendent du dock ; privilégiez un modèle alimenté.",
+      },
+      {
+        question: "Faut-il des câbles certifiés MFi ?",
+        answer:
+          "Non, l'USB-C n'impose pas de certification MFi. Cherchez plutôt la certification USB-IF.",
+      },
+    ],
+    amazonUrl: "",
+    productName: "Dock USB-C de bureau",
+    seo: {
+      title: "Accessoires USB-C partagés iPhone 18 Pro et PC gaming",
+      description:
+        "Dock, câbles 240 W et SSD externes : les accessoires USB-C à mutualiser entre l'iPhone 18 Pro et votre setup PC.",
+    },
+  },
+];
+
+/** Retrouve un article par son slug. */
+export function getCollectionArticle(slug?: string) {
+  return COLLECTION_ARTICLES.find((a) => a.slug === slug);
+}
