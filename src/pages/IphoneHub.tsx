@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { ArrowRight, Smartphone } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -8,8 +9,11 @@ import SEOHead, { SITE_URL } from "@/components/SEOHead";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import LaunchCountdown from "@/components/iphone/LaunchCountdown";
 import LaunchBadge from "@/components/iphone/LaunchBadge";
+import ModelBadge from "@/components/iphone/ModelBadge";
 import {
   COLLECTION_ARTICLES,
+  COLLECTION_NAME,
+  MODEL_TABS,
   HUB_SEO,
   IPHONE_BASE_PATH,
   WHY_HERE,
@@ -22,6 +26,13 @@ import {
  * Contenu éditable dans src/config/iphone-collection.ts.
  */
 const IphoneHub = () => {
+  // Onglet de filtrage actif : "all" | "pro" | "pro_max" | "both" (comparatif).
+  const [activeTab, setActiveTab] = useState<(typeof MODEL_TABS)[number]["id"]>("all");
+  const visibleArticles =
+    activeTab === "all"
+      ? COLLECTION_ARTICLES
+      : COLLECTION_ARTICLES.filter((a) => a.model === activeTab);
+
   // Si la collection est désactivée et que l'on veut aussi fermer les pages.
   if (!isCollectionVisible() && HIDE_PAGES_WHEN_DISABLED) return <Navigate to="/" replace />;
 
@@ -47,7 +58,7 @@ const IphoneHub = () => {
         }}
       />
       <Navbar />
-      <Breadcrumbs items={[{ label: "iPhone 18 Pro" }]} />
+      <Breadcrumbs items={[{ label: COLLECTION_NAME }]} />
 
       <main className="pb-16">
         <div className="container mx-auto px-4">
@@ -60,11 +71,12 @@ const IphoneHub = () => {
                   <LaunchBadge />
                 </div>
                 <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
-                  iPhone 18 Pro — <span className="gradient-neon-text">l'accessoire ultime de votre setup</span>
+                  iPhone 18 Pro & Pro Max —{" "}
+                  <span className="gradient-neon-text">l'accessoire ultime de votre setup</span>
                 </h1>
                 <p className="text-muted-foreground max-w-2xl">
                   Webcam 4K pour le PC, capture pour le stream, accessoires USB-C mutualisés :
-                  une collection temporaire centrée sur ce que l'iPhone 18 Pro et Pro Max
+                  une collection temporaire centrée sur ce que l'iPhone 18 Pro et le Pro Max
                   apportent réellement à un bureau gaming.
                 </p>
               </div>
@@ -77,10 +89,30 @@ const IphoneHub = () => {
             <h2 className="text-2xl font-display font-bold mt-14 mb-6">
               Les articles de la collection
             </h2>
+
+            {/* Onglets de tri par modèle (libellés éditables dans la config) */}
+            <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filtrer par modèle">
+              {MODEL_TABS.map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`rounded-full border px-4 py-1.5 text-sm font-semibold transition-colors ${
+                    activeTab === tab.id
+                      ? "border-primary bg-primary/15 text-primary"
+                      : "border-border text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </AnimatedSection>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {COLLECTION_ARTICLES.map((article, i) => (
+            {visibleArticles.map((article, i) => (
               <AnimatedSection key={article.slug} variant="fade-up" delay={0.15 + i * 0.05}>
                 <Link
                   to={`${IPHONE_BASE_PATH}/${article.slug}`}
@@ -95,7 +127,10 @@ const IphoneHub = () => {
                     />
                   </div>
                   <div className="p-5">
-                    <LaunchBadge className="mb-3" />
+                    <div className="mb-3 flex flex-wrap items-center gap-2">
+                      <LaunchBadge />
+                      <ModelBadge model={article.model} />
+                    </div>
                     <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
                       {article.title}
                     </h3>
@@ -108,6 +143,12 @@ const IphoneHub = () => {
               </AnimatedSection>
             ))}
           </div>
+
+          {visibleArticles.length === 0 && (
+            <p className="text-sm text-muted-foreground">
+              Aucun article pour ce modèle pour le moment.
+            </p>
+          )}
 
           {/* Encart « pourquoi ici » */}
           <AnimatedSection variant="fade-up" delay={0.1}>
