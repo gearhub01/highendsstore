@@ -82,22 +82,6 @@ const IphoneHub = () => {
                   une collection temporaire centrée sur ce que l'iPhone 18 Pro et le Pro Max
                   apportent réellement à un bureau gaming.
                 </p>
-
-                {/* CTA principaux : un lien par iPhone */}
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <PriceCTA
-                    model="pro"
-                    url={HUB_IPHONE_CTAS.pro.url}
-                    productName={HUB_IPHONE_CTAS.pro.productName}
-                    label="Voir sur Amazon"
-                  />
-                  <PriceCTA
-                    model="pro_max"
-                    url={HUB_IPHONE_CTAS.pro_max.url}
-                    productName={HUB_IPHONE_CTAS.pro_max.productName}
-                    label="Voir sur Amazon"
-                  />
-                </div>
               </div>
               <LaunchCountdown />
             </div>
