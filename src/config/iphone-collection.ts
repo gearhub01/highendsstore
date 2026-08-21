@@ -221,7 +221,8 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
       },
     ],
     amazon: {
-      pro: { url: "", productName: "Câble USB-C data pour iPhone 18 Pro" },
+      // Remplace l'URL ci-dessous par ton lien affilié Amazon réel.
+      pro: { url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone&tag=gearhub-21", productName: "Câble USB-C data pour iPhone 18 Pro" },
     },
     seo: {
       title: "iPhone 18 Pro en webcam 4K sur PC — Guide de branchement",
@@ -283,7 +284,8 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
       },
     ],
     amazon: {
-      pro_max: { url: "", productName: "Bras articulé pour iPhone 18 Pro Max" },
+      // Remplace l'URL ci-dessous par ton lien affilié Amazon réel.
+      pro_max: { url: "https://www.amazon.fr/s?k=bras+articule+smartphone&tag=gearhub-21", productName: "Bras articulé pour iPhone 18 Pro Max" },
     },
     seo: {
       title: "iPhone 18 Pro Max en webcam 4K — Endurance et cadrage",
@@ -345,8 +347,9 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
       },
     ],
     amazon: {
-      pro: { url: "", productName: "Dock USB-C — configuration iPhone 18 Pro" },
-      pro_max: { url: "", productName: "Dock USB-C — configuration iPhone 18 Pro Max" },
+      // Remplace les URLs ci-dessous par tes liens affiliés Amazon réels.
+      pro: { url: "https://www.amazon.fr/s?k=dock+usb+c+iphone+pc&tag=gearhub-21", productName: "Dock USB-C — configuration iPhone 18 Pro" },
+      pro_max: { url: "https://www.amazon.fr/s?k=dock+usb+c+iphone+pc&tag=gearhub-21", productName: "Dock USB-C — configuration iPhone 18 Pro Max" },
     },
     seo: {
       title: "Accessoires USB-C iPhone 18 Pro et Pro Max pour PC gaming",
