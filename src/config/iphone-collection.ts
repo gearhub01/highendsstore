@@ -316,6 +316,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Bras articulé pour iPhone 18 Pro Max",
           },
         },
+        showCta: true,
       },
     ],
     faq: [
