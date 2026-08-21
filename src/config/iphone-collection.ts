@@ -239,6 +239,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Support ventilé pour iPhone 18 Pro",
           },
         },
+        showCta: true,
       },
     ],
     faq: [
