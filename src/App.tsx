@@ -39,6 +39,9 @@ const App = () => (
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/login" element={<AdminLogin />} />
+          {/* Collection temporaire iPhone 18 Pro */}
+          <Route path="/iphone-18-pro" element={<IphoneHub />} />
+          <Route path="/iphone-18-pro/:slug" element={<IphoneArticle />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
