@@ -113,6 +113,12 @@ export interface ArticleSection {
    * S'ils ne sont pas renseignés, l'article utilise ses liens généraux (`amazon`).
    */
   amazon?: Partial<Record<"pro" | "pro_max", AmazonLink>>;
+  /**
+   * Afficher un CTA Amazon à la fin de cette section.
+   * Par défaut `false` : les CTA ne s'affichent que là où tu les demandes,
+   * pour ne pas surcharger la lecture de l'article.
+   */
+  showCta?: boolean;
 }
 
 export interface CollectionArticle {
@@ -211,6 +217,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Câble USB-C data pour iPhone 18 Pro",
           },
         },
+        showCta: true,
       },
       {
         id: "reglages-obs",
@@ -232,6 +239,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Support ventilé pour iPhone 18 Pro",
           },
         },
+        showCta: true,
       },
     ],
     faq: [
@@ -282,6 +290,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Dock USB-C alimenté pour iPhone 18 Pro Max",
           },
         },
+        showCta: true,
       },
       {
         id: "chauffe",
@@ -307,6 +316,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Bras articulé pour iPhone 18 Pro Max",
           },
         },
+        showCta: true,
       },
     ],
     faq: [
@@ -361,6 +371,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "Dock USB-C alimenté — iPhone 18 Pro Max & PC",
           },
         },
+        showCta: true,
       },
       {
         id: "cables",
@@ -400,6 +411,7 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
             productName: "SSD NVMe externe USB-C — iPhone 18 Pro Max & PC",
           },
         },
+        showCta: true,
       },
     ],
     faq: [
