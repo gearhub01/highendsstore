@@ -12,6 +12,7 @@ import {
   IPHONE_BASE_PATH,
   isCollectionVisible,
 } from "../src/config/iphone-collection"
+import { STATIC_PAGES } from "../src/content/static-pages"
 
 const SITE_URL = "https://www.highends.store"
 
