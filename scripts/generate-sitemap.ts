@@ -125,24 +125,6 @@ function generateSitemap(list: SitemapEntry[]) {
   ].join("\n")
 }
 
-/** Nombre de lignes publiées d'une table de contenu (0 si base injoignable). */
-async function countPublished(table: string): Promise<number> {
-  const url = readEnv("VITE_SUPABASE_URL")
-  const key = readEnv("VITE_SUPABASE_PUBLISHABLE_KEY")
-  if (!url || !key) return 0
-  try {
-    const res = await fetch(`${url}/rest/v1/${table}?select=slug&published=eq.true&limit=1`, {
-      headers: { apikey: key, Authorization: `Bearer ${key}`, Prefer: "count=exact" },
-    })
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const range = res.headers.get("content-range") // ex. "0-0/12"
-    return Number(range?.split("/")[1] ?? 0) || 0
-  } catch (err) {
-    console.warn(`sitemap: comptage ${table} impossible (${(err as Error).message})`)
-    return 0
-  }
-}
-
 const blogEntries = await fetchPublishedArticles()
 
 // /guides et /reviews listent désormais toujours les pages statiques : elles
