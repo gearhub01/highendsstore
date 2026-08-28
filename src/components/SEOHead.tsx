@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
  */
 export const SITE_URL = "https://www.highends.store";
 const SITE_NAME = "GearHub";
+const PRODUCTION_HOSTS = ["www.highends.store", "highends.store"];
 
 interface SEOHeadProps {
   title: string;
@@ -47,9 +48,11 @@ const SEOHead = ({
   const url = toAbsolute(path);
   const imageUrl = toAbsolute(ogImage ?? image);
 
-  // Les URLs de prévisualisation ne doivent pas être indexées.
-  const isPreviewHost =
-    typeof window !== "undefined" && window.location.hostname !== "www.highends.store";
+  // Seuls les hôtes de production sont indexables ; tout autre hôte
+  // (prévisualisation, staging, localhost…) reçoit noindex, nofollow.
+  const isNonProductionHost =
+    typeof window !== "undefined" &&
+    !PRODUCTION_HOSTS.includes(window.location.hostname);
 
   const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
@@ -72,7 +75,7 @@ const SEOHead = ({
       <meta name="twitter:description" content={description} />
       {imageUrl && <meta name="twitter:image" content={imageUrl} />}
 
-      {isPreviewHost ? (
+      {isNonProductionHost ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : noindex ? (
         <meta name="robots" content="noindex, follow" />
