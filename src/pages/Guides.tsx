@@ -139,7 +139,7 @@ const Guides = () => {
         description="Nos guides pour composer un setup PC complet : claviers, souris, casques, moniteurs et accessoires, testés puis classés par usage et par budget."
         type="website"
         canonicalPath="/guides"
-        noindex={!isLoading && allContent.length === 0}
+        
       />
       <Navbar />
       <main className="pt-24 pb-16">
