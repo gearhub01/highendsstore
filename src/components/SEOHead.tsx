@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
  */
 export const SITE_URL = "https://www.highends.store";
 const SITE_NAME = "GearHub";
+const PRODUCTION_HOSTS = ["www.highends.store", "highends.store"];
 
 interface SEOHeadProps {
   title: string;
