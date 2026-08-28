@@ -78,6 +78,8 @@ const SEOHead = ({
       <meta property="og:locale" content="fr_FR" />
       {url && <meta property="og:url" content={url} />}
       {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {imageUrl && <meta property="og:image:width" content="1200" />}
+      {imageUrl && <meta property="og:image:height" content="630" />}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
