@@ -25,6 +25,9 @@ interface SEOHeadProps {
   ogImage?: string;
   /** Alias historique de ogImage. */
   image?: string;
+  /** Dimensions de l'image de partage (utile si ogImage est fournie). */
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   noindex?: boolean;
   /** Ajoute " | GearHub" au titre (défaut true). */
   appendSiteName?: boolean;
@@ -45,6 +48,8 @@ const SEOHead = ({
   type = "website",
   ogImage,
   image,
+  ogImageWidth,
+  ogImageHeight,
   noindex = false,
   appendSiteName = true,
   schema,
@@ -54,7 +59,9 @@ const SEOHead = ({
   // Garde-fou : sans chemin explicite, on retombe sur la route courante.
   const path = canonicalPath ?? canonical ?? pathname ?? "/";
   const url = toAbsolute(path);
-  const imageUrl = toAbsolute(ogImage ?? image ?? DEFAULT_OG_IMAGE);
+  const resolvedImage = ogImage ?? image ?? DEFAULT_OG_IMAGE;
+  const imageUrl = toAbsolute(resolvedImage);
+  const isDefaultImage = resolvedImage === DEFAULT_OG_IMAGE;
 
 
   // Seuls les hôtes de production sont indexables ; tout autre hôte
@@ -78,8 +85,12 @@ const SEOHead = ({
       <meta property="og:locale" content="fr_FR" />
       {url && <meta property="og:url" content={url} />}
       {imageUrl && <meta property="og:image" content={imageUrl} />}
-      {imageUrl && <meta property="og:image:width" content="1200" />}
-      {imageUrl && <meta property="og:image:height" content="630" />}
+      {imageUrl && (isDefaultImage || ogImageWidth) && (
+        <meta property="og:image:width" content={String(ogImageWidth ?? 1200)} />
+      )}
+      {imageUrl && (isDefaultImage || ogImageHeight) && (
+        <meta property="og:image:height" content={String(ogImageHeight ?? 630)} />
+      )}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
