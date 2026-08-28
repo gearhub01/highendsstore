@@ -75,7 +75,7 @@ const SEOHead = ({
       <meta name="twitter:description" content={description} />
       {imageUrl && <meta name="twitter:image" content={imageUrl} />}
 
-      {isPreviewHost ? (
+      {isNonProductionHost ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : noindex ? (
         <meta name="robots" content="noindex, follow" />
