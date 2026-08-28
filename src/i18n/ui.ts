@@ -337,3 +337,41 @@ export const ui = {
 };
 
 export type UiKeys = keyof typeof ui.fr;
+
+/** Libellés techniques des tableaux comparatifs et graphiques radar. */
+const extra: Record<keyof typeof ui, Record<string, string>> = {
+  fr: {
+    spec_switch: "Type de Switch", spec_format: "Format", spec_connectivity: "Connectivité",
+    spec_actuation: "Point d'actuation", spec_polling: "Polling Rate", spec_weight: "Poids",
+    spec_hotswap: "Hot-Swap", spec_lighting: "Éclairage",
+    dim_performance: "Performance", dim_build: "Fabrication", dim_sound: "Son",
+    dim_features: "Fonctionnalités", dim_value: "Rapport Q/P", dim_software: "Logiciel",
+    yes: "Oui", no: "Non", reviewOf: "Test du", viewOnAmazon: "Voir sur Amazon",
+  },
+  en: {
+    spec_switch: "Switch type", spec_format: "Layout", spec_connectivity: "Connectivity",
+    spec_actuation: "Actuation point", spec_polling: "Polling rate", spec_weight: "Weight",
+    spec_hotswap: "Hot-swap", spec_lighting: "Lighting",
+    dim_performance: "Performance", dim_build: "Build quality", dim_sound: "Sound",
+    dim_features: "Features", dim_value: "Value", dim_software: "Software",
+    yes: "Yes", no: "No", reviewOf: "Review of the", viewOnAmazon: "View on Amazon",
+  },
+  es: {
+    spec_switch: "Tipo de switch", spec_format: "Formato", spec_connectivity: "Conectividad",
+    spec_actuation: "Punto de actuación", spec_polling: "Polling rate", spec_weight: "Peso",
+    spec_hotswap: "Hot-swap", spec_lighting: "Iluminación",
+    dim_performance: "Rendimiento", dim_build: "Construcción", dim_sound: "Sonido",
+    dim_features: "Funciones", dim_value: "Relación calidad/precio", dim_software: "Software",
+    yes: "Sí", no: "No", reviewOf: "Análisis del", viewOnAmazon: "Ver en Amazon",
+  },
+  de: {
+    spec_switch: "Switch-Typ", spec_format: "Format", spec_connectivity: "Konnektivität",
+    spec_actuation: "Auslösepunkt", spec_polling: "Polling-Rate", spec_weight: "Gewicht",
+    spec_hotswap: "Hot-Swap", spec_lighting: "Beleuchtung",
+    dim_performance: "Leistung", dim_build: "Verarbeitung", dim_sound: "Klang",
+    dim_features: "Funktionen", dim_value: "Preis-Leistung", dim_software: "Software",
+    yes: "Ja", no: "Nein", reviewOf: "Test der", viewOnAmazon: "Auf Amazon ansehen",
+  },
+};
+
+(Object.keys(ui) as (keyof typeof ui)[]).forEach((lng) => Object.assign(ui[lng], extra[lng]));
