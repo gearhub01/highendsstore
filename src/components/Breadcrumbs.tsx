@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronRight, Home } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export interface BreadcrumbItem {
   label: string;
@@ -10,13 +11,15 @@ interface BreadcrumbsProps {
   items: BreadcrumbItem[];
 }
 
-const Breadcrumbs = ({ items }: BreadcrumbsProps) => (
-  <nav aria-label="Fil d'Ariane" className="container mx-auto px-4 pt-20 pb-2">
+const Breadcrumbs = ({ items }: BreadcrumbsProps) => {
+  const { t } = useTranslation();
+  return (
+  <nav aria-label={t("ui.breadcrumbAria")} className="container mx-auto px-4 pt-20 pb-2">
     <ol className="flex items-center gap-1.5 text-xs text-muted-foreground flex-wrap" itemScope itemType="https://schema.org/BreadcrumbList">
       <li className="flex items-center gap-1.5" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
         <Link to="/" className="hover:text-primary transition-colors" itemProp="item">
           <Home className="h-3.5 w-3.5" />
-          <meta itemProp="name" content="Accueil" />
+          <meta itemProp="name" content={t("ui.home")} />
         </Link>
         <meta itemProp="position" content="1" />
       </li>
@@ -35,6 +38,7 @@ const Breadcrumbs = ({ items }: BreadcrumbsProps) => (
       ))}
     </ol>
   </nav>
-);
+  );
+};
 
 export default Breadcrumbs;

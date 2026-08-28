@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import { useTranslation } from "react-i18next";
 
 export interface SubRating {
   label: string;
@@ -12,6 +13,7 @@ interface ReviewRatingsProps {
 }
 
 const ReviewRatings = ({ overallScore, subRatings }: ReviewRatingsProps) => {
+  const { t } = useTranslation();
   const getColor = (score: number) => {
     if (score >= 9) return "from-primary to-neon-purple";
     if (score >= 7) return "from-primary to-primary";
@@ -24,7 +26,7 @@ const ReviewRatings = ({ overallScore, subRatings }: ReviewRatingsProps) => {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fade-up">
             <h2 className="text-2xl font-display font-bold mb-6">
-              Notes <span className="gradient-neon-text">Détaillées</span>
+              {t("ui.ratings_1")} <span className="gradient-neon-text">{t("ui.ratings_2")}</span>
             </h2>
           </AnimatedSection>
 
@@ -59,7 +61,7 @@ const ReviewRatings = ({ overallScore, subRatings }: ReviewRatingsProps) => {
                   </div>
                 </div>
                 <span className="mt-3 text-sm font-medium text-foreground">
-                  {overallScore >= 9 ? "Excellent" : overallScore >= 8 ? "Très Bien" : overallScore >= 7 ? "Bien" : "Correct"}
+                  {overallScore >= 9 ? t("ui.scoreExcellent") : overallScore >= 8 ? t("ui.scoreVeryGood") : overallScore >= 7 ? t("ui.scoreGood") : t("ui.scoreFair")}
                 </span>
               </div>
             </AnimatedSection>

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 export interface ComparisonProduct {
   name: string;
   price: string;
@@ -13,12 +14,13 @@ interface ComparisonTableProps {
 }
 
 const ComparisonTable = ({ products, specLabels }: ComparisonTableProps) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl font-display font-bold mb-6">
-            Tableau <span className="gradient-neon-text">Comparatif</span>
+            {t("ui.comparisonTable_1")} <span className="gradient-neon-text">{t("ui.comparisonTable_2")}</span>
           </h2>
 
           <div className="overflow-x-auto rounded-lg border border-border">
@@ -26,14 +28,14 @@ const ComparisonTable = ({ products, specLabels }: ComparisonTableProps) => {
               <thead>
                 <tr className="bg-secondary/50">
                   <th className="text-left px-4 py-3 font-display text-xs uppercase tracking-wider text-muted-foreground w-40">
-                    Caractéristique
+                    {t("ui.feature")}
                   </th>
                   {products.map((p) => (
                     <th key={p.name} className="px-4 py-3 text-center min-w-[160px]">
                       <div className="flex flex-col items-center gap-1">
                         {p.isBestPick && (
                           <span className="text-[10px] uppercase tracking-wider text-primary font-semibold">
-                            ⭐ Best Pick
+                            ⭐ {t("ui.bestPick")}
                           </span>
                         )}
                         <span className="font-display text-sm font-bold text-foreground">{p.name}</span>
@@ -45,7 +47,7 @@ const ComparisonTable = ({ products, specLabels }: ComparisonTableProps) => {
               <tbody>
                 {/* Price row */}
                 <tr className="border-t border-border hover:bg-secondary/20 transition-colors">
-                  <td className="px-4 py-3 font-medium text-muted-foreground">Prix</td>
+                  <td className="px-4 py-3 font-medium text-muted-foreground">{t("ui.price")}</td>
                   {products.map((p) => (
                     <td key={p.name} className="px-4 py-3 text-center font-semibold text-primary">
                       {p.price}
@@ -55,7 +57,7 @@ const ComparisonTable = ({ products, specLabels }: ComparisonTableProps) => {
 
                 {/* Rating row */}
                 <tr className="border-t border-border hover:bg-secondary/20 transition-colors">
-                  <td className="px-4 py-3 font-medium text-muted-foreground">Note</td>
+                  <td className="px-4 py-3 font-medium text-muted-foreground">{t("ui.rating")}</td>
                   {products.map((p) => (
                     <td key={p.name} className="px-4 py-3 text-center">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-bold text-sm">

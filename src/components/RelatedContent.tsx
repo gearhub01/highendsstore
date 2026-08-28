@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, BookOpen, GitCompareArrows, Star } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useTranslation } from "react-i18next";
 
 export interface RelatedItem {
   type: "guide" | "review" | "comparison";
@@ -15,13 +16,14 @@ const iconMap = {
   comparison: GitCompareArrows,
 };
 
-const labelMap = {
-  guide: "Guide d'achat",
-  review: "Review",
-  comparison: "Comparaison",
+const labelKeyMap = {
+  guide: "ui.buyingGuide",
+  review: "ui.review",
+  comparison: "ui.comparison",
 };
 
 const RelatedContent = ({ items }: { items: RelatedItem[] }) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
@@ -44,7 +46,7 @@ const RelatedContent = ({ items }: { items: RelatedItem[] }) => {
                     <div className="flex items-center gap-2 mb-2">
                       <Icon className="h-4 w-4 text-primary" />
                       <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                        {labelMap[item.type]}
+                        {t(labelKeyMap[item.type])}
                       </span>
                     </div>
                     <h3 className="font-display font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
@@ -54,7 +56,7 @@ const RelatedContent = ({ items }: { items: RelatedItem[] }) => {
                       {item.description}
                     </p>
                     <span className="inline-flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-2 transition-all">
-                      Lire <ArrowRight className="h-3 w-3" />
+                      {t("ui.read")} <ArrowRight className="h-3 w-3" />
                     </span>
                   </Link>
                 </AnimatedSection>

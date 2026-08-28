@@ -1,4 +1,5 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, Legend, Tooltip } from "recharts";
+import { useTranslation } from "react-i18next";
 
 export interface RadarProduct {
   name: string;
@@ -12,6 +13,7 @@ interface ComparisonRadarProps {
 }
 
 const ComparisonRadar = ({ products, dimensions }: ComparisonRadarProps) => {
+  const { t } = useTranslation();
   const data = dimensions.map((dim) => {
     const entry: Record<string, string | number> = { dimension: dim };
     products.forEach((p) => {
@@ -25,7 +27,7 @@ const ComparisonRadar = ({ products, dimensions }: ComparisonRadarProps) => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-display font-bold mb-6">
-            Comparaison <span className="gradient-neon-text">Radar</span>
+            {t("ui.radar_1")} <span className="gradient-neon-text">{t("ui.radar_2")}</span>
           </h2>
 
           <div className="rounded-lg border border-border bg-card p-6">

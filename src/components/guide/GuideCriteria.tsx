@@ -1,4 +1,5 @@
 import { Lightbulb } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export interface Criterion {
   icon: string;
@@ -12,6 +13,7 @@ interface GuideCriteriaProps {
 }
 
 const GuideCriteria = ({ criteria }: GuideCriteriaProps) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12 bg-card/50">
       <div className="container mx-auto px-4">
@@ -19,11 +21,11 @@ const GuideCriteria = ({ criteria }: GuideCriteriaProps) => {
           <div className="flex items-center gap-3 mb-2">
             <Lightbulb className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-display font-bold">
-              Comment <span className="gradient-neon-text">Choisir</span>
+              {t("ui.howToChoose_1")} <span className="gradient-neon-text">{t("ui.howToChoose_2")}</span>
             </h2>
           </div>
           <p className="text-muted-foreground mb-8">
-            Les critères essentiels à comprendre avant d'acheter
+            {t("ui.criteriaSubtitle")}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -44,7 +46,7 @@ const GuideCriteria = ({ criteria }: GuideCriteriaProps) => {
                   {criterion.description}
                 </p>
                 <div className="flex items-start gap-2 px-3 py-2 rounded bg-primary/5 border border-primary/10">
-                  <span className="text-primary text-xs font-display font-bold tracking-wider uppercase mt-0.5">Tip</span>
+                  <span className="text-primary text-xs font-display font-bold tracking-wider uppercase mt-0.5">{t("ui.tip")}</span>
                   <p className="text-xs text-muted-foreground leading-relaxed">
                     {criterion.tip}
                   </p>

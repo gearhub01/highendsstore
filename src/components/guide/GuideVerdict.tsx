@@ -1,4 +1,5 @@
 import { Trophy, Target, Wallet, Zap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface VerdictPick {
   icon: React.ReactNode;
@@ -13,6 +14,7 @@ interface GuideVerdictProps {
 }
 
 const GuideVerdict = ({ picks, conclusion }: GuideVerdictProps) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12 bg-card/50">
       <div className="container mx-auto px-4">
@@ -20,7 +22,7 @@ const GuideVerdict = ({ picks, conclusion }: GuideVerdictProps) => {
           <div className="flex items-center gap-3 mb-8">
             <Trophy className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-display font-bold">
-              Notre <span className="gradient-neon-text">Verdict Final</span>
+              {t("ui.ourVerdict_1")} <span className="gradient-neon-text">{t("ui.ourVerdict_2")}</span>
             </h2>
           </div>
 
@@ -48,7 +50,7 @@ const GuideVerdict = ({ picks, conclusion }: GuideVerdictProps) => {
 
           <div className="p-6 rounded-lg border border-primary/20 bg-primary/5">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              <span className="font-display text-xs font-bold tracking-wider uppercase text-primary block mb-2">Conclusion</span>
+              <span className="font-display text-xs font-bold tracking-wider uppercase text-primary block mb-2">{t("ui.conclusion")}</span>
               {conclusion}
             </p>
           </div>

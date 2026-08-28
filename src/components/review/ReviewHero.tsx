@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChevronRight, Star, Clock, CalendarDays, User } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useTranslation } from "react-i18next";
 
 interface ReviewHeroProps {
   category: string;
@@ -25,15 +26,16 @@ const ReviewHero = ({
   readTime,
   updatedDate,
 }: ReviewHeroProps) => {
+  const { t } = useTranslation();
   return (
     <section className="pt-24 pb-12 border-b border-border">
       <div className="container mx-auto px-4">
         <AnimatedSection variant="fade-up" duration={0.5}>
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
+            <Link to="/" className="hover:text-primary transition-colors">{t("ui.home")}</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link to="/reviews" className="hover:text-primary transition-colors">Reviews</Link>
+            <Link to="/reviews" className="hover:text-primary transition-colors">{t("ui.reviews")}</Link>
             <ChevronRight className="h-3 w-3" />
             <Link to={categoryHref} className="hover:text-primary transition-colors">{category}</Link>
             <ChevronRight className="h-3 w-3" />
@@ -45,17 +47,17 @@ const ReviewHero = ({
           <AnimatedSection variant="fade-up" delay={0.1}>
             <div className="flex items-center gap-3 mb-4">
               <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary/10 text-primary border border-primary/30">
-                Review
+                {t("ui.review")}
               </span>
               <span className="text-xs px-2 py-0.5 rounded bg-primary/10 text-primary font-medium">
-                Mis à jour : {updatedDate}
+                {t("ui.updatedAt", { date: updatedDate })}
               </span>
             </div>
           </AnimatedSection>
 
           <AnimatedSection variant="fade-up" delay={0.15}>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-tight mb-3">
-              Test du{" "}
+              {t("ui.reviewOf")}{" "}
               <span className="text-primary text-glow-sm">{productName}</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">{tagline}</p>
