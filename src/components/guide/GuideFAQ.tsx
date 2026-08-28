@@ -1,11 +1,12 @@
 import { HelpCircle } from "lucide-react";
-import {
 import { useTranslation } from "react-i18next";
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 
 export interface FAQItem {
   question: string;
