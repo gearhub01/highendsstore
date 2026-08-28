@@ -1,6 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import { ui } from "./ui";
+
 
 const resources = {
   fr: {
@@ -365,20 +367,55 @@ const resources = {
   },
 };
 
+// Libellés d'interface partagés, fusionnés dans chaque langue.
+(Object.keys(ui) as (keyof typeof ui)[]).forEach((lng) => {
+  (resources as Record<string, { translation: Record<string, unknown> }>)[lng].translation.ui = ui[lng];
+});
+
+/** Clés absentes rencontrées à l'exécution (utile en développement). */
+export const missingKeys = new Set<string>();
+
 i18n
+  // Le détecteur reste branché UNIQUEMENT sur localStorage : jamais navigator.
+  // SEO : un robot sans préférence enregistrée doit toujours recevoir le français.
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
+    lng: undefined, // résolu par le détecteur (localStorage) puis par fallbackLng
     fallbackLng: "fr",
     supportedLngs: ["fr", "en", "es", "de"],
+    nonExplicitSupportedLngs: true,
+    load: "languageOnly",
     interpolation: { escapeValue: false },
+    // Une clé absente retombe sur le français, jamais sur la clé brute.
+    parseMissingKeyHandler: (key) => {
+      const fr = key
+        .split(".")
+        .reduce<unknown>((acc, part) => (acc as Record<string, unknown> | undefined)?.[part], resources.fr.translation);
+      return typeof fr === "string" ? fr : "";
+    },
+    saveMissing: import.meta.env.DEV,
+    missingKeyHandler: (_lngs, _ns, key) => {
+      if (!missingKeys.has(key)) {
+        missingKeys.add(key);
+        if (import.meta.env.DEV) console.warn(`[i18n] clé manquante : ${key}`);
+      }
+    },
     detection: {
-      order: ["localStorage", "navigator"],
+      // Pas de "navigator" : la langue par défaut reste le français.
+      order: ["localStorage"],
       caches: ["localStorage"],
       lookupLocalStorage: "gearhub-lang",
     },
   });
+
+// L'attribut lang de <html> suit la langue active (lecteurs d'écran + Google).
+const syncHtmlLang = (lng: string) => {
+  if (typeof document !== "undefined") document.documentElement.lang = lng;
+};
+syncHtmlLang(i18n.resolvedLanguage ?? "fr");
+i18n.on("languageChanged", syncHtmlLang);
 
 export const languages = [
   { code: "fr", label: "Français", flag: "🇫🇷" },
@@ -388,3 +425,4 @@ export const languages = [
 ];
 
 export default i18n;
+
