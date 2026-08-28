@@ -74,6 +74,8 @@ const Blog = () => {
         description="Actualités, guides pratiques et retours d'expérience sur les périphériques gaming et l'optimisation d'un setup PC complet, testés par nos soins."
         type="website"
         canonicalPath="/blog"
+        /* Listing vide → pas d'indexation, mais les liens restent suivis. */
+        noindex={!isLoading && articles.length === 0}
       />
       <Navbar />
       <main className="pt-24 pb-16">
