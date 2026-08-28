@@ -1,5 +1,5 @@
-import { Navigate, useParams } from "react-router-dom";
-import { CalendarClock } from "lucide-react";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { CalendarClock, AlertTriangle, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -84,6 +84,14 @@ const IphoneArticle = () => {
                 </time>
               </div>
 
+              {/* Encadré d'état des données (specs non confirmées) */}
+              {article.notice && (
+                <div className="mt-4 flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-xs text-muted-foreground">
+                  <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <p>{article.notice}</p>
+                </div>
+              )}
+
               <img
                 src={article.image}
                 alt={article.title}
@@ -121,6 +129,68 @@ const IphoneArticle = () => {
                         ))}
                       </ul>
                     )}
+                    {/* Tableau comparatif : vrai <table>, défilement horizontal sur mobile */}
+                    {section.table && (
+                      <figure className="mb-6">
+                        <div className="w-full overflow-x-auto rounded-xl border border-border">
+                          <table className="w-full min-w-[640px] border-collapse text-sm">
+                            <thead>
+                              <tr className="bg-muted/50">
+                                {section.table.headers.map((h, i) => (
+                                  <th
+                                    key={i}
+                                    scope="col"
+                                    className="whitespace-nowrap border-b border-border px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-foreground"
+                                  >
+                                    {h}
+                                  </th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {section.table.rows.map((row, ri) => (
+                                <tr key={ri} className="border-b border-border/60 last:border-0">
+                                  {row.map((cell, ci) => (
+                                    <td
+                                      key={ci}
+                                      className={
+                                        ci === 0
+                                          ? "px-4 py-3 align-top font-medium text-foreground"
+                                          : "px-4 py-3 align-top text-muted-foreground"
+                                      }
+                                    >
+                                      {cell}
+                                    </td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                        {section.table.caption && (
+                          <figcaption className="mt-2 text-xs text-muted-foreground">
+                            {section.table.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    )}
+
+                    {/* Liens internes contextuels */}
+                    {section.links && (
+                      <ul className="mb-4 space-y-1">
+                        {section.links.map((l) => (
+                          <li key={l.href}>
+                            <Link
+                              to={l.href}
+                              className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                            >
+                              {l.label} <ArrowRight className="h-3.5 w-3.5" />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
                     {/* CTA Amazon : affiché uniquement quand showCta est true,
                         pour ne pas surcharger la lecture (un CTA par plusieurs sections). */}
                     {section.showCta &&
@@ -144,6 +214,26 @@ const IphoneArticle = () => {
                 </AnimatedSection>
               );
             })}
+            {/* Maillage interne : contenus liés */}
+            {article.related && article.related.length > 0 && (
+              <AnimatedSection variant="fade-up">
+                <section className="mt-12 rounded-xl border border-border bg-muted/30 p-6">
+                  <h2 className="mb-3 text-xl font-display font-bold">À lire aussi</h2>
+                  <ul className="space-y-2">
+                    {article.related.map((l) => (
+                      <li key={l.href}>
+                        <Link
+                          to={l.href}
+                          className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                        >
+                          {l.label} <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </AnimatedSection>
+            )}
           </div>
         </article>
 

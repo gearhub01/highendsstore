@@ -67,6 +67,41 @@ export const STATIC_PAGES: StaticPage[] = [
       "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800&h=500&fit=crop",
     rating: "9.4",
   },
+  // Comparatifs iPhone : ils vivent dans le cluster /iphone-18-pro/ mais sont
+  // listés ici pour apparaître dans le filtre « Comparaison » de /guides.
+  {
+    slug: "iphone-18-pro-vs-iphone-16-pro",
+    href: "/iphone-18-pro/iphone-18-pro-vs-iphone-16-pro",
+    title: "iPhone 18 Pro vs 16 Pro : le vrai saut",
+    excerpt:
+      "Deux générations d'écart : caméra avant, autonomie et écran comparés entre iPhone 16 Pro, 17 Pro et 18 Pro, du point de vue d'un bureau PC.",
+    category: "comparison",
+    updatedAt: "2026-08-28",
+    image: "https://images.unsplash.com/photo-1592286927505-1def25115558?w=800&h=500&fit=crop",
+    tag: "Comparatif",
+  },
+  {
+    slug: "iphone-18-pro-vs-iphone-17-pro",
+    href: "/iphone-18-pro/iphone-18-pro-vs-iphone-17-pro",
+    title: "iPhone 18 Pro vs 17 Pro : faut-il changer ?",
+    excerpt:
+      "Ce qui change vraiment, ce qui ne bouge pas, et pourquoi le passage d'un 17 Pro à un 18 Pro est probablement injustifié pour un usage PC.",
+    category: "comparison",
+    updatedAt: "2026-08-28",
+    image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&h=500&fit=crop",
+    tag: "Comparatif",
+  },
+  {
+    slug: "iphone-18-pro-vs-pro-max",
+    href: "/iphone-18-pro/iphone-18-pro-vs-pro-max",
+    title: "iPhone 18 Pro ou Pro Max : lequel choisir",
+    excerpt:
+      "Écran, autonomie, stockage et poids comparés, y compris ce que change le poids sur un bras articulé de bureau PC.",
+    category: "comparison",
+    updatedAt: "2026-08-28",
+    image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&h=500&fit=crop",
+    tag: "Comparatif",
+  },
 ];
 
 export const staticPagesByCategory = (category: StaticPageCategory) =>

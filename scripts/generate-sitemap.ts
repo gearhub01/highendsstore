@@ -37,7 +37,10 @@ const entries: SitemapEntry[] = [
   { path: "/reviews", changefreq: "weekly", priority: "0.8" },
   ...STATIC_PAGES.map((p) => ({
     path: p.href,
-    changefreq: "monthly" as const,
+    // Les comparatifs iPhone bougent jusqu'au keynote : hebdomadaire.
+    changefreq: (p.href.startsWith(IPHONE_BASE_PATH) ? "weekly" : "monthly") as
+      | "weekly"
+      | "monthly",
     priority: p.category === "review" ? "0.7" : "0.8",
     lastmod: p.updatedAt,
   })),
@@ -134,7 +137,14 @@ if (blogEntries.length > 0) {
   listingEntries.push({ path: "/blog", changefreq: "weekly", priority: "0.8" })
 }
 
-const all = [...entries, ...listingEntries, ...blogEntries].filter(
+const deduped = new Map<string, SitemapEntry>()
+for (const entry of [...entries, ...listingEntries, ...blogEntries]) {
+  // Une URL peut être déclarée deux fois (ex. un comparatif iPhone présent à la
+  // fois dans STATIC_PAGES et dans COLLECTION_ARTICLES) : on ne l'écrit qu'une fois.
+  if (!deduped.has(entry.path)) deduped.set(entry.path, entry)
+}
+
+const all = [...deduped.values()].filter(
   (e) => !EXCLUDED_PATH_PATTERNS.some((p) => p.test(e.path)),
 )
 

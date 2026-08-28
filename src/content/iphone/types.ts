@@ -33,6 +33,16 @@ export interface AmazonLink {
   productName: string;
 }
 
+/** Tableau comparatif rendu en vrai <table> (défilement horizontal sur mobile). */
+export interface SpecTable {
+  /** Légende affichée sous le tableau (source, date de vérification…). */
+  caption?: string;
+  /** En-têtes de colonnes (la première colonne décrit la caractéristique). */
+  headers: string[];
+  /** Lignes du tableau : autant de cellules que d'en-têtes. */
+  rows: string[][];
+}
+
 export interface ArticleSection {
   /** Ancre utilisée par le sommaire (minuscules, sans accent ni espace). */
   id: string;
@@ -42,6 +52,10 @@ export interface ArticleSection {
   paragraphs: string[];
   /** Liste à puces optionnelle affichée après les paragraphes. */
   bullets?: string[];
+  /** Tableau comparatif optionnel affiché après les paragraphes. */
+  table?: SpecTable;
+  /** Liens internes contextuels affichés en fin de section. */
+  links?: { label: string; href: string }[];
   /**
    * Liens Amazon spécifiques à cette section.
    * S'ils ne sont pas renseignés, l'article utilise ses liens généraux (`amazon`).
@@ -72,6 +86,10 @@ export interface CollectionArticle {
   publishedAt?: string;
   /** Chapeau affiché sous le H1. */
   intro: string;
+  /** Encadré d'avertissement affiché en haut de l'article (état des données). */
+  notice?: string;
+  /** Maillage interne : contenus liés affichés en fin d'article. */
+  related?: { label: string; href: string }[];
   /** Corps de l'article : une entrée = une section H2. */
   sections: ArticleSection[];
   /** Questions/réponses affichées en accordéon. */
