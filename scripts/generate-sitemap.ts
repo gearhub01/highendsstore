@@ -31,9 +31,15 @@ interface SitemapEntry {
 /** Pages de contenu statiques : toujours présentes. */
 const entries: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
-  { path: "/guides/best-gaming-keyboards", changefreq: "monthly", priority: "0.8" },
-  { path: "/comparaison/gaming-keyboards", changefreq: "monthly", priority: "0.8" },
-  { path: "/reviews/wooting-80he", changefreq: "monthly", priority: "0.7" },
+  // Listings : /guides et /reviews listent toujours les pages statiques.
+  { path: "/guides", changefreq: "weekly", priority: "0.9" },
+  { path: "/reviews", changefreq: "weekly", priority: "0.8" },
+  ...STATIC_PAGES.map((p) => ({
+    path: p.href,
+    changefreq: "monthly" as const,
+    priority: p.category === "review" ? "0.7" : "0.8",
+    lastmod: p.updatedAt,
+  })),
   { path: "/mentions-legales", changefreq: "yearly", priority: "0.3" },
 ]
 
