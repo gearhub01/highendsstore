@@ -63,6 +63,15 @@ const SEOHead = ({
   const resolvedImage = ogImage ?? image ?? DEFAULT_OG_IMAGE;
   const imageUrl = toAbsolute(resolvedImage);
   const isDefaultImage = resolvedImage === DEFAULT_OG_IMAGE;
+  // Garde-fou de développement : alerte si le titre complet dépasse 60 caractères.
+  // Aucune troncature automatique — le titre doit être corrigé à la source.
+  useEffect(() => {
+    if (import.meta.env.DEV && fullTitle.length > 60) {
+      console.warn(
+        `[SEOHead] Titre trop long (${fullTitle.length}/60 caractères) sur la route "${pathname}" : "${fullTitle}"`
+      );
+    }
+  }, [fullTitle, pathname]);
 
 
   // Seuls les hôtes de production sont indexables ; tout autre hôte
