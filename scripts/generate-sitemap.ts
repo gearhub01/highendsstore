@@ -37,7 +37,10 @@ const entries: SitemapEntry[] = [
   { path: "/reviews", changefreq: "weekly", priority: "0.8" },
   ...STATIC_PAGES.map((p) => ({
     path: p.href,
-    changefreq: "monthly" as const,
+    // Les comparatifs iPhone bougent jusqu'au keynote : hebdomadaire.
+    changefreq: (p.href.startsWith(IPHONE_BASE_PATH) ? "weekly" : "monthly") as
+      | "weekly"
+      | "monthly",
     priority: p.category === "review" ? "0.7" : "0.8",
     lastmod: p.updatedAt,
   })),
