@@ -145,23 +145,11 @@ async function countPublished(table: string): Promise<number> {
 
 const blogEntries = await fetchPublishedArticles()
 
-// Les pages de listing ne sont soumises que si elles ont réellement du contenu
-// à lister : une page vide indexée est un signal de contenu mince.
-const [guideCount, comparisonCount, reviewCount] = await Promise.all([
-  countPublished("guides"),
-  countPublished("comparisons"),
-  countPublished("reviews"),
-])
-
+// /guides et /reviews listent désormais toujours les pages statiques : elles
+// sont incluses en dur plus haut. Seul /blog reste conditionnel (rien à lister).
 const listingEntries: SitemapEntry[] = []
 if (blogEntries.length > 0) {
   listingEntries.push({ path: "/blog", changefreq: "weekly", priority: "0.8" })
-}
-if (guideCount + comparisonCount + reviewCount > 0) {
-  listingEntries.push({ path: "/guides", changefreq: "weekly", priority: "0.9" })
-}
-if (reviewCount > 0) {
-  listingEntries.push({ path: "/reviews", changefreq: "weekly", priority: "0.8" })
 }
 
 const all = [...entries, ...listingEntries, ...blogEntries].filter(
