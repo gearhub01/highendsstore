@@ -118,9 +118,10 @@ const Comparison = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Comparatif Claviers Gaming 2026 — Wooting vs Razer vs Keychron"
-        description="Comparatif détaillé de 3 claviers gaming : specs côte-à-côte, graphique radar et verdict pour choisir entre Wooting 80HE, Razer Huntsman V3 Pro et Keychron Q1 Max."
-        canonical="/comparaison/gaming-keyboards"
+        title="Comparatif claviers gaming : lequel choisir ?"
+        description="Comparatif détaillé des claviers gaming : switches, latence, format, logiciel et prix. Le tableau complet pour trancher selon votre usage réel."
+        type="article"
+        canonicalPath="/comparaison/gaming-keyboards"
         schema={[
           {
             "@context": "https://schema.org",

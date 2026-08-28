@@ -68,7 +68,7 @@ const BlogArticle = () => {
       <SEOHead
         title={article.title}
         description={article.excerpt ?? `${article.title} — article GearHub sur les périphériques gaming.`}
-        canonical={`/blog/${article.slug}`}
+        canonicalPath={`/blog/${article.slug}`}
         type="article"
         image={articleImage}
         schema={[

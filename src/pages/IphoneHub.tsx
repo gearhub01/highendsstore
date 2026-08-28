@@ -42,9 +42,10 @@ const IphoneHub = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={HUB_SEO.title}
-        description={HUB_SEO.description}
-        canonical={IPHONE_BASE_PATH}
+        title="iPhone 18 Pro et setup PC : le guide complet"
+        description="Tout sur l'iPhone 18 Pro vu depuis un bureau PC : webcam 4K, accessoires USB-C, connexion à Windows, hubs et docks. Guides testés et mis à jour."
+        type="website"
+        canonicalPath={IPHONE_BASE_PATH}
         image={HUB_SEO.ogImage}
         schema={{
           "@context": "https://schema.org",

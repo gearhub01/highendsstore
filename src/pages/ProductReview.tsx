@@ -93,9 +93,9 @@ const ProductReview = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Test du Wooting 80HE — Review Complète 2026"
-        description="Review complète du Wooting 80HE après 3 mois de test. Note 9.6/10 : actuation Hall Effect ajustable, Rapid Trigger, build quality alu CNC. Le meilleur clavier gaming ?"
-        canonical="/reviews/wooting-80he"
+        title="Test Wooting 80HE : le Hall Effect à la loupe"
+        description="Notre test complet du Wooting 80HE : actuation réglable, rapid trigger, latence mesurée, qualité de fabrication et pour qui ce clavier vaut son prix."
+        canonicalPath="/reviews/wooting-80he"
         type="article"
         image="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=1200&h=630&fit=crop"
         schema={{
