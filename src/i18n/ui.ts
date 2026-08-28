@@ -341,6 +341,7 @@ export type UiKeys = keyof typeof ui.fr;
 /** Libellés techniques des tableaux comparatifs et graphiques radar. */
 const extra: Record<keyof typeof ui, Record<string, string>> = {
   fr: {
+    detailedReviews_1: "Reviews", detailedReviews_2: "Détaillées",
     spec_switch: "Type de Switch", spec_format: "Format", spec_connectivity: "Connectivité",
     spec_actuation: "Point d'actuation", spec_polling: "Polling Rate", spec_weight: "Poids",
     spec_hotswap: "Hot-Swap", spec_lighting: "Éclairage",
@@ -349,6 +350,7 @@ const extra: Record<keyof typeof ui, Record<string, string>> = {
     yes: "Oui", no: "Non", reviewOf: "Test du", viewOnAmazon: "Voir sur Amazon",
   },
   en: {
+    detailedReviews_1: "Detailed", detailedReviews_2: "Reviews",
     spec_switch: "Switch type", spec_format: "Layout", spec_connectivity: "Connectivity",
     spec_actuation: "Actuation point", spec_polling: "Polling rate", spec_weight: "Weight",
     spec_hotswap: "Hot-swap", spec_lighting: "Lighting",
@@ -357,6 +359,7 @@ const extra: Record<keyof typeof ui, Record<string, string>> = {
     yes: "Yes", no: "No", reviewOf: "Review of the", viewOnAmazon: "View on Amazon",
   },
   es: {
+    detailedReviews_1: "Reseñas", detailedReviews_2: "Detalladas",
     spec_switch: "Tipo de switch", spec_format: "Formato", spec_connectivity: "Conectividad",
     spec_actuation: "Punto de actuación", spec_polling: "Polling rate", spec_weight: "Peso",
     spec_hotswap: "Hot-swap", spec_lighting: "Iluminación",
@@ -365,6 +368,7 @@ const extra: Record<keyof typeof ui, Record<string, string>> = {
     yes: "Sí", no: "No", reviewOf: "Análisis del", viewOnAmazon: "Ver en Amazon",
   },
   de: {
+    detailedReviews_1: "Ausführliche", detailedReviews_2: "Tests",
     spec_switch: "Switch-Typ", spec_format: "Format", spec_connectivity: "Konnektivität",
     spec_actuation: "Auslösepunkt", spec_polling: "Polling-Rate", spec_weight: "Gewicht",
     spec_hotswap: "Hot-Swap", spec_lighting: "Beleuchtung",
