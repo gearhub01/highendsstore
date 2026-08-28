@@ -118,10 +118,49 @@ function generateSitemap(list: SitemapEntry[]) {
   ].join("\n")
 }
 
+/** Nombre de lignes publiées d'une table de contenu (0 si base injoignable). */
+async function countPublished(table: string): Promise<number> {
+  const url = readEnv("VITE_SUPABASE_URL")
+  const key = readEnv("VITE_SUPABASE_PUBLISHABLE_KEY")
+  if (!url || !key) return 0
+  try {
+    const res = await fetch(`${url}/rest/v1/${table}?select=slug&published=eq.true&limit=1`, {
+      headers: { apikey: key, Authorization: `Bearer ${key}`, Prefer: "count=exact" },
+    })
+    if (!res.ok) throw new Error(`HTTP ${res.status}`)
+    const range = res.headers.get("content-range") // ex. "0-0/12"
+    return Number(range?.split("/")[1] ?? 0) || 0
+  } catch (err) {
+    console.warn(`sitemap: comptage ${table} impossible (${(err as Error).message})`)
+    return 0
+  }
+}
+
 const blogEntries = await fetchPublishedArticles()
-const all = [...entries, ...blogEntries].filter(
+
+// Les pages de listing ne sont soumises que si elles ont réellement du contenu
+// à lister : une page vide indexée est un signal de contenu mince.
+const [guideCount, comparisonCount, reviewCount] = await Promise.all([
+  countPublished("guides"),
+  countPublished("comparisons"),
+  countPublished("reviews"),
+])
+
+const listingEntries: SitemapEntry[] = []
+if (blogEntries.length > 0) {
+  listingEntries.push({ path: "/blog", changefreq: "weekly", priority: "0.8" })
+}
+if (guideCount + comparisonCount + reviewCount > 0) {
+  listingEntries.push({ path: "/guides", changefreq: "weekly", priority: "0.9" })
+}
+if (reviewCount > 0) {
+  listingEntries.push({ path: "/reviews", changefreq: "weekly", priority: "0.8" })
+}
+
+const all = [...entries, ...listingEntries, ...blogEntries].filter(
   (e) => !EXCLUDED_PATH_PATTERNS.some((p) => p.test(e.path)),
 )
+
 
 writeFileSync(resolve("public/sitemap.xml"), generateSitemap(all))
 console.log(`sitemap.xml written (${all.length} entries)`)
