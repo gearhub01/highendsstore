@@ -12,9 +12,11 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Guides d'Achat & Reviews Périphériques Gaming"
-        description="Tests indépendants, comparaisons et guides d'achat des meilleurs claviers, souris, casques et moniteurs gaming. Avis honnêtes par des gamers."
-        canonical="/"
+        title="GearHub — Périphériques gaming et setup PC testés"
+        appendSiteName={false}
+        description="Tests indépendants et guides d'achat : claviers, souris, casques et moniteurs gaming, plus les accessoires qui complètent un setup PC en 2026."
+        type="website"
+        canonicalPath="/"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebSite",

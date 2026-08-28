@@ -6,8 +6,10 @@ import BackToTop from "@/components/BackToTop";
 const MentionsLegales = () => (
   <div className="min-h-screen bg-background">
     <SEOHead
-      title="Mentions Légales & Politique d'Affiliation"
-      description="Mentions légales, politique de confidentialité et transparence sur notre programme d'affiliation gaming."
+      title="Mentions légales"
+      description="Mentions légales du site GearHub : éditeur, directeur de publication, hébergeur, propriété intellectuelle, droits d'auteur et coordonnées de contact."
+      type="website"
+      canonicalPath="/mentions-legales"
     />
     <Navbar />
     <main className="pt-24 pb-16">

@@ -108,8 +108,10 @@ const BuyingGuide = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Meilleurs Claviers Gaming 2026 — Top 5 Testés"
-        description="Comparatif des 5 meilleurs claviers gaming 2026 : Wooting 80HE, Razer Huntsman V3 Pro, Corsair K100... Tests complets, avis et guide d'achat."
+        title="Meilleurs claviers gaming 2026 : comparatif"
+        description="Quel clavier gaming choisir en 2026 ? Mécanique, Hall Effect, format TKL ou 60 % : notre sélection testée, avec les modèles à éviter et pourquoi."
+        type="article"
+        canonicalPath="/guides/best-gaming-keyboards"
         schema={{
           "@context": "https://schema.org",
           "@type": "Article",

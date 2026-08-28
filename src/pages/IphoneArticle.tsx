@@ -41,9 +41,9 @@ const IphoneArticle = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={article.seo.title}
+        title={article.title}
         description={article.seo.description}
-        canonical={`${IPHONE_BASE_PATH}/${article.slug}`}
+        canonicalPath={`${IPHONE_BASE_PATH}/${article.slug}`}
         type="article"
         image={article.seo.ogImage || article.image}
         schema={{

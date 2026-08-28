@@ -70,9 +70,10 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Blog Gaming — Actus, Tests & Tutos Périphériques"
-        description="Actualités, analyses et tutoriels sur les périphériques gaming : claviers, souris, casques et moniteurs. Nos articles mis à jour régulièrement."
-        canonical="/blog"
+        title="Blog : setup PC et périphériques gaming"
+        description="Actualités, guides pratiques et retours d'expérience sur les périphériques gaming et l'optimisation d'un setup PC complet, testés par nos soins."
+        type="website"
+        canonicalPath="/blog"
       />
       <Navbar />
       <main className="pt-24 pb-16">

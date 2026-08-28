@@ -121,9 +121,10 @@ const Guides = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Guides d'Achat, Comparatifs & Reviews Gaming"
-        description="Le hub GearHub : guides d'achat, comparatifs et tests de périphériques gaming pour choisir le bon matériel selon votre budget."
-        canonical="/guides"
+        title="Guides d'achat gaming 2026"
+        description="Nos guides pour composer un setup PC complet : claviers, souris, casques, moniteurs et accessoires, testés puis classés par usage et par budget."
+        type="website"
+        canonicalPath="/guides"
       />
       <Navbar />
       <main className="pt-24 pb-16">

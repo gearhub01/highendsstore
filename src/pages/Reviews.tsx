@@ -13,9 +13,10 @@ const Reviews = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Reviews Gaming — Tests Complets de Périphériques"
-        description="Toutes nos reviews de périphériques gaming avec notes détaillées : claviers, souris, casques et moniteurs testés en conditions réelles."
-        canonical="/reviews"
+        title="Tests de périphériques gaming"
+        description="Tous nos tests de périphériques gaming, menés sur banc réel : claviers, souris, casques et moniteurs, avec mesures et verdict sans complaisance."
+        type="website"
+        canonicalPath="/reviews"
       />
       <Navbar />
       <main className="pt-24 pb-16">
