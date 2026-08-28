@@ -14,6 +14,7 @@ import BackToTop from "@/components/BackToTop";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
 import TableOfContents from "@/components/TableOfContents";
 import { Target, Wallet, Zap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // --- MOCK DATA ---
 
@@ -105,6 +106,7 @@ const faqItems: FAQItem[] = [
 ];
 
 const BuyingGuide = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -140,13 +142,13 @@ const BuyingGuide = () => {
         ]} />
         <div id="hero">
           <GuideHero
-            category="Claviers"
+            category={t("cats.keyboards")}
             categoryHref="/guides"
             title="Meilleurs Claviers Gaming 2026"
             subtitle="Notre sélection des 12 meilleurs claviers mécaniques et Hall Effect testés et comparés. Du budget au premium, trouvez le clavier parfait pour votre style de jeu — guides complets, avis honnêtes et tableaux comparatifs."
             author="Équipe GearHub"
             date="5 Février 2026"
-            readTime="15 min de lecture"
+            readTime={t("featured.readTime", { time: "15 min" })}
             updatedDate="Février 2026"
           />
         </div>
