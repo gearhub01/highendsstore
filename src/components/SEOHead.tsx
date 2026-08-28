@@ -30,6 +30,8 @@ interface SEOHeadProps {
   ogImageWidth?: number;
   ogImageHeight?: number;
   noindex?: boolean;
+  /** Ajoute nofollow au meta robots (défaut false → follow). */
+  nofollow?: boolean;
   /** Ajoute " | GearHub" au titre (défaut true). */
   appendSiteName?: boolean;
   /** JSON-LD optionnel (un objet ou une liste d'objets). */
@@ -52,6 +54,7 @@ const SEOHead = ({
   ogImageWidth,
   ogImageHeight,
   noindex = false,
+  nofollow = false,
   appendSiteName = true,
   schema,
 }: SEOHeadProps) => {
@@ -110,7 +113,7 @@ const SEOHead = ({
       {isNonProductionHost ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : noindex ? (
-        <meta name="robots" content="noindex, follow" />
+        <meta name="robots" content={nofollow ? "noindex, nofollow" : "noindex, follow"} />
       ) : null}
 
       {schemaList.map((entry, i) => (
