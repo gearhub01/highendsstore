@@ -126,9 +126,10 @@ export const WHY_HERE = {
  * ---------------------------------------------------------------------------
  * ARTICLES DE LA COLLECTION
  * ---------------------------------------------------------------------------
- * Duplique un bloc pour ajouter un article : il utilise automatiquement le
- * gabarit (H1, badge modèle, sommaire, sections H2, date, FAQ, CTA Amazon).
+ * Un fichier par article dans `src/content/iphone/`. L'ordre du tableau est
+ * l'ordre d'affichage sur le hub. Voir la marche à suivre en haut du fichier.
  */
+
 export const COLLECTION_ARTICLES: CollectionArticle[] = [
   webcam4kPc,
   webcam4kPcProMax,
