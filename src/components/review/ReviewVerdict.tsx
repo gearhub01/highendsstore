@@ -1,5 +1,6 @@
 import { ExternalLink, Star } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useTranslation } from "react-i18next";
 
 interface ReviewVerdictProps {
   rating: number;
@@ -10,6 +11,7 @@ interface ReviewVerdictProps {
 }
 
 const ReviewVerdict = ({ rating, price, verdict, bestFor, buyLink = "#" }: ReviewVerdictProps) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
@@ -19,7 +21,7 @@ const ReviewVerdict = ({ rating, price, verdict, bestFor, buyLink = "#" }: Revie
               <div className="flex items-center gap-2 mb-4">
                 <Star className="h-5 w-5 text-primary fill-primary" />
                 <h2 className="font-display text-sm uppercase tracking-widest text-primary font-bold">
-                  Verdict Final
+                  {t("ui.verdict_1")} {t("ui.verdict_2")}
                 </h2>
               </div>
 
@@ -28,7 +30,7 @@ const ReviewVerdict = ({ rating, price, verdict, bestFor, buyLink = "#" }: Revie
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4 border-t border-primary/20">
                 <div className="flex items-center gap-6">
                   <div>
-                    <span className="block text-xs text-muted-foreground mb-1">Note</span>
+                    <span className="block text-xs text-muted-foreground mb-1">{t("ui.rating")}</span>
                     <div className="flex items-center gap-1">
                       <Star className="h-4 w-4 text-primary fill-primary" />
                       <span className="font-display text-xl font-bold text-primary">{rating}/10</span>
@@ -36,12 +38,12 @@ const ReviewVerdict = ({ rating, price, verdict, bestFor, buyLink = "#" }: Revie
                   </div>
                   <div className="h-10 w-px bg-border" />
                   <div>
-                    <span className="block text-xs text-muted-foreground mb-1">Prix</span>
+                    <span className="block text-xs text-muted-foreground mb-1">{t("ui.price")}</span>
                     <span className="font-display text-xl font-bold text-foreground">{price}</span>
                   </div>
                   <div className="h-10 w-px bg-border" />
                   <div>
-                    <span className="block text-xs text-muted-foreground mb-1">Idéal pour</span>
+                    <span className="block text-xs text-muted-foreground mb-1">{t("ui.idealFor")}</span>
                     <span className="text-sm font-medium text-foreground">{bestFor}</span>
                   </div>
                 </div>
@@ -52,7 +54,7 @@ const ReviewVerdict = ({ rating, price, verdict, bestFor, buyLink = "#" }: Revie
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 font-display text-xs font-bold tracking-wider uppercase gradient-neon text-primary-foreground rounded-md box-glow hover:scale-105 transition-transform shrink-0"
                 >
-                  Voir sur Amazon
+                  {t("ui.viewOnAmazon")}
                   <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>

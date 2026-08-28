@@ -1,10 +1,12 @@
 import { HelpCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
 
 export interface FAQItem {
   question: string;
@@ -16,6 +18,7 @@ interface GuideFAQProps {
 }
 
 const GuideFAQ = ({ items }: GuideFAQProps) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
@@ -23,7 +26,7 @@ const GuideFAQ = ({ items }: GuideFAQProps) => {
           <div className="flex items-center gap-3 mb-8">
             <HelpCircle className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-display font-bold">
-              Questions <span className="gradient-neon-text">Fréquentes</span>
+              {t("ui.faq_1")} <span className="gradient-neon-text">{t("ui.faq_2")}</span>
             </h2>
           </div>
 

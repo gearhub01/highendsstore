@@ -1,5 +1,6 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { Clock, CalendarDays, User } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface GuideHeroProps {
   category: string;
@@ -13,17 +14,18 @@ interface GuideHeroProps {
 }
 
 const GuideHero = ({ category, categoryHref, title, subtitle, author, date, readTime, updatedDate }: GuideHeroProps) => {
+  const { t } = useTranslation();
   return (
     <section className="pt-24 pb-12 border-b border-border">
       <div className="container mx-auto px-4">
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/" className="text-muted-foreground hover:text-primary">Accueil</BreadcrumbLink>
+              <BreadcrumbLink href="/" className="text-muted-foreground hover:text-primary">{t("ui.home")}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href="/guides" className="text-muted-foreground hover:text-primary">Guides</BreadcrumbLink>
+              <BreadcrumbLink href="/guides" className="text-muted-foreground hover:text-primary">{t("ui.guides")}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
@@ -38,7 +40,7 @@ const GuideHero = ({ category, categoryHref, title, subtitle, author, date, read
 
         <div className="max-w-3xl">
           <span className="inline-block px-3 py-1 text-[10px] font-display font-bold tracking-widest uppercase gradient-neon text-primary-foreground rounded mb-4">
-            Guide d'Achat
+            {t("ui.buyingGuide")}
           </span>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-tight mb-4">
@@ -66,7 +68,7 @@ const GuideHero = ({ category, categoryHref, title, subtitle, author, date, read
             </span>
             <span className="h-4 w-px bg-border" />
             <span className="text-xs px-2 py-0.5 rounded bg-primary/10 text-primary font-medium">
-              Mis à jour : {updatedDate}
+              {t("ui.updatedAt", { date: updatedDate })}
             </span>
           </div>
         </div>

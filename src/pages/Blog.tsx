@@ -6,6 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useArticles, FALLBACK_IMAGE, type DbArticle } from "@/hooks/use-content";
 import SEOHead from "@/components/SEOHead";
+import { useTranslation } from "react-i18next";
 
 const categoryIcon: Record<string, typeof TrendingUp> = {
   Tendance: TrendingUp,
@@ -22,6 +23,7 @@ const categoryColor: Record<string, string> = {
 };
 
 const BlogCard = ({ article, featured = false }: { article: DbArticle; featured?: boolean }) => {
+  const { t, i18n } = useTranslation();
   const Icon = categoryIcon[article.category ?? ""] ?? Newspaper;
   return (
     <Link
@@ -41,7 +43,7 @@ const BlogCard = ({ article, featured = false }: { article: DbArticle; featured?
           <div className="flex items-center gap-2 mb-3">
             <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${categoryColor[article.category ?? ""] ?? "bg-muted text-muted-foreground"}`}>
               <Icon className="h-3 w-3" />
-              {article.tag || article.category || "Article"}
+              {article.tag || article.category || t("ui.article")}
             </span>
           </div>
           <h3 className={`font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors ${featured ? "text-xl md:text-2xl" : "text-base"}`}>
@@ -51,11 +53,11 @@ const BlogCard = ({ article, featured = false }: { article: DbArticle; featured?
         </div>
         <div className="flex items-center justify-between text-xs text-muted-foreground">
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{new Date(article.date).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}</span>
+            <span className="flex items-center gap-1"><Calendar className="h-3 w-3" />{new Date(article.date).toLocaleDateString(i18n.language, { day: "numeric", month: "short", year: "numeric" })}</span>
             {article.read_time && <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{article.read_time}</span>}
           </div>
           <span className="inline-flex items-center gap-1 text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-            Lire <ArrowRight className="h-3 w-3" />
+            {t("ui.read")} <ArrowRight className="h-3 w-3" />
           </span>
         </div>
       </div>
@@ -64,6 +66,7 @@ const BlogCard = ({ article, featured = false }: { article: DbArticle; featured?
 };
 
 const Blog = () => {
+  const { t } = useTranslation();
   const { data: articles = [], isLoading } = useArticles();
   const [featured, ...rest] = articles;
 
@@ -83,10 +86,10 @@ const Blog = () => {
           <AnimatedSection variant="fade-up">
             <div className="max-w-2xl mb-10">
               <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">
-                Le <span className="gradient-neon-text">Blog</span>
+                {t("ui.blogTitle_1")} <span className="gradient-neon-text">{t("ui.blogTitle_2")}</span>
               </h1>
               <p className="text-muted-foreground">
-                Actualités, guides techniques et tutoriels pour les passionnés de périphériques gaming.
+                {t("ui.blogSubtitle")}
               </p>
             </div>
           </AnimatedSection>
@@ -111,7 +114,7 @@ const Blog = () => {
           )}
 
           {!isLoading && articles.length === 0 && (
-            <p className="text-muted-foreground">Aucun article publié pour le moment.</p>
+            <p className="text-muted-foreground">{t("ui.emptyArticles")}</p>
           )}
 
           {featured && (

@@ -1,5 +1,6 @@
 import { Star, ExternalLink, Award } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { useTranslation } from "react-i18next";
 
 export interface SummaryProduct {
   rank: number;
@@ -15,6 +16,7 @@ interface GuideSummaryTableProps {
 }
 
 const GuideSummaryTable = ({ products }: GuideSummaryTableProps) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
@@ -22,7 +24,7 @@ const GuideSummaryTable = ({ products }: GuideSummaryTableProps) => {
           <div className="flex items-center gap-3 mb-6">
             <Award className="h-6 w-6 text-primary" />
             <h2 className="text-2xl font-display font-bold">
-              Top <span className="gradient-neon-text">{products.length}</span> — Résumé Rapide
+              {t("ui.quickSummary_1")} <span className="gradient-neon-text">{products.length}</span> {t("ui.quickSummary_2")}
             </h2>
           </div>
 
@@ -31,10 +33,10 @@ const GuideSummaryTable = ({ products }: GuideSummaryTableProps) => {
               <TableHeader>
                 <TableRow className="border-border hover:bg-transparent">
                   <TableHead className="font-display text-xs tracking-wider uppercase text-primary w-12">#</TableHead>
-                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary">Produit</TableHead>
-                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary hidden sm:table-cell">Idéal Pour</TableHead>
-                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary text-center">Note</TableHead>
-                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary text-right">Prix</TableHead>
+                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary">{t("ui.product")}</TableHead>
+                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary hidden sm:table-cell">{t("ui.idealFor")}</TableHead>
+                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary text-center">{t("ui.rating")}</TableHead>
+                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary text-right">{t("ui.price")}</TableHead>
                   <TableHead className="font-display text-xs tracking-wider uppercase text-primary w-10"></TableHead>
                 </TableRow>
               </TableHeader>

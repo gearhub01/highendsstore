@@ -1,11 +1,13 @@
 import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useTranslation } from "react-i18next";
 
 interface ReviewGalleryProps {
   images: { src: string; alt: string }[];
 }
 
 const ReviewGallery = ({ images }: ReviewGalleryProps) => {
+  const { t } = useTranslation();
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   if (images.length === 0) return null;
@@ -16,7 +18,7 @@ const ReviewGallery = ({ images }: ReviewGalleryProps) => {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fade-up">
             <h2 className="text-2xl font-display font-bold mb-6">
-              Galerie <span className="gradient-neon-text">Photos</span>
+              {t("ui.gallery_1")} <span className="gradient-neon-text">{t("ui.gallery_2")}</span>
             </h2>
           </AnimatedSection>
 

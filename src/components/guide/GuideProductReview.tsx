@@ -1,5 +1,6 @@
 import { Star, ThumbsUp, ThumbsDown, ExternalLink } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useTranslation } from "react-i18next";
 
 export interface ProductReview {
   rank: number;
@@ -33,6 +34,7 @@ const RatingBar = ({ label, value }: { label: string; value: number }) => (
 );
 
 const GuideProductReview = ({ product }: GuideProductReviewProps) => {
+  const { t } = useTranslation();
   return (
     <article className="rounded-lg border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors">
       {/* Header */}
@@ -78,7 +80,7 @@ const GuideProductReview = ({ product }: GuideProductReviewProps) => {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <ThumbsUp className="h-4 w-4 text-primary" />
-            <span className="font-display text-xs font-bold tracking-wider uppercase text-primary">Points Forts</span>
+            <span className="font-display text-xs font-bold tracking-wider uppercase text-primary">{t("ui.pros")}</span>
           </div>
           <ul className="space-y-2">
             {product.pros.map((pro, i) => (
@@ -92,7 +94,7 @@ const GuideProductReview = ({ product }: GuideProductReviewProps) => {
         <div>
           <div className="flex items-center gap-2 mb-3">
             <ThumbsDown className="h-4 w-4 text-destructive" />
-            <span className="font-display text-xs font-bold tracking-wider uppercase text-destructive">Points Faibles</span>
+            <span className="font-display text-xs font-bold tracking-wider uppercase text-destructive">{t("ui.cons")}</span>
           </div>
           <ul className="space-y-2">
             {product.cons.map((con, i) => (
@@ -110,10 +112,10 @@ const GuideProductReview = ({ product }: GuideProductReviewProps) => {
       {/* Verdict + CTA */}
       <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex-1">
-          <span className="font-display text-xs font-bold tracking-wider uppercase text-primary mb-1 block">Verdict</span>
+          <span className="font-display text-xs font-bold tracking-wider uppercase text-primary mb-1 block">{t("ui.verdict")}</span>
           <p className="text-sm text-muted-foreground leading-relaxed">{product.verdict}</p>
           <span className="text-xs text-muted-foreground mt-1 block">
-            Idéal pour : <span className="text-foreground font-medium">{product.bestFor}</span>
+            {t("ui.idealFor")} : <span className="text-foreground font-medium">{product.bestFor}</span>
           </span>
         </div>
         <div className="flex items-center gap-3 shrink-0">

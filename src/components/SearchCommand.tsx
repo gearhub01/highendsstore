@@ -10,6 +10,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import { blogArticles } from "@/data/blog-articles";
+import { useTranslation } from "react-i18next";
 
 const searchableContent = [
   // Guides
@@ -38,6 +39,7 @@ interface SearchCommandProps {
 }
 
 const SearchCommand = ({ open, onOpenChange }: SearchCommandProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -63,9 +65,9 @@ const SearchCommand = ({ open, onOpenChange }: SearchCommandProps) => {
 
   return (
     <CommandDialog open={open} onOpenChange={onOpenChange}>
-      <CommandInput placeholder="Rechercher un guide, review ou article..." />
+      <CommandInput placeholder={t("ui.searchPlaceholder")} />
       <CommandList>
-        <CommandEmpty>Aucun résultat trouvé.</CommandEmpty>
+        <CommandEmpty>{t("ui.noResults")}</CommandEmpty>
         {Object.entries(grouped).map(([type, items]) => {
           const GroupIcon = iconMap[type] || BookOpen;
           return (

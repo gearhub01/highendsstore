@@ -7,8 +7,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useReviews, FALLBACK_IMAGE } from "@/hooks/use-content";
 import SEOHead from "@/components/SEOHead";
 import { staticPagesByCategory } from "@/content/static-pages";
+import { useTranslation } from "react-i18next";
 
 const Reviews = () => {
+  const { t } = useTranslation();
   const { data: dbReviews = [], isLoading } = useReviews();
 
   // Contenus statiques d'abord, puis les tests stockés en base.
@@ -46,10 +48,10 @@ const Reviews = () => {
           <AnimatedSection variant="fade-up">
             <div className="max-w-2xl mb-10">
               <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">
-                Nos <span className="gradient-neon-text">Reviews</span>
+                {t("ui.reviewsTitle_1")} <span className="gradient-neon-text">{t("ui.reviewsTitle_2")}</span>
               </h1>
               <p className="text-muted-foreground">
-                Tests complets et notes détaillées des meilleurs périphériques gaming.
+                {t("ui.reviewsSubtitle")}
               </p>
             </div>
           </AnimatedSection>
@@ -61,7 +63,7 @@ const Reviews = () => {
               ))}
             </div>
           ) : reviews.length === 0 ? (
-            <p className="text-muted-foreground">Aucune review publiée pour le moment.</p>
+            <p className="text-muted-foreground">{t("ui.emptyReviews")}</p>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {reviews.map((review, i) => (
@@ -81,7 +83,7 @@ const Reviews = () => {
                     <div className="p-5">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500">
-                          <Star className="h-3 w-3" /> Review
+                          <Star className="h-3 w-3" /> {t("ui.review")}
                         </span>
                         {review.rating && (
                           <span className="flex items-center gap-0.5 text-xs font-bold text-primary">
@@ -95,7 +97,7 @@ const Reviews = () => {
                       </h2>
                       <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{review.description}</p>
                       <span className="inline-flex items-center gap-1 text-sm text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                        Lire le test <ArrowRight className="h-3.5 w-3.5" />
+                        {t("ui.readReview")} <ArrowRight className="h-3.5 w-3.5" />
                       </span>
                     </div>
                   </Link>

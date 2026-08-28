@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { List } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export interface TocItem {
   id: string;
@@ -12,6 +13,7 @@ interface TableOfContentsProps {
 }
 
 const TableOfContents = ({ items }: TableOfContentsProps) => {
+  const { t } = useTranslation();
   const [activeId, setActiveId] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -78,7 +80,7 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
               exit={{ opacity: 0, y: 10, scale: 0.95 }}
               className="absolute bottom-14 right-0 w-64 rounded-lg border border-border bg-card shadow-xl p-3 mb-2"
             >
-              <p className="text-xs font-display uppercase tracking-widest text-primary mb-2">Sommaire</p>
+              <p className="text-xs font-display uppercase tracking-widest text-primary mb-2">{t("ui.toc")}</p>
               <ul className="space-y-0.5 max-h-60 overflow-y-auto">
                 {items.map(({ id, label }) => (
                   <li key={id}>
@@ -101,7 +103,7 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="p-3 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-shadow"
-          aria-label="Table des matières"
+          aria-label={t("ui.tocAria")}
         >
           <List className="h-5 w-5" />
         </button>

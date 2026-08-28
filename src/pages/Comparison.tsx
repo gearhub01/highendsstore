@@ -7,6 +7,7 @@ import ComparisonRadar, { type RadarProduct } from "@/components/comparison/Comp
 import ComparisonVerdict from "@/components/comparison/ComparisonVerdict";
 import RelatedContent from "@/components/RelatedContent";
 import SEOHead, { SITE_URL } from "@/components/SEOHead";
+import { useTranslation } from "react-i18next";
 
 // --- MOCK DATA ---
 
@@ -59,36 +60,31 @@ const products: ComparisonProduct[] = [
   },
 ];
 
-const specLabels = [
-  { key: "switch", label: "Type de Switch" },
-  { key: "format", label: "Format" },
-  { key: "connexion", label: "Connectivité" },
-  { key: "actuation", label: "Actuation Point" },
-  { key: "polling", label: "Polling Rate" },
-  { key: "weight", label: "Poids" },
-  { key: "hotswap", label: "Hot-Swap" },
-  { key: "rgb", label: "Éclairage" },
+const specKeys = [
+  { key: "switch", labelKey: "ui.spec_switch" },
+  { key: "format", labelKey: "ui.spec_format" },
+  { key: "connexion", labelKey: "ui.spec_connectivity" },
+  { key: "actuation", labelKey: "ui.spec_actuation" },
+  { key: "polling", labelKey: "ui.spec_polling" },
+  { key: "weight", labelKey: "ui.spec_weight" },
+  { key: "hotswap", labelKey: "ui.spec_hotswap" },
+  { key: "rgb", labelKey: "ui.spec_lighting" },
 ];
 
-const radarProducts: RadarProduct[] = [
-  {
-    name: "Wooting 80HE",
-    color: "hsl(180, 100%, 50%)",
-    scores: { Performance: 9.8, "Build Quality": 9.2, Son: 9.0, Fonctionnalités: 8.5, "Rapport Q/P": 8.8, Logiciel: 8.0 },
-  },
-  {
-    name: "Razer Huntsman V3 Pro",
-    color: "hsl(280, 80%, 55%)",
-    scores: { Performance: 9.5, "Build Quality": 9.5, Son: 8.5, Fonctionnalités: 9.3, "Rapport Q/P": 7.5, Logiciel: 9.0 },
-  },
-  {
-    name: "Keychron Q1 Max",
-    color: "hsl(45, 90%, 55%)",
-    scores: { Performance: 8.2, "Build Quality": 9.3, Son: 9.5, Fonctionnalités: 8.8, "Rapport Q/P": 9.5, Logiciel: 7.5 },
-  },
+const radarDimensionKeys = [
+  { id: "performance", labelKey: "ui.dim_performance" },
+  { id: "build", labelKey: "ui.dim_build" },
+  { id: "sound", labelKey: "ui.dim_sound" },
+  { id: "features", labelKey: "ui.dim_features" },
+  { id: "value", labelKey: "ui.dim_value" },
+  { id: "software", labelKey: "ui.dim_software" },
 ];
 
-const radarDimensions = ["Performance", "Build Quality", "Son", "Fonctionnalités", "Rapport Q/P", "Logiciel"];
+const radarScores: { name: string; color: string; scores: Record<string, number> }[] = [
+  { name: "Wooting 80HE", color: "hsl(180, 100%, 50%)", scores: { performance: 9.8, build: 9.2, sound: 9.0, features: 8.5, value: 8.8, software: 8.0 } },
+  { name: "Razer Huntsman V3 Pro", color: "hsl(280, 80%, 55%)", scores: { performance: 9.5, build: 9.5, sound: 8.5, features: 9.3, value: 7.5, software: 9.0 } },
+  { name: "Keychron Q1 Max", color: "hsl(45, 90%, 55%)", scores: { performance: 8.2, build: 9.3, sound: 9.5, features: 8.8, value: 9.5, software: 7.5 } },
+];
 
 const verdicts = [
   {
@@ -115,6 +111,16 @@ const verdicts = [
 ];
 
 const Comparison = () => {
+  const { t } = useTranslation();
+
+  const specLabels = specKeys.map((s) => ({ key: s.key, label: t(s.labelKey) }));
+  const radarDimensions = radarDimensionKeys.map((d) => t(d.labelKey));
+  const radarProducts: RadarProduct[] = radarScores.map((p) => ({
+    name: p.name,
+    color: p.color,
+    scores: Object.fromEntries(radarDimensionKeys.map((d) => [t(d.labelKey), p.scores[d.id]])),
+  }));
+
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
@@ -156,7 +162,7 @@ const Comparison = () => {
       <Navbar />
       <main>
         <ComparisonHero
-          category="Claviers"
+          category={t("cats.keyboards")}
           categoryHref="/guides"
           title="Comparaison Claviers Gaming 2026"
           subtitle="Wooting 80HE vs Razer Huntsman V3 Pro vs Keychron Q1 Max — tableau côte-à-côte, graphique radar et verdict détaillé pour choisir le meilleur clavier gaming."

@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import { useTranslation } from "react-i18next";
 
 export interface SpecGroup {
   groupName: string;
@@ -10,13 +11,14 @@ interface ReviewSpecsProps {
 }
 
 const ReviewSpecs = ({ specGroups }: ReviewSpecsProps) => {
+  const { t } = useTranslation();
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fade-up">
             <h2 className="text-2xl font-display font-bold mb-6">
-              Fiche <span className="gradient-neon-text">Technique</span>
+              {t("ui.techSheet_1")} <span className="gradient-neon-text">{t("ui.techSheet_2")}</span>
             </h2>
           </AnimatedSection>
 
