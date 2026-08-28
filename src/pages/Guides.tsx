@@ -7,6 +7,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGuides, useComparisons, useReviews, FALLBACK_IMAGE } from "@/hooks/use-content";
 import SEOHead from "@/components/SEOHead";
+import { STATIC_PAGES } from "@/content/static-pages";
 
 type ContentItem = {
   id: string;
