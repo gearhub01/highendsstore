@@ -28,16 +28,15 @@ interface SitemapEntry {
   lastmod?: string
 }
 
+/** Pages de contenu statiques : toujours présentes. */
 const entries: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
-  { path: "/guides", changefreq: "weekly", priority: "0.9" },
   { path: "/guides/best-gaming-keyboards", changefreq: "monthly", priority: "0.8" },
   { path: "/comparaison/gaming-keyboards", changefreq: "monthly", priority: "0.8" },
-  { path: "/reviews", changefreq: "weekly", priority: "0.8" },
   { path: "/reviews/wooting-80he", changefreq: "monthly", priority: "0.7" },
-  { path: "/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/mentions-legales", changefreq: "yearly", priority: "0.3" },
 ]
+
 
 // Collection temporaire : masquée d'un coup via le flag de config.
 if (isCollectionVisible()) {
