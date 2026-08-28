@@ -66,7 +66,6 @@ export const article: CollectionArticle = {
           ["Prix", "—", "—", "Hausse de 250 à 300 $ évoquée par l'analyste Jeff Pu (GF Securities) — " + RUMOR],
         ],
       },
-      caption: undefined,
     },
     {
       id: "16-pro-vers-17-pro",
