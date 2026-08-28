@@ -164,7 +164,7 @@ const BuyingGuide = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl font-display font-bold mb-8">
-                Reviews <span className="gradient-neon-text">Détaillées</span>
+                {t("ui.detailedReviews_1")} <span className="gradient-neon-text">{t("ui.detailedReviews_2")}</span>
               </h2>
               <div className="space-y-6">
                 {productReviews.map((product) => (
