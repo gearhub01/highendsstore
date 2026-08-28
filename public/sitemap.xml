@@ -1,63 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://highendsstore.lovable.app/</loc>
+    <loc>https://www.highends.store/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/guides</loc>
+    <loc>https://www.highends.store/guides</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/guides/best-gaming-keyboards</loc>
+    <loc>https://www.highends.store/guides/best-gaming-keyboards</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/comparaison/gaming-keyboards</loc>
+    <loc>https://www.highends.store/comparaison/gaming-keyboards</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/reviews</loc>
+    <loc>https://www.highends.store/reviews</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/reviews/wooting-80he</loc>
+    <loc>https://www.highends.store/reviews/wooting-80he</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/blog</loc>
+    <loc>https://www.highends.store/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/mentions-legales</loc>
+    <loc>https://www.highends.store/mentions-legales</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/iphone-18-pro</loc>
+    <loc>https://www.highends.store/iphone-18-pro</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/iphone-18-pro/webcam-4k-pc</loc>
+    <loc>https://www.highends.store/iphone-18-pro/webcam-4k-pc</loc>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/iphone-18-pro/webcam-4k-pc-pro-max</loc>
+    <loc>https://www.highends.store/iphone-18-pro/webcam-4k-pc-pro-max</loc>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://highendsstore.lovable.app/iphone-18-pro/accessoires-usb-c-setup</loc>
+    <loc>https://www.highends.store/iphone-18-pro/accessoires-usb-c-setup</loc>
+    <lastmod>2026-08-21</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>
