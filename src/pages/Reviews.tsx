@@ -17,6 +17,7 @@ const Reviews = () => {
         description="Tous nos tests de périphériques gaming, menés sur banc réel : claviers, souris, casques et moniteurs, avec mesures et verdict sans complaisance."
         type="website"
         canonicalPath="/reviews"
+        noindex={!isLoading && reviews.length === 0}
       />
       <Navbar />
       <main className="pt-24 pb-16">
