@@ -30,7 +30,7 @@ const RelatedContent = ({ items }: { items: RelatedItem[] }) => {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection variant="fade-up">
             <h2 className="text-2xl font-display font-bold mb-6">
-              Contenu <span className="gradient-neon-text">Associé</span>
+              {t("ui.related_1")} <span className="gradient-neon-text">{t("ui.related_2")}</span>
             </h2>
           </AnimatedSection>
 
