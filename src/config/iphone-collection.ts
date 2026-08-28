@@ -23,10 +23,10 @@ import type {
   CollectionArticle,
   CollectionSeo,
   IphoneModel,
-} from "@/content/iphone/types";
-import { article as webcam4kPc } from "@/content/iphone/webcam-4k-pc";
-import { article as webcam4kPcProMax } from "@/content/iphone/webcam-4k-pc-pro-max";
-import { article as accessoiresUsbCSetup } from "@/content/iphone/accessoires-usb-c-setup";
+} from "../content/iphone/types";
+import { article as webcam4kPc } from "../content/iphone/webcam-4k-pc";
+import { article as webcam4kPcProMax } from "../content/iphone/webcam-4k-pc-pro-max";
+import { article as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
 
 // Types re-exportés : les composants continuent de les importer depuis ici.
 export type {
