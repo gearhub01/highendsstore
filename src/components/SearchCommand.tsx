@@ -39,6 +39,7 @@ interface SearchCommandProps {
 }
 
 const SearchCommand = ({ open, onOpenChange }: SearchCommandProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   useEffect(() => {

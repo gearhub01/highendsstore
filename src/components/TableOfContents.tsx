@@ -13,6 +13,7 @@ interface TableOfContentsProps {
 }
 
 const TableOfContents = ({ items }: TableOfContentsProps) => {
+  const { t } = useTranslation();
   const [activeId, setActiveId] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
 
