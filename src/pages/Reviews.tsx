@@ -6,9 +6,30 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useReviews, FALLBACK_IMAGE } from "@/hooks/use-content";
 import SEOHead from "@/components/SEOHead";
+import { staticPagesByCategory } from "@/content/static-pages";
 
 const Reviews = () => {
-  const { data: reviews = [], isLoading } = useReviews();
+  const { data: dbReviews = [], isLoading } = useReviews();
+
+  // Contenus statiques d'abord, puis les tests stockés en base.
+  const reviews = [
+    ...staticPagesByCategory("review").map((p) => ({
+      id: `static-${p.slug}`,
+      slug: p.slug,
+      title: p.title,
+      description: p.excerpt,
+      image: p.image ?? null,
+      rating: p.rating ?? null,
+    })),
+    ...dbReviews.map((r) => ({
+      id: r.id,
+      slug: r.slug,
+      title: r.title,
+      description: r.description,
+      image: r.image,
+      rating: r.rating,
+    })),
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -17,7 +38,7 @@ const Reviews = () => {
         description="Tous nos tests de périphériques gaming, menés sur banc réel : claviers, souris, casques et moniteurs, avec mesures et verdict sans complaisance."
         type="website"
         canonicalPath="/reviews"
-        noindex={!isLoading && reviews.length === 0}
+        
       />
       <Navbar />
       <main className="pt-24 pb-16">

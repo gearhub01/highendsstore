@@ -7,6 +7,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGuides, useComparisons, useReviews, FALLBACK_IMAGE } from "@/hooks/use-content";
 import SEOHead from "@/components/SEOHead";
+import { STATIC_PAGES } from "@/content/static-pages";
 
 type ContentItem = {
   id: string;
@@ -85,7 +86,20 @@ const Guides = () => {
 
   const isLoading = lg || lc || lr;
 
+  // Contenus statiques (pages écrites en dur) affichés en premier, puis la base.
+  const staticContent: ContentItem[] = STATIC_PAGES.map((p) => ({
+    id: `static-${p.category}-${p.slug}`,
+    type: p.category === "comparison" ? ("comparison" as const) : (p.category as "guide" | "review"),
+    title: p.title,
+    description: p.excerpt,
+    href: p.href,
+    image: p.image || FALLBACK_IMAGE,
+    tag: p.tag,
+    rating: p.rating,
+  }));
+
   const allContent: ContentItem[] = [
+    ...staticContent,
     ...guides.map((g) => ({
       id: g.id,
       type: "guide" as const,
@@ -125,7 +139,7 @@ const Guides = () => {
         description="Nos guides pour composer un setup PC complet : claviers, souris, casques, moniteurs et accessoires, testés puis classés par usage et par budget."
         type="website"
         canonicalPath="/guides"
-        noindex={!isLoading && allContent.length === 0}
+        
       />
       <Navbar />
       <main className="pt-24 pb-16">
