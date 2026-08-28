@@ -1,18 +1,45 @@
 /**
  * ============================================================================
- * COLLECTION TEMPORAIRE — iPhone 18 Pro & Pro Max
+ * COLLECTION TEMPORAIRE — iPhone 18 Pro & Pro Max (INDEX)
  * ============================================================================
- * Tout le contenu éditorial de la collection se trouve DANS CE FICHIER.
- * Tu peux modifier les textes, les articles, les FAQ, les liens Amazon et
- * les métadonnées SEO sans toucher au reste du code.
+ * Ce fichier ne contient plus le texte des articles : il sert d'index.
+ * Chaque article vit dans son propre fichier `src/content/iphone/<slug>.ts`.
+ *
+ * AJOUTER UN ARTICLE — 3 étapes :
+ *  1. Duplique `src/content/iphone/_TEMPLATE.ts` en `src/content/iphone/<slug>.ts`
+ *     (nom de fichier = slug exact : minuscules, tirets, sans accent).
+ *  2. Remplis les champs en respectant les contraintes commentées du gabarit.
+ *  3. Ajoute l'import en haut de ce fichier et l'entrée dans `COLLECTION_ARTICLES`
+ *     ci-dessous — l'URL, le hub et le sitemap suivent automatiquement.
  *
  * RÈGLE AMAZON ASSOCIATES : ne JAMAIS écrire de prix ni de disponibilité
  * en dur. Les boutons affichent uniquement "Voir sur Amazon".
  * ============================================================================
  */
 
+import type {
+  AmazonLink,
+  ArticleSection,
+  CollectionArticle,
+  CollectionSeo,
+  IphoneModel,
+} from "@/content/iphone/types";
+import { article as webcam4kPc } from "@/content/iphone/webcam-4k-pc";
+import { article as webcam4kPcProMax } from "@/content/iphone/webcam-4k-pc-pro-max";
+import { article as accessoiresUsbCSetup } from "@/content/iphone/accessoires-usb-c-setup";
+
+// Types re-exportés : les composants continuent de les importer depuis ici.
+export type {
+  AmazonLink,
+  ArticleSection,
+  CollectionArticle,
+  CollectionSeo,
+  IphoneModel,
+};
+
 /** Chemin de base de la collection (utilisé pour les URLs et le sitemap). */
 export const IPHONE_BASE_PATH = "/iphone-18-pro";
+
 
 /** Nom affiché partout (menu, H1, breadcrumb). */
 export const COLLECTION_NAME = "iPhone 18 Pro & Pro Max";
