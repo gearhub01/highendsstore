@@ -27,6 +27,9 @@ import type {
 import { article as webcam4kPc } from "../content/iphone/webcam-4k-pc";
 import { article as webcam4kPcProMax } from "../content/iphone/webcam-4k-pc-pro-max";
 import { article as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
+import { article as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
+import { article as vs17Pro } from "../content/iphone/iphone-18-pro-vs-iphone-17-pro";
+import { article as vsProMax } from "../content/iphone/iphone-18-pro-vs-pro-max";
 
 // Types re-exportés : les composants continuent de les importer depuis ici.
 export type {
@@ -134,6 +137,10 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
   webcam4kPc,
   webcam4kPcProMax,
   accessoiresUsbCSetup,
+  // Comparatifs (affichés aussi dans le filtre « Comparaison » de /guides)
+  vs16Pro,
+  vs17Pro,
+  vsProMax,
 ];
 
 /** Retrouve un article par son slug. */

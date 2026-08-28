@@ -134,7 +134,14 @@ if (blogEntries.length > 0) {
   listingEntries.push({ path: "/blog", changefreq: "weekly", priority: "0.8" })
 }
 
-const all = [...entries, ...listingEntries, ...blogEntries].filter(
+const deduped = new Map<string, SitemapEntry>()
+for (const entry of [...entries, ...listingEntries, ...blogEntries]) {
+  // Une URL peut être déclarée deux fois (ex. un comparatif iPhone présent à la
+  // fois dans STATIC_PAGES et dans COLLECTION_ARTICLES) : on ne l'écrit qu'une fois.
+  if (!deduped.has(entry.path)) deduped.set(entry.path, entry)
+}
+
+const all = [...deduped.values()].filter(
   (e) => !EXCLUDED_PATH_PATTERNS.some((p) => p.test(e.path)),
 )
 
