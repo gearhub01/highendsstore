@@ -12,6 +12,7 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { Plus, Pencil, Trash2, LogOut, Shield, Loader2 } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 import type { Tables, TablesInsert } from "@/integrations/supabase/types";
 
 type ContentTable = "guides" | "articles" | "comparisons" | "reviews" | "categories";
@@ -135,6 +136,12 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="Administration"
+        description="Espace d'administration GearHub."
+        canonicalPath="/admin"
+        noindex
+      />
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
