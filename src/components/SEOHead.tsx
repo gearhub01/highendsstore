@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 /**
  * URL canonique de production — TOUJOURS en dur.
@@ -9,6 +10,8 @@ import { Helmet } from "react-helmet-async";
 export const SITE_URL = "https://www.highends.store";
 const SITE_NAME = "GearHub";
 const PRODUCTION_HOSTS = ["www.highends.store", "highends.store"];
+/** Image de partage par défaut (1200 × 630, public/og-default.jpg). */
+export const DEFAULT_OG_IMAGE = "/og-default.jpg";
 
 interface SEOHeadProps {
   title: string;
@@ -23,6 +26,8 @@ interface SEOHeadProps {
   /** Alias historique de ogImage. */
   image?: string;
   noindex?: boolean;
+  /** Ajoute " | GearHub" au titre (défaut true). */
+  appendSiteName?: boolean;
   /** JSON-LD optionnel (un objet ou une liste d'objets). */
   schema?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -41,12 +46,16 @@ const SEOHead = ({
   ogImage,
   image,
   noindex = false,
+  appendSiteName = true,
   schema,
 }: SEOHeadProps) => {
-  const fullTitle = `${title} | ${SITE_NAME}`;
-  const path = canonicalPath ?? canonical;
+  const { pathname } = useLocation();
+  const fullTitle = appendSiteName ? `${title} | ${SITE_NAME}` : title;
+  // Garde-fou : sans chemin explicite, on retombe sur la route courante.
+  const path = canonicalPath ?? canonical ?? pathname ?? "/";
   const url = toAbsolute(path);
-  const imageUrl = toAbsolute(ogImage ?? image);
+  const imageUrl = toAbsolute(ogImage ?? image ?? DEFAULT_OG_IMAGE);
+
 
   // Seuls les hôtes de production sont indexables ; tout autre hôte
   // (prévisualisation, staging, localhost…) reçoit noindex, nofollow.
@@ -69,6 +78,8 @@ const SEOHead = ({
       <meta property="og:locale" content="fr_FR" />
       {url && <meta property="og:url" content={url} />}
       {imageUrl && <meta property="og:image" content={imageUrl} />}
+      {imageUrl && <meta property="og:image:width" content="1200" />}
+      {imageUrl && <meta property="og:image:height" content="630" />}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
