@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useGuides, useComparisons, useReviews, FALLBACK_IMAGE } from "@/hooks/use-content";
 import SEOHead from "@/components/SEOHead";
 import { STATIC_PAGES } from "@/content/static-pages";
+import { useTranslation } from "react-i18next";
 
 type ContentItem = {
   id: string;
@@ -20,10 +21,10 @@ type ContentItem = {
   rating?: string | null;
 };
 
-const typeLabel: Record<string, { label: string; color: string }> = {
-  guide: { label: "Guide d'achat", color: "bg-primary/15 text-primary" },
-  comparison: { label: "Comparaison", color: "bg-accent/15 text-accent" },
-  review: { label: "Review", color: "bg-emerald-500/15 text-emerald-500" },
+const typeLabel: Record<string, { labelKey: string; color: string }> = {
+  guide: { labelKey: "ui.buyingGuide", color: "bg-primary/15 text-primary" },
+  comparison: { labelKey: "ui.comparison", color: "bg-accent/15 text-accent" },
+  review: { labelKey: "ui.review", color: "bg-emerald-500/15 text-emerald-500" },
 };
 
 const typeIcon = {
@@ -33,7 +34,8 @@ const typeIcon = {
 };
 
 const ContentCard = ({ item }: { item: ContentItem }) => {
-  const { label, color } = typeLabel[item.type];
+  const { t } = useTranslation();
+  const { labelKey, color } = typeLabel[item.type];
   const Icon = typeIcon[item.type];
   return (
     <Link
@@ -52,7 +54,7 @@ const ContentCard = ({ item }: { item: ContentItem }) => {
         <div className="flex items-center gap-2 mb-3">
           <span className={`inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${color}`}>
             <Icon className="h-3 w-3" />
-            {label}
+            {t(labelKey)}
           </span>
           {item.tag && (
             <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary">
@@ -71,7 +73,7 @@ const ContentCard = ({ item }: { item: ContentItem }) => {
         </h3>
         <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{item.description}</p>
         <span className="inline-flex items-center gap-1 text-sm text-primary font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-          Découvrir <ArrowRight className="h-3.5 w-3.5" />
+          {t("ui.discover")} <ArrowRight className="h-3.5 w-3.5" />
         </span>
       </div>
     </Link>
@@ -79,6 +81,7 @@ const ContentCard = ({ item }: { item: ContentItem }) => {
 };
 
 const Guides = () => {
+  const { t } = useTranslation();
   const { data: guides = [], isLoading: lg } = useGuides();
   const { data: comparisons = [], isLoading: lc } = useComparisons();
   const { data: reviews = [], isLoading: lr } = useReviews();
@@ -147,10 +150,10 @@ const Guides = () => {
           <AnimatedSection variant="fade-up">
             <div className="max-w-2xl mb-10">
               <h1 className="text-3xl md:text-4xl font-display font-bold mb-3">
-                Tous les <span className="gradient-neon-text">Guides</span>
+                {t("ui.guidesTitle_1")} <span className="gradient-neon-text">{t("ui.guidesTitle_2")}</span>
               </h1>
               <p className="text-muted-foreground">
-                Guides d'achat, comparaisons et reviews — tout pour choisir le meilleur périphérique gaming.
+                {t("ui.guidesSubtitle")}
               </p>
             </div>
           </AnimatedSection>
@@ -166,9 +169,9 @@ const Guides = () => {
                     : "border-border bg-card text-muted-foreground hover:border-primary/40"
                 }`}
               >
-                Tout
+                {t("ui.all")}
               </button>
-              {Object.entries(typeLabel).map(([key, { label, color }]) => {
+              {Object.entries(typeLabel).map(([key, { labelKey, color }]) => {
                 const Icon = typeIcon[key as keyof typeof typeIcon];
                 return (
                   <button
@@ -181,7 +184,7 @@ const Guides = () => {
                     }`}
                   >
                     <Icon className="h-3.5 w-3.5" />
-                    {label}
+                    {t(labelKey)}
                   </button>
                 );
               })}
@@ -196,7 +199,7 @@ const Guides = () => {
               ))}
             </div>
           ) : filteredContent.length === 0 ? (
-            <p className="text-muted-foreground">Aucun contenu publié pour le moment.</p>
+            <p className="text-muted-foreground">{t("ui.emptyContent")}</p>
           ) : (
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {filteredContent.map((item, i) => (
