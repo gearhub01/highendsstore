@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface ComparisonHeroProps {
   category: string;
@@ -10,24 +11,25 @@ interface ComparisonHeroProps {
 }
 
 const ComparisonHero = ({ category, categoryHref, title, subtitle, productCount }: ComparisonHeroProps) => {
+  const { t } = useTranslation();
   return (
     <section className="pt-24 pb-12">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-            <Link to="/" className="hover:text-primary transition-colors">Accueil</Link>
+            <Link to="/" className="hover:text-primary transition-colors">{t("ui.home")}</Link>
             <ChevronRight className="h-3 w-3" />
             <Link to={categoryHref} className="hover:text-primary transition-colors">{category}</Link>
             <ChevronRight className="h-3 w-3" />
-            <span className="text-foreground">Comparaison</span>
+            <span className="text-foreground">{t("ui.comparison")}</span>
           </nav>
 
           <div className="flex items-center gap-3 mb-4">
             <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-accent/20 text-accent border border-accent/30">
-              Comparaison
+              {t("ui.comparison")}
             </span>
-            <span className="text-sm text-muted-foreground">{productCount} produits comparés</span>
+            <span className="text-sm text-muted-foreground">{t("ui.productsCompared", { count: productCount })}</span>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
