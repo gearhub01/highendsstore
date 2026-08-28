@@ -86,7 +86,20 @@ const Guides = () => {
 
   const isLoading = lg || lc || lr;
 
+  // Contenus statiques (pages écrites en dur) affichés en premier, puis la base.
+  const staticContent: ContentItem[] = STATIC_PAGES.map((p) => ({
+    id: `static-${p.category}-${p.slug}`,
+    type: p.category === "comparison" ? ("comparison" as const) : (p.category as "guide" | "review"),
+    title: p.title,
+    description: p.excerpt,
+    href: p.href,
+    image: p.image || FALLBACK_IMAGE,
+    tag: p.tag,
+    rating: p.rating,
+  }));
+
   const allContent: ContentItem[] = [
+    ...staticContent,
     ...guides.map((g) => ({
       id: g.id,
       type: "guide" as const,
