@@ -1,5 +1,6 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import SEOHead from "@/components/SEOHead";
 
 const NotFound = () => {
@@ -10,18 +11,41 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
+    <div className="flex min-h-screen items-center justify-center bg-muted px-4">
       <SEOHead
         title="Page introuvable"
-        description="Cette page n'existe pas ou a été déplacée."
+        description="Cette page n'existe pas ou a été déplacée sur GearHub."
         noindex
+        nofollow
       />
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
+      <Helmet>
+        <meta name="prerender-status-code" content="404" />
+      </Helmet>
+      <div className="max-w-lg text-center">
+        <h1 className="mb-4 text-4xl font-bold tracking-tight">Page introuvable</h1>
+        <p className="mb-8 text-lg text-muted-foreground">
+          La page que vous cherchez n'existe pas ou a été déplacée.
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <Link
+            to="/"
+            className="inline-flex rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Retour à l'accueil
+          </Link>
+          <Link
+            to="/iphone-18-pro"
+            className="inline-flex rounded-md bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
+          >
+            iPhone 18 Pro
+          </Link>
+          <Link
+            to="/guides"
+            className="inline-flex rounded-md bg-secondary px-5 py-2.5 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
+          >
+            Guides d'achat
+          </Link>
+        </div>
       </div>
     </div>
   );
