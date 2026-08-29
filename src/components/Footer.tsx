@@ -44,6 +44,7 @@ const Footer = () => {
               <li><Link to="/mentions-legales" className="hover:text-primary transition-colors">{t("footer.legalNotice")}</Link></li>
               <li><Link to="/politique-confidentialite" className="hover:text-primary transition-colors">{t("footer.privacy")}</Link></li>
               <li><Link to="/divulgation-affiliation" className="hover:text-primary transition-colors">{t("footer.affiliate")}</Link></li>
+              <li><button type="button" onClick={openBanner} className="hover:text-primary transition-colors">Gérer les cookies</button></li>
               <li><a href="mailto:contact@gearhub.fr" className="hover:text-primary transition-colors">{t("footer.contact")}</a></li>
             </ul>
           </div>
