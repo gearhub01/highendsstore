@@ -14,6 +14,7 @@ import ModelBadge from "@/components/iphone/ModelBadge";
 import { useTranslation } from "react-i18next";
 import {
   getCollectionArticle,
+  resolveCollectionArticle,
   articleModels,
   COLLECTION_NAME,
   IPHONE_BASE_PATH,
@@ -23,35 +24,40 @@ import {
 
 /**
  * Gabarit d'article de la collection iPhone 18 Pro.
- * Le même composant sert à tous les articles : le contenu vient de
- * src/config/iphone-collection.ts (COLLECTION_ARTICLES).
+ * Le même composant sert à tous les articles : le contenu vient des dossiers
+ * src/content/iphone/<slug>/ (fr.ts, en.ts) via l'index de collection.
  */
 const IphoneArticle = () => {
   const { t, i18n } = useTranslation();
   const { slug } = useParams();
-  const article = getCollectionArticle(slug);
+  // Version française : référence pour le SEO (titres et descriptions restent en FR).
+  const source = getCollectionArticle(slug);
+  const resolved = resolveCollectionArticle(slug, i18n.language);
 
-  if (!article) return <Navigate to="/404" replace />;
+  if (!source || !resolved) return <Navigate to="/404" replace />;
   if (!isCollectionVisible() && HIDE_PAGES_WHEN_DISABLED) return <Navigate to="/" replace />;
 
+  const article = resolved.article;
   const toc = article.sections.map((s) => ({ id: s.id, label: s.heading }));
+
 
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO : toujours émis en français (une seule URL par article). */}
       <SEOHead
-        title={article.title}
-        description={article.seo.description}
-        canonicalPath={`${IPHONE_BASE_PATH}/${article.slug}`}
+        title={source.title}
+        description={source.seo.description}
+        canonicalPath={`${IPHONE_BASE_PATH}/${source.slug}`}
         type="article"
-        image={article.seo.ogImage || article.image}
+        image={source.seo.ogImage || source.image}
         schema={{
           "@context": "https://schema.org",
           "@type": "Article",
-          headline: article.title,
-          description: article.seo.description,
-          image: article.image,
-          dateModified: article.updatedAt,
-          mainEntityOfPage: `${SITE_URL}${IPHONE_BASE_PATH}/${article.slug}`,
+          headline: source.title,
+          description: source.seo.description,
+          image: source.image,
+          dateModified: source.updatedAt,
+          mainEntityOfPage: `${SITE_URL}${IPHONE_BASE_PATH}/${source.slug}`,
           publisher: { "@type": "Organization", name: "GearHub" },
         }}
       />
@@ -61,8 +67,15 @@ const IphoneArticle = () => {
       />
 
       <main className="pb-16">
-        <article className="container mx-auto px-4">
+        <article className="container mx-auto px-4" lang={resolved.locale}>
           <div className="max-w-3xl mx-auto">
+            {/* Bandeau discret : contenu servi en français faute de traduction
+                à jour dans la langue choisie. Le contenu reste intégral. */}
+            {resolved.fallback && (
+              <p className="mb-6 rounded-lg border border-border bg-muted/40 px-4 py-2 text-xs text-muted-foreground">
+                {t("ui.notTranslatedYet")}
+              </p>
+            )}
             {/* En-tête */}
             <AnimatedSection variant="fade-up">
               <div className="mb-4 flex flex-wrap items-center gap-2">
@@ -70,6 +83,7 @@ const IphoneArticle = () => {
                 {/* Badge du modèle concerné (Pro, Pro Max ou comparatif) */}
                 <ModelBadge model={article.model} />
               </div>
+
               <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">{article.title}</h1>
               <p className="text-muted-foreground leading-relaxed">{article.intro}</p>
 

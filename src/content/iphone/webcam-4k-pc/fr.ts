@@ -1,4 +1,4 @@
-import type { CollectionArticle } from "./types";
+import type { CollectionArticle } from "../types";
 
 /** Article : /iphone-18-pro/webcam-4k-pc */
 export const article: CollectionArticle = {

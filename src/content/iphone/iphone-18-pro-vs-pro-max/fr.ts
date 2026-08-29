@@ -3,7 +3,7 @@
  * RÈGLE : rien n'est confirmé pour la génération 18. Le tableau s'appuie sur
  * les données officielles de la génération 17 Pro / 17 Pro Max.
  */
-import type { CollectionArticle } from "./types";
+import type { CollectionArticle } from "../types";
 
 const NC = "Non confirmé";
 const RUMOR = "Rumeur — non confirmé au 27/08/2026";

@@ -14,6 +14,7 @@ import PriceCTA from "@/components/iphone/PriceCTA";
 import { useTranslation } from "react-i18next";
 import {
   COLLECTION_ARTICLES,
+  getLocalizedArticles,
   COLLECTION_NAME,
   MODEL_TABS,
   HUB_SEO,
@@ -27,16 +28,19 @@ import {
 
 /**
  * Page hub de la collection temporaire iPhone 18 Pro.
- * Contenu éditable dans src/config/iphone-collection.ts.
+ * Contenu éditable dans src/content/iphone/<slug>/ (index : iphone-collection.ts).
  */
 const IphoneHub = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   // Onglet de filtrage actif : "all" | "pro" | "pro_max" | "both" (comparatif).
   const [activeTab, setActiveTab] = useState<(typeof MODEL_TABS)[number]["id"]>("all");
+  // Cartes localisées : anglais si une traduction à jour existe, sinon français.
+  const localizedArticles = getLocalizedArticles(i18n.language);
   const visibleArticles =
     activeTab === "all"
-      ? COLLECTION_ARTICLES
-      : COLLECTION_ARTICLES.filter((a) => a.model === activeTab);
+      ? localizedArticles
+      : localizedArticles.filter((a) => a.model === activeTab);
+
 
   // Si la collection est désactivée et que l'on veut aussi fermer les pages.
   if (!isCollectionVisible() && HIDE_PAGES_WHEN_DISABLED) return <Navigate to="/" replace />;

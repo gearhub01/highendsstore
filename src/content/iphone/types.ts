@@ -105,3 +105,31 @@ export interface CollectionArticle {
   /** Métadonnées SEO propres à l'article. */
   seo: CollectionSeo;
 }
+
+/**
+ * ---------------------------------------------------------------------------
+ * TRADUCTIONS
+ * ---------------------------------------------------------------------------
+ * Le français est la version de référence. Une traduction (`en.ts`) déclare en
+ * plus `sourceUpdatedAt` : la date de la version française à partir de laquelle
+ * elle a été écrite. Si `fr.updatedAt` devient postérieur à cette date, la
+ * traduction est considérée comme PÉRIMÉE : on sert alors le français avec un
+ * bandeau, plutôt qu'une traduction qui ne correspond plus au texte source.
+ */
+export interface TranslatedArticle extends CollectionArticle {
+  /** Date (AAAA-MM-JJ) de la version française traduite. */
+  sourceUpdatedAt: string;
+}
+
+/** Langues d'interface du site. Seul l'anglais a des traductions d'articles. */
+export type SiteLocale = "fr" | "en" | "es" | "de";
+
+/** Un article = un dossier `src/content/iphone/<slug>/` avec ses locales. */
+export interface ArticleEntry {
+  /** Slug identique dans toutes les langues (jamais traduit). */
+  slug: string;
+  /** Version française : référence, toujours présente. */
+  fr: CollectionArticle;
+  /** Version anglaise, si elle existe. */
+  en?: TranslatedArticle;
+}

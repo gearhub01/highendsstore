@@ -3,14 +3,22 @@
  * COLLECTION TEMPORAIRE — iPhone 18 Pro & Pro Max (INDEX)
  * ============================================================================
  * Ce fichier ne contient plus le texte des articles : il sert d'index.
- * Chaque article vit dans son propre fichier `src/content/iphone/<slug>.ts`.
+ * Chaque article vit dans son propre DOSSIER `src/content/iphone/<slug>/` :
+ *   - `fr.ts`    → version française (référence, obligatoire)
+ *   - `en.ts`    → version anglaise (optionnelle, avec `sourceUpdatedAt`)
+ *   - `index.ts` → assemble les locales disponibles
  *
  * AJOUTER UN ARTICLE — 3 étapes :
- *  1. Duplique `src/content/iphone/_TEMPLATE.ts` en `src/content/iphone/<slug>.ts`
- *     (nom de fichier = slug exact : minuscules, tirets, sans accent).
- *  2. Remplis les champs en respectant les contraintes commentées du gabarit.
- *  3. Ajoute l'import en haut de ce fichier et l'entrée dans `COLLECTION_ARTICLES`
- *     ci-dessous — l'URL, le hub et le sitemap suivent automatiquement.
+ *  1. Duplique le dossier `src/content/iphone/_TEMPLATE/` en
+ *     `src/content/iphone/<slug>/` (nom du dossier = slug exact).
+ *  2. Remplis `fr.ts` (et `en.ts` si tu traduis) en respectant les contraintes
+ *     commentées du gabarit, puis déclare les locales dans `index.ts`.
+ *  3. Ajoute l'import en haut de ce fichier et l'entrée dans
+ *     `COLLECTION_ENTRIES` — l'URL, le hub et le sitemap suivent automatiquement.
+ *
+ * TRADUCTIONS : seul l'anglais est traduit. En espagnol et en allemand,
+ * l'interface est traduite mais le corps de l'article reste en français,
+ * précédé d'un bandeau signalant l'absence de traduction.
  *
  * RÈGLE AMAZON ASSOCIATES : ne JAMAIS écrire de prix ni de disponibilité
  * en dur. Les boutons affichent uniquement "Voir sur Amazon".
@@ -19,25 +27,31 @@
 
 import type {
   AmazonLink,
+  ArticleEntry,
   ArticleSection,
   CollectionArticle,
   CollectionSeo,
   IphoneModel,
+  SiteLocale,
+  TranslatedArticle,
 } from "../content/iphone/types";
-import { article as webcam4kPc } from "../content/iphone/webcam-4k-pc";
-import { article as webcam4kPcProMax } from "../content/iphone/webcam-4k-pc-pro-max";
-import { article as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
-import { article as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
-import { article as vs17Pro } from "../content/iphone/iphone-18-pro-vs-iphone-17-pro";
-import { article as vsProMax } from "../content/iphone/iphone-18-pro-vs-pro-max";
+import { entry as webcam4kPc } from "../content/iphone/webcam-4k-pc";
+import { entry as webcam4kPcProMax } from "../content/iphone/webcam-4k-pc-pro-max";
+import { entry as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
+import { entry as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
+import { entry as vs17Pro } from "../content/iphone/iphone-18-pro-vs-iphone-17-pro";
+import { entry as vsProMax } from "../content/iphone/iphone-18-pro-vs-pro-max";
 
 // Types re-exportés : les composants continuent de les importer depuis ici.
 export type {
   AmazonLink,
+  ArticleEntry,
   ArticleSection,
   CollectionArticle,
   CollectionSeo,
   IphoneModel,
+  SiteLocale,
+  TranslatedArticle,
 };
 
 /** Chemin de base de la collection (utilisé pour les URLs et le sitemap). */
@@ -46,6 +60,7 @@ export const IPHONE_BASE_PATH = "/iphone-18-pro";
 
 /** Nom affiché partout (menu, H1, breadcrumb). */
 export const COLLECTION_NAME = "iPhone 18 Pro & Pro Max";
+
 
 /**
  * ---------------------------------------------------------------------------
@@ -129,11 +144,11 @@ export const WHY_HERE = {
  * ---------------------------------------------------------------------------
  * ARTICLES DE LA COLLECTION
  * ---------------------------------------------------------------------------
- * Un fichier par article dans `src/content/iphone/`. L'ordre du tableau est
+ * Un dossier par article dans `src/content/iphone/`. L'ordre du tableau est
  * l'ordre d'affichage sur le hub. Voir la marche à suivre en haut du fichier.
  */
 
-export const COLLECTION_ARTICLES: CollectionArticle[] = [
+export const COLLECTION_ENTRIES: ArticleEntry[] = [
   webcam4kPc,
   webcam4kPcProMax,
   accessoiresUsbCSetup,
@@ -143,12 +158,74 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
   vsProMax,
 ];
 
-/** Retrouve un article par son slug. */
+/**
+ * Versions FRANÇAISES de tous les articles.
+ * Reste la référence pour le sitemap, les URLs et les métadonnées SEO.
+ */
+export const COLLECTION_ARTICLES: CollectionArticle[] = COLLECTION_ENTRIES.map((e) => e.fr);
+
+/** Retrouve l'entrée (toutes locales) d'un article par son slug. */
+export function getCollectionEntry(slug?: string) {
+  return COLLECTION_ENTRIES.find((e) => e.slug === slug);
+}
+
+/** Retrouve la version française d'un article par son slug. */
 export function getCollectionArticle(slug?: string) {
   return COLLECTION_ARTICLES.find((a) => a.slug === slug);
+}
+
+/**
+ * Une traduction est PÉRIMÉE quand la version française a été mise à jour
+ * après la date source de la traduction. Dans ce cas on sert le français.
+ */
+export function isTranslationStale(entry: ArticleEntry): boolean {
+  if (!entry.en) return false;
+  return entry.fr.updatedAt > entry.en.sourceUpdatedAt;
+}
+
+/** Avertissements DEV déjà émis (une seule fois par article). */
+const warnedStale = new Set<string>();
+
+/**
+ * Renvoie l'article dans la langue demandée, avec repli sur le français.
+ * `fallback: true` → la page doit afficher le bandeau « pas encore traduit ».
+ */
+export function resolveCollectionArticle(
+  slug: string | undefined,
+  locale: string | undefined,
+): { article: CollectionArticle; locale: "fr" | "en"; fallback: boolean } | undefined {
+  const entry = getCollectionEntry(slug);
+  if (!entry) return undefined;
+
+  const lang = (locale || "fr").split("-")[0] as SiteLocale;
+  if (lang === "fr") return { article: entry.fr, locale: "fr", fallback: false };
+
+  const stale = isTranslationStale(entry);
+  if (import.meta.env.DEV && stale && !warnedStale.has(entry.slug)) {
+    warnedStale.add(entry.slug);
+    console.warn(
+      `[i18n] Traduction périmée — « ${entry.slug} » : fr.updatedAt (${entry.fr.updatedAt}) ` +
+        `est postérieur à en.sourceUpdatedAt (${entry.en?.sourceUpdatedAt}). ` +
+        `Le français est servi avec le bandeau « traduction indisponible ».`,
+    );
+  }
+
+  // L'anglais est la seule langue traduite : es/de retombent sur le français.
+  if (lang === "en" && entry.en && !stale) {
+    return { article: entry.en, locale: "en", fallback: false };
+  }
+  return { article: entry.fr, locale: "fr", fallback: true };
+}
+
+/** Articles localisés pour les listes (hub) : anglais si disponible et à jour. */
+export function getLocalizedArticles(locale: string | undefined): CollectionArticle[] {
+  return COLLECTION_ENTRIES.map(
+    (e) => resolveCollectionArticle(e.slug, locale)?.article ?? e.fr,
+  );
 }
 
 /** Modèles concernés par un article (un comparatif en couvre deux). */
 export function articleModels(model: IphoneModel): ("pro" | "pro_max")[] {
   return model === "both" ? ["pro", "pro_max"] : [model];
 }
+
