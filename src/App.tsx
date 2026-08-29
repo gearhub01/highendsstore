@@ -27,31 +27,32 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <ConsentProvider>
-      <Toaster />
-      <Sonner />
-      <CookieConsent />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/guides/best-gaming-keyboards" element={<BuyingGuide />} />
-          <Route path="/comparaison/gaming-keyboards" element={<Comparison />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/reviews/wooting-80he" element={<ProductReview />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/guides" element={<Guides />} />
-          <Route path="/blog/:slug" element={<BlogArticle />} />
-          <Route path="/mentions-legales" element={<MentionsLegales />} />
-          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
-          <Route path="/divulgation-affiliation" element={<DivulgationAffiliation />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/login" element={<AdminLogin />} />
-          {/* Collection temporaire iPhone 18 Pro */}
-          <Route path="/iphone-18-pro" element={<IphoneHub />} />
-          <Route path="/iphone-18-pro/:slug" element={<IphoneArticle />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/guides/best-gaming-keyboards" element={<BuyingGuide />} />
+            <Route path="/comparaison/gaming-keyboards" element={<Comparison />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/reviews/wooting-80he" element={<ProductReview />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/guides" element={<Guides />} />
+            <Route path="/blog/:slug" element={<BlogArticle />} />
+            <Route path="/mentions-legales" element={<MentionsLegales />} />
+            <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+            <Route path="/divulgation-affiliation" element={<DivulgationAffiliation />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            {/* Collection temporaire iPhone 18 Pro */}
+            <Route path="/iphone-18-pro" element={<IphoneHub />} />
+            <Route path="/iphone-18-pro/:slug" element={<IphoneArticle />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <CookieConsent />
+        </BrowserRouter>
+      </ConsentProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
