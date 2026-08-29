@@ -19,6 +19,7 @@ import {
   COLLECTION_NAME,
   IPHONE_BASE_PATH,
   HIDE_PAGES_WHEN_DISABLED,
+  MERGED_SLUG_REDIRECTS,
   isCollectionVisible,
 } from "@/config/iphone-collection";
 
@@ -33,6 +34,24 @@ const IphoneArticle = () => {
   // Version française : référence pour le SEO (titres et descriptions restent en FR).
   const source = getCollectionArticle(slug);
   const resolved = resolveCollectionArticle(slug, i18n.language);
+
+  // Article fusionné dans un autre : canonical vers la cible + redirection
+  // côté client (une 301 serveur est impossible sur une SPA).
+  const mergedTarget = slug ? MERGED_SLUG_REDIRECTS[slug] : undefined;
+  if (mergedTarget) {
+    const targetPath = `${IPHONE_BASE_PATH}/${mergedTarget}`;
+    return (
+      <>
+        <SEOHead
+          title={COLLECTION_NAME}
+          description=""
+          canonicalPath={targetPath}
+          noindex
+        />
+        <Navigate to={targetPath} replace />
+      </>
+    );
+  }
 
   if (!source || !resolved) return <Navigate to="/404" replace />;
   if (!isCollectionVisible() && HIDE_PAGES_WHEN_DISABLED) return <Navigate to="/" replace />;
