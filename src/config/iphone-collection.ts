@@ -36,7 +36,6 @@ import type {
   TranslatedArticle,
 } from "../content/iphone/types";
 import { entry as webcam4kPc } from "../content/iphone/webcam-4k-pc";
-import { entry as webcam4kPcProMax } from "../content/iphone/webcam-4k-pc-pro-max";
 import { entry as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
 import { entry as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
 import { entry as vs17Pro } from "../content/iphone/iphone-18-pro-vs-iphone-17-pro";
@@ -150,7 +149,6 @@ export const WHY_HERE = {
 
 export const COLLECTION_ENTRIES: ArticleEntry[] = [
   webcam4kPc,
-  webcam4kPcProMax,
   accessoiresUsbCSetup,
   // Comparatifs (affichés aussi dans le filtre « Comparaison » de /guides)
   vs16Pro,
@@ -163,6 +161,15 @@ export const COLLECTION_ENTRIES: ArticleEntry[] = [
  * Reste la référence pour le sitemap, les URLs et les métadonnées SEO.
  */
 export const COLLECTION_ARTICLES: CollectionArticle[] = COLLECTION_ENTRIES.map((e) => e.fr);
+
+/**
+ * Anciens slugs fusionnés dans un autre article.
+ * Clé = ancien slug, valeur = slug cible. La page émet un canonical vers la
+ * cible et redirige côté client (301 serveur impossible sur une SPA).
+ */
+export const MERGED_SLUG_REDIRECTS: Record<string, string> = {
+  "webcam-4k-pc-pro-max": "webcam-4k-pc",
+};
 
 /** Retrouve l'entrée (toutes locales) d'un article par son slug. */
 export function getCollectionEntry(slug?: string) {
