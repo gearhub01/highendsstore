@@ -144,11 +144,11 @@ export const WHY_HERE = {
  * ---------------------------------------------------------------------------
  * ARTICLES DE LA COLLECTION
  * ---------------------------------------------------------------------------
- * Un fichier par article dans `src/content/iphone/`. L'ordre du tableau est
+ * Un dossier par article dans `src/content/iphone/`. L'ordre du tableau est
  * l'ordre d'affichage sur le hub. Voir la marche à suivre en haut du fichier.
  */
 
-export const COLLECTION_ARTICLES: CollectionArticle[] = [
+export const COLLECTION_ENTRIES: ArticleEntry[] = [
   webcam4kPc,
   webcam4kPcProMax,
   accessoiresUsbCSetup,
@@ -158,12 +158,74 @@ export const COLLECTION_ARTICLES: CollectionArticle[] = [
   vsProMax,
 ];
 
-/** Retrouve un article par son slug. */
+/**
+ * Versions FRANÇAISES de tous les articles.
+ * Reste la référence pour le sitemap, les URLs et les métadonnées SEO.
+ */
+export const COLLECTION_ARTICLES: CollectionArticle[] = COLLECTION_ENTRIES.map((e) => e.fr);
+
+/** Retrouve l'entrée (toutes locales) d'un article par son slug. */
+export function getCollectionEntry(slug?: string) {
+  return COLLECTION_ENTRIES.find((e) => e.slug === slug);
+}
+
+/** Retrouve la version française d'un article par son slug. */
 export function getCollectionArticle(slug?: string) {
   return COLLECTION_ARTICLES.find((a) => a.slug === slug);
+}
+
+/**
+ * Une traduction est PÉRIMÉE quand la version française a été mise à jour
+ * après la date source de la traduction. Dans ce cas on sert le français.
+ */
+export function isTranslationStale(entry: ArticleEntry): boolean {
+  if (!entry.en) return false;
+  return entry.fr.updatedAt > entry.en.sourceUpdatedAt;
+}
+
+/** Avertissements DEV déjà émis (une seule fois par article). */
+const warnedStale = new Set<string>();
+
+/**
+ * Renvoie l'article dans la langue demandée, avec repli sur le français.
+ * `fallback: true` → la page doit afficher le bandeau « pas encore traduit ».
+ */
+export function resolveCollectionArticle(
+  slug: string | undefined,
+  locale: string | undefined,
+): { article: CollectionArticle; locale: "fr" | "en"; fallback: boolean } | undefined {
+  const entry = getCollectionEntry(slug);
+  if (!entry) return undefined;
+
+  const lang = (locale || "fr").split("-")[0] as SiteLocale;
+  if (lang === "fr") return { article: entry.fr, locale: "fr", fallback: false };
+
+  const stale = isTranslationStale(entry);
+  if (import.meta.env.DEV && stale && !warnedStale.has(entry.slug)) {
+    warnedStale.add(entry.slug);
+    console.warn(
+      `[i18n] Traduction périmée — « ${entry.slug} » : fr.updatedAt (${entry.fr.updatedAt}) ` +
+        `est postérieur à en.sourceUpdatedAt (${entry.en?.sourceUpdatedAt}). ` +
+        `Le français est servi avec le bandeau « traduction indisponible ».`,
+    );
+  }
+
+  // L'anglais est la seule langue traduite : es/de retombent sur le français.
+  if (lang === "en" && entry.en && !stale) {
+    return { article: entry.en, locale: "en", fallback: false };
+  }
+  return { article: entry.fr, locale: "fr", fallback: true };
+}
+
+/** Articles localisés pour les listes (hub) : anglais si disponible et à jour. */
+export function getLocalizedArticles(locale: string | undefined): CollectionArticle[] {
+  return COLLECTION_ENTRIES.map(
+    (e) => resolveCollectionArticle(e.slug, locale)?.article ?? e.fr,
+  );
 }
 
 /** Modèles concernés par un article (un comparatif en couvre deux). */
 export function articleModels(model: IphoneModel): ("pro" | "pro_max")[] {
   return model === "both" ? ["pro", "pro_max"] : [model];
 }
+
