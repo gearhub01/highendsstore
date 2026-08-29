@@ -35,7 +35,7 @@ const ReviewRatings = ({ overallScore, subRatings }: ReviewRatingsProps) => {
             <AnimatedSection variant="scale-in" delay={0.1}>
               <div className="flex flex-col items-center justify-center p-8 rounded-lg border border-primary/30 bg-primary/5 box-glow">
                 <span className="font-display text-xs uppercase tracking-widest text-primary mb-3">
-                  Note Globale
+                  {t("ui.overallRating")}
                 </span>
                 <div className="relative w-32 h-32">
                   <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">

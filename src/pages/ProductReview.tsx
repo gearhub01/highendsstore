@@ -116,19 +116,19 @@ const ProductReview = () => {
       />
       <Navbar />
       <Breadcrumbs items={[
-        { label: "Reviews", href: "/guides" },
-        { label: "Claviers", href: "/guides/best-gaming-keyboards" },
+        { label: t("ui.reviews"), href: "/guides" },
+        { label: t("cats.keyboards"), href: "/guides/best-gaming-keyboards" },
         { label: "Wooting 80HE" },
       ]} />
       <main>
         <AffiliateDisclosure />
         <TableOfContents items={[
-          { id: "review-hero", label: "Introduction" },
-          { id: "review-ratings", label: "Notes détaillées" },
-          { id: "review-gallery", label: "Galerie" },
-          { id: "review-proscons", label: "Pour / Contre" },
-          { id: "review-specs", label: "Fiche technique" },
-          { id: "review-verdict", label: "Verdict" },
+          { id: "review-hero", label: t("ui.tocIntroduction") },
+          { id: "review-ratings", label: t("ui.tocRatings") },
+          { id: "review-gallery", label: t("ui.tocGallery") },
+          { id: "review-proscons", label: t("ui.tocProsCons") },
+          { id: "review-specs", label: t("ui.tocSpecs") },
+          { id: "review-verdict", label: t("ui.verdict") },
         ]} />
         <div id="review-hero">
           <ReviewHero

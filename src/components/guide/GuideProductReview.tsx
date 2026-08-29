@@ -124,7 +124,7 @@ const GuideProductReview = ({ product }: GuideProductReviewProps) => {
             href="#"
             className="inline-flex items-center gap-2 px-5 py-2.5 font-display text-xs font-bold tracking-wider uppercase gradient-neon text-primary-foreground rounded-md box-glow hover:scale-105 transition-transform"
           >
-            Voir sur Amazon
+            {t("ui.viewOnAmazon")}
             <ExternalLink className="h-3.5 w-3.5" />
           </a>
         </div>

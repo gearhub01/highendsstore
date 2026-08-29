@@ -11,6 +11,7 @@ import SEOHead, { SITE_URL } from "@/components/SEOHead";
 import PriceCTA from "@/components/iphone/PriceCTA";
 import LaunchBadge from "@/components/iphone/LaunchBadge";
 import ModelBadge from "@/components/iphone/ModelBadge";
+import { useTranslation } from "react-i18next";
 import {
   getCollectionArticle,
   articleModels,
@@ -30,6 +31,7 @@ const formatDate = (iso: string) =>
  * src/config/iphone-collection.ts (COLLECTION_ARTICLES).
  */
 const IphoneArticle = () => {
+  const { t, i18n } = useTranslation();
   const { slug } = useParams();
   const article = getCollectionArticle(slug);
 
@@ -78,9 +80,9 @@ const IphoneArticle = () => {
               {/* Encart date de dernière mise à jour */}
               <div className="mt-5 inline-flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-2 text-xs text-muted-foreground">
                 <CalendarClock className="h-3.5 w-3.5 text-primary" />
-                Dernière mise à jour le{" "}
+                  {t("ui.lastUpdatedOn")}{" "}
                 <time dateTime={article.updatedAt} className="font-medium text-foreground">
-                  {formatDate(article.updatedAt)}
+                   {new Date(article.updatedAt).toLocaleDateString(i18n.language, { day: "numeric", month: "long", year: "numeric" })}
                 </time>
               </div>
 
@@ -218,7 +220,7 @@ const IphoneArticle = () => {
             {article.related && article.related.length > 0 && (
               <AnimatedSection variant="fade-up">
                 <section className="mt-12 rounded-xl border border-border bg-muted/30 p-6">
-                  <h2 className="mb-3 text-xl font-display font-bold">À lire aussi</h2>
+                  <h2 className="mb-3 text-xl font-display font-bold">{t("ui.readAlso")}</h2>
                   <ul className="space-y-2">
                     {article.related.map((l) => (
                       <li key={l.href}>

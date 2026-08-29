@@ -383,17 +383,21 @@ i18n
   .init({
     resources,
     lng: undefined, // résolu par le détecteur (localStorage) puis par fallbackLng
-    fallbackLng: "fr",
+    // Le repli français est géré ci-dessous afin d'être signalé visuellement
+    // en développement au lieu de masquer silencieusement une clé absente.
+    fallbackLng: false,
     supportedLngs: ["fr", "en", "es", "de"],
     nonExplicitSupportedLngs: true,
     load: "languageOnly",
     interpolation: { escapeValue: false },
     // Une clé absente retombe sur le français, jamais sur la clé brute.
+    // En développement, le marqueur rend immédiatement le repli repérable.
     parseMissingKeyHandler: (key) => {
       const fr = key
         .split(".")
         .reduce<unknown>((acc, part) => (acc as Record<string, unknown> | undefined)?.[part], resources.fr.translation);
-      return typeof fr === "string" ? fr : "";
+      if (typeof fr !== "string") return import.meta.env.DEV ? `⚠︎⟦${key}⟧` : "";
+      return import.meta.env.DEV ? `⚠︎⟦FR: ${fr}⟧` : fr;
     },
     saveMissing: import.meta.env.DEV,
     missingKeyHandler: (_lngs, _ns, key) => {
@@ -409,6 +413,23 @@ i18n
       lookupLocalStorage: "gearhub-lang",
     },
   });
+
+if (import.meta.env.DEV) {
+  const flatten = (value: Record<string, unknown>, prefix = ""): string[] =>
+    Object.entries(value).flatMap(([key, child]) => {
+      const path = prefix ? `${prefix}.${key}` : key;
+      return child && typeof child === "object"
+        ? flatten(child as Record<string, unknown>, path)
+        : [path];
+    });
+  const frenchKeys = flatten(resources.fr.translation);
+  (["en", "es", "de"] as const).forEach((lng) => {
+    const localeKeys = new Set(flatten(resources[lng].translation));
+    frenchKeys.filter((key) => !localeKeys.has(key)).forEach((key) => {
+      console.warn(`[i18n] clé française absente du bundle ${lng} : ${key}`);
+    });
+  });
+}
 
 // L'attribut lang de <html> suit la langue active (lecteurs d'écran + Google).
 const syncHtmlLang = (lng: string) => {

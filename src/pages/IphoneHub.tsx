@@ -11,6 +11,7 @@ import LaunchCountdown from "@/components/iphone/LaunchCountdown";
 import LaunchBadge from "@/components/iphone/LaunchBadge";
 import ModelBadge from "@/components/iphone/ModelBadge";
 import PriceCTA from "@/components/iphone/PriceCTA";
+import { useTranslation } from "react-i18next";
 import {
   COLLECTION_ARTICLES,
   COLLECTION_NAME,
@@ -29,6 +30,7 @@ import {
  * Contenu éditable dans src/config/iphone-collection.ts.
  */
 const IphoneHub = () => {
+  const { t } = useTranslation();
   // Onglet de filtrage actif : "all" | "pro" | "pro_max" | "both" (comparatif).
   const [activeTab, setActiveTab] = useState<(typeof MODEL_TABS)[number]["id"]>("all");
   const visibleArticles =
@@ -76,12 +78,10 @@ const IphoneHub = () => {
                 </div>
                 <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
                   iPhone 18 Pro & Pro Max —{" "}
-                  <span className="gradient-neon-text">l'accessoire ultime de votre setup</span>
+                  <span className="gradient-neon-text">{t("ui.iphoneHubAccent")}</span>
                 </h1>
                 <p className="text-muted-foreground max-w-2xl">
-                  Webcam 4K pour le PC, capture pour le stream, accessoires USB-C mutualisés :
-                  une collection temporaire centrée sur ce que l'iPhone 18 Pro et le Pro Max
-                  apportent réellement à un bureau gaming.
+                  {t("ui.iphoneHubIntro")}
                 </p>
               </div>
               <LaunchCountdown />
@@ -91,11 +91,11 @@ const IphoneHub = () => {
           {/* Grille des articles */}
           <AnimatedSection variant="fade-up" delay={0.1}>
             <h2 className="text-2xl font-display font-bold mt-14 mb-6">
-              Les articles de la collection
+              {t("ui.collectionArticles")}
             </h2>
 
             {/* Onglets de tri par modèle (libellés éditables dans la config) */}
-            <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filtrer par modèle">
+            <div className="mb-8 flex flex-wrap gap-2" role="tablist" aria-label={t("ui.filterByModel")}>
               {MODEL_TABS.map((tab) => (
                 <button
                   key={tab.id}
@@ -161,7 +161,7 @@ const IphoneHub = () => {
                     })()}
 
                     <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
-                      Lire l'article <ArrowRight className="h-3.5 w-3.5" />
+                      {t("ui.readArticle")} <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </div>
                 </Link>
@@ -171,7 +171,7 @@ const IphoneHub = () => {
 
           {visibleArticles.length === 0 && (
             <p className="text-sm text-muted-foreground">
-              Aucun article pour ce modèle pour le moment.
+              {t("ui.emptyModelArticles")}
             </p>
           )}
 

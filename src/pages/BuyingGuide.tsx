@@ -126,19 +126,19 @@ const BuyingGuide = () => {
       />
       <Navbar />
       <Breadcrumbs items={[
-        { label: "Guides", href: "/guides" },
-        { label: "Claviers", href: "/guides/best-gaming-keyboards" },
+        { label: t("ui.guides"), href: "/guides" },
+        { label: t("cats.keyboards"), href: "/guides/best-gaming-keyboards" },
         { label: "Meilleurs Claviers Gaming 2026" },
       ]} />
       <main>
         <AffiliateDisclosure />
         <TableOfContents items={[
-          { id: "hero", label: "Introduction" },
-          { id: "top-picks", label: "Top 5 — Tableau" },
-          { id: "criteres", label: "Critères de sélection" },
-          { id: "reviews", label: "Reviews détaillées" },
-          { id: "verdict", label: "Verdict final" },
-          { id: "faq", label: "FAQ" },
+          { id: "hero", label: t("ui.tocIntroduction") },
+          { id: "top-picks", label: t("ui.tocTopTable") },
+          { id: "criteres", label: t("ui.tocCriteria") },
+          { id: "reviews", label: t("ui.tocDetailedReviews") },
+          { id: "verdict", label: t("ui.tocFinalVerdict") },
+          { id: "faq", label: t("ui.faqShort") },
         ]} />
         <div id="hero">
           <GuideHero
