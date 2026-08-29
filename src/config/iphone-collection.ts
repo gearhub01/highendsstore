@@ -3,14 +3,22 @@
  * COLLECTION TEMPORAIRE — iPhone 18 Pro & Pro Max (INDEX)
  * ============================================================================
  * Ce fichier ne contient plus le texte des articles : il sert d'index.
- * Chaque article vit dans son propre fichier `src/content/iphone/<slug>.ts`.
+ * Chaque article vit dans son propre DOSSIER `src/content/iphone/<slug>/` :
+ *   - `fr.ts`    → version française (référence, obligatoire)
+ *   - `en.ts`    → version anglaise (optionnelle, avec `sourceUpdatedAt`)
+ *   - `index.ts` → assemble les locales disponibles
  *
  * AJOUTER UN ARTICLE — 3 étapes :
- *  1. Duplique `src/content/iphone/_TEMPLATE.ts` en `src/content/iphone/<slug>.ts`
- *     (nom de fichier = slug exact : minuscules, tirets, sans accent).
- *  2. Remplis les champs en respectant les contraintes commentées du gabarit.
- *  3. Ajoute l'import en haut de ce fichier et l'entrée dans `COLLECTION_ARTICLES`
- *     ci-dessous — l'URL, le hub et le sitemap suivent automatiquement.
+ *  1. Duplique le dossier `src/content/iphone/_TEMPLATE/` en
+ *     `src/content/iphone/<slug>/` (nom du dossier = slug exact).
+ *  2. Remplis `fr.ts` (et `en.ts` si tu traduis) en respectant les contraintes
+ *     commentées du gabarit, puis déclare les locales dans `index.ts`.
+ *  3. Ajoute l'import en haut de ce fichier et l'entrée dans
+ *     `COLLECTION_ENTRIES` — l'URL, le hub et le sitemap suivent automatiquement.
+ *
+ * TRADUCTIONS : seul l'anglais est traduit. En espagnol et en allemand,
+ * l'interface est traduite mais le corps de l'article reste en français,
+ * précédé d'un bandeau signalant l'absence de traduction.
  *
  * RÈGLE AMAZON ASSOCIATES : ne JAMAIS écrire de prix ni de disponibilité
  * en dur. Les boutons affichent uniquement "Voir sur Amazon".
@@ -19,25 +27,31 @@
 
 import type {
   AmazonLink,
+  ArticleEntry,
   ArticleSection,
   CollectionArticle,
   CollectionSeo,
   IphoneModel,
+  SiteLocale,
+  TranslatedArticle,
 } from "../content/iphone/types";
-import { article as webcam4kPc } from "../content/iphone/webcam-4k-pc";
-import { article as webcam4kPcProMax } from "../content/iphone/webcam-4k-pc-pro-max";
-import { article as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
-import { article as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
-import { article as vs17Pro } from "../content/iphone/iphone-18-pro-vs-iphone-17-pro";
-import { article as vsProMax } from "../content/iphone/iphone-18-pro-vs-pro-max";
+import { entry as webcam4kPc } from "../content/iphone/webcam-4k-pc";
+import { entry as webcam4kPcProMax } from "../content/iphone/webcam-4k-pc-pro-max";
+import { entry as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
+import { entry as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
+import { entry as vs17Pro } from "../content/iphone/iphone-18-pro-vs-iphone-17-pro";
+import { entry as vsProMax } from "../content/iphone/iphone-18-pro-vs-pro-max";
 
 // Types re-exportés : les composants continuent de les importer depuis ici.
 export type {
   AmazonLink,
+  ArticleEntry,
   ArticleSection,
   CollectionArticle,
   CollectionSeo,
   IphoneModel,
+  SiteLocale,
+  TranslatedArticle,
 };
 
 /** Chemin de base de la collection (utilisé pour les URLs et le sitemap). */
@@ -46,6 +60,7 @@ export const IPHONE_BASE_PATH = "/iphone-18-pro";
 
 /** Nom affiché partout (menu, H1, breadcrumb). */
 export const COLLECTION_NAME = "iPhone 18 Pro & Pro Max";
+
 
 /**
  * ---------------------------------------------------------------------------
