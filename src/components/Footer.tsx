@@ -14,7 +14,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-2 mb-4">
               <Gamepad2 className="h-6 w-6 text-primary" />
               <span className="font-display text-base font-bold tracking-wider">
-                GEAR<span className="text-primary">HUB</span>
+                HIGHENDS<span className="text-primary">STORE</span>
               </span>
             </Link>
             <p className="text-xs text-muted-foreground leading-relaxed">{t("footer.tagline")}</p>
