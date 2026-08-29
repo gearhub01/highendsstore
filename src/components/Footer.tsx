@@ -42,8 +42,8 @@ const Footer = () => {
             <h4 className="font-display text-xs font-semibold tracking-widest uppercase mb-4 text-foreground">{t("footer.legal")}</h4>
             <ul className="space-y-2 text-xs text-muted-foreground">
               <li><Link to="/mentions-legales" className="hover:text-primary transition-colors">{t("footer.legalNotice")}</Link></li>
-              <li><Link to="/mentions-legales" className="hover:text-primary transition-colors">{t("footer.affiliate")}</Link></li>
-              <li><Link to="/mentions-legales" className="hover:text-primary transition-colors">{t("footer.privacy")}</Link></li>
+              <li><Link to="/politique-confidentialite" className="hover:text-primary transition-colors">{t("footer.privacy")}</Link></li>
+              <li><Link to="/divulgation-affiliation" className="hover:text-primary transition-colors">{t("footer.affiliate")}</Link></li>
               <li><a href="mailto:contact@gearhub.fr" className="hover:text-primary transition-colors">{t("footer.contact")}</a></li>
             </ul>
           </div>
