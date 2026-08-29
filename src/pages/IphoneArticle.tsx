@@ -14,6 +14,7 @@ import ModelBadge from "@/components/iphone/ModelBadge";
 import { useTranslation } from "react-i18next";
 import {
   getCollectionArticle,
+  resolveCollectionArticle,
   articleModels,
   COLLECTION_NAME,
   IPHONE_BASE_PATH,
@@ -23,18 +24,22 @@ import {
 
 /**
  * Gabarit d'article de la collection iPhone 18 Pro.
- * Le même composant sert à tous les articles : le contenu vient de
- * src/config/iphone-collection.ts (COLLECTION_ARTICLES).
+ * Le même composant sert à tous les articles : le contenu vient des dossiers
+ * src/content/iphone/<slug>/ (fr.ts, en.ts) via l'index de collection.
  */
 const IphoneArticle = () => {
   const { t, i18n } = useTranslation();
   const { slug } = useParams();
-  const article = getCollectionArticle(slug);
+  // Version française : référence pour le SEO (titres et descriptions restent en FR).
+  const source = getCollectionArticle(slug);
+  const resolved = resolveCollectionArticle(slug, i18n.language);
 
-  if (!article) return <Navigate to="/404" replace />;
+  if (!source || !resolved) return <Navigate to="/404" replace />;
   if (!isCollectionVisible() && HIDE_PAGES_WHEN_DISABLED) return <Navigate to="/" replace />;
 
+  const article = resolved.article;
   const toc = article.sections.map((s) => ({ id: s.id, label: s.heading }));
+
 
   return (
     <div className="min-h-screen bg-background">
