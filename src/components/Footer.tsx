@@ -1,9 +1,11 @@
 import { Gamepad2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useConsent } from "@/hooks/use-consent";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const { openBanner } = useConsent();
   return (
     <footer className="border-t border-border py-12">
       <div className="container mx-auto px-4">
