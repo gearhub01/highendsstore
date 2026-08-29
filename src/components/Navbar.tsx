@@ -76,7 +76,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 group">
             <Gamepad2 className="h-7 w-7 text-primary group-hover:text-glow transition-all" />
             <span className="font-display text-lg font-bold tracking-wider text-foreground">
-              GEAR<span className="text-primary">HUB</span>
+              HIGHENDS<span className="text-primary">STORE</span>
             </span>
           </Link>
 

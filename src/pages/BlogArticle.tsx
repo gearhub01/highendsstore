@@ -69,7 +69,7 @@ const BlogArticle = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title={article.title}
-        description={article.excerpt ?? `${article.title} — article GearHub sur les périphériques gaming.`}
+        description={article.excerpt ?? `${article.title} — article Highends Store sur les périphériques gaming.`}
         canonicalPath={`/blog/${article.slug}`}
         type="article"
         image={articleImage}
@@ -81,8 +81,8 @@ const BlogArticle = () => {
             description: article.excerpt ?? undefined,
             image: [articleImage],
             datePublished: article.date,
-            author: { "@type": article.author ? "Person" : "Organization", name: article.author || "GearHub" },
-            publisher: { "@type": "Organization", name: "GearHub", url: SITE_URL },
+            author: { "@type": article.author ? "Person" : "Organization", name: article.author || "Highends Store" },
+            publisher: { "@type": "Organization", name: "Highends Store", url: SITE_URL },
             mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
             articleSection: article.category ?? undefined,
           },

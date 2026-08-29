@@ -76,7 +76,7 @@ const IphoneArticle = () => {
           image: source.image,
           dateModified: source.updatedAt,
           mainEntityOfPage: `${SITE_URL}${IPHONE_BASE_PATH}/${source.slug}`,
-          publisher: { "@type": "Organization", name: "GearHub" },
+          publisher: { "@type": "Organization", name: "Highends Store" },
         }}
       />
       <Navbar />

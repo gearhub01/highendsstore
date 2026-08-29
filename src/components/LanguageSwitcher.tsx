@@ -37,7 +37,7 @@ const LanguageSwitcher = () => {
                 key={lang.code}
                 onClick={async () => {
                   await i18n.changeLanguage(lang.code);
-                  localStorage.setItem("gearhub-lang", lang.code);
+                  localStorage.setItem("highends-lang", lang.code);
                   setOpen(false);
                 }}
                 className="flex items-center gap-2 w-full px-3 py-2 rounded-md hover:bg-secondary transition-colors text-sm"

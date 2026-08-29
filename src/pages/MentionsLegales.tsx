@@ -7,7 +7,7 @@ const MentionsLegales = () => (
   <div className="min-h-screen bg-background">
     <SEOHead
       title="Mentions légales"
-      description="Mentions légales du site GearHub : éditeur, directeur de publication, hébergeur, propriété intellectuelle, droits d'auteur et coordonnées de contact."
+      description="Mentions légales du site Highends Store : éditeur, directeur de publication, hébergeur, propriété intellectuelle, droits d'auteur et coordonnées de contact."
       type="website"
       canonicalPath="/mentions-legales"
     />
@@ -22,7 +22,7 @@ const MentionsLegales = () => (
           <section className="mb-10">
             <h2 className="text-xl font-display font-bold text-foreground mb-3">Éditeur du site</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              GearHub est un site indépendant de guides d'achat et de reviews de périphériques gaming. Toutes les opinions exprimées sont les nôtres et sont basées sur des tests réels effectués par notre équipe.
+              Highends Store est un site indépendant de guides d'achat et de reviews de périphériques gaming. Toutes les opinions exprimées sont les nôtres et sont basées sur des tests réels effectués par notre équipe.
             </p>
           </section>
 

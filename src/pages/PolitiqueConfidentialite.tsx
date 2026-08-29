@@ -6,8 +6,8 @@ import BackToTop from "@/components/BackToTop";
 const PolitiqueConfidentialite = () => (
   <div className="min-h-screen bg-background">
     <SEOHead
-      title="Politique de confidentialité — GearHub"
-      description="Politique de confidentialité de GearHub : données collectées, finalités, bases légales, durées de conservation, droits RGPD et gestion des cookies."
+      title="Politique de confidentialité — Highends Store"
+      description="Politique de confidentialité de Highends Store : données collectées, finalités, bases légales, durées de conservation, droits RGPD et gestion des cookies."
       type="website"
       canonicalPath="/politique-confidentialite"
       appendSiteName={false}
@@ -39,7 +39,7 @@ const PolitiqueConfidentialite = () => (
               <strong className="text-foreground">Mesure d'audience.</strong> Ce site utilise Google Analytics 4 pour analyser la fréquentation : pages consultées, durée de visite, type d'appareil, provenance du trafic. Ces données sont collectées sous forme pseudonymisée.
             </p>
             <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-              <strong className="text-foreground">Cookies d'affiliation.</strong> Lorsque vous cliquez sur un lien partenaire (notamment Amazon), ce partenaire peut déposer un cookie sur votre navigateur afin d'attribuer l'achat au site. GearHub ne dépose pas lui-même ce cookie et n'a pas accès à vos données d'achat chez le partenaire.
+              <strong className="text-foreground">Cookies d'affiliation.</strong> Lorsque vous cliquez sur un lien partenaire (notamment Amazon), ce partenaire peut déposer un cookie sur votre navigateur afin d'attribuer l'achat au site. Highends Store ne dépose pas lui-même ce cookie et n'a pas accès à vos données d'achat chez le partenaire.
             </p>
             <p className="text-muted-foreground text-sm leading-relaxed">
               <strong className="text-foreground">Formulaire de contact.</strong> [À COMPLÉTER : données du formulaire de contact, s'il existe — sinon supprimer ce paragraphe]

@@ -13,7 +13,7 @@ export type IphoneModel = "pro" | "pro_max" | "both";
 
 /** Métadonnées SEO éditables, une par page. */
 export interface CollectionSeo {
-  /** Balise <title> (sans le suffixe « | GearHub », ajouté automatiquement). */
+  /** Balise <title> (sans le suffixe « | Highends Store », ajouté automatiquement). */
   title: string;
   /** Meta description + og:description (≈ 140-155 caractères). */
   description: string;

@@ -138,7 +138,7 @@ const Admin = () => {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Administration"
-        description="Espace d'administration GearHub."
+        description="Espace d'administration Highends Store."
         canonicalPath="/admin"
         noindex
       />

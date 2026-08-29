@@ -14,7 +14,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-2 mb-4">
               <Gamepad2 className="h-6 w-6 text-primary" />
               <span className="font-display text-base font-bold tracking-wider">
-                GEAR<span className="text-primary">HUB</span>
+                HIGHENDS<span className="text-primary">STORE</span>
               </span>
             </Link>
             <p className="text-xs text-muted-foreground leading-relaxed">{t("footer.tagline")}</p>
@@ -47,7 +47,7 @@ const Footer = () => {
               <li><Link to="/politique-confidentialite" className="hover:text-primary transition-colors">{t("footer.privacy")}</Link></li>
               <li><Link to="/divulgation-affiliation" className="hover:text-primary transition-colors">{t("footer.affiliate")}</Link></li>
               <li><button type="button" onClick={openBanner} className="hover:text-primary transition-colors">Gérer les cookies</button></li>
-              <li><a href="mailto:contact@gearhub.fr" className="hover:text-primary transition-colors">{t("footer.contact")}</a></li>
+              <li><a href="mailto:contact@highends.store" className="hover:text-primary transition-colors">{t("footer.contact")}</a></li>
             </ul>
           </div>
         </div>

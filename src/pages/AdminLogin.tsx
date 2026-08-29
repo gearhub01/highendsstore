@@ -43,7 +43,7 @@ const AdminLogin = () => {
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <SEOHead
         title="Connexion"
-        description="Connexion à l'espace d'administration GearHub."
+        description="Connexion à l'espace d'administration Highends Store."
         canonicalPath="/admin/login"
         noindex
       />
