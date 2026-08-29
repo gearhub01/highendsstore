@@ -110,7 +110,7 @@ const ProductReview = () => {
             category: "Clavier Gaming",
           },
           reviewRating: { "@type": "Rating", ratingValue: "9.6", bestRating: "10" },
-          author: { "@type": "Organization", name: "GearHub" },
+          author: { "@type": "Organization", name: "Highends Store" },
           datePublished: "2026-02-03",
         }}
       />
@@ -137,7 +137,7 @@ const ProductReview = () => {
             productName="Wooting 80HE"
             tagline="Le clavier Hall Effect qui redéfinit le standard du gaming compétitif. Actuation ajustable de 0.1mm, Rapid Trigger, et build quality premium — notre test complet après 3 mois d'utilisation intensive."
             rating={9.6}
-            author="Équipe GearHub"
+            author="Équipe Highends Store"
             date="3 Février 2026"
             readTime={t("featured.readTime", { time: "12 min" })}
             updatedDate="Février 2026"

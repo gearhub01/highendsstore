@@ -12,7 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="GearHub — Périphériques gaming et setup PC testés"
+        title="Highends Store — Périphériques gaming et setup PC testés"
         appendSiteName={false}
         description="Tests indépendants et guides d'achat : claviers, souris, casques et moniteurs gaming, plus les accessoires qui complètent un setup PC en 2026."
         type="website"
@@ -20,7 +20,7 @@ const Index = () => {
         schema={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "GearHub",
+          name: "Highends Store",
           url: "https://highendsstore.lovable.app",
           description: "Guides d'achat et reviews de périphériques gaming",
           potentialAction: {

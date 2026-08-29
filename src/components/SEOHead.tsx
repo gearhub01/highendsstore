@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
  * le domaine de production.
  */
 export const SITE_URL = "https://www.highends.store";
-const SITE_NAME = "GearHub";
+const SITE_NAME = "Highends Store";
 const PRODUCTION_HOSTS = ["www.highends.store", "highends.store"];
 /** Image de partage par défaut (1200 × 630, public/og-default.jpg). */
 export const DEFAULT_OG_IMAGE = "/og-default.jpg";
@@ -32,7 +32,7 @@ interface SEOHeadProps {
   noindex?: boolean;
   /** Ajoute nofollow au meta robots (défaut false → follow). */
   nofollow?: boolean;
-  /** Ajoute " | GearHub" au titre (défaut true). */
+  /** Ajoute " | Highends Store" au titre (défaut true). */
   appendSiteName?: boolean;
   /** JSON-LD optionnel (un objet ou une liste d'objets). */
   schema?: Record<string, unknown> | Record<string, unknown>[];

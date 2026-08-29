@@ -118,7 +118,7 @@ const BuyingGuide = () => {
           "@context": "https://schema.org",
           "@type": "Article",
           headline: "Meilleurs Claviers Gaming 2026",
-          author: { "@type": "Organization", name: "GearHub" },
+          author: { "@type": "Organization", name: "Highends Store" },
           datePublished: "2026-02-05",
           dateModified: "2026-02-05",
           description: "Notre sélection des 5 meilleurs claviers gaming testés et comparés.",
@@ -146,7 +146,7 @@ const BuyingGuide = () => {
             categoryHref="/guides"
             title="Meilleurs Claviers Gaming 2026"
             subtitle="Notre sélection des 12 meilleurs claviers mécaniques et Hall Effect testés et comparés. Du budget au premium, trouvez le clavier parfait pour votre style de jeu — guides complets, avis honnêtes et tableaux comparatifs."
-            author="Équipe GearHub"
+            author="Équipe Highends Store"
             date="5 Février 2026"
             readTime={t("featured.readTime", { time: "15 min" })}
             updatedDate="Février 2026"

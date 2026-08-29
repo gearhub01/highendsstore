@@ -14,7 +14,7 @@
  *    and the site automatically serves French with a "not yet translated"
  *    banner instead of an outdated translation. Update this date when you
  *    refresh the translation.
- *  - NEVER translate: brand and product names (GearHub, iPhone 18 Pro, Anker,
+ *  - NEVER translate: brand and product names (Highends Store, iPhone 18 Pro, Anker,
  *    Ugreen, Belkin, Baseus…), units and technical terms (Go, To, Gb/s, MHz,
  *    nits, mm, g, USB-C, ProMotion, MagSafe, Hall Effect), URL slugs.
  *  - SEO: `seo.title` under 48 characters, `seo.description` 140-155 characters.

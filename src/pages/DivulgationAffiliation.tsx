@@ -6,8 +6,8 @@ import BackToTop from "@/components/BackToTop";
 const DivulgationAffiliation = () => (
   <div className="min-h-screen bg-background">
     <SEOHead
-      title="Divulgation d'affiliation — GearHub"
-      description="Divulgation d'affiliation de GearHub : participation au Programme Partenaires d'Amazon EU, liens affiliés et indépendance éditoriale."
+      title="Divulgation d'affiliation — Highends Store"
+      description="Divulgation d'affiliation de Highends Store : participation au Programme Partenaires d'Amazon EU, liens affiliés et indépendance éditoriale."
       type="website"
       canonicalPath="/divulgation-affiliation"
       appendSiteName={false}
@@ -23,7 +23,7 @@ const DivulgationAffiliation = () => (
           <section className="mb-10">
             <h2 className="text-xl font-display font-bold text-foreground mb-3">Programme Partenaires d'Amazon EU</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              GearHub participe au Programme Partenaires d'Amazon EU, un programme d'affiliation conçu pour permettre à des sites de percevoir une rémunération grâce à la création de liens vers Amazon.fr et d'autres sites du groupe Amazon.
+              Highends Store participe au Programme Partenaires d'Amazon EU, un programme d'affiliation conçu pour permettre à des sites de percevoir une rémunération grâce à la création de liens vers Amazon.fr et d'autres sites du groupe Amazon.
             </p>
           </section>
 

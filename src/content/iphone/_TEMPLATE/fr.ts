@@ -6,7 +6,7 @@
  * remplis les champs, puis déclare-le dans `src/config/iphone-collection.ts`.
  *
  * CONTRAINTES À RESPECTER (résumé) :
- *  - title             : moins de 48 caractères (le suffixe " | GearHub" prend les 10 derniers)
+ *  - title             : moins de 48 caractères (le suffixe " | Highends Store" prend les 10 derniers)
  *  - seo.title         : même règle que title (moins de 48 caractères)
  *  - seo.description   : entre 140 et 155 caractères
  *  - slug              : minuscules, mots séparés par des tirets, sans accent
@@ -76,7 +76,7 @@ export const article: CollectionArticle = {
 
   /** OBLIGATOIRE — métadonnées SEO de la page. */
   seo: {
-    /** Moins de 48 caractères (" | GearHub" est ajouté automatiquement). */
+    /** Moins de 48 caractères (" | Highends Store" est ajouté automatiquement). */
     title: "Titre SEO court",
     /** Entre 140 et 155 caractères, ni plus ni moins. */
     description:

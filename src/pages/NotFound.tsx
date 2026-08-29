@@ -16,7 +16,7 @@ const NotFound = () => {
     <div className="flex min-h-screen items-center justify-center bg-muted px-4">
       <SEOHead
         title="Page introuvable"
-        description="Cette page n'existe pas ou a été déplacée sur GearHub."
+        description="Cette page n'existe pas ou a été déplacée sur Highends Store."
         noindex
         nofollow
       />

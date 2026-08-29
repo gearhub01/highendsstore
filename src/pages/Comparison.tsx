@@ -143,7 +143,7 @@ const Comparison = () => {
                 review: {
                   "@type": "Review",
                   reviewRating: { "@type": "Rating", ratingValue: String(p.rating), bestRating: "10" },
-                  author: { "@type": "Organization", name: "GearHub" },
+                  author: { "@type": "Organization", name: "Highends Store" },
                 },
               },
             })),
