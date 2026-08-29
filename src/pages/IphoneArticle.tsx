@@ -46,7 +46,6 @@ const IphoneArticle = () => {
           title={COLLECTION_NAME}
           description=""
           canonicalPath={targetPath}
-          noindex
         />
         <Navigate to={targetPath} replace />
       </>
