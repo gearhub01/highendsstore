@@ -16,11 +16,8 @@ const LanguageSwitcher = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
-
-  const current = languages.find((l) => l.code === i18n.language) ?? languages[0];
+  const activeLanguage = i18n.resolvedLanguage ?? i18n.language;
+  const current = languages.find((l) => l.code === activeLanguage) ?? languages[0];
 
   return (
     <div ref={ref} className="relative">
@@ -38,15 +35,16 @@ const LanguageSwitcher = () => {
             {languages.map((lang) => (
               <button
                 key={lang.code}
-                onClick={() => {
-                  i18n.changeLanguage(lang.code);
+                onClick={async () => {
+                  await i18n.changeLanguage(lang.code);
+                  localStorage.setItem("gearhub-lang", lang.code);
                   setOpen(false);
                 }}
                 className="flex items-center gap-2 w-full px-3 py-2 rounded-md hover:bg-secondary transition-colors text-sm"
               >
                 <span className="text-base leading-none">{lang.flag}</span>
                 <span className="flex-1 text-left text-foreground">{lang.label}</span>
-                {i18n.language === lang.code && <Check className="h-4 w-4 text-primary" />}
+                {activeLanguage === lang.code && <Check className="h-4 w-4 text-primary" />}
               </button>
             ))}
           </div>

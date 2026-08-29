@@ -49,7 +49,7 @@ const TableOfContents = ({ items }: TableOfContentsProps) => {
         <nav className="rounded-lg border border-border bg-card/80 backdrop-blur-sm p-4 shadow-lg">
           <p className="text-xs font-display uppercase tracking-widest text-primary mb-3 flex items-center gap-1.5">
             <List className="h-3.5 w-3.5" />
-            Sommaire
+            {t("ui.toc")}
           </p>
           <ul className="space-y-1">
             {items.map(({ id, label }) => (

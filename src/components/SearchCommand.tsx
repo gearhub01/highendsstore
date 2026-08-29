@@ -32,6 +32,12 @@ const searchableContent = [
 ];
 
 const iconMap: Record<string, typeof BookOpen> = { Guide: BookOpen, Review: Star, Comparaison: GitCompareArrows, Article: Newspaper };
+const groupLabelKeys: Record<string, string> = {
+  Guide: "ui.guides",
+  Review: "ui.reviews",
+  Comparaison: "ui.comparisons",
+  Article: "ui.articles",
+};
 
 interface SearchCommandProps {
   open: boolean;
@@ -71,7 +77,7 @@ const SearchCommand = ({ open, onOpenChange }: SearchCommandProps) => {
         {Object.entries(grouped).map(([type, items]) => {
           const GroupIcon = iconMap[type] || BookOpen;
           return (
-            <CommandGroup key={type} heading={type + "s"}>
+            <CommandGroup key={type} heading={t(groupLabelKeys[type] ?? "ui.content")}>
               {items.map((item) => (
                 <CommandItem key={item.href} onSelect={() => handleSelect(item.href)} className="cursor-pointer">
                   <item.icon className="mr-2 h-4 w-4 text-primary" />

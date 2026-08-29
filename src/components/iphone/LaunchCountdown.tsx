@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Timer } from "lucide-react";
 import { KEYNOTE_DATE } from "@/config/iphone-collection";
+import { useTranslation } from "react-i18next";
 
 /**
  * Compte à rebours vers le keynote Apple.
@@ -18,6 +19,7 @@ const getRemaining = (target: number) => {
 };
 
 const LaunchCountdown = () => {
+  const { t } = useTranslation();
   const target = new Date(KEYNOTE_DATE).getTime();
   const [time, setTime] = useState(() => getRemaining(target));
 
@@ -27,10 +29,10 @@ const LaunchCountdown = () => {
   }, [target]);
 
   const units = [
-    { value: time.days, label: "Jours" },
-    { value: time.hours, label: "Heures" },
-    { value: time.minutes, label: "Min" },
-    { value: time.seconds, label: "Sec" },
+    { value: time.days, label: t("ui.days") },
+    { value: time.hours, label: t("ui.hours") },
+    { value: time.minutes, label: t("ui.minutes") },
+    { value: time.seconds, label: t("ui.seconds") },
   ];
 
   return (
@@ -38,7 +40,7 @@ const LaunchCountdown = () => {
       <div className="flex items-center gap-2 mb-4">
         <Timer className="h-4 w-4 text-primary" />
         <p className="text-[11px] font-display uppercase tracking-widest text-primary">
-          {time.done ? "Keynote Apple diffusé" : "Keynote Apple — 9 septembre 2026"}
+          {time.done ? t("ui.keynoteDone") : t("ui.keynoteDate")}
         </p>
       </div>
 
