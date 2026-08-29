@@ -39,6 +39,8 @@ const App = () => (
           <Route path="/guides" element={<Guides />} />
           <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+          <Route path="/divulgation-affiliation" element={<DivulgationAffiliation />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           {/* Collection temporaire iPhone 18 Pro */}
