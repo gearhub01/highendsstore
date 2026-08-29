@@ -21,10 +21,6 @@ import {
   isCollectionVisible,
 } from "@/config/iphone-collection";
 
-/** Formate une date ISO en français lisible (ex. 21 août 2026). */
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
-
 /**
  * Gabarit d'article de la collection iPhone 18 Pro.
  * Le même composant sert à tous les articles : le contenu vient de

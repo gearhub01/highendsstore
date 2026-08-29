@@ -382,7 +382,12 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: undefined, // résolu par le détecteur (localStorage) puis par fallbackLng
+    // Sans préférence enregistrée, la langue initiale est toujours le français.
+    // Aucune détection navigateur n'est utilisée.
+    lng:
+      typeof window !== "undefined"
+        ? window.localStorage.getItem("gearhub-lang") ?? "fr"
+        : "fr",
     // Le repli français est géré ci-dessous afin d'être signalé visuellement
     // en développement au lieu de masquer silencieusement une clé absente.
     fallbackLng: false,
