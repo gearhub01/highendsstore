@@ -16,7 +16,7 @@
  * RÈGLE AMAZON ASSOCIATES : jamais de prix ni de disponibilité en dur.
  * ============================================================================
  */
-import type { CollectionArticle } from "./types";
+import type { CollectionArticle } from "../types";
 
 export const article: CollectionArticle = {
   /** OBLIGATOIRE — minuscules, tirets, sans accent. Donne l'URL /iphone-18-pro/<slug>. */
