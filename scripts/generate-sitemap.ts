@@ -45,6 +45,8 @@ const entries: SitemapEntry[] = [
     lastmod: p.updatedAt,
   })),
   { path: "/mentions-legales", changefreq: "yearly", priority: "0.3" },
+  { path: "/politique-confidentialite", changefreq: "yearly", priority: "0.3" },
+  { path: "/divulgation-affiliation", changefreq: "yearly", priority: "0.3" },
 ]
 
 

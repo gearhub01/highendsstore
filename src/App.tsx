@@ -13,6 +13,8 @@ import BlogArticle from "./pages/BlogArticle";
 import Guides from "./pages/Guides";
 import Reviews from "./pages/Reviews";
 import MentionsLegales from "./pages/MentionsLegales";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
+import DivulgationAffiliation from "./pages/DivulgationAffiliation";
 import Admin from "./pages/Admin";
 import AdminLogin from "./pages/AdminLogin";
 // Collection temporaire iPhone 18 Pro (voir src/config/iphone-collection.ts)
@@ -37,6 +39,8 @@ const App = () => (
           <Route path="/guides" element={<Guides />} />
           <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+          <Route path="/divulgation-affiliation" element={<DivulgationAffiliation />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           {/* Collection temporaire iPhone 18 Pro */}
