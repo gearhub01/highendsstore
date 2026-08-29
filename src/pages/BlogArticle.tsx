@@ -7,6 +7,7 @@ import RelatedContent from "@/components/RelatedContent";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useArticle, useArticles, FALLBACK_IMAGE } from "@/hooks/use-content";
 import SEOHead, { SITE_URL } from "@/components/SEOHead";
+import { useTranslation } from "react-i18next";
 
 const categoryIcon: Record<string, typeof TrendingUp> = {
   Tendance: TrendingUp,
@@ -23,6 +24,7 @@ const categoryColor: Record<string, string> = {
 };
 
 const BlogArticle = () => {
+  const { t, i18n } = useTranslation();
   const { slug } = useParams<{ slug: string }>();
   const { data: article, isLoading } = useArticle(slug);
   const { data: allArticles = [] } = useArticles();
@@ -101,22 +103,22 @@ const BlogArticle = () => {
           <div className="max-w-3xl mx-auto">
             <AnimatedSection variant="fade-up">
               <Link to="/blog" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-6">
-                <ArrowLeft className="h-4 w-4" /> Retour au blog
+                <ArrowLeft className="h-4 w-4" /> {t("ui.backToBlog")}
               </Link>
             </AnimatedSection>
 
             <AnimatedSection variant="fade-up" delay={0.05}>
               <div className="mb-6">
                 <span className={`inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full mb-4 ${categoryColor[article.category ?? ""] ?? "bg-muted text-muted-foreground"}`}>
-                  <Icon className="h-3 w-3" />{article.tag || article.category || "Article"}
+                  <Icon className="h-3 w-3" />{article.tag || article.category || t("ui.article")}
                 </span>
                 <h1 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
                   {article.title}
                 </h1>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                   {article.author && <span className="flex items-center gap-1"><User className="h-4 w-4" />{article.author}</span>}
-                  <span className="flex items-center gap-1"><Calendar className="h-4 w-4" />{new Date(article.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span>
-                  {article.read_time && <span className="flex items-center gap-1"><Clock className="h-4 w-4" />{article.read_time} de lecture</span>}
+                  <span className="flex items-center gap-1"><Calendar className="h-4 w-4" />{new Date(article.date).toLocaleDateString(i18n.language, { day: "numeric", month: "long", year: "numeric" })}</span>
+                  {article.read_time && <span className="flex items-center gap-1"><Clock className="h-4 w-4" />{t("ui.readingTime", { time: article.read_time })}</span>}
                 </div>
               </div>
             </AnimatedSection>

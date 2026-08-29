@@ -109,7 +109,7 @@ const IphoneHub = () => {
                       : "border-border text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  {tab.label}
+                    {tab.id === "all" ? t("ui.allModels") : tab.id === "both" ? t("ui.comparisonTab") : tab.label}
                 </button>
               ))}
             </div>

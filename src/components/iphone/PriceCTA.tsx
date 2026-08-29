@@ -1,6 +1,7 @@
 import { ShoppingCart, ExternalLink } from "lucide-react";
 import { MODEL_LABELS } from "@/config/iphone-collection";
 import { trackCtaClick } from "@/lib/track-cta";
+import { useTranslation } from "react-i18next";
 
 /**
  * Bouton d'affiliation Amazon compact et paramétrable par modèle.
@@ -35,11 +36,12 @@ const PriceCTA = ({
   model,
   url,
   productName,
-  label = "Voir sur Amazon",
+  label,
   articleSlug,
   sectionId,
   placement = "article-section",
 }: PriceCTAProps) => {
+  const { t } = useTranslation();
   if (!url) return null;
 
   const handleClick = () => {
@@ -68,7 +70,7 @@ const PriceCTA = ({
         className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
       >
         <ShoppingCart className="h-4 w-4" />
-        <span>{label}</span>
+        <span>{label ?? t("ui.viewOnAmazon")}</span>
         <span className="opacity-70">·</span>
         <span className="opacity-90">{MODEL_LABELS[model]}</span>
         <ExternalLink className="h-3.5 w-3.5 opacity-70" />
