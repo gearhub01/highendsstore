@@ -3,7 +3,7 @@
  * RÈGLE : aucune caractéristique de l'iPhone 18 Pro n'est confirmée.
  * Toute cellule le concernant porte « Non confirmé » ou « Rumeur — non confirmé ».
  */
-import type { CollectionArticle } from "./types";
+import type { CollectionArticle } from "../types";
 
 const NC = "Non confirmé";
 const RUMOR = "Rumeur — non confirmé au 27/08/2026";

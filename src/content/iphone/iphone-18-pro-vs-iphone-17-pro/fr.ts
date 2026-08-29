@@ -2,7 +2,7 @@
  * Comparatif iPhone 18 Pro vs iPhone 17 Pro.
  * RÈGLE : aucune caractéristique de l'iPhone 18 Pro n'est confirmée.
  */
-import type { CollectionArticle } from "./types";
+import type { CollectionArticle } from "../types";
 
 const NC = "Non confirmé";
 const RUMOR = "Rumeur — non confirmé au 27/08/2026";

@@ -1,4 +1,4 @@
-import type { CollectionArticle } from "./types";
+import type { CollectionArticle } from "../types";
 
 /** Article : /iphone-18-pro/accessoires-usb-c-setup */
 export const article: CollectionArticle = {
