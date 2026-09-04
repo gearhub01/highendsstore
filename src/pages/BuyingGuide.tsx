@@ -66,7 +66,7 @@ const productReviews: ProductReview[] = [
     rank: 2, name: "Razer Huntsman V3 Pro", tagline: "Le premium sans compromis", rating: 9.3, price: "249€",
     specs: [{ label: "Switch", value: "Analog Optical" }, { label: "Format", value: "Full / TKL" }, { label: "Connexion", value: "USB-C / 2.4GHz" }, { label: "Actuation", value: "0.1-4.0mm" }],
     pros: ["Switches analog optiques ultra-rapides", "Build quality premium avec repose-poignet magnétique", "Razer Synapse puissant pour la personnalisation", "Disponible en Full et TKL"],
-    cons: ["Prix élevé (249€+)", "Logiciel Synapse parfois lourd", "Repose-poignet en plastique (pas cuir)"],
+    cons: ["Positionnement premium", "Logiciel Synapse parfois lourd", "Repose-poignet en plastique (pas cuir)"],
     verdict: "Le Huntsman V3 Pro combine technologie analog optique et finition premium. C'est le choix idéal si vous voulez un clavier haut de gamme avec un écosystème logiciel complet.",
     bestFor: "Gamers exigeants qui veulent le meilleur en tout",
   },
@@ -179,7 +179,7 @@ const BuyingGuide = () => {
           <GuideVerdict
             picks={[
               { icon: <Target className="h-8 w-8" />, label: "Meilleur Global", productName: "Wooting 80HE", reason: "Imbattable en compétitif avec son actuation ajustable et Rapid Trigger." },
-              { icon: <Wallet className="h-8 w-8" />, label: "Meilleur Rapport Q/P", productName: "Keychron Q1 Max", reason: "Triple connectivité, gasket mount et hot-swap pour seulement 149€." },
+              { icon: <Wallet className="h-8 w-8" />, label: "Meilleur Rapport Q/P", productName: "Keychron Q1 Max", reason: "Triple connectivité, gasket mount et hot-swap à prix contenu." },
               { icon: <Zap className="h-8 w-8" />, label: "Meilleur Premium", productName: "Razer Huntsman V3 Pro", reason: "Le nec plus ultra en finition et technologie, pour les joueurs exigeants." },
             ]}
             conclusion="Le marché des claviers gaming en 2026 est dominé par la technologie Hall Effect, qui offre un avantage compétitif mesurable. Le Wooting 80HE reste notre recommandation #1 pour les joueurs sérieux. Pour un budget plus serré, le Keychron Q1 Max offre un rapport qualité-prix imbattable. Et si vous voulez le premium absolu, le Razer Huntsman V3 Pro ne déçoit pas. Quel que soit votre choix, investir dans un bon clavier gaming transformera votre expérience de jeu."

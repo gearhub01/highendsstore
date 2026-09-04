@@ -160,7 +160,7 @@ const ProductReview = () => {
         <div id="review-verdict">
           <ReviewVerdict
             rating={9.6}
-            price="199€"
+
             verdict="Le Wooting 80HE est tout simplement le meilleur clavier gaming que nous ayons testé en 2026. Sa technologie Hall Effect avec actuation ajustable de 0.1mm et Rapid Trigger offre un avantage compétitif mesurable en FPS. La build quality en aluminium CNC, le son de frappe satisfaisant stock et le firmware open-source en font un investissement durable. Si vous êtes un joueur compétitif sérieux et que le filaire ne vous dérange pas, c'est LE clavier à prendre — sans hésiter."
             bestFor="Joueurs compétitifs FPS (Valorant, CS2, Apex)"
           />
