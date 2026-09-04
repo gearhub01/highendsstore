@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 export interface ComparisonProduct {
   name: string;
-  price: string;
   rating: number;
   image?: string;
   specs: Record<string, string>;
@@ -45,16 +44,6 @@ const ComparisonTable = ({ products, specLabels }: ComparisonTableProps) => {
                 </tr>
               </thead>
               <tbody>
-                {/* Price row */}
-                <tr className="border-t border-border hover:bg-secondary/20 transition-colors">
-                  <td className="px-4 py-3 font-medium text-muted-foreground">{t("ui.price")}</td>
-                  {products.map((p) => (
-                    <td key={p.name} className="px-4 py-3 text-center font-semibold text-primary">
-                      {p.price}
-                    </td>
-                  ))}
-                </tr>
-
                 {/* Rating row */}
                 <tr className="border-t border-border hover:bg-secondary/20 transition-colors">
                   <td className="px-4 py-3 font-medium text-muted-foreground">{t("ui.rating")}</td>

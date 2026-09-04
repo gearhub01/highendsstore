@@ -7,7 +7,6 @@ export interface ProductReview {
   name: string;
   tagline: string;
   rating: number;
-  price: string;
   image?: string;
   specs: { label: string; value: string }[];
   pros: string[];
@@ -119,7 +118,6 @@ const GuideProductReview = ({ product }: GuideProductReviewProps) => {
           </span>
         </div>
         <div className="flex items-center gap-3 shrink-0">
-          <span className="font-display text-xl font-bold text-foreground">{product.price}</span>
           <a
             href="#"
             className="inline-flex items-center gap-2 px-5 py-2.5 font-display text-xs font-bold tracking-wider uppercase gradient-neon text-primary-foreground rounded-md box-glow hover:scale-105 transition-transform"
