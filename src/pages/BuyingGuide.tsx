@@ -19,11 +19,11 @@ import { useTranslation } from "react-i18next";
 // --- MOCK DATA ---
 
 const summaryProducts: SummaryProduct[] = [
-  { rank: 1, name: "Wooting 80HE", highlight: "Meilleur clavier gaming global", rating: 9.6, price: "199€", bestFor: "Compétitif / FPS" },
-  { rank: 2, name: "Razer Huntsman V3 Pro", highlight: "Meilleur clavier premium", rating: 9.3, price: "249€", bestFor: "Polyvalent premium" },
-  { rank: 3, name: "Corsair K100 RGB", highlight: "Meilleur clavier full-size", rating: 9.1, price: "189€", bestFor: "MMO / Productivité" },
-  { rank: 4, name: "Keychron Q1 Max", highlight: "Meilleur rapport qualité-prix", rating: 9.0, price: "149€", bestFor: "Custom / Budget premium" },
-  { rank: 5, name: "SteelSeries Apex Pro TKL", highlight: "Meilleur TKL compétitif", rating: 8.9, price: "179€", bestFor: "Esport / Compact" },
+  { rank: 1, name: "Wooting 80HE", highlight: "Meilleur clavier gaming global", rating: 9.6, bestFor: "Compétitif / FPS" },
+  { rank: 2, name: "Razer Huntsman V3 Pro", highlight: "Meilleur clavier premium", rating: 9.3, bestFor: "Polyvalent premium" },
+  { rank: 3, name: "Corsair K100 RGB", highlight: "Meilleur clavier full-size", rating: 9.1, bestFor: "MMO / Productivité" },
+  { rank: 4, name: "Keychron Q1 Max", highlight: "Meilleur rapport qualité-prix", rating: 9.0, bestFor: "Custom / Budget premium" },
+  { rank: 5, name: "SteelSeries Apex Pro TKL", highlight: "Meilleur TKL compétitif", rating: 8.9, bestFor: "Esport / Compact" },
 ];
 
 const criteria: Criterion[] = [
