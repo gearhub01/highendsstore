@@ -134,7 +134,7 @@ export const HUB_IPHONE_CTAS: Record<"pro" | "pro_max", AmazonLink> = {
 export const WHY_HERE = {
   title: "Pourquoi une collection iPhone sur Highends Store ?",
   paragraphs: [
-    "Highends Store parle de setup, pas de smartphones. Mais l'iPhone 18 Pro et le Pro Max entrent dans le setup par la porte du PC : captés en USB-C, ils deviennent une webcam 4K qui écrase n'importe quelle webcam à 150 €, un micro d'appoint correct et une seconde source de capture pour le stream.",
+    "Highends Store parle de setup, pas de smartphones. Mais l'iPhone 18 Pro et le Pro Max entrent dans le setup par la porte du PC : captés en USB-C, ils deviennent une webcam 4K qui écrase n'importe quelle webcam dédiée, un micro d'appoint correct et une seconde source de capture pour le stream.",
     "Ajoute à cela des accessoires USB-C mutualisés — dock, câbles 240 W, SSD externes, supports de bureau — qui servent aussi bien au PC qu'au téléphone, et la logique devient évidente : on couvre ce qui touche à votre bureau, rien d'autre.",
   ],
 };

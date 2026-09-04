@@ -19,11 +19,11 @@ import { useTranslation } from "react-i18next";
 // --- MOCK DATA ---
 
 const summaryProducts: SummaryProduct[] = [
-  { rank: 1, name: "Wooting 80HE", highlight: "Meilleur clavier gaming global", rating: 9.6, price: "199€", bestFor: "Compétitif / FPS" },
-  { rank: 2, name: "Razer Huntsman V3 Pro", highlight: "Meilleur clavier premium", rating: 9.3, price: "249€", bestFor: "Polyvalent premium" },
-  { rank: 3, name: "Corsair K100 RGB", highlight: "Meilleur clavier full-size", rating: 9.1, price: "189€", bestFor: "MMO / Productivité" },
-  { rank: 4, name: "Keychron Q1 Max", highlight: "Meilleur rapport qualité-prix", rating: 9.0, price: "149€", bestFor: "Custom / Budget premium" },
-  { rank: 5, name: "SteelSeries Apex Pro TKL", highlight: "Meilleur TKL compétitif", rating: 8.9, price: "179€", bestFor: "Esport / Compact" },
+  { rank: 1, name: "Wooting 80HE", highlight: "Meilleur clavier gaming global", rating: 9.6, bestFor: "Compétitif / FPS" },
+  { rank: 2, name: "Razer Huntsman V3 Pro", highlight: "Meilleur clavier premium", rating: 9.3, bestFor: "Polyvalent premium" },
+  { rank: 3, name: "Corsair K100 RGB", highlight: "Meilleur clavier full-size", rating: 9.1, bestFor: "MMO / Productivité" },
+  { rank: 4, name: "Keychron Q1 Max", highlight: "Meilleur rapport qualité-prix", rating: 9.0, bestFor: "Custom / Budget premium" },
+  { rank: 5, name: "SteelSeries Apex Pro TKL", highlight: "Meilleur TKL compétitif", rating: 8.9, bestFor: "Esport / Compact" },
 ];
 
 const criteria: Criterion[] = [
@@ -55,7 +55,7 @@ const criteria: Criterion[] = [
 
 const productReviews: ProductReview[] = [
   {
-    rank: 1, name: "Wooting 80HE", tagline: "Le roi incontesté des claviers compétitifs", rating: 9.6, price: "199€",
+    rank: 1, name: "Wooting 80HE", tagline: "Le roi incontesté des claviers compétitifs", rating: 9.6,
     specs: [{ label: "Switch", value: "Hall Effect" }, { label: "Format", value: "TKL (80%)" }, { label: "Connexion", value: "USB-C" }, { label: "Actuation", value: "0.1-4.0mm" }],
     pros: ["Actuation point ajustable de 0.1mm à 4.0mm", "Rapid Trigger pour un reset instantané", "Build quality exceptionnelle (alu CNC)", "Son de frappe satisfaisant stock"],
     cons: ["Pas de sans-fil (USB-C uniquement)", "Disponibilité limitée (souvent en rupture)", "Pas de macro keys dédiées"],
@@ -63,15 +63,15 @@ const productReviews: ProductReview[] = [
     bestFor: "Joueurs compétitifs FPS (Valorant, CS2)",
   },
   {
-    rank: 2, name: "Razer Huntsman V3 Pro", tagline: "Le premium sans compromis", rating: 9.3, price: "249€",
+    rank: 2, name: "Razer Huntsman V3 Pro", tagline: "Le premium sans compromis", rating: 9.3,
     specs: [{ label: "Switch", value: "Analog Optical" }, { label: "Format", value: "Full / TKL" }, { label: "Connexion", value: "USB-C / 2.4GHz" }, { label: "Actuation", value: "0.1-4.0mm" }],
     pros: ["Switches analog optiques ultra-rapides", "Build quality premium avec repose-poignet magnétique", "Razer Synapse puissant pour la personnalisation", "Disponible en Full et TKL"],
-    cons: ["Prix élevé (249€+)", "Logiciel Synapse parfois lourd", "Repose-poignet en plastique (pas cuir)"],
+    cons: ["Positionnement premium", "Logiciel Synapse parfois lourd", "Repose-poignet en plastique (pas cuir)"],
     verdict: "Le Huntsman V3 Pro combine technologie analog optique et finition premium. C'est le choix idéal si vous voulez un clavier haut de gamme avec un écosystème logiciel complet.",
     bestFor: "Gamers exigeants qui veulent le meilleur en tout",
   },
   {
-    rank: 3, name: "Corsair K100 RGB", tagline: "Le mastodonte polyvalent", rating: 9.1, price: "189€",
+    rank: 3, name: "Corsair K100 RGB", tagline: "Le mastodonte polyvalent", rating: 9.1,
     specs: [{ label: "Switch", value: "OPX Optical" }, { label: "Format", value: "Full-size" }, { label: "Connexion", value: "USB-C" }, { label: "Extras", value: "iCUE Wheel" }],
     pros: ["iCUE Control Wheel unique et programmable", "Macro keys dédiées (6 touches)", "RGB per-key spectaculaire", "Construction solide cadre aluminium"],
     cons: ["Encombrant (full-size + wheel)", "Pas de sans-fil", "iCUE consomme des ressources"],
@@ -79,7 +79,7 @@ const productReviews: ProductReview[] = [
     bestFor: "Joueurs MMO, créateurs de contenu, multitâche",
   },
   {
-    rank: 4, name: "Keychron Q1 Max", tagline: "Le meilleur rapport qualité-prix custom", rating: 9.0, price: "149€",
+    rank: 4, name: "Keychron Q1 Max", tagline: "Le meilleur rapport qualité-prix custom", rating: 9.0,
     specs: [{ label: "Switch", value: "Gateron Jupiter" }, { label: "Format", value: "75%" }, { label: "Connexion", value: "Triple (BT/2.4G/USB)" }, { label: "Mount", value: "Gasket" }],
     pros: ["Triple connectivité (Bluetooth + 2.4GHz + USB-C)", "Gasket mount pour un son premium", "Hot-swap pour changer les switches", "Prix agressif pour la qualité offerte"],
     cons: ["Logiciel VIA moins intuitif que les concurrents", "RGB correct sans être exceptionnel", "Poids élevé (1.7kg) — pas portable"],
@@ -87,7 +87,7 @@ const productReviews: ProductReview[] = [
     bestFor: "Budget conscious gamers, amateurs de custom",
   },
   {
-    rank: 5, name: "SteelSeries Apex Pro TKL", tagline: "L'esport dans un format compact", rating: 8.9, price: "179€",
+    rank: 5, name: "SteelSeries Apex Pro TKL", tagline: "L'esport dans un format compact", rating: 8.9,
     specs: [{ label: "Switch", value: "OmniPoint 2.0" }, { label: "Format", value: "TKL" }, { label: "Connexion", value: "USB-C" }, { label: "Actuation", value: "0.2-3.8mm" }],
     pros: ["Switches OmniPoint ajustables (0.2-3.8mm)", "Écran OLED intégré (infos, GIF)", "Compact et robuste pour le transport", "Bonne qualité de frappe stock"],
     cons: ["Écran OLED gadget (peu utile en pratique)", "Pas de hot-swap", "Sans-fil uniquement en version Wireless (plus chère)"],
@@ -179,7 +179,7 @@ const BuyingGuide = () => {
           <GuideVerdict
             picks={[
               { icon: <Target className="h-8 w-8" />, label: "Meilleur Global", productName: "Wooting 80HE", reason: "Imbattable en compétitif avec son actuation ajustable et Rapid Trigger." },
-              { icon: <Wallet className="h-8 w-8" />, label: "Meilleur Rapport Q/P", productName: "Keychron Q1 Max", reason: "Triple connectivité, gasket mount et hot-swap pour seulement 149€." },
+              { icon: <Wallet className="h-8 w-8" />, label: "Meilleur Rapport Q/P", productName: "Keychron Q1 Max", reason: "Triple connectivité, gasket mount et hot-swap à prix contenu." },
               { icon: <Zap className="h-8 w-8" />, label: "Meilleur Premium", productName: "Razer Huntsman V3 Pro", reason: "Le nec plus ultra en finition et technologie, pour les joueurs exigeants." },
             ]}
             conclusion="Le marché des claviers gaming en 2026 est dominé par la technologie Hall Effect, qui offre un avantage compétitif mesurable. Le Wooting 80HE reste notre recommandation #1 pour les joueurs sérieux. Pour un budget plus serré, le Keychron Q1 Max offre un rapport qualité-prix imbattable. Et si vous voulez le premium absolu, le Razer Huntsman V3 Pro ne déçoit pas. Quel que soit votre choix, investir dans un bon clavier gaming transformera votre expérience de jeu."

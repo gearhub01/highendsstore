@@ -4,11 +4,11 @@ import { useTranslation } from "react-i18next";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const picks = [
-  { rank: 1, name: "Razer Viper V3 Pro", category: "Souris Gaming", rating: 9.4, price: "\n", highlight: "Meilleure souris sans-fil 2026", href: "/guides" },
-  { rank: 2, name: "Wooting 80HE", category: "Clavier Gaming", rating: 9.6, price: "\n", highlight: "Meilleur clavier Hall Effect", href: "/reviews/wooting-80he" },
-  { rank: 3, name: "SteelSeries Arctis Nova Pro", category: "Casque Gaming", rating: 9.2, price: "\n", highlight: "Meilleur son spatial gaming", href: "/guides" },
-  { rank: 4, name: "LG 27GR95QE", category: "Moniteur OLED", rating: 9.5, price: "\n", highlight: "Meilleur moniteur OLED gaming", href: "/guides" },
-  { rank: 5, name: "Elgato Stream Deck MK.2", category: "Streaming", rating: 9.0, price: "\n", highlight: "Indispensable pour streamers", href: "/guides" },
+  { rank: 1, name: "Razer Viper V3 Pro", category: "Souris Gaming", rating: 9.4, highlight: "Meilleure souris sans-fil 2026", href: "/guides" },
+  { rank: 2, name: "Wooting 80HE", category: "Clavier Gaming", rating: 9.6, highlight: "Meilleur clavier Hall Effect", href: "/reviews/wooting-80he" },
+  { rank: 3, name: "SteelSeries Arctis Nova Pro", category: "Casque Gaming", rating: 9.2, highlight: "Meilleur son spatial gaming", href: "/guides" },
+  { rank: 4, name: "LG 27GR95QE", category: "Moniteur OLED", rating: 9.5, highlight: "Meilleur moniteur OLED gaming", href: "/guides" },
+  { rank: 5, name: "Elgato Stream Deck MK.2", category: "Streaming", rating: 9.0, highlight: "Indispensable pour streamers", href: "/guides" },
 ];
 
 const BestPicks = () => {
@@ -58,10 +58,6 @@ const BestPicks = () => {
                   </span>
                 </div>
 
-                {/* Price */}
-                <span className="hidden sm:block flex-shrink-0 text-sm font-semibold text-foreground">
-                  {pick.price}
-                </span>
 
                 <ExternalLink className="flex-shrink-0 h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
               </Link>

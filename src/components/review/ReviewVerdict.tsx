@@ -4,13 +4,12 @@ import { useTranslation } from "react-i18next";
 
 interface ReviewVerdictProps {
   rating: number;
-  price: string;
   verdict: string;
   bestFor: string;
   buyLink?: string;
 }
 
-const ReviewVerdict = ({ rating, price, verdict, bestFor, buyLink = "#" }: ReviewVerdictProps) => {
+const ReviewVerdict = ({ rating, verdict, bestFor, buyLink = "#" }: ReviewVerdictProps) => {
   const { t } = useTranslation();
   return (
     <section className="py-12">
@@ -35,11 +34,6 @@ const ReviewVerdict = ({ rating, price, verdict, bestFor, buyLink = "#" }: Revie
                       <Star className="h-4 w-4 text-primary fill-primary" />
                       <span className="font-display text-xl font-bold text-primary">{rating}/10</span>
                     </div>
-                  </div>
-                  <div className="h-10 w-px bg-border" />
-                  <div>
-                    <span className="block text-xs text-muted-foreground mb-1">{t("ui.price")}</span>
-                    <span className="font-display text-xl font-bold text-foreground">{price}</span>
                   </div>
                   <div className="h-10 w-px bg-border" />
                   <div>

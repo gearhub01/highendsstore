@@ -7,7 +7,6 @@ export interface SummaryProduct {
   name: string;
   highlight: string;
   rating: number;
-  price: string;
   bestFor: string;
 }
 
@@ -36,7 +35,6 @@ const GuideSummaryTable = ({ products }: GuideSummaryTableProps) => {
                   <TableHead className="font-display text-xs tracking-wider uppercase text-primary">{t("ui.product")}</TableHead>
                   <TableHead className="font-display text-xs tracking-wider uppercase text-primary hidden sm:table-cell">{t("ui.idealFor")}</TableHead>
                   <TableHead className="font-display text-xs tracking-wider uppercase text-primary text-center">{t("ui.rating")}</TableHead>
-                  <TableHead className="font-display text-xs tracking-wider uppercase text-primary text-right">{t("ui.price")}</TableHead>
                   <TableHead className="font-display text-xs tracking-wider uppercase text-primary w-10"></TableHead>
                 </TableRow>
               </TableHeader>
@@ -69,9 +67,6 @@ const GuideSummaryTable = ({ products }: GuideSummaryTableProps) => {
                         <Star className="h-3.5 w-3.5 text-primary fill-primary" />
                         <span className="font-display text-sm font-bold text-primary">{product.rating}</span>
                       </div>
-                    </TableCell>
-                    <TableCell className="text-right font-semibold text-foreground">
-                      {product.price}
                     </TableCell>
                     <TableCell>
                       <ExternalLink className="h-4 w-4 text-muted-foreground hover:text-primary transition-colors" />

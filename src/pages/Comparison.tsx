@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 const products: ComparisonProduct[] = [
   {
     name: "Wooting 80HE",
-    price: "199€",
+
     rating: 9.6,
     isBestPick: true,
     specs: {
@@ -30,7 +30,7 @@ const products: ComparisonProduct[] = [
   },
   {
     name: "Razer Huntsman V3 Pro",
-    price: "249€",
+
     rating: 9.3,
     specs: {
       switch: "Analog Optical",
@@ -45,7 +45,7 @@ const products: ComparisonProduct[] = [
   },
   {
     name: "Keychron Q1 Max",
-    price: "149€",
+
     rating: 9.0,
     specs: {
       switch: "Gateron Jupiter",
@@ -98,13 +98,13 @@ const verdicts = [
     name: "Razer Huntsman V3 Pro",
     rating: 9.3,
     pros: ["8000 Hz polling rate record", "Écosystème Synapse complet"],
-    cons: ["Prix élevé (249€+)", "Pas de hot-swap"],
+    cons: ["Positionnement premium", "Pas de hot-swap"],
     bestFor: "Gamers exigeants, streamers",
   },
   {
     name: "Keychron Q1 Max",
     rating: 9.0,
-    pros: ["Triple connectivité (BT/2.4G/USB)", "Gasket mount + hot-swap à 149€"],
+    pros: ["Triple connectivité (BT/2.4G/USB)", "Gasket mount + hot-swap"],
     cons: ["Actuation fixe (pas de Rapid Trigger)", "Poids élevé (1.7 kg)"],
     bestFor: "Budget premium, amateurs custom",
   },
@@ -139,7 +139,6 @@ const Comparison = () => {
               item: {
                 "@type": "Product",
                 name: p.name,
-                offers: { "@type": "Offer", price: p.price.replace("\u20ac", ""), priceCurrency: "EUR" },
                 review: {
                   "@type": "Review",
                   reviewRating: { "@type": "Rating", ratingValue: String(p.rating), bestRating: "10" },
@@ -176,7 +175,7 @@ const Comparison = () => {
         <ComparisonVerdict
           winner="Wooting 80HE"
           verdicts={verdicts}
-          conclusion="Dans cette comparaison directe, le Wooting 80HE s'impose comme le meilleur clavier gaming grâce à sa technologie Hall Effect et son Rapid Trigger imbattables en compétitif. Le Razer Huntsman V3 Pro se distingue par son polling rate 8000 Hz et son écosystème logiciel riche — idéal si vous cherchez le premium absolu. Enfin, le Keychron Q1 Max offre un rapport qualité-prix exceptionnel avec triple connectivité et gasket mount pour seulement 149€. Le choix dépend de votre priorité : performance pure, fonctionnalités premium ou budget maîtrisé."
+          conclusion="Dans cette comparaison directe, le Wooting 80HE s'impose comme le meilleur clavier gaming grâce à sa technologie Hall Effect et son Rapid Trigger imbattables en compétitif. Le Razer Huntsman V3 Pro se distingue par son polling rate 8000 Hz et son écosystème logiciel riche — idéal si vous cherchez le premium absolu. Enfin, le Keychron Q1 Max offre un rapport qualité-prix exceptionnel avec triple connectivité et gasket mount à prix maîtrisé. Le choix dépend de votre priorité : performance pure, fonctionnalités premium ou budget maîtrisé."
         />
 
         <RelatedContent

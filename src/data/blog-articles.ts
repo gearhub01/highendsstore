@@ -89,13 +89,13 @@ export const blogArticles: BlogArticle[] = [
     content: [
       "Le CES 2026 a été riche en annonces pour les gamers. Entre innovations technologiques et designs audacieux, voici notre récap des périphériques qui ont retenu notre attention.",
       "## Wooting Two HE Pro",
-      "Wooting frappe fort avec le Two HE Pro, un clavier full-size qui intègre la dernière génération de switches Hall Effect avec une résolution de 0.01mm. Le Rapid Trigger atteint des vitesses record et le nouveau firmware promet une latence de seulement 0.25ms. Prix annoncé : 229€.",
+      "Wooting frappe fort avec le Two HE Pro, un clavier full-size qui intègre la dernière génération de switches Hall Effect avec une résolution de 0.01mm. Le Rapid Trigger atteint des vitesses record et le nouveau firmware promet une latence de seulement 0.25ms. Prix non communiqué.",
       "## Razer Viper V3 Hyperspeed",
       "Razer continue de repousser les limites avec la Viper V3 Hyperspeed. À seulement 49g, elle embarque le nouveau capteur Focus Pro 36K Gen2 et un polling rate de 8000 Hz en sans-fil. Une prouesse technique impressionnante.",
       "## SteelSeries Arctis Nova 7X (2026 Edition)",
       "SteelSeries améliore son casque phare avec des transducteurs planaires magnétiques et une autonomie de 60 heures. Le nouveau système de micro à réduction de bruit AI promet une clarté vocale inédite en gaming.",
       "## ASUS ROG Swift OLED PG32UCDM",
-      "Un moniteur 32 pouces 4K OLED avec un refresh rate de 240 Hz et un temps de réponse de 0.03ms. Le Saint Graal du moniteur gaming existe enfin, mais il faudra débourser 1299€.",
+      "Un moniteur 32 pouces 4K OLED avec un refresh rate de 240 Hz et un temps de réponse de 0.03ms. Le Saint Graal du moniteur gaming existe enfin, mais il faudra un budget conséquent.",
       "## Notre coup de cœur",
       "Le Wooting Two HE Pro remporte notre prix du meilleur périphérique du CES 2026. La combinaison de la technologie Hall Effect de pointe avec un prix compétitif en fait le produit le plus excitant de cette édition."
     ],
