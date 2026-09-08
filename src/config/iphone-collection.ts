@@ -35,6 +35,7 @@ import type {
   SiteLocale,
   TranslatedArticle,
 } from "../content/iphone/types";
+import { entry as comparatif161718 } from "../content/iphone/comparatif-iphone-16-17-18";
 import { entry as webcam4kPc } from "../content/iphone/webcam-4k-pc";
 import { entry as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
 import { entry as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
