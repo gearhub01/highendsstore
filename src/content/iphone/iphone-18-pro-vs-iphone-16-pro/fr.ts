@@ -22,6 +22,12 @@ export const article: CollectionArticle = {
     "La majorité des gens qui envisagent l'iPhone 18 Pro n'ont pas un 17 Pro dans la poche : ils ont un 16 Pro, acheté à l'automne 2024, et ils attendent deux générations avant de changer. C'est cette comparaison-là qui décide d'un achat, et c'est celle que presque personne ne fait proprement.",
   notice:
     "Mis à jour le 28 août 2026 — les caractéristiques de l'iPhone 18 Pro seront confirmées lors du keynote du 9 septembre 2026. Tant que ce n'est pas le cas, aucune valeur n'est avancée pour ce modèle sur cette page.",
+  topLinks: [
+    {
+      label: "Le tableau complet des trois générations",
+      href: "/iphone-18-pro/comparatif-iphone-16-17-18",
+    },
+  ],
   sections: [
     {
       id: "pourquoi-cette-comparaison",
