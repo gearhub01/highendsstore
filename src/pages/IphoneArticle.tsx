@@ -122,6 +122,21 @@ const IphoneArticle = () => {
                 </div>
               )}
 
+              {/* Liens mis en avant (page pilier) */}
+              {article.topLinks && article.topLinks.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {article.topLinks.map((l) => (
+                    <Link
+                      key={l.href}
+                      to={l.href}
+                      className="inline-flex items-center gap-1 rounded-lg border border-primary/40 bg-primary/10 px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+
               <img
                 src={article.image}
                 alt={article.title}
