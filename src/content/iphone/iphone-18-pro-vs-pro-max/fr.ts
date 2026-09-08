@@ -22,6 +22,12 @@ export const article: CollectionArticle = {
     "Le choix entre Pro et Pro Max n'a jamais porté sur la puissance : les deux modèles partagent la même plateforme. Il porte sur quatre variables — la taille de l'écran, l'autonomie, le stockage maximal et le poids — et la quatrième est celle que personne ne regarde quand le téléphone finit sur un support de bureau.",
   notice:
     "Mis à jour le 28 août 2026 — les caractéristiques des iPhone 18 Pro et 18 Pro Max seront confirmées lors du keynote du 9 septembre 2026. Le tableau ci-dessous repose sur les données officielles de la génération 17 Pro, qui sert de référence en attendant.",
+  topLinks: [
+    {
+      label: "Le tableau complet des trois générations",
+      href: "/iphone-18-pro/comparatif-iphone-16-17-18",
+    },
+  ],
   sections: [
     {
       id: "differences-structurelles",

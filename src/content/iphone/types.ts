@@ -88,6 +88,8 @@ export interface CollectionArticle {
   intro: string;
   /** Encadré d'avertissement affiché en haut de l'article (état des données). */
   notice?: string;
+  /** Liens mis en avant juste sous le chapeau (ex. lien vers la page pilier). */
+  topLinks?: { label: string; href: string }[];
   /** Maillage interne : contenus liés affichés en fin d'article. */
   related?: { label: string; href: string }[];
   /** Corps de l'article : une entrée = une section H2. */

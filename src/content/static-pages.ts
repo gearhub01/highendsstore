@@ -70,6 +70,17 @@ export const STATIC_PAGES: StaticPage[] = [
   // Comparatifs iPhone : ils vivent dans le cluster /iphone-18-pro/ mais sont
   // listés ici pour apparaître dans le filtre « Comparaison » de /guides.
   {
+    slug: "comparatif-iphone-16-17-18",
+    href: "/iphone-18-pro/comparatif-iphone-16-17-18",
+    title: "Comparatif iPhone 16, 17 et 18 Pro",
+    excerpt:
+      "Trois générations d'iPhone Pro et Pro Max dans un seul tableau : écran, puce, photo, autonomie, poids. Et ce que le 18 Pro doit encore prouver.",
+    category: "comparison",
+    updatedAt: "2026-08-29",
+    image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&h=500&fit=crop",
+    tag: "Comparatif",
+  },
+  {
     slug: "iphone-18-pro-vs-iphone-16-pro",
     href: "/iphone-18-pro/iphone-18-pro-vs-iphone-16-pro",
     title: "iPhone 18 Pro vs 16 Pro : le vrai saut",

@@ -21,6 +21,12 @@ export const article: CollectionArticle = {
     "Un an d'écart, deux appareils dont un seul existe officiellement. Voici ce que l'on sait, ce que l'on ne sait pas, et pourquoi nous pensons dès maintenant qu'un passage du 17 Pro au 18 Pro sera difficile à justifier pour la plupart des usages de bureau.",
   notice:
     "Mis à jour le 28 août 2026 — les caractéristiques de l'iPhone 18 Pro seront confirmées lors du keynote du 9 septembre 2026. Aucune valeur n'est avancée pour ce modèle tant qu'Apple ne l'a pas publiée.",
+  topLinks: [
+    {
+      label: "Le tableau complet des trois générations",
+      href: "/iphone-18-pro/comparatif-iphone-16-17-18",
+    },
+  ],
   sections: [
     {
       id: "officiel-vs-rumeur",
