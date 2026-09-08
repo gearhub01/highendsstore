@@ -63,7 +63,7 @@ if (isCollectionVisible()) {
     entries.push({
       path: `${IPHONE_BASE_PATH}/${article.slug}`,
       changefreq: "weekly",
-      priority: "0.8",
+      priority: article.slug === "comparatif-iphone-16-17-18" ? "0.9" : "0.8",
       lastmod: toDate(article.updatedAt),
     })
   }
