@@ -41,7 +41,13 @@ const entries: SitemapEntry[] = [
     changefreq: (p.href.startsWith(IPHONE_BASE_PATH) ? "weekly" : "monthly") as
       | "weekly"
       | "monthly",
-    priority: p.category === "review" ? "0.7" : "0.8",
+    // Page pilier de la gamme Pro : priorité renforcée.
+    priority:
+      p.slug === "comparatif-iphone-16-17-18"
+        ? "0.9"
+        : p.category === "review"
+          ? "0.7"
+          : "0.8",
     lastmod: p.updatedAt,
   })),
   { path: "/mentions-legales", changefreq: "yearly", priority: "0.3" },
