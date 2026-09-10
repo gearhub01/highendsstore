@@ -50,6 +50,8 @@ export interface ArticleSection {
   heading: string;
   /** Paragraphes de la section. */
   paragraphs: string[];
+  /** Sous-sections H3 optionnelles, chacune avec ses propres paragraphes. */
+  subsections?: { heading: string; paragraphs: string[] }[];
   /** Liste à puces optionnelle affichée après les paragraphes. */
   bullets?: string[];
   /** Tableau comparatif optionnel affiché après les paragraphes. */

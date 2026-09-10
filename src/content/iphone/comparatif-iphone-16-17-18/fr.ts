@@ -11,9 +11,6 @@
  */
 import type { CollectionArticle } from "../types";
 
-const NC = "Non confirmé";
-const RUMOR = "Rumeur — non confirmé au 29/08/2026";
-
 export const article: CollectionArticle = {
   slug: "comparatif-iphone-16-17-18",
   model: "both",
@@ -22,12 +19,10 @@ export const article: CollectionArticle = {
     "Trois générations d'iPhone Pro et Pro Max dans un seul tableau : écran, puce, photo, autonomie, poids. Et ce que le 18 Pro doit encore prouver.",
   image:
     "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1200&q=80",
-  updatedAt: "2026-08-29",
+  updatedAt: "2026-09-10",
   publishedAt: "2026-08-29",
   intro:
-    "Trois générations d'iPhone Pro, six modèles, un seul tableau. Cette page rassemble les caractéristiques officielles des iPhone 16 Pro, 16 Pro Max, 17 Pro et 17 Pro Max, et laisse volontairement vides les colonnes de la génération 18, non annoncée. Elle sert de référence à tous nos comparatifs détaillés.",
-  notice:
-    "Mis à jour le 29 août 2026 — les caractéristiques des iPhone 18 Pro et 18 Pro Max seront confirmées lors du keynote du 9 septembre 2026. Jusque-là, aucune valeur n'est avancée pour ces deux modèles : les cellules concernées affichent « Non confirmé », et les rares informations qui circulent sont étiquetées comme rumeurs.",
+    "Trois générations d'iPhone Pro, six modèles, un seul tableau. Cette page rassemble les caractéristiques officielles des iPhone 16 Pro, 16 Pro Max, 17 Pro, 17 Pro Max, 18 Pro et 18 Pro Max. Elle sert de référence à tous nos comparatifs détaillés.",
   sections: [
     {
       id: "ce-qui-a-change",
@@ -45,11 +40,11 @@ export const article: CollectionArticle = {
       id: "tableau-complet",
       heading: "Le tableau complet — six colonnes",
       paragraphs: [
-        "Voici le tableau de référence de la gamme Pro sur trois générations. Les quatre premières colonnes sont documentées par Apple. Les deux dernières resteront vides jusqu'au 9 septembre 2026, à l'exception des lignes portant une rumeur, qui sont signalées comme telles. Sur mobile, le tableau défile horizontalement.",
+        "Voici le tableau de référence de la gamme Pro sur trois générations, désormais entièrement documenté à partir des caractéristiques officielles Apple. Sur mobile, le tableau défile horizontalement.",
       ],
       table: {
         caption:
-          "Sources : fiches techniques Apple pour les générations 16 et 17. Génération 18 : aucune donnée officielle au 29 août 2026.",
+          "Source : fiches techniques officielles Apple, vérifiées le 10 septembre 2026.",
         headers: [
           "Caractéristique",
           "iPhone 16 Pro",
@@ -60,27 +55,25 @@ export const article: CollectionArticle = {
           "iPhone 18 Pro Max",
         ],
         rows: [
-          ["Écran", "6,3\" OLED", "6,9\" OLED 2868 × 1320 à 460 ppp", "6,3\" OLED 2622 × 1206 à 460 ppp", "6,9\" OLED 2868 × 1320 à 460 ppp", NC, NC],
-          ["Taux de rafraîchissement", "120 Hz ProMotion", "120 Hz ProMotion", "120 Hz ProMotion", "120 Hz ProMotion", NC, NC],
-          ["Luminosité pic extérieur", "2 000 nits", "2 000 nits", "3 000 nits", "3 000 nits", NC, NC],
-          ["Puce", "A18 Pro", "A18 Pro (CPU 6 cœurs / GPU 6 cœurs)", "A19 Pro (CPU 6 cœurs : 2P + 4E)", "A19 Pro", `A20 Pro gravée en 2 nm — ${RUMOR}`, `A20 Pro gravée en 2 nm — ${RUMOR}`],
-          ["Modem", NC, NC, NC, NC, `Modem C2 conçu par Apple — ${RUMOR}`, `Modem C2 conçu par Apple — ${RUMOR}`],
-          ["Stockage", "128 Go à 1 To", "256 Go à 1 To", "256 Go à 1 To", "256 Go à 2 To", NC, NC],
-          ["Capteur principal", "48 Mpx 24 mm ƒ/1.78", "48 Mpx 24 mm ƒ/1.78", "48 Mpx Fusion 24 mm ƒ/1.78", "48 Mpx Fusion 24 mm ƒ/1.78", `Ouverture variable — ${RUMOR}`, `Ouverture variable — ${RUMOR}`],
-          ["Ultra grand-angle", "48 Mpx", "48 Mpx 13 mm ƒ/2.2", "48 Mpx Fusion 13 mm ƒ/2.2", "48 Mpx Fusion 13 mm ƒ/2.2", NC, NC],
-          ["Téléobjectif", "12 Mpx 5x", "12 Mpx 5x 120 mm ƒ/2.8", "48 Mpx Fusion 100 mm (4x) ƒ/2.8", "48 Mpx Fusion 100 mm (4x) ƒ/2.8", NC, NC],
-          ["Zoom", "5x optique", "5x optique", "8x qualité optique, plage 16x", "8x qualité optique, plage 16x", NC, NC],
-          ["Caméra avant", "12 Mpx", "12 Mpx ƒ/1.9", "18 Mpx Center Stage ƒ/1.9", "18 Mpx Center Stage ƒ/1.9", NC, NC],
-          ["Vidéo", "4K Dolby Vision", "4K Dolby Vision", "4K Dolby Vision jusqu'à 120 i/s", "4K Dolby Vision jusqu'à 120 i/s", NC, NC],
-          ["Autonomie vidéo", "27 h", "33 h", "33 h", "39 h", NC, NC],
-          ["USB-C", "USB 3, 10 Gb/s", "USB 3, 10 Gb/s", "USB 3, 10 Gb/s", "USB 3, 10 Gb/s", NC, NC],
-          ["Sans fil", "—", "—", "Wi-Fi 7", "Wi-Fi 7", NC, NC],
-          ["Face ID", NC, NC, NC, NC, `Sous l'écran, report à 2027 évoqué par des rapports contradictoires — ${RUMOR}`, `Sous l'écran, report à 2027 évoqué par des rapports contradictoires — ${RUMOR}`],
-          ["Matériau", "Titane, dos verre mat", "Titane, dos verre mat", "Aluminium monocoque, Ceramic Shield 2", "Aluminium monocoque, Ceramic Shield 2", NC, NC],
-          ["Poids", "199 g", "227 g", "206 g", "233 g", NC, NC],
-          ["Dimensions", "71,5 × 149,6 × 8,25 mm", "77,6 × 163 × 8,25 mm", "—", "—", NC, NC],
-          ["Coloris", "Noir, Blanc, Naturel, Désert (titane)", "Noir, Blanc, Naturel, Désert (titane)", "Argent, Orange cosmique, Bleu profond", "Argent, Orange cosmique, Bleu profond", NC, NC],
-          ["Tarification", "—", "—", "—", "—", `Hausse de 250 à 300 $ évoquée par l'analyste Jeff Pu (GF Securities) — ${RUMOR}`, `Hausse de 250 à 300 $ évoquée par l'analyste Jeff Pu (GF Securities) — ${RUMOR}`],
+          ["Écran", "6,3\" OLED", "6,9\" OLED 2868 × 1320 à 460 ppp", "6,3\" OLED 2622 × 1206 à 460 ppp", "6,9\" OLED 2868 × 1320 à 460 ppp", "6,3\" OLED 2622 × 1206 à 460 ppp", "6,9\" OLED 2868 × 1320 à 460 ppp"],
+          ["Taux de rafraîchissement", "120 Hz ProMotion", "120 Hz ProMotion", "120 Hz ProMotion", "120 Hz ProMotion", "120 Hz ProMotion", "120 Hz ProMotion"],
+          ["Luminosité", "2 000 nits en pic extérieur", "2 000 nits en pic extérieur", "3 000 nits en pic extérieur", "3 000 nits en pic extérieur", "1 000 nits typique, 1 600 nits pic HDR, 3 000 nits pic extérieur", "1 000 nits typique, 1 600 nits pic HDR, 3 000 nits pic extérieur"],
+          ["Puce", "A18 Pro", "A18 Pro (CPU 6 cœurs / GPU 6 cœurs)", "A19 Pro (CPU 6 cœurs : 2P + 4E)", "A19 Pro", "A20 Pro, 2 nm, CPU 6 cœurs, GPU 7 cœurs, moteur neuronal double 16 cœurs", "A20 Pro, 2 nm, CPU 6 cœurs, GPU 7 cœurs, moteur neuronal double 16 cœurs"],
+          ["Stockage", "128 Go à 1 To", "256 Go à 1 To", "256 Go à 1 To", "256 Go à 2 To", "256 Go, 512 Go, 1 To, 2 To", "256 Go, 512 Go, 1 To, 2 To"],
+          ["Capteur principal", "48 Mpx 24 mm ƒ/1.78", "48 Mpx 24 mm ƒ/1.78", "48 Mpx Fusion 24 mm ƒ/1.78", "48 Mpx Fusion 24 mm ƒ/1.78", "48 Mpx Fusion, ouverture variable à six lamelles", "48 Mpx Fusion, ouverture variable à six lamelles"],
+          ["Ultra grand-angle", "48 Mpx", "48 Mpx 13 mm ƒ/2.2", "48 Mpx Fusion 13 mm ƒ/2.2", "48 Mpx Fusion 13 mm ƒ/2.2", "48 Mpx, 13 mm", "48 Mpx, 13 mm"],
+          ["Téléobjectif", "12 Mpx 5x", "12 Mpx 5x 120 mm ƒ/2.8", "48 Mpx Fusion 100 mm (4x) ƒ/2.8", "48 Mpx Fusion 100 mm (4x) ƒ/2.8", "Périscope 48 Mpx, 4x optique", "Périscope 48 Mpx, 4x optique"],
+          ["Zoom", "5x optique", "5x optique", "8x qualité optique, plage 16x", "8x qualité optique, plage 16x", "4x optique, 8x qualité optique", "4x optique, 8x qualité optique"],
+          ["Caméra avant", "12 Mpx", "12 Mpx ƒ/1.9", "18 Mpx Center Stage ƒ/1.9", "18 Mpx Center Stage ƒ/1.9", "18 Mpx Center Stage ƒ/1.9", "18 Mpx Center Stage ƒ/1.9"],
+          ["Vidéo", "4K Dolby Vision", "4K Dolby Vision", "4K Dolby Vision jusqu'à 120 i/s", "4K Dolby Vision jusqu'à 120 i/s", "4K Dolby Vision jusqu'à 120 i/s, ProRes 4K120 externe, vidéo spatiale", "4K Dolby Vision jusqu'à 120 i/s, ProRes 4K120 externe, vidéo spatiale"],
+          ["Autonomie vidéo", "27 h", "33 h", "33 h", "39 h", "34 h", "43 h"],
+          ["USB-C", "USB 3, 10 Gbit/s", "USB 3, 10 Gbit/s", "USB 3, 10 Gbit/s", "USB 3, 10 Gbit/s", "USB 3, 10 Gbit/s", "USB 3, 10 Gbit/s"],
+          ["Sans fil", "—", "—", "Wi-Fi 7", "Wi-Fi 7", "5G sub-6 GHz, Wi-Fi 7, Bluetooth 6", "5G sub-6 GHz, Wi-Fi 7, Bluetooth 6"],
+          ["Face ID", "TrueDepth", "TrueDepth", "TrueDepth", "TrueDepth", "TrueDepth classique", "TrueDepth classique"],
+          ["Matériau", "Titane, dos verre mat", "Titane, dos verre mat", "Aluminium monocoque, Ceramic Shield 2", "Aluminium monocoque, Ceramic Shield 2", "Unibody aluminium, Ceramic Shield 2 avant, Ceramic Shield au dos", "Unibody aluminium, Ceramic Shield 2 avant, Ceramic Shield au dos"],
+          ["Poids", "199 g", "227 g", "206 g", "233 g", "211 g", "249 g"],
+          ["Dimensions", "71,5 × 149,6 × 8,25 mm", "77,6 × 163 × 8,25 mm", "—", "—", "71,9 × 150 × 8,75 mm", "78 × 163,4 × 8,75 mm"],
+          ["Coloris", "Noir, Blanc, Naturel, Désert (titane)", "Noir, Blanc, Naturel, Désert (titane)", "Argent, Orange cosmique, Bleu profond", "Argent, Orange cosmique, Bleu profond", "Noir, argent, glacier, bordeaux", "Noir, argent, glacier, bordeaux"],
         ],
       },
     },
