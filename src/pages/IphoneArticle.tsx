@@ -164,6 +164,21 @@ const IphoneArticle = () => {
                         {p}
                       </p>
                     ))}
+                    {section.subsections?.map((subsection) => (
+                      <div key={subsection.heading} className="mt-6">
+                        <h3 className="mb-3 text-xl font-display font-semibold">
+                          {subsection.heading}
+                        </h3>
+                        {subsection.paragraphs.map((paragraph, index) => (
+                          <p
+                            key={index}
+                            className="mb-4 text-sm leading-relaxed text-muted-foreground"
+                          >
+                            {paragraph}
+                          </p>
+                        ))}
+                      </div>
+                    ))}
                     {section.bullets && (
                       <ul className="mb-4 space-y-2">
                         {section.bullets.map((b, i) => (
