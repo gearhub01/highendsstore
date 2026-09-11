@@ -153,6 +153,9 @@ export const WHY_HERE = {
 export const COLLECTION_ENTRIES: ArticleEntry[] = [
   // Page pilier : porte le tableau six colonnes, affichée en tête du hub.
   comparatif161718,
+  // Lancement et préparation
+  precommande,
+  choixStockage,
   webcam4kPc,
   accessoiresUsbCSetup,
   // Comparatifs (affichés aussi dans le filtre « Comparaison » de /guides)
