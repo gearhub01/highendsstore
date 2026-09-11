@@ -36,6 +36,8 @@ import type {
   TranslatedArticle,
 } from "../content/iphone/types";
 import { entry as comparatif161718 } from "../content/iphone/comparatif-iphone-16-17-18";
+import { entry as precommande } from "../content/iphone/precommande-iphone-18-pro";
+import { entry as choixStockage } from "../content/iphone/choix-stockage-iphone-18-pro";
 import { entry as webcam4kPc } from "../content/iphone/webcam-4k-pc";
 import { entry as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
 import { entry as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
@@ -151,6 +153,9 @@ export const WHY_HERE = {
 export const COLLECTION_ENTRIES: ArticleEntry[] = [
   // Page pilier : porte le tableau six colonnes, affichée en tête du hub.
   comparatif161718,
+  // Lancement et préparation
+  precommande,
+  choixStockage,
   webcam4kPc,
   accessoiresUsbCSetup,
   // Comparatifs (affichés aussi dans le filtre « Comparaison » de /guides)
