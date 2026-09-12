@@ -58,6 +58,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.highends.store/iphone-18-pro/iphone-duo-pliable</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.highends.store/mentions-legales</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -91,7 +97,7 @@
   </url>
   <url>
     <loc>https://www.highends.store/iphone-18-pro/webcam-4k-pc</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

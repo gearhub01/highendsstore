@@ -113,6 +113,17 @@ export const STATIC_PAGES: StaticPage[] = [
     image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&h=500&fit=crop",
     tag: "Comparatif",
   },
+  {
+    slug: "iphone-duo-pliable",
+    href: "/iphone-18-pro/iphone-duo-pliable",
+    title: "iPhone Duo : le pliable d'Apple à 2 339 €",
+    excerpt:
+      "Apple officialise l'iPhone Duo, son premier smartphone pliable : écran 7,6 pouces, prix français, dates de précommande et de sortie en octobre.",
+    category: "guide",
+    updatedAt: "2026-09-12",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop",
+    tag: "Lancement",
+  },
 ];
 
 export const staticPagesByCategory = (category: StaticPageCategory) =>
