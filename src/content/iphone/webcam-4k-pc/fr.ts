@@ -13,11 +13,18 @@ export const article: CollectionArticle = {
     "Brancher l'iPhone 18 Pro ou Pro Max en USB-C pour obtenir un flux 4K propre sur OBS, Discord et Teams — matériel, réglages, différences entre les deux modèles et limites.",
   image:
     "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80",
-  updatedAt: "2026-08-29",
+  updatedAt: "2026-09-12",
   publishedAt: "2026-08-21",
   intro:
     "Une webcam 4K correcte coûte le prix d'un bon clavier. L'iPhone 18 Pro — ou le Pro Max — est déjà sur votre bureau : voici comment en faire la caméra principale de votre setup PC, sans logiciel douteux, et ce qui change concrètement entre les deux modèles.",
   sections: [
+    {
+      id: "precision-capteur-frontal",
+      heading: "Une précision sur la caméra avant",
+      paragraphs: [
+        "Une précision utile maintenant que l'iPhone 18 Pro est officiel : sa caméra avant reste un capteur de 18 Mpx Center Stage à ouverture ƒ/1,9, strictement identique à celle de l'iPhone 17 Pro. Les rumeurs annonçaient 24 Mpx, elles ne se sont pas vérifiées. Autrement dit, tout ce qui suit s'applique de la même façon aux iPhone 17 Pro et 18 Pro. Le vrai saut de qualité pour un usage en webcam s'est produit un an plus tôt, lorsque ce capteur est passé de 12 Mpx sur l'iPhone 16 Pro à 18 Mpx sur le 17 Pro. Si vous possédez un 16 Pro et utilisez votre téléphone en webcam, c'est cette différence-là qui justifie un changement — pas le passage à la dernière génération.",
+      ],
+    },
     {
       id: "materiel",
       heading: "Le matériel nécessaire",
