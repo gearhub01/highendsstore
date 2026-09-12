@@ -125,11 +125,11 @@ export const HUB_SEO: CollectionSeo = {
 /** CTA principaux du hub : un lien pour chaque iPhone. */
 export const HUB_IPHONE_CTAS: Record<"pro" | "pro_max", AmazonLink> = {
   pro: {
-    url: "https://www.amazon.fr/s?k=iPhone+18+Pro&tag=gearhub-21",
+    url: "https://link.amazon/B06uX8oKA",
     productName: "iPhone 18 Pro",
   },
   pro_max: {
-    url: "https://www.amazon.fr/s?k=iPhone+18+Pro+Max&tag=gearhub-21",
+    url: "https://link.amazon/B0fVEdQm8",
     productName: "iPhone 18 Pro Max",
   },
 };
