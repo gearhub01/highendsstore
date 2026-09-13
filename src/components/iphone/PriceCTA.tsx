@@ -16,8 +16,8 @@ import { useTranslation } from "react-i18next";
  * Si `url` est vide, le bloc n'est pas affiché (article en préparation).
  */
 interface PriceCTAProps {
-  /** Modèle concerné : "pro" ou "pro_max". */
-  model: "pro" | "pro_max";
+  /** Produit concerné : "pro", "pro_max" ou "duo" (iPhone Duo pliable). */
+  model: "pro" | "pro_max" | "duo";
   /** URL affiliée fournie par article/section. Vide = bouton masqué. */
   url: string;
   /** Nom du produit affiché en petit au-dessus du bouton. */

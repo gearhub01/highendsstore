@@ -32,6 +32,7 @@ import type {
   CollectionArticle,
   CollectionSeo,
   IphoneModel,
+  ProductModel,
   SiteLocale,
   TranslatedArticle,
 } from "../content/iphone/types";
@@ -53,6 +54,7 @@ export type {
   CollectionArticle,
   CollectionSeo,
   IphoneModel,
+  ProductModel,
   SiteLocale,
   TranslatedArticle,
 };
@@ -91,10 +93,11 @@ export const KEYNOTE_DATE = "2026-09-09T19:00:00+02:00";
 export const COLLECTION_BADGE = "Lancement";
 
 /** Libellés affichés pour chaque modèle (badges, onglets, boutons). */
-export const MODEL_LABELS: Record<IphoneModel, string> = {
+export const MODEL_LABELS: Record<IphoneModel | "duo", string> = {
   pro: "iPhone 18 Pro",
   pro_max: "iPhone 18 Pro Max",
   both: "Pro & Pro Max",
+  duo: "iPhone Duo",
 };
 
 /** Onglets de filtrage affichés sur la page hub. */
