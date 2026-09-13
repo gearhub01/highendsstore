@@ -38,7 +38,7 @@ export const article: CollectionArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone+18+pro&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone+18+pro",
           productName: "Câble USB-C data pour iPhone 18 Pro",
         },
       },
@@ -68,7 +68,7 @@ export const article: CollectionArticle = {
       ],
       amazon: {
         pro_max: {
-          url: "https://www.amazon.fr/s?k=bras+articule+smartphone+pro+max&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=bras+articule+smartphone+pro+max",
           productName: "Bras articulé pour iPhone 18 Pro Max",
         },
       },
@@ -83,7 +83,7 @@ export const article: CollectionArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=support+ventile+smartphone+iphone&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=support+ventile+smartphone+iphone",
           productName: "Support ventilé pour iPhone 18 Pro",
         },
       },

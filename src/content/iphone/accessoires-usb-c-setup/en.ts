@@ -24,11 +24,11 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc",
           productName: "Powered USB-C dock — iPhone 18 Pro & PC",
         },
         pro_max: {
-          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc",
           productName: "Powered USB-C dock — iPhone 18 Pro Max & PC",
         },
       },
@@ -47,11 +47,11 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc",
           productName: "USB-C 240 W / USB4 cable — iPhone 18 Pro & PC",
         },
         pro_max: {
-          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc",
           productName: "USB-C 240 W / USB4 cable — iPhone 18 Pro Max & PC",
         },
       },
@@ -64,11 +64,11 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc",
           productName: "External USB-C NVMe SSD — iPhone 18 Pro & PC",
         },
         pro_max: {
-          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc",
           productName: "External USB-C NVMe SSD — iPhone 18 Pro Max & PC",
         },
       },
