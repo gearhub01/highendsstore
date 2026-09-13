@@ -52,7 +52,7 @@ const MentionsLegales = () => (
           <section className="mb-10">
             <h2 className="text-xl font-display font-bold text-foreground mb-3">Contact</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Pour toute question, suggestion ou demande de partenariat, contactez-nous à : <a href="mailto:contact@gearhub.fr" className="text-primary hover:underline">contact@gearhub.fr</a>
+              Pour toute question, suggestion ou demande de partenariat, contactez-nous à : <a href="mailto:contact@highends.store" className="text-primary hover:underline">contact@highends.store</a>
             </p>
           </section>
         </article>

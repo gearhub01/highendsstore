@@ -1,3 +1,4 @@
+import { AMAZON_URLS } from "@/config/amazon-links";
 import type { CollectionArticle } from "../types";
 
 /** Article : /iphone-18-pro/accessoires-usb-c-setup */
@@ -87,11 +88,11 @@ export const article: CollectionArticle = {
   ],
   amazon: {
     pro: {
-      url: "https://link.amazon/B06uX8oKA",
+      url: AMAZON_URLS.pro,
       productName: "iPhone 18 Pro",
     },
     pro_max: {
-      url: "https://link.amazon/B0fVEdQm8",
+      url: AMAZON_URLS.pro_max,
       productName: "iPhone 18 Pro Max",
     },
   },
