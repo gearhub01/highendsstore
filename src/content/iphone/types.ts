@@ -11,6 +11,12 @@
  */
 export type IphoneModel = "pro" | "pro_max" | "both";
 
+/**
+ * Produit ciblé par un bouton d'affiliation.
+ * "duo" = iPhone Duo (pliable), vendu à part de la gamme Pro.
+ */
+export type ProductModel = "pro" | "pro_max" | "duo";
+
 /** Métadonnées SEO éditables, une par page. */
 export interface CollectionSeo {
   /** Balise <title> (sans le suffixe « | Highends Store », ajouté automatiquement). */
@@ -62,7 +68,7 @@ export interface ArticleSection {
    * Liens Amazon spécifiques à cette section.
    * S'ils ne sont pas renseignés, l'article utilise ses liens généraux (`amazon`).
    */
-  amazon?: Partial<Record<"pro" | "pro_max", AmazonLink>>;
+  amazon?: Partial<Record<ProductModel, AmazonLink>>;
   /**
    * Afficher un CTA Amazon à la fin de cette section.
    * Par défaut `false` : les CTA ne s'affichent que là où tu les demandes,
@@ -103,7 +109,7 @@ export interface CollectionArticle {
    * un comparatif ("both") peut renseigner les deux.
    * Utilisés comme fallback si une section n'a pas de liens propres.
    */
-  amazon: Partial<Record<"pro" | "pro_max", AmazonLink>>;
+  amazon: Partial<Record<ProductModel, AmazonLink>>;
   /** Texte du bouton (par défaut « Voir sur Amazon »). */
   amazonLabel?: string;
   /** Métadonnées SEO propres à l'article. */

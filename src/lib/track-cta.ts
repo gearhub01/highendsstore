@@ -14,7 +14,7 @@ import { supabase } from "@/integrations/supabase/client";
 export interface CtaClickEvent {
   articleSlug: string;
   sectionId?: string;
-  model: "pro" | "pro_max";
+  model: "pro" | "pro_max" | "duo";
   productName?: string;
   destinationUrl?: string;
   /** Où se trouve le bouton : carte du hub, en-tête ou corps d'article. */

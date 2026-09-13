@@ -254,7 +254,9 @@ const IphoneArticle = () => {
                     {/* CTA Amazon : affiché uniquement quand showCta est true,
                         pour ne pas surcharger la lecture (un CTA par plusieurs sections). */}
                     {section.showCta &&
-                      articleModels(article.model).map((m) => {
+                      ([...articleModels(article.model), "duo"] as const)
+                        .filter((m) => sectionLinks[m])
+                        .map((m) => {
                         const link = sectionLinks[m];
                         if (!link) return null;
                         return (
