@@ -39,6 +39,7 @@ export const article: CollectionArticle = {
         "1 To : 3 089 €",
         "2 To : 3 839 €",
       ],
+      showCta: true,
     },
     {
       id: "dates",
@@ -94,7 +95,12 @@ export const article: CollectionArticle = {
         "Impossible à dire aujourd'hui : Apple n'a communiqué ni sur la résistance du mécanisme de pliage ni sur l'autonomie détaillée. Les premiers tests indépendants trancheront après la sortie.",
     },
   ],
-  amazon: {},
+  amazon: {
+    duo: {
+      url: "https://link.amazon/B0dMHnrBN",
+      productName: "iPhone Duo — premier pliable d'Apple",
+    },
+  },
   related: [
     { label: "Comparatif iPhone 16, 17 et 18 Pro", href: "/iphone-18-pro/comparatif-iphone-16-17-18" },
     { label: "Précommande iPhone 18 Pro : date, heure et checklist", href: "/iphone-18-pro/precommande-iphone-18-pro" },

@@ -146,7 +146,8 @@ const IphoneHub = () => {
 
                     {/* CTA Amazon : un seul bouton par article (modèle principal) */}
                     {(() => {
-                      const mainModel = articleModels(article.model)[0];
+                      const candidates = [...articleModels(article.model), "duo" as const];
+                      const mainModel = candidates.find((m) => article.amazon[m]);
                       const link = mainModel ? article.amazon[mainModel] : undefined;
                       if (!mainModel || !link) return null;
                       return (
