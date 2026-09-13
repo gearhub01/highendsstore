@@ -21,9 +21,9 @@ export function withTag(url: string): string {
 
 /** Liens produits par modèle. */
 export const AMAZON_URLS = {
-  pro: withTag("https://www.amazon.fr/s?k=Apple+iPhone+18+Pro"),
-  pro_max: withTag("https://www.amazon.fr/s?k=Apple+iPhone+18+Pro+Max"),
-  duo: withTag("https://www.amazon.fr/s?k=Apple+iPhone+Duo+pliable"),
+  pro: withTag("https://link.amazon/B06uX8oKA"),
+  pro_max: withTag("https://link.amazon/B0fVEdQm8"),
+  duo: withTag("https://link.amazon/B0dMHnrBN"),
 } as const;
 
 /** Blocs prêts à l'emploi pour le champ `amazon` des articles. */
