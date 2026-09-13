@@ -1,3 +1,4 @@
+import { AMAZON_URLS } from "@/config/amazon-links";
 import type { TranslatedArticle } from "../types";
 
 /** English version of /iphone-18-pro/webcam-4k-pc (covers Pro and Pro Max). */
@@ -29,7 +30,7 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone+18+pro&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone+18+pro",
           productName: "USB-C data cable for iPhone 18 Pro",
         },
       },
@@ -59,7 +60,7 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro_max: {
-          url: "https://www.amazon.fr/s?k=bras+articule+smartphone+pro+max&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=bras+articule+smartphone+pro+max",
           productName: "Articulated arm for iPhone 18 Pro Max",
         },
       },
@@ -74,7 +75,7 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=support+ventile+smartphone+iphone&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=support+ventile+smartphone+iphone",
           productName: "Cooled mount for iPhone 18 Pro",
         },
       },
@@ -105,11 +106,11 @@ export const article: TranslatedArticle = {
   ],
   amazon: {
     pro: {
-      url: "https://link.amazon/B06uX8oKA",
+      url: AMAZON_URLS.pro,
       productName: "iPhone 18 Pro",
     },
     pro_max: {
-      url: "https://link.amazon/B0fVEdQm8",
+      url: AMAZON_URLS.pro_max,
       productName: "iPhone 18 Pro Max",
     },
   },

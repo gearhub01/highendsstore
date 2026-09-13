@@ -1,3 +1,4 @@
+import { AMAZON_URLS } from "@/config/amazon-links";
 import type { CollectionArticle } from "../types";
 
 /**
@@ -38,7 +39,7 @@ export const article: CollectionArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone+18+pro&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=cable+usb+c+data+iphone+18+pro",
           productName: "Câble USB-C data pour iPhone 18 Pro",
         },
       },
@@ -68,7 +69,7 @@ export const article: CollectionArticle = {
       ],
       amazon: {
         pro_max: {
-          url: "https://www.amazon.fr/s?k=bras+articule+smartphone+pro+max&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=bras+articule+smartphone+pro+max",
           productName: "Bras articulé pour iPhone 18 Pro Max",
         },
       },
@@ -83,7 +84,7 @@ export const article: CollectionArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=support+ventile+smartphone+iphone&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=support+ventile+smartphone+iphone",
           productName: "Support ventilé pour iPhone 18 Pro",
         },
       },
@@ -114,11 +115,11 @@ export const article: CollectionArticle = {
   ],
   amazon: {
     pro: {
-      url: "https://link.amazon/B06uX8oKA",
+      url: AMAZON_URLS.pro,
       productName: "iPhone 18 Pro",
     },
     pro_max: {
-      url: "https://link.amazon/B0fVEdQm8",
+      url: AMAZON_URLS.pro_max,
       productName: "iPhone 18 Pro Max",
     },
   },

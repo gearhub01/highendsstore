@@ -1,3 +1,4 @@
+import { AMAZON_URLS } from "@/config/amazon-links";
 /**
  * Article : /iphone-18-pro/iphone-duo-pliable
  * Annonce officielle de l'iPhone Duo (premier pliable d'Apple).
@@ -97,7 +98,7 @@ export const article: CollectionArticle = {
   ],
   amazon: {
     duo: {
-      url: "https://link.amazon/B0dMHnrBN",
+      url: AMAZON_URLS.duo,
       productName: "iPhone Duo — premier pliable d'Apple",
     },
   },

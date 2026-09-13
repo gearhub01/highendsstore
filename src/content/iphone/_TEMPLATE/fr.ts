@@ -65,11 +65,11 @@ export const article: CollectionArticle = {
   /** OBLIGATOIRE — liens Amazon de repli, par modèle couvert. Aucun prix. */
   amazon: {
     pro: {
-      url: "https://www.amazon.fr/s?k=iPhone+18+Pro&tag=gearhub-21",
+      url: "https://www.amazon.fr/s?k=iPhone+18+Pro",
       productName: "iPhone 18 Pro",
     },
     pro_max: {
-      url: "https://www.amazon.fr/s?k=iPhone+18+Pro+Max&tag=gearhub-21",
+      url: "https://www.amazon.fr/s?k=iPhone+18+Pro+Max",
       productName: "iPhone 18 Pro Max",
     },
   },

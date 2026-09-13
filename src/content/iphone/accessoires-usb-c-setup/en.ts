@@ -1,3 +1,4 @@
+import { AMAZON_URLS } from "@/config/amazon-links";
 import type { TranslatedArticle } from "../types";
 
 /** English version of /iphone-18-pro/accessoires-usb-c-setup */
@@ -24,11 +25,11 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc",
           productName: "Powered USB-C dock — iPhone 18 Pro & PC",
         },
         pro_max: {
-          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=dock+usb+c+alimente+displayport+iphone+pc",
           productName: "Powered USB-C dock — iPhone 18 Pro Max & PC",
         },
       },
@@ -47,11 +48,11 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc",
           productName: "USB-C 240 W / USB4 cable — iPhone 18 Pro & PC",
         },
         pro_max: {
-          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=cable+usb+c+240w+usb4+iphone+pc",
           productName: "USB-C 240 W / USB4 cable — iPhone 18 Pro Max & PC",
         },
       },
@@ -64,11 +65,11 @@ export const article: TranslatedArticle = {
       ],
       amazon: {
         pro: {
-          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc",
           productName: "External USB-C NVMe SSD — iPhone 18 Pro & PC",
         },
         pro_max: {
-          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc&tag=gearhub-21",
+          url: "https://www.amazon.fr/s?k=ssd+nvme+externe+usb+c+iphone+pc",
           productName: "External USB-C NVMe SSD — iPhone 18 Pro Max & PC",
         },
       },
@@ -89,11 +90,11 @@ export const article: TranslatedArticle = {
   ],
   amazon: {
     pro: {
-      url: "https://link.amazon/B06uX8oKA",
+      url: AMAZON_URLS.pro,
       productName: "iPhone 18 Pro",
     },
     pro_max: {
-      url: "https://link.amazon/B0fVEdQm8",
+      url: AMAZON_URLS.pro_max,
       productName: "iPhone 18 Pro Max",
     },
   },
