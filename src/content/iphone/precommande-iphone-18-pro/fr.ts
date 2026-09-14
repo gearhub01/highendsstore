@@ -44,6 +44,7 @@ export const article: CollectionArticle = {
         "Les opérateurs ouvrent généralement au même moment, avec des offres liées à un forfait. Comparez le coût total sur vingt-quatre mois plutôt que le prix affiché à la souscription.",
         "Les revendeurs et marchands en ligne ouvrent souvent quelques heures plus tard, parfois le jour de la sortie. Leurs stocks sont plus limités mais les délais de livraison peuvent être meilleurs que ceux d'Apple une fois les premières vagues écoulées.",
       ],
+      showCta: true,
     },
     {
       id: "prix-officiels-france",
