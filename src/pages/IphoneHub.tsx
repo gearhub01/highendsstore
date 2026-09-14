@@ -122,26 +122,27 @@ const IphoneHub = () => {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {visibleArticles.map((article, i) => (
               <AnimatedSection key={article.slug} variant="fade-up" delay={0.15 + i * 0.05}>
-                <Link
-                  to={`${IPHONE_BASE_PATH}/${article.slug}`}
-                  className="group block h-full rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all"
-                >
-                  <div className="h-44 overflow-hidden">
+                <div className="group h-full rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 hover:shadow-lg transition-all">
+                  <Link to={`${IPHONE_BASE_PATH}/${article.slug}`} className="block">
+                    <div className="h-44 overflow-hidden">
                     <img
                       src={article.image}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                  </div>
+                    </div>
+                  </Link>
                   <div className="p-5">
                     <div className="mb-3 flex flex-wrap items-center gap-2">
                       <LaunchBadge />
                       <ModelBadge model={article.model} />
                     </div>
-                    <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
-                      {article.title}
-                    </h3>
+                    <Link to={`${IPHONE_BASE_PATH}/${article.slug}`}>
+                      <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
+                        {article.title}
+                      </h3>
+                    </Link>
                     <p className="text-sm text-muted-foreground line-clamp-3">{article.excerpt}</p>
 
                     {/* CTA Amazon : un seul bouton par article (modèle principal) */}
@@ -165,11 +166,14 @@ const IphoneHub = () => {
                       );
                     })()}
 
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">
+                    <Link
+                      to={`${IPHONE_BASE_PATH}/${article.slug}`}
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary"
+                    >
                       {t("ui.readArticle")} <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
+                    </Link>
                   </div>
-                </Link>
+                </div>
               </AnimatedSection>
             ))}
           </div>
