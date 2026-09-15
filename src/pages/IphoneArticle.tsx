@@ -114,6 +114,27 @@ const IphoneArticle = () => {
                 </time>
               </div>
 
+              {article.featuredAmazon && (
+                <div className="mt-5 flex flex-wrap gap-x-3 gap-y-1 rounded-lg border border-primary/30 bg-primary/5 p-4">
+                  {articleModels(article.model).map((model) => {
+                    const link = article.amazon[model];
+                    if (!link) return null;
+                    return (
+                      <PriceCTA
+                        key={model}
+                        model={model}
+                        url={link.url}
+                        productName={link.productName}
+                        label={article.amazonLabel}
+                        articleSlug={article.slug}
+                        sectionId="article-header"
+                        placement="hub-header"
+                      />
+                    );
+                  })}
+                </div>
+              )}
+
               {/* Encadré d'état des données (specs non confirmées) */}
               {article.notice && (
                 <div className="mt-4 flex items-start gap-2 rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-xs text-muted-foreground">

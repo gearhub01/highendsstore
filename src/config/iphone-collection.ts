@@ -43,6 +43,7 @@ import { entry as choixStockage } from "../content/iphone/choix-stockage-iphone-
 import { entry as iphoneDuo } from "../content/iphone/iphone-duo-pliable";
 import { entry as webcam4kPc } from "../content/iphone/webcam-4k-pc";
 import { entry as accessoiresUsbCSetup } from "../content/iphone/accessoires-usb-c-setup";
+import { entry as setupGamingStreaming } from "../content/iphone/iphone-18-pro-setup-gaming-streaming";
 import { entry as vs16Pro } from "../content/iphone/iphone-18-pro-vs-iphone-16-pro";
 import { entry as vs17Pro } from "../content/iphone/iphone-18-pro-vs-iphone-17-pro";
 import { entry as vsProMax } from "../content/iphone/iphone-18-pro-vs-pro-max";
@@ -162,6 +163,7 @@ export const COLLECTION_ENTRIES: ArticleEntry[] = [
   precommande,
   iphoneDuo,
   choixStockage,
+  setupGamingStreaming,
   webcam4kPc,
   accessoiresUsbCSetup,
   // Comparatifs (affichés aussi dans le filtre « Comparaison » de /guides)

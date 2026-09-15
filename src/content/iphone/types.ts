@@ -94,6 +94,8 @@ export interface CollectionArticle {
   publishedAt?: string;
   /** Chapeau affiché sous le H1. */
   intro: string;
+  /** Met les boutons Amazon des modèles couverts en avant, sous l'introduction. */
+  featuredAmazon?: boolean;
   /** Encadré d'avertissement affiché en haut de l'article (état des données). */
   notice?: string;
   /** Liens mis en avant juste sous le chapeau (ex. lien vers la page pilier). */
