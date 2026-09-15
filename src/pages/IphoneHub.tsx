@@ -39,7 +39,11 @@ const IphoneHub = () => {
   const visibleArticles =
     activeTab === "all"
       ? localizedArticles
-      : localizedArticles.filter((a) => a.model === activeTab);
+      : localizedArticles.filter((a) =>
+          activeTab === "both"
+            ? a.model === "both"
+            : a.model === activeTab || a.model === "both",
+        );
 
 
   // Si la collection est désactivée et que l'on veut aussi fermer les pages.
