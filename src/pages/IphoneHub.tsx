@@ -7,7 +7,6 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import AnimatedSection from "@/components/AnimatedSection";
 import SEOHead, { SITE_URL } from "@/components/SEOHead";
 import AffiliateDisclosure from "@/components/AffiliateDisclosure";
-import LaunchCountdown from "@/components/iphone/LaunchCountdown";
 import LaunchBadge from "@/components/iphone/LaunchBadge";
 import ModelBadge from "@/components/iphone/ModelBadge";
 import PriceCTA from "@/components/iphone/PriceCTA";
@@ -76,9 +75,9 @@ const IphoneHub = () => {
 
       <main className="pb-16">
         <div className="container mx-auto px-4">
-          {/* En-tête + compte à rebours + CTAs iPhone */}
+          {/* En-tête de la collection */}
           <AnimatedSection variant="fade-up">
-            <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] items-start mt-4">
+            <div className="mt-4 max-w-3xl">
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <Smartphone className="h-5 w-5 text-primary" />
@@ -92,7 +91,6 @@ const IphoneHub = () => {
                   {t("ui.iphoneHubIntro")}
                 </p>
               </div>
-              <LaunchCountdown />
             </div>
           </AnimatedSection>
 

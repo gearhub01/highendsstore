@@ -5,55 +5,52 @@ import type { CollectionArticle } from "../types";
 export const article: CollectionArticle = {
   slug: "precommande-iphone-18-pro",
   model: "both",
-  title: "Précommande iPhone 18 Pro : date, heure et checklist",
+  title: "iPhone 18 Pro : disponibilité et checklist d'achat",
   excerpt:
-    "Date, heure, prix officiels en France et checklist pour précommander l'iPhone 18 Pro ou le Pro Max sans rater le créneau du 12 septembre 2026.",
+    "Disponibilité, configurations et checklist pour choisir l'iPhone 18 Pro ou le Pro Max maintenant que les deux modèles sont commercialisés.",
   image:
     "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1200&q=80",
-  updatedAt: "2026-09-11",
+  updatedAt: "2026-09-23",
   publishedAt: "2026-09-11",
   intro:
-    "Les précommandes de l'iPhone 18 Pro et du 18 Pro Max ouvrent le samedi 12 septembre 2026 à 14 h, heure de Paris. La mise en vente en boutique suit le vendredi 18 septembre. Voici ce qu'il faut avoir préparé avant l'ouverture, et où commander.",
+    "Les iPhone 18 Pro et 18 Pro Max sont disponibles depuis le 18 septembre 2026. Voici les configurations officielles, les points à vérifier avant l'achat et les liens directs vers chaque modèle.",
   sections: [
     {
       id: "date-heure-exactes",
-      heading: "La date et l'heure exactes",
+      heading: "Disponibles depuis le 18 septembre",
       paragraphs: [
-        "Apple a fixé l'ouverture des précommandes au samedi 12 septembre à 14 h précises, heure de Paris. Beaucoup de sites annonçaient le vendredi 11 : c'était une projection fondée sur les habitudes d'Apple, et elle s'est révélée fausse. La marque évite traditionnellement toute opération commerciale le 11 septembre, et 2026 en marquait le vingt-cinquième anniversaire.",
-        "La livraison des premières commandes et la disponibilité en magasin interviennent le vendredi 18 septembre.",
+        "Les précommandes ont ouvert le 12 septembre 2026 et la commercialisation a commencé le 18 septembre. Les deux modèles peuvent désormais être commandés directement chez les revendeurs.",
+        "Les délais et les coloris disponibles peuvent évoluer selon le marchand. Consultez la fiche du modèle choisi pour connaître l'état du stock au moment de l'achat.",
         "Si vous visez le modèle pliable, l'iPhone Duo, son calendrier est distinct : précommandes le 16 octobre, sortie le 23 octobre.",
       ],
     },
     {
       id: "preparation-avant-14h",
-      heading: "Ce qu'il faut préparer avant 14 h",
+      heading: "Ce qu'il faut choisir avant de commander",
       paragraphs: [
-        "Les configurations les plus demandées partent en quelques minutes, et le délai de livraison peut glisser de plusieurs semaines dans l'heure qui suit l'ouverture. Trois choses à régler avant, pas pendant.",
+        "Les deux formats partagent l'essentiel de leur équipement. Trois choix permettent de sélectionner rapidement la bonne configuration.",
       ],
       bullets: [
         "Choisissez votre configuration à l'avance : modèle, capacité et coloris. Les quatre finitions sont noir, argent, glacier et bordeaux. Les capacités vont de 256 Go à 2 To, désormais sur les deux modèles.",
-        "Vérifiez que votre moyen de paiement et votre adresse de livraison sont à jour dans le compte que vous utiliserez. Une carte expirée fait perdre le créneau.",
-        "Préparez votre reprise si vous en faites une : l'estimation se fait en amont, et la faire au moment de la commande coûte de précieuses minutes.",
+        "Choisissez le Pro pour son format plus léger, ou le Pro Max pour son écran plus grand et son autonomie supérieure.",
+        "Évaluez votre besoin de stockage réel avant de passer de 256 Go aux capacités destinées aux usages vidéo intensifs.",
       ],
     },
     {
       id: "ou-precommander",
-      heading: "Où précommander",
+      heading: "Où commander",
       paragraphs: [
-        "Apple propose la précommande sur sa boutique en ligne et dans son application dès 14 h. C'est la voie la plus rapide et la seule à proposer la gravure personnalisée.",
-        "Les opérateurs ouvrent généralement au même moment, avec des offres liées à un forfait. Comparez le coût total sur vingt-quatre mois plutôt que le prix affiché à la souscription.",
-        "Les revendeurs et marchands en ligne ouvrent souvent quelques heures plus tard, parfois le jour de la sortie. Leurs stocks sont plus limités mais les délais de livraison peuvent être meilleurs que ceux d'Apple une fois les premières vagues écoulées.",
+        "Les boutons ci-dessous mènent vers les fiches Amazon correspondant exactement à l'iPhone 18 Pro et à l'iPhone 18 Pro Max.",
+        "Vérifiez le vendeur, la capacité, le coloris et le délai affiché avant de valider la commande.",
       ],
       showCta: true,
     },
     {
-      id: "prix-officiels-france",
-      heading: "Les prix officiels en France",
+      id: "configurations-officielles",
+      heading: "Les configurations officielles",
       paragraphs: [
-        "Prix officiels Apple au 10 septembre 2026.",
-        "iPhone 18 Pro : 1 479 € en 256 Go, 1 729 € en 512 Go, 2 229 € en 1 To, 2 979 € en 2 To.",
-        "iPhone 18 Pro Max : 1 629 € en 256 Go, 1 879 € en 512 Go, 2 379 € en 1 To, 3 129 € en 2 To.",
-        "Un point à connaître avant de choisir : la hausse par rapport à la génération précédente est de 150 € sur le 256 et le 512 Go, mais elle atteint 400 € sur le 1 To et 650 € sur le Pro Max 2 To. Le surcoût du 1 To face au 256 Go est passé de 500 à 750 €. Si vous hésitiez sur la capacité, cette année penche nettement vers le 256 Go.",
+        "Les iPhone 18 Pro et 18 Pro Max sont proposés en 256 Go, 512 Go, 1 To et 2 To.",
+        "Le 2 To est désormais disponible sur les deux formats. Pour un usage courant, 256 Go reste le choix le plus équilibré ; les capacités supérieures répondent surtout à la capture ProRes et au stockage vidéo local.",
       ],
     },
     {
@@ -76,9 +73,9 @@ export const article: CollectionArticle = {
   ],
   faq: [
     {
-      question: "À quelle heure ouvrent les précommandes de l'iPhone 18 Pro en France ?",
+      question: "Quand l'iPhone 18 Pro est-il disponible en France ?",
       answer:
-        "Les précommandes ouvrent le samedi 12 septembre 2026 à 14 h, heure de Paris. La mise en vente en magasin et les premières livraisons interviennent le vendredi 18 septembre.",
+        "L'iPhone 18 Pro et le Pro Max sont disponibles depuis le vendredi 18 septembre 2026.",
     },
     {
       question: "Quelles sont les capacités disponibles pour l'iPhone 18 Pro et le Pro Max ?",
@@ -86,9 +83,9 @@ export const article: CollectionArticle = {
         "Les deux modèles sont proposés en 256 Go, 512 Go, 1 To et 2 To. Le 2 To, auparavant réservé au Pro Max, est désormais disponible sur le Pro.",
     },
     {
-      question: "Où précommander l'iPhone 18 Pro le plus rapidement ?",
+      question: "Où commander l'iPhone 18 Pro ?",
       answer:
-        "La boutique en ligne et l'application Apple ouvrent à 14 h précises et proposent la gravure personnalisée. Les opérateurs ouvrent généralement au même moment, les revendeurs en ligne souvent quelques heures plus tard.",
+        "Les boutons Amazon de cette page ouvrent directement la fiche du modèle choisi. Vérifiez la capacité, le coloris, le vendeur et le délai avant l'achat.",
     },
   ],
   amazon: {
@@ -102,9 +99,9 @@ export const article: CollectionArticle = {
     },
   },
   seo: {
-    title: "Précommande iPhone 18 Pro : date, heure et checklist",
+    title: "iPhone 18 Pro : disponibilité et checklist d'achat",
     description:
-      "Précommande iPhone 18 Pro et Pro Max : date, heure, prix officiels en France et checklist pour commander sans rater le créneau du 12 septembre 2026.",
+      "iPhone 18 Pro et Pro Max disponibles : configurations officielles, différences entre les modèles et checklist avant de commander.",
   },
 };
 

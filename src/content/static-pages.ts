@@ -74,9 +74,9 @@ export const STATIC_PAGES: StaticPage[] = [
     href: "/iphone-18-pro/comparatif-iphone-16-17-18",
     title: "Comparatif iPhone 16, 17 et 18 Pro",
     excerpt:
-      "Trois générations d'iPhone Pro et Pro Max dans un seul tableau : écran, puce, photo, autonomie, poids. Et ce que le 18 Pro doit encore prouver.",
+      "Trois générations d'iPhone Pro et Pro Max comparées avec les caractéristiques officielles : écran, puce, photo, autonomie et poids.",
     category: "comparison",
-    updatedAt: "2026-08-29",
+    updatedAt: "2026-09-23",
     image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&h=500&fit=crop",
     tag: "Comparatif",
   },
@@ -87,7 +87,7 @@ export const STATIC_PAGES: StaticPage[] = [
     excerpt:
       "Deux générations d'écart : caméra avant, autonomie et écran comparés entre iPhone 16 Pro, 17 Pro et 18 Pro, du point de vue d'un bureau PC.",
     category: "comparison",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-09-23",
     image: "https://images.unsplash.com/photo-1592286927505-1def25115558?w=800&h=500&fit=crop",
     tag: "Comparatif",
   },
@@ -96,9 +96,9 @@ export const STATIC_PAGES: StaticPage[] = [
     href: "/iphone-18-pro/iphone-18-pro-vs-iphone-17-pro",
     title: "iPhone 18 Pro vs 17 Pro : faut-il changer ?",
     excerpt:
-      "Ce qui change vraiment, ce qui ne bouge pas, et pourquoi le passage d'un 17 Pro à un 18 Pro est probablement injustifié pour un usage PC.",
+      "Tableau officiel, différences réelles et verdict pour passer d'un iPhone 17 Pro au 18 Pro dans un usage PC.",
     category: "comparison",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-09-11",
     image: "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&h=500&fit=crop",
     tag: "Comparatif",
   },
@@ -109,20 +109,20 @@ export const STATIC_PAGES: StaticPage[] = [
     excerpt:
       "Écran, autonomie, stockage et poids comparés, y compris ce que change le poids sur un bras articulé de bureau PC.",
     category: "comparison",
-    updatedAt: "2026-08-28",
+    updatedAt: "2026-09-23",
     image: "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=800&h=500&fit=crop",
     tag: "Comparatif",
   },
   {
     slug: "iphone-duo-pliable",
     href: "/iphone-18-pro/iphone-duo-pliable",
-    title: "iPhone Duo : le pliable d'Apple à 2 339 €",
+    title: "iPhone Duo : le premier pliable d'Apple",
     excerpt:
-      "Apple officialise l'iPhone Duo, son premier smartphone pliable : écran 7,6 pouces, prix français, dates de précommande et de sortie en octobre.",
+      "Apple officialise l'iPhone Duo, son premier smartphone pliable : écran intérieur 7,6 pouces, capacités et dates de sortie en octobre.",
     category: "guide",
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-09-23",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop",
-    tag: "Lancement",
+    tag: "Disponible",
   },
 ];
 
