@@ -10,18 +10,17 @@ export const article: CollectionArticle = {
     "256 Go, 512 Go, 1 To ou 2 To : notre guide pour choisir la capacité de l'iPhone 18 Pro ou du Pro Max sans payer plus que nécessaire.",
   image:
     "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1200&q=80",
-  updatedAt: "2026-09-11",
+  updatedAt: "2026-09-23",
   publishedAt: "2026-09-11",
   intro:
-    "L'iPhone 18 Pro et le Pro Max sont proposés en quatre capacités, de 256 Go à 2 To. Voici comment choisir en fonction de votre usage, de votre budget et des prix officiels Apple.",
+    "L'iPhone 18 Pro et le Pro Max sont proposés en quatre capacités, de 256 Go à 2 To. Voici comment choisir selon votre usage sans payer pour un stockage inutile.",
   sections: [
     {
       id: "les-capacites",
-      heading: "Les quatre capacités et leurs prix officiels",
+      heading: "Les quatre capacités officielles",
       paragraphs: [
-        "iPhone 18 Pro : 1 479 € en 256 Go, 1 729 € en 512 Go, 2 229 € en 1 To, 2 979 € en 2 To.",
-        "iPhone 18 Pro Max : 1 629 € en 256 Go, 1 879 € en 512 Go, 2 379 € en 1 To, 3 129 € en 2 To.",
-        "Cette année, le 2 To est disponible sur les deux formats. Le surcoût entre le 256 Go et le 1 To atteint 750 €, contre 500 € sur la génération précédente. Cet écart change l'arbitrage : le 256 Go devient la capacité la plus logique pour un usage standard, tandis que le 1 To et le 2 To ne se justifient que pour des besoins professionnels ou de capture vidéo intensive.",
+        "Les deux modèles existent en 256 Go, 512 Go, 1 To et 2 To.",
+        "Cette année, le 2 To est disponible sur les deux formats. Le 256 Go reste la capacité la plus logique pour un usage standard, tandis que le 1 To et le 2 To se justifient surtout pour des besoins professionnels ou de capture vidéo intensive.",
       ],
     },
     {
@@ -60,7 +59,7 @@ export const article: CollectionArticle = {
   seo: {
     title: "Quelle capacité choisir pour l'iPhone 18 Pro ?",
     description:
-      "Guide capacité iPhone 18 Pro et Pro Max : 256 Go, 512 Go, 1 To ou 2 To ? Comparez les prix officiels et choisissez selon votre usage sans payer trop cher.",
+      "Guide capacité iPhone 18 Pro et Pro Max : 256 Go, 512 Go, 1 To ou 2 To ? Choisissez selon vos photos, jeux, vidéos et usages professionnels.",
   },
 };
 

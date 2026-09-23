@@ -85,7 +85,7 @@ export const COLLECTION_NAME = "iPhone 18 Pro & Pro Max";
  * lisibles (recommandé pour ne pas casser les liens déjà partagés).
  */
 export const COLLECTION_ENABLED = true;
-export const AUTO_HIDE_AFTER: string | null = "2026-09-30T23:59:59+02:00";
+export const AUTO_HIDE_AFTER: string | null = null;
 export const HIDE_PAGES_WHEN_DISABLED = false;
 
 /** Date du keynote Apple visée par le compte à rebours. */

@@ -9,12 +9,12 @@ import type { CollectionArticle } from "../types";
 export const article: CollectionArticle = {
   slug: "iphone-duo-pliable",
   model: "both",
-  title: "iPhone Duo : le pliable d'Apple à 2 339 €",
+  title: "iPhone Duo : le premier pliable d'Apple",
   excerpt:
-    "Apple officialise l'iPhone Duo, son premier smartphone pliable : écran 7,6 pouces, prix français, précommandes le 16 octobre et sortie le 23 octobre.",
+    "Apple officialise l'iPhone Duo, son premier smartphone pliable : écran intérieur 7,6 pouces, précommandes le 16 octobre et sortie le 23 octobre.",
   image:
     "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&q=80",
-  updatedAt: "2026-09-12",
+  updatedAt: "2026-09-23",
   publishedAt: "2026-09-12",
   intro:
     "Apple a présenté l'iPhone Duo lors de son keynote de septembre 2026 : le premier smartphone pliable de la marque, avec un calendrier et un positionnement distincts des iPhone 18 Pro. Voici ce qui est officiel, ce qui ne l'est pas encore, et la question à vous poser si vous hésitiez avec un 18 Pro.",
@@ -28,17 +28,17 @@ export const article: CollectionArticle = {
       ],
     },
     {
-      id: "prix",
-      heading: "Les prix officiels en France",
+      id: "capacites",
+      heading: "Les capacités disponibles",
       paragraphs: [
-        "Apple a communiqué quatre tarifs pour la France.",
-        "À titre de repère, l'entrée de gamme du Duo coûte 860 € de plus que celle de l'iPhone 18 Pro, et le modèle 2 To dépasse le prix d'un ordinateur portable haut de gamme.",
+        "Apple propose quatre capacités pour adapter le Duo aux usages courants comme aux gros volumes de vidéo.",
+        "Les versions 1 To et 2 To visent surtout la création et le stockage local intensif. Pour la plupart des usages, 256 Go ou 512 Go constituent les choix les plus équilibrés.",
       ],
       bullets: [
-        "256 Go : 2 339 €",
-        "512 Go : 2 589 €",
-        "1 To : 3 089 €",
-        "2 To : 3 839 €",
+        "256 Go",
+        "512 Go",
+        "1 To",
+        "2 To",
       ],
       showCta: true,
     },
@@ -65,8 +65,8 @@ export const article: CollectionArticle = {
       id: "attendre-ou-18-pro",
       heading: "Faut-il l'attendre plutôt que prendre un 18 Pro ?",
       paragraphs: [
-        "Posons la question honnêtement. Entre la sortie de l'iPhone 18 Pro et celle du Duo, il y a six semaines d'écart. Entre leurs prix d'entrée, 860 € de différence. Et le Duo est une première génération de produit, dont la fiabilité mécanique n'a pas encore été éprouvée hors des laboratoires d'Apple.",
-        "Si votre usage est un setup PC — webcam, capture, second écran — le Duo n'apporte rien de documenté à ce jour sur ces points, et le 18 Pro est disponible, testé et moins cher. Si le format pliable lui-même est ce qui vous attire, attendre six semaines pour lire les premiers retours réels est le minimum syndical pour un achat à plus de 2 300 €.",
+        "Posons la question honnêtement. Entre la sortie de l'iPhone 18 Pro et celle du Duo, il y a six semaines d'écart. Le Duo est aussi une première génération de produit, dont la fiabilité mécanique n'a pas encore été éprouvée hors des laboratoires d'Apple.",
+        "Si votre usage est un setup PC — webcam, capture, second écran — le Duo n'apporte rien de documenté à ce jour sur ces points, tandis que le 18 Pro est déjà disponible et testé. Si le format pliable lui-même vous attire, attendez les premiers retours réels avant de choisir.",
       ],
       links: [
         { label: "Comparatif iPhone 16, 17 et 18 Pro : le tableau complet", href: "/iphone-18-pro/comparatif-iphone-16-17-18" },
@@ -76,9 +76,9 @@ export const article: CollectionArticle = {
   ],
   faq: [
     {
-      question: "Quel est le prix de l'iPhone Duo en France ?",
+      question: "Quelles capacités sont proposées pour l'iPhone Duo ?",
       answer:
-        "2 339 € en 256 Go, 2 589 € en 512 Go, 3 089 € en 1 To et 3 839 € en 2 To, selon les tarifs officiels communiqués par Apple.",
+        "L'iPhone Duo est proposé en 256 Go, 512 Go, 1 To et 2 To.",
     },
     {
       question: "Quand sort l'iPhone Duo ?",
@@ -108,9 +108,9 @@ export const article: CollectionArticle = {
     { label: "Collection iPhone 18 Pro & Pro Max", href: "/iphone-18-pro" },
   ],
   seo: {
-    title: "iPhone Duo : le pliable d'Apple à 2 339 €",
+    title: "iPhone Duo : le premier pliable d'Apple",
     description:
-      "Apple officialise l'iPhone Duo, son premier smartphone pliable : écran 7,6 pouces, prix français, dates de précommande et de sortie en octobre.",
+      "Apple officialise l'iPhone Duo, son premier smartphone pliable : écran intérieur 7,6 pouces, capacités, précommande et sortie en octobre.",
   },
 };
 

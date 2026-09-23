@@ -49,7 +49,7 @@ export const article: CollectionArticle = {
           ["USB-C", "USB 3, jusqu'à 10 Gb/s", "USB 3, jusqu'à 10 Gb/s"],
           ["Sans fil", "Wi-Fi 7", "Wi-Fi 7"],
           ["Face ID", "TrueDepth classique", "TrueDepth classique"],
-          ["Matériau", "Monocoque aluminium, Ceramic Shield 2 avant, Ceramic Shield dos", "Titane grade 5, Ceramic Shield 2 avant, Ceramic Shield dos"],
+          ["Matériau", "Monocoque aluminium, Ceramic Shield 2 avant, Ceramic Shield dos", "Unibody aluminium, Ceramic Shield 2 avant, Ceramic Shield dos"],
           ["Poids", "206 g", "211 g"],
           ["Coloris", "Argent, Orange cosmique, Bleu profond", "Noir, Argent, Glacier, Bordeaux"],
         ],
@@ -97,9 +97,9 @@ export const article: CollectionArticle = {
       heading: "Notre verdict : gardez votre iPhone 17 Pro",
       paragraphs: [
         "Nous avons comparé les deux fiches techniques ligne à ligne, et la conclusion est nette : si vous possédez un iPhone 17 Pro, le passage au 18 Pro ne se justifie pas cette année.",
-        "L'écran est rigoureusement identique — même diagonale, même définition, même luminosité de pointe. La caméra avant n'a pas bougé, toujours 18 Mpx Center Stage. Le port USB-C plafonne au même débit de 10 Gbit/s. Le Face ID reste le module TrueDepth classique. Le matériau et la construction sont les mêmes.",
+        "L'écran est rigoureusement identique — même diagonale, même définition, même luminosité de pointe. La caméra avant n'a pas bougé, toujours 18 Mpx Center Stage. Le port USB-C plafonne au même débit de 10 Gbit/s. Le Face ID reste le module TrueDepth classique. Le matériau et la construction restent en aluminium avec Ceramic Shield.",
         "Restent trois vraies différences. L'ouverture variable sur l'appareil principal, qui est une avancée réelle mais dont le bénéfice dépend entièrement de votre pratique photo. Le GPU annoncé 40 % plus rapide, perceptible en jeu et en montage, invisible ailleurs. Et l'autonomie, qui gagne une heure sur le Pro et quatre sur le Pro Max.",
-        "Pour cela, il faut débourser 1 479 € et revendre un téléphone d'un an. Le calcul ne tient que si vous photographiez beaucoup et que l'ouverture variable répond à un besoin précis que vous savez nommer.",
+        "Le changement ne tient que si vous photographiez beaucoup et que l'ouverture variable répond à un besoin précis que vous savez nommer.",
       ],
       subsections: [
         {
