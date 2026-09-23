@@ -1,4 +1,5 @@
 /** Comparatif officiel iPhone 18 Pro vs iPhone 16 Pro. */
+import { AMAZON_URLS } from "@/config/amazon-links";
 import type { CollectionArticle } from "../types";
 
 export const article: CollectionArticle = {
@@ -92,7 +93,10 @@ export const article: CollectionArticle = {
     { question: "Le débit USB-C a-t-il progressé ?", answer: "Non. Les deux modèles utilisent l'USB 3 jusqu'à 10 Gbit/s." },
     { question: "Le 18 Pro est-il meilleur comme webcam ?", answer: "Oui face au 16 Pro, principalement grâce à sa caméra avant 18 Mpx Center Stage ƒ/1.9, contre 12 Mpx sur le 16 Pro." },
   ],
-  amazon: {},
+  amazon: {
+    pro: { url: AMAZON_URLS.pro, productName: "iPhone 18 Pro" },
+    pro_max: { url: AMAZON_URLS.pro_max, productName: "iPhone 18 Pro Max" },
+  },
   related: [
     { label: "iPhone 18 Pro vs 17 Pro", href: "/iphone-18-pro/iphone-18-pro-vs-iphone-17-pro" },
     { label: "iPhone 18 Pro ou Pro Max", href: "/iphone-18-pro/iphone-18-pro-vs-pro-max" },

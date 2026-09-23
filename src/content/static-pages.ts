@@ -122,7 +122,7 @@ export const STATIC_PAGES: StaticPage[] = [
     category: "guide",
     updatedAt: "2026-09-23",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=500&fit=crop",
-    tag: "Lancement",
+    tag: "Disponible",
   },
 ];
 

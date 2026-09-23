@@ -75,7 +75,7 @@ const IphoneHub = () => {
 
       <main className="pb-16">
         <div className="container mx-auto px-4">
-          {/* En-tête + compte à rebours + CTAs iPhone */}
+          {/* En-tête de la collection */}
           <AnimatedSection variant="fade-up">
             <div className="mt-4 max-w-3xl">
               <div>

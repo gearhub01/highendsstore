@@ -29,7 +29,7 @@ export const article: CollectionArticle = {
       paragraphs: [
         "Pour un usage classique — photos, applications, streaming et quelques jeux — le 256 Go suffit largement la première année, surtout si vous utilisez iCloud pour les photos.",
         "Le 512 Go vaut le coup si vous filmez régulièrement en 4K ou si vous gardez beaucoup de contenu en local. Au-delà, le 1 To et le 2 To ne se justifient que pour des workflows ProRes, du montage sur l'appareil ou un usage pro longtemps déconnecté du cloud.",
-        "Attention au stockage cloud comme substitut : un abonnement iCloud 200 Go coûte moins cher sur deux ans que le passage au palier supérieur, et il décharge la mémoire interne sans bloquer les performances.",
+        "Le stockage cloud peut aussi servir de complément : un abonnement iCloud décharge la mémoire interne et évite de choisir un palier supérieur uniquement pour conserver des archives.",
       ],
       showCta: true,
     },

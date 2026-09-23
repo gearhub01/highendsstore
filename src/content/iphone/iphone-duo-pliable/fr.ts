@@ -49,7 +49,7 @@ export const article: CollectionArticle = {
         "Précommandes le 16 octobre 2026, sortie le 23 octobre. Un calendrier distinct de celui des iPhone 18 Pro, disponibles dès le 18 septembre.",
       ],
       links: [
-        { label: "Précommande iPhone 18 Pro : date, heure et checklist", href: "/iphone-18-pro/precommande-iphone-18-pro" },
+         { label: "iPhone 18 Pro : disponibilité et checklist d'achat", href: "/iphone-18-pro/precommande-iphone-18-pro" },
       ],
     },
     {
@@ -104,7 +104,7 @@ export const article: CollectionArticle = {
   },
   related: [
     { label: "Comparatif iPhone 16, 17 et 18 Pro", href: "/iphone-18-pro/comparatif-iphone-16-17-18" },
-    { label: "Précommande iPhone 18 Pro : date, heure et checklist", href: "/iphone-18-pro/precommande-iphone-18-pro" },
+    { label: "iPhone 18 Pro : disponibilité et checklist d'achat", href: "/iphone-18-pro/precommande-iphone-18-pro" },
     { label: "Collection iPhone 18 Pro & Pro Max", href: "/iphone-18-pro" },
   ],
   seo: {

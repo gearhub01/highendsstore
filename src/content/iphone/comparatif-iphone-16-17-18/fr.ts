@@ -17,7 +17,7 @@ export const article: CollectionArticle = {
     "Trois générations d'iPhone Pro et Pro Max dans un seul tableau : écran, puce, photo, autonomie, poids et nouveautés officielles du 18 Pro.",
   image:
     "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=1200&q=80",
-  updatedAt: "2026-09-10",
+  updatedAt: "2026-09-23",
   publishedAt: "2026-08-29",
   intro:
     "Trois générations d'iPhone Pro, six modèles, un seul tableau. Cette page rassemble les caractéristiques officielles des iPhone 16 Pro, 16 Pro Max, 17 Pro, 17 Pro Max, 18 Pro et 18 Pro Max. Elle sert de référence à tous nos comparatifs détaillés.",
@@ -42,7 +42,7 @@ export const article: CollectionArticle = {
       ],
       table: {
         caption:
-          "Source : fiches techniques officielles Apple, vérifiées le 10 septembre 2026.",
+           "Source : fiches techniques officielles Apple, vérifiées le 23 septembre 2026.",
         headers: [
           "Caractéristique",
           "iPhone 16 Pro",
@@ -124,11 +124,11 @@ export const article: CollectionArticle = {
     },
     {
       id: "pro-ou-pro-max",
-      heading: "Pro ou Pro Max : ce que le format coûte et rapporte",
+      heading: "Pro ou Pro Max : ce que le format change",
       paragraphs: [
         "L'arbitrage entre les deux formats est resté remarquablement stable sur trois générations, ce qui permet de le résumer en une phrase : le Pro Max échange du volume contre de l'endurance et du stockage.",
         "Ce que le grand format apporte : six heures d'autonomie vidéo supplémentaires (39 h contre 33 h sur la génération 17), une option de stockage de 2 To réservée au 17 Pro Max, et une surface d'affichage de 6,9 pouces à la même densité de 460 ppp, donc plus d'informations à l'écran sans perte de finesse.",
-        "Ce qu'il coûte : 27 grammes de plus (233 g contre 206 g), et environ 6 millimètres de largeur en plus, avec l'épaisseur identique de 8,25 mm relevée sur la génération 16. En main, ces 27 grammes se sentent au bout d'une heure. Sur un support de bureau ou un bras articulé, ils se sentent sur le serrage de la rotule, pas sur le poignet — ce qui change complètement l'arbitrage si l'appareil passe ses journées posé.",
+        "La contrepartie : 27 grammes de plus (233 g contre 206 g), et environ 6 millimètres de largeur en plus, avec l'épaisseur identique de 8,25 mm relevée sur la génération 16. En main, ces 27 grammes se sentent au bout d'une heure. Sur un support de bureau ou un bras articulé, ils se sentent sur le serrage de la rotule, pas sur le poignet — ce qui change complètement l'arbitrage si l'appareil passe ses journées posé.",
         "Notre règle simple : si le téléphone vit dans une poche et sert d'appareil photo, le Pro suffit. S'il vit sur un bureau, sert de caméra et enregistre de la vidéo, le Pro Max devient le choix logique pour l'autonomie et le stockage. Le comparatif détaillé prend chaque usage un par un.",
       ],
       links: [
@@ -225,7 +225,7 @@ export const article: CollectionArticle = {
     {
       question: "Les caractéristiques de l'iPhone 18 Pro sont-elles connues ?",
       answer:
-        "Oui. Apple a officialisé l'iPhone 18 Pro et l'iPhone 18 Pro Max. Le tableau reprend leurs caractéristiques techniques officielles, vérifiées le 10 septembre 2026.",
+        "Oui. Apple a officialisé l'iPhone 18 Pro et l'iPhone 18 Pro Max. Le tableau reprend leurs caractéristiques techniques officielles, vérifiées le 23 septembre 2026.",
     },
     {
       question: "Quel est le plus gros gain entre l'iPhone 16 Pro et le 17 Pro ?",

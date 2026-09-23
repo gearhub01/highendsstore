@@ -92,7 +92,7 @@ export const HIDE_PAGES_WHEN_DISABLED = false;
 export const KEYNOTE_DATE = "2026-09-09T19:00:00+02:00";
 
 /** Libellé du badge affiché sur toutes les cartes de la collection. */
-export const COLLECTION_BADGE = "Lancement";
+export const COLLECTION_BADGE = "Disponible";
 
 /** Libellés affichés pour chaque modèle (badges, onglets, boutons). */
 export const MODEL_LABELS: Record<IphoneModel | "duo", string> = {
