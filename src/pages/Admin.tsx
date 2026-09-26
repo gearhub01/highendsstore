@@ -14,8 +14,10 @@ import { toast } from "@/hooks/use-toast";
 import { Plus, Pencil, Trash2, LogOut, Shield, Loader2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import type { Tables, TablesInsert } from "@/integrations/supabase/types";
+import AffiliateClicks from "@/components/admin/AffiliateClicks";
 
 type ContentTable = "guides" | "articles" | "comparisons" | "reviews" | "categories";
+type AdminTab = ContentTable | "clicks";
 
 const tabConfig: { key: ContentTable; label: string }[] = [
   { key: "articles", label: "Articles" },
@@ -28,7 +30,7 @@ const tabConfig: { key: ContentTable; label: string }[] = [
 const Admin = () => {
   const { user, isAdmin, loading: authLoading, signOut } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<ContentTable>("articles");
+  const [activeTab, setActiveTab] = useState<AdminTab>("articles");
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -42,10 +44,11 @@ const Admin = () => {
   }, [authLoading, user, isAdmin, navigate]);
 
   useEffect(() => {
-    if (isAdmin) fetchItems();
+    if (isAdmin && activeTab !== "clicks") fetchItems();
   }, [activeTab, isAdmin]);
 
   const fetchItems = async () => {
+    if (activeTab === "clicks") return;
     setLoading(true);
     const { data, error } = await supabase
       .from(activeTab)
@@ -71,7 +74,9 @@ const Admin = () => {
   };
 
   const handleSave = async () => {
+    if (activeTab === "clicks") return;
     const { id, created_at, updated_at, ...rest } = form;
+
 
     if (editingItem) {
       const { error } = await supabase.from(activeTab).update(rest).eq("id", editingItem.id);
@@ -93,6 +98,7 @@ const Admin = () => {
   };
 
   const handleDelete = async (id: string) => {
+    if (activeTab === "clicks") return;
     if (!confirm("Supprimer cet élément ?")) return;
     const { error } = await supabase.from(activeTab).delete().eq("id", id);
     if (error) {
@@ -158,20 +164,23 @@ const Admin = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as ContentTable)}>
-          <div className="flex items-center justify-between mb-6">
+        <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as AdminTab)}>
+          <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
             <TabsList>
               {tabConfig.map((t) => (
                 <TabsTrigger key={t.key} value={t.key}>{t.label}</TabsTrigger>
               ))}
+              <TabsTrigger value="clicks">Clics Amazon</TabsTrigger>
             </TabsList>
 
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-              <DialogTrigger asChild>
-                <Button size="sm" onClick={openCreate}>
-                  <Plus className="h-4 w-4 mr-1" /> Ajouter
-                </Button>
-              </DialogTrigger>
+              {activeTab !== "clicks" && (
+                <DialogTrigger asChild>
+                  <Button size="sm" onClick={openCreate}>
+                    <Plus className="h-4 w-4 mr-1" /> Ajouter
+                  </Button>
+                </DialogTrigger>
+              )}
               <DialogContent className="max-w-lg max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogTitle>{editingItem ? "Modifier" : "Ajouter"} — {activeTab}</DialogTitle>
@@ -260,6 +269,10 @@ const Admin = () => {
               )}
             </TabsContent>
           ))}
+
+          <TabsContent value="clicks">
+            <AffiliateClicks />
+          </TabsContent>
         </Tabs>
       </main>
     </div>
