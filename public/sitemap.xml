@@ -16,6 +16,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.highends.store/guides/meilleure-souris-gaming-fps</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.highends.store/comparaison/144hz-vs-240hz</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.highends.store/guides/best-gaming-keyboards</loc>
     <lastmod>2026-08-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -97,7 +109,7 @@
   </url>
   <url>
     <loc>https://www.highends.store/iphone-18-pro/iphone-18-pro-setup-gaming-streaming</loc>
-    <lastmod>2026-09-15</lastmod>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -121,6 +133,12 @@
   <url>
     <loc>https://www.highends.store/blog/iphone-18-ce-qu-on-sait-avant-le-keynote</loc>
     <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.highends.store/blog/polling-rate-2026</loc>
+    <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
