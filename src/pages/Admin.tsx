@@ -174,11 +174,13 @@ const Admin = () => {
             </TabsList>
 
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-              <DialogTrigger asChild>
-                <Button size="sm" onClick={openCreate}>
-                  <Plus className="h-4 w-4 mr-1" /> Ajouter
-                </Button>
-              </DialogTrigger>
+              {activeTab !== "clicks" && (
+                <DialogTrigger asChild>
+                  <Button size="sm" onClick={openCreate}>
+                    <Plus className="h-4 w-4 mr-1" /> Ajouter
+                  </Button>
+                </DialogTrigger>
+              )}
               <DialogContent className="max-w-lg max-h-[80vh] overflow-y-auto">
                 <DialogHeader>
                   <DialogTitle>{editingItem ? "Modifier" : "Ajouter"} — {activeTab}</DialogTitle>
