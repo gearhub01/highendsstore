@@ -44,6 +44,7 @@ const App = () => (
             <Route path="/blog/polling-rate-2026" element={<EditorialPage />} />
             <Route path="/guides/meilleure-souris-gaming-fps" element={<EditorialPage />} />
             <Route path="/comparaison/144hz-vs-240hz" element={<EditorialPage />} />
+            <Route path="/blog/lubrifier-switches" element={<EditorialPage />} />
             {/* Redirection permanente : ancien article polling rate fusionné dans le nouvel article éditorial */}
             <Route path="/blog/choisir-polling-rate-2026" element={<Navigate to="/blog/polling-rate-2026" replace />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
