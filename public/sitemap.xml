@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.highends.store/comparaisons</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.highends.store/guides/meilleure-souris-gaming-fps</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>

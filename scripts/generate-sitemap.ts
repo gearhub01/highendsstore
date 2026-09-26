@@ -35,6 +35,7 @@ const entries: SitemapEntry[] = [
   // Listings : /guides et /reviews listent toujours les pages statiques.
   { path: "/guides", changefreq: "weekly", priority: "0.9" },
   { path: "/reviews", changefreq: "weekly", priority: "0.8" },
+  { path: "/comparaisons", changefreq: "weekly", priority: "0.8" },
   ...STATIC_PAGES.map((p) => ({
     path: p.href,
     // Les comparatifs iPhone bougent jusqu'au keynote : hebdomadaire.

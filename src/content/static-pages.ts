@@ -66,9 +66,9 @@ export const STATIC_PAGES: StaticPage[] = [
   {
     slug: "gaming-keyboards",
     href: "/comparaison/gaming-keyboards",
-    title: "Comparatif claviers gaming",
+    title: "SteelSeries vs Logitech vs Corsair : quel clavier gaming ?",
     excerpt:
-      "Specs, latence et ressenti comparés côte à côte pour les claviers gaming les plus recommandés du moment.",
+      "Les trois grands fabricants de claviers gaming comparés : switches, latence, logiciel et verdict par usage.",
     category: "comparison",
     updatedAt: "2026-08-21",
     image:

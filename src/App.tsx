@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import Guides from "./pages/Guides";
+import Comparisons from "./pages/Comparisons";
 import Reviews from "./pages/Reviews";
 import MentionsLegales from "./pages/MentionsLegales";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
@@ -35,6 +36,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/guides/best-gaming-keyboards" element={<BuyingGuide />} />
+            <Route path="/comparaisons" element={<Comparisons />} />
             <Route path="/comparaison/gaming-keyboards" element={<EditorialPage />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/reviews/wooting-80he" element={<ProductReview />} />
