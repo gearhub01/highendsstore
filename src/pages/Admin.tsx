@@ -164,12 +164,13 @@ const Admin = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as ContentTable)}>
-          <div className="flex items-center justify-between mb-6">
+        <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as AdminTab)}>
+          <div className="flex items-center justify-between mb-6 gap-4 flex-wrap">
             <TabsList>
               {tabConfig.map((t) => (
                 <TabsTrigger key={t.key} value={t.key}>{t.label}</TabsTrigger>
               ))}
+              <TabsTrigger value="clicks">Clics Amazon</TabsTrigger>
             </TabsList>
 
             <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
