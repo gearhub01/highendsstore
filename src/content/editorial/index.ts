@@ -2,6 +2,7 @@ import polling from "./polling-rate-2026.html?raw";
 import souris from "./meilleure-souris-gaming-fps.html?raw";
 import hz from "./144hz-vs-240hz.html?raw";
 import lube from "./lubrifier-switches.html?raw";
+import claviers from "./claviers-gaming-comparatif.html?raw";
 
 /** Articles éditoriaux fournis en HTML (source unique : les fichiers .html du dossier). */
 export interface EditorialArticle {
@@ -49,6 +50,15 @@ export const EDITORIAL_ARTICLES: EditorialArticle[] = [
       "Matériel, lubrifiant, pas à pas et les trois cas où il ne faut surtout pas lubrifier ses switches. Le tutoriel honnête.",
     date: "2026-09-24",
     raw: lube,
+  },
+  {
+    path: "/comparaison/gaming-keyboards",
+    section: { label: "Guides", href: "/guides" },
+    seoTitle: "SteelSeries vs Logitech vs Corsair : comparatif AZERTY",
+    seoDescription:
+      "Apex Pro TKL Gen 3, G Pro X TKL Rapid, K70 Pro TKL : trois claviers magnétiques AZERTY comparés. Sonorité, logiciel et le bon choix selon votre usage.",
+    date: "2026-09-24",
+    raw: claviers,
   },
 ];
 

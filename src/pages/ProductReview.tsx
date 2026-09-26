@@ -169,7 +169,7 @@ const ProductReview = () => {
         <RelatedContent
           items={[
             { type: "guide", title: "Meilleurs Claviers Gaming 2026", description: "Notre top 5 des claviers mécaniques et Hall Effect testés et comparés.", href: "/guides/best-gaming-keyboards" },
-            { type: "comparison", title: "Wooting 80HE vs Razer vs Keychron", description: "Tableau comparatif, radar et verdict détaillé de 3 claviers phares.", href: "/comparaison/gaming-keyboards" },
+            { type: "comparison", title: "SteelSeries vs Logitech vs Corsair", description: "Le comparatif des claviers magnétiques AZERTY.", href: "/comparaison/gaming-keyboards" },
           ]}
         />
 
