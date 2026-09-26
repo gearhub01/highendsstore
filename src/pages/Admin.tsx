@@ -44,10 +44,11 @@ const Admin = () => {
   }, [authLoading, user, isAdmin, navigate]);
 
   useEffect(() => {
-    if (isAdmin) fetchItems();
+    if (isAdmin && activeTab !== "clicks") fetchItems();
   }, [activeTab, isAdmin]);
 
   const fetchItems = async () => {
+    if (activeTab === "clicks") return;
     setLoading(true);
     const { data, error } = await supabase
       .from(activeTab)
