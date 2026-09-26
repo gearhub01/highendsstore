@@ -98,6 +98,7 @@ const Admin = () => {
   };
 
   const handleDelete = async (id: string) => {
+    if (activeTab === "clicks") return;
     if (!confirm("Supprimer cet élément ?")) return;
     const { error } = await supabase.from(activeTab).delete().eq("id", id);
     if (error) {
