@@ -269,6 +269,10 @@ const Admin = () => {
               )}
             </TabsContent>
           ))}
+
+          <TabsContent value="clicks">
+            <AffiliateClicks />
+          </TabsContent>
         </Tabs>
       </main>
     </div>
