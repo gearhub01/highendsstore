@@ -86,7 +86,7 @@ const Comparisons = () => {
         title="Toutes nos comparaisons | Highends Store"
         description="Toutes les comparaisons Highends Store par catégorie : claviers, moniteurs et périphériques gaming, ainsi que les iPhone 16, 17 et 18 Pro comparés pour votre setup PC."
         canonicalPath="/comparaisons"
-        jsonLd={{
+        schema={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Comparaisons Highends Store",
