@@ -8,7 +8,6 @@ import { ConsentProvider } from "@/hooks/use-consent";
 import CookieConsent from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import BuyingGuide from "./pages/BuyingGuide";
-import Comparison from "./pages/Comparison";
 import ProductReview from "./pages/ProductReview";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
@@ -36,7 +35,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/guides/best-gaming-keyboards" element={<BuyingGuide />} />
-            <Route path="/comparaison/gaming-keyboards" element={<Comparison />} />
+            <Route path="/comparaison/gaming-keyboards" element={<EditorialPage />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/reviews/wooting-80he" element={<ProductReview />} />
             <Route path="/blog" element={<Blog />} />
