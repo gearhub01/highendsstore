@@ -1,0 +1,139 @@
+<!-- URL suggérée : /blog/polling-rate-2026 · Catégorie : Tech -->
+
+<h1>Polling rate en 2026 : pourquoi le 8 000 Hz ne sert à presque personne</h1>
+
+<p><em>Transparence : cet article contient des liens affiliés. Si vous achetez via ces liens, nous percevons une commission sans surcoût pour vous. Cela nous aide à financer nos tests indépendants. <a href="/divulgation-affiliation">En savoir plus</a>.</em></p>
+
+<p><strong>Équipe Highends Store — 24 septembre 2026 — 8 min de lecture</strong></p>
+
+<h2>La réponse courte</h2>
+
+<p>Le passage de 1 000 à 8 000 Hz vous fait gagner <strong>0,875 milliseconde</strong>. Votre temps de réaction, si vous êtes un joueur entraîné, se situe entre 150 et 250 millisecondes. Le gain représente donc environ <strong>un demi-pourcent de votre propre latence humaine</strong>.</p>
+
+<p>Et surtout : si votre écran est en dessous de 240 Hz, ce gain n'est même pas affiché. Il se perd en attendant le prochain rafraîchissement de la dalle.</p>
+
+<p>Le 8 000 Hz est un argument de fiche technique. Ce n'est pas un critère d'achat.</p>
+
+<h2>Ce qu'est réellement le polling rate</h2>
+
+<p>Le <em>polling rate</em>, ou taux d'interrogation, est la fréquence à laquelle votre PC demande à un périphérique : « où en es-tu ? ». Exprimé en hertz, il indique le nombre de ces questions par seconde.</p>
+
+<ul>
+  <li><strong>125 Hz</strong> — une mise à jour toutes les 8 ms (souris bureautique)</li>
+  <li><strong>1 000 Hz</strong> — une mise à jour toutes les 1 ms (standard gaming depuis quinze ans)</li>
+  <li><strong>4 000 Hz</strong> — une mise à jour toutes les 0,25 ms</li>
+  <li><strong>8 000 Hz</strong> — une mise à jour toutes les 0,125 ms</li>
+</ul>
+
+<p>Remarquez la forme de cette progression. Passer de 125 à 1 000 Hz fait gagner <strong>7 millisecondes</strong> : c'est énorme, immédiatement perceptible, et c'est pourquoi le 1 000 Hz s'est imposé. Passer de 1 000 à 8 000 Hz fait gagner <strong>0,875 ms</strong> : huit fois plus de travail pour un huitième du bénéfice précédent.</p>
+
+<p>Chaque doublement coûte autant et rapporte moitié moins. C'est la définition même des rendements décroissants.</p>
+
+<h2>Le maillon qui annule tout : votre écran</h2>
+
+<p>Voici le point que les fiches produit taisent soigneusement. Votre souris a beau envoyer sa position 8 000 fois par seconde, <strong>vous ne verrez le résultat qu'au prochain rafraîchissement de votre écran</strong>.</p>
+
+<table>
+  <thead>
+    <tr><th>Écran</th><th>Nouvelle image toutes les</th><th>Mises à jour souris « perdues » en 1 000 Hz</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>60 Hz</td><td>16,7 ms</td><td>environ 16 sur 17</td></tr>
+    <tr><td>144 Hz</td><td>6,9 ms</td><td>environ 6 sur 7</td></tr>
+    <tr><td>240 Hz</td><td>4,2 ms</td><td>environ 3 sur 4</td></tr>
+    <tr><td>480 Hz</td><td>2,1 ms</td><td>environ 1 sur 2</td></tr>
+  </tbody>
+</table>
+
+<p>Autrement dit : <strong>même à 1 000 Hz, la grande majorité des mises à jour de votre souris ne sont jamais affichées.</strong> Elles arrivent entre deux images et attendent. Multiplier ce débit par huit ne fait que rallonger la file d'attente.</p>
+
+<p>Le seuil raisonnable est simple à retenir : <strong>le 8 000 Hz ne commence à avoir un sens théorique qu'au-delà de 240 Hz d'écran</strong>, et même là, le gain reste sous le seuil de perception de l'immense majorité des joueurs.</p>
+
+<h2>Le coût caché : votre processeur</h2>
+
+<p>C'est la partie que personne ne mentionne, et c'est pourtant la seule qui puisse <strong>dégrader</strong> vos performances.</p>
+
+<p>Chaque interrogation du périphérique consomme du temps processeur. À 1 000 Hz, la charge est négligeable. À 8 000 Hz, elle est multipliée par huit — et elle s'exécute en priorité haute, donc elle passe devant votre jeu.</p>
+
+<p>Sur une machine récente et bien dimensionnée, l'impact reste faible. Sur une configuration déjà limitée par le CPU — ce qui est précisément le cas des jeux compétitifs poussés à très haut framerate — le résultat peut s'inverser : <strong>vous perdez des images par seconde pour gagner une fraction de milliseconde.</strong> Le remède devient le problème.</p>
+
+<p>Ajoutez-y, sur les modèles sans fil, une <strong>autonomie qui s'effondre</strong>. Les autonomies annoncées sont mesurées à 1 000 Hz. En 8 000 Hz, comptez souvent la moitié, parfois moins.</p>
+
+<p><em>[EMPLACEMENT MESURE MAISON — relevé d'utilisation CPU et de framerate moyen sur le même jeu à 1 000 puis 8 000 Hz, sur ta configuration. Capture des deux relevés. C'est le bloc incopiable de cet article.]</em></p>
+
+<h2>Ce que les études disent réellement</h2>
+
+<p>Les travaux menés par NVIDIA sur la latence en jeu compétitif sont clairs sur un point : <strong>la latence totale compte</strong>, et la réduire améliore les performances. Mais leurs mesures les plus récentes montrent aussi que les gains se tassent nettement une fois franchies les premières marches — au point que les écarts deviennent statistiquement non significatifs entre les paliers élevés.</p>
+
+<p>Traduction pratique : les grandes victoires de latence sont ailleurs. Dans l'ordre d'importance réelle, pour un joueur qui veut vraiment réduire sa latence totale :</p>
+
+<ol>
+  <li><strong>Désactiver la V-Sync</strong> et activer le mode faible latence de votre pilote graphique</li>
+  <li><strong>Maintenir un framerate élevé et stable</strong> — c'est de loin le plus gros levier</li>
+  <li><strong>Passer d'un écran 60 Hz à 144 Hz ou plus</strong></li>
+  <li><strong>Utiliser une connexion filaire ou un dongle 2,4 GHz</strong> plutôt que du Bluetooth</li>
+  <li>… et très loin derrière, le polling rate au-delà de 1 000 Hz</li>
+</ol>
+
+<p>Si vous n'avez pas coché les quatre premiers points, vous concentrer sur le cinquième revient à régler la pression de vos pneus alors que le frein à main est tiré.</p>
+
+<h2>Notre recommandation, sans détour</h2>
+
+<h3>Restez à 1 000 Hz si…</h3>
+
+<p>C'est le cas de <strong>plus de neuf joueurs sur dix</strong>. Écran de 144 à 240 Hz, jeu en solo ou en compétitif amateur, machine polyvalente : le 1 000 Hz est le bon réglage, et il le restera. Vous ne laissez rien sur la table.</p>
+
+<h3>Montez à 2 000 ou 4 000 Hz si…</h3>
+
+<p>Vous avez un écran d'au moins 240 Hz, un CPU confortable, et vous jouez en compétitif sérieux. Ces paliers intermédiaires offrent l'essentiel du gain théorique pour une charge processeur bien plus raisonnable que le 8 000 Hz. C'est le vrai point d'équilibre, et presque personne n'en parle.</p>
+
+<h3>Passez à 8 000 Hz si…</h3>
+
+<p>Vous avez un écran de 360 Hz ou plus, une machine haut de gamme non limitée par le CPU, et vous jouez à un niveau où quelques millisecondes ont un sens mesurable. Dans ce cas seulement, activez-le — et vérifiez votre framerate avant et après. S'il baisse, redescendez.</p>
+
+<h2>Le verdict sur le matériel</h2>
+
+<p>Notre conseil : <strong>ne payez jamais un supplément pour le 8 000 Hz.</strong> Achetez un bon périphérique, et considérez le polling élevé comme un bonus que vous n'activerez probablement pas.</p>
+
+<p>Le <a href="https://link.amazon/B0gjWIaGS">Corsair K70 Pro TKL</a> illustre parfaitement ce propos : il affiche fièrement ses 8 000 Hz, et c'est le moins intéressant de ses arguments. Achetez-le pour son équilibre jeu/frappe et sa disponibilité AZERTY, pas pour ce chiffre. Même logique sur le <a href="https://link.amazon/B05a2SMqe">SteelSeries Apex Pro TKL Gen 3</a> : c'est son actuation réglable à 0,1 mm qui change quelque chose à votre jeu, pas sa fréquence d'interrogation.</p>
+
+<p>Côté souris, la démonstration est encore plus nette. La <a href="https://link.amazon/B0eWLGB1T">Logitech G Pro X Superlight 2</a> est la souris la plus utilisée du circuit professionnel de CS2, et ce n'est pas sa fréquence d'interrogation qui lui vaut cette place : c'est sa forme. Les joueurs dont c'est le métier choisissent la coque qui ne les trahit pas au bout de la quatrième heure, pas la ligne de fiche technique la plus impressionnante.</p>
+
+<h2>FAQ</h2>
+
+<h3>Comment vérifier mon polling rate actuel ?</h3>
+<p>Le logiciel de votre périphérique l'affiche et permet de le changer. Pour une mesure indépendante, plusieurs outils en ligne gratuits mesurent le taux réel en déplaçant la souris quelques secondes — utile pour vérifier que le réglage annoncé est bien appliqué.</p>
+
+<h3>Le polling rate d'un clavier compte-t-il autant que celui d'une souris ?</h3>
+<p>Moins. Une souris transmet un mouvement continu, où chaque mise à jour affine la trajectoire. Un clavier transmet des événements discrets : la touche est pressée ou elle ne l'est pas. L'intérêt du polling élevé y est encore plus marginal.</p>
+
+<h3>Le 8 000 Hz réduit-il vraiment l'autonomie en sans-fil ?</h3>
+<p>Oui, et nettement. Les autonomies annoncées sur les fiches produit sont mesurées à 1 000 Hz. En 8 000 Hz, attendez-vous à perdre la moitié de l'autonomie annoncée, parfois davantage selon les modèles.</p>
+
+<h3>Un polling rate élevé peut-il causer des problèmes ?</h3>
+<p>Oui. Sur certaines configurations, notamment avec des ports USB partagés ou des cartes mères d'entrée de gamme, un polling à 8 000 Hz peut provoquer des micro-saccades ou une surcharge CPU visible. Si vous constatez des à-coups après l'avoir activé, c'est la première chose à remettre à 1 000 Hz.</p>
+
+<h2>À lire ensuite</h2>
+<ul>
+  <li><a href="/comparaison/144hz-vs-240hz">144 Hz vs 240 Hz : la différence vaut-elle le prix ?</a></li>
+  <li><a href="/guides/meilleure-souris-gaming-fps">Meilleure souris gaming FPS : le guide</a></li>
+  <li><a href="/guides/best-gaming-keyboards">Meilleurs claviers gaming 2026 : le guide AZERTY</a></li>
+</ul>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Comment vérifier mon polling rate actuel ?","acceptedAnswer":{"@type":"Answer","text":"Le logiciel de votre périphérique l'affiche et permet de le changer. Pour une mesure indépendante, plusieurs outils en ligne gratuits mesurent le taux réel en déplaçant la souris quelques secondes."}},
+    {"@type":"Question","name":"Le polling rate d'un clavier compte-t-il autant que celui d'une souris ?","acceptedAnswer":{"@type":"Answer","text":"Moins. Une souris transmet un mouvement continu où chaque mise à jour affine la trajectoire. Un clavier transmet des événements discrets : la touche est pressée ou elle ne l'est pas. L'intérêt du polling élevé y est encore plus marginal."}},
+    {"@type":"Question","name":"Le 8 000 Hz réduit-il vraiment l'autonomie en sans-fil ?","acceptedAnswer":{"@type":"Answer","text":"Oui, et nettement. Les autonomies annoncées sont mesurées à 1 000 Hz. En 8 000 Hz, attendez-vous à perdre la moitié de l'autonomie annoncée, parfois davantage."}},
+    {"@type":"Question","name":"Un polling rate élevé peut-il causer des problèmes ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Sur certaines configurations, notamment avec des ports USB partagés ou des cartes mères d'entrée de gamme, un polling à 8 000 Hz peut provoquer des micro-saccades ou une surcharge CPU. Si des à-coups apparaissent après activation, revenez à 1 000 Hz."}}
+  ]
+}
+</script>
+
+<!-- LIENS EN PLACE : B0gjWIaGS (Corsair K70 Pro TKL) · B05a2SMqe (SteelSeries Apex Pro TKL Gen 3)
+     B0eWLGB1T (Logitech G Pro X Superlight 2)
+     META — Title : Polling rate 2026 : le 8000 Hz sert-il à quelque chose ? (56 car.)
+            Desc  : 1000 à 8000 Hz, c'est 0,875 ms gagnée sur un temps de réaction de 200 ms. Ce que le chiffre cache, et le vrai seuil utile. (140 car.) -->
