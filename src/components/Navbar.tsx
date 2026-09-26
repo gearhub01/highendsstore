@@ -26,7 +26,12 @@ const Navbar = () => {
   ];
 
   const comparisons = [
-    { icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
+    { icon: GitCompareArrows, label: "Toutes les comparaisons", href: "/comparaisons" },
+    { icon: Monitor, label: "144 Hz vs 240 Hz", href: "/comparaison/144hz-vs-240hz" },
+    { icon: Keyboard, label: "Claviers Gaming — SteelSeries vs Logitech vs Corsair", href: "/comparaison/gaming-keyboards" },
+    ...(isCollectionVisible()
+      ? [{ icon: GitCompareArrows, label: "iPhone 16, 17 et 18 Pro", href: `${IPHONE_BASE_PATH}/comparatif-iphone-16-17-18` }]
+      : []),
   ];
 
   const reviews = [
@@ -42,7 +47,7 @@ const Navbar = () => {
 
   const navItems = [
     { label: t("nav.home"), href: "/" },
-    { label: t("nav.comparisons"), href: "/comparaison/gaming-keyboards" },
+    { label: t("nav.comparisons"), href: "/comparaisons" },
     // Entrée temporaire : disparaît automatiquement quand la collection
     // iPhone 18 Pro est désactivée (src/config/iphone-collection.ts).
     ...(isCollectionVisible() ? [{ label: COLLECTION_NAME, href: IPHONE_BASE_PATH }] : []),
