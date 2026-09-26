@@ -109,7 +109,7 @@ async function fetchPublishedArticles(): Promise<SitemapEntry[]> {
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const rows = (await res.json()) as { slug: string; updated_at?: string; date?: string }[]
     return rows
-      .filter((r) => r.slug && !EXCLUDED_SLUG_PATTERNS.some((p) => p.test(r.slug)))
+      .filter((r) => r.slug && r.slug !== "ces-2026-meilleurs-peripheriques" && !EXCLUDED_SLUG_PATTERNS.some((p) => p.test(r.slug)))
       .map((r) => ({
         path: `/blog/${r.slug}`,
         changefreq: "monthly" as const,

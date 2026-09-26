@@ -7,3 +7,4 @@
 - [x] Vérifier les pages et les liens Amazon
 - [x] Tableau de bord des clics d'affiliation dans /admin
 - [x] Intégrer le nouvel article HTML (setup gaming & streaming iPhone 18)
+- [x] Publier l'article CES 2026 dans le blog avec les styles du site
