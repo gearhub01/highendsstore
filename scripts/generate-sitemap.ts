@@ -13,7 +13,6 @@ import {
   isCollectionVisible,
 } from "../src/config/iphone-collection"
 import { STATIC_PAGES } from "../src/content/static-pages"
-import { EDITORIAL_ARTICLES } from "../src/content/editorial"
 
 const SITE_URL = "https://www.highends.store"
 
@@ -52,12 +51,7 @@ const entries: SitemapEntry[] = [
           : "0.8",
     lastmod: p.updatedAt,
   })),
-  ...EDITORIAL_ARTICLES.filter((a) => a.path.startsWith("/blog/")).map((a) => ({
-    path: a.path,
-    changefreq: "monthly" as const,
-    priority: "0.7",
-    lastmod: a.date,
-  })),
+  { path: "/blog/ces-2026-neuf-mois-apres", changefreq: "monthly", priority: "0.7", lastmod: "2026-09-24" },
   { path: "/mentions-legales", changefreq: "yearly", priority: "0.3" },
   { path: "/politique-confidentialite", changefreq: "yearly", priority: "0.3" },
   { path: "/divulgation-affiliation", changefreq: "yearly", priority: "0.3" },
@@ -149,7 +143,7 @@ const blogEntries = await fetchPublishedArticles()
 // /guides et /reviews listent désormais toujours les pages statiques : elles
 // sont incluses en dur plus haut. Seul /blog reste conditionnel (rien à lister).
 const listingEntries: SitemapEntry[] = []
-  if (blogEntries.length > 0 || EDITORIAL_ARTICLES.some((a) => a.path.startsWith("/blog/"))) {
+  if (blogEntries.length > 0 || entries.some((e) => e.path.startsWith("/blog/"))) {
   listingEntries.push({ path: "/blog", changefreq: "weekly", priority: "0.8" })
 }
 
