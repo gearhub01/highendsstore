@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import EditorialPage from "./pages/EditorialPage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ConsentProvider } from "@/hooks/use-consent";
 import CookieConsent from "@/components/CookieConsent";
 import Index from "./pages/Index";
@@ -44,6 +44,8 @@ const App = () => (
             <Route path="/blog/polling-rate-2026" element={<EditorialPage />} />
             <Route path="/guides/meilleure-souris-gaming-fps" element={<EditorialPage />} />
             <Route path="/comparaison/144hz-vs-240hz" element={<EditorialPage />} />
+            {/* Redirection permanente : ancien article polling rate fusionné dans le nouvel article éditorial */}
+            <Route path="/blog/choisir-polling-rate-2026" element={<Navigate to="/blog/polling-rate-2026" replace />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
