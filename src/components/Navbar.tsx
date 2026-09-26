@@ -35,7 +35,7 @@ const Navbar = () => {
 
   const blogPosts = [
     { icon: TrendingUp, label: "Hall Effect vs Mécanique", href: "/blog/hall-effect-vs-mecanique", tag: "Tendance" },
-    { icon: Cpu, label: "Polling rate en 2026", href: "/blog/choisir-polling-rate-2026", tag: "Tech" },
+    { icon: Cpu, label: "Polling rate en 2026", href: "/blog/polling-rate-2026", tag: "Tech" },
     { icon: Wrench, label: "Lubrifier ses switches", href: "/blog/lubrifier-switches-pro", tag: "Tuto" },
     { icon: Newspaper, label: "CES 2026", href: "/blog/ces-2026-meilleurs-peripheriques", tag: "Actu" },
   ];

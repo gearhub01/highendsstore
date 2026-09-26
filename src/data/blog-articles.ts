@@ -35,28 +35,6 @@ export const blogArticles: BlogArticle[] = [
     image: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800&q=80"
   },
   {
-    slug: "choisir-polling-rate-2026",
-    title: "Comment choisir son polling rate en 2026",
-    excerpt: "4000 Hz, 8000 Hz… Les polling rates explosent. On vous explique ce que ça change vraiment et si ça vaut le coup d'investir.",
-    content: [
-      "Le polling rate est devenu l'un des arguments marketing les plus utilisés par les fabricants de périphériques gaming. Mais au-delà des chiffres impressionnants, que signifie vraiment passer de 1000 Hz à 4000 Hz ou même 8000 Hz ?",
-      "## Qu'est-ce que le polling rate ?",
-      "Le polling rate représente la fréquence à laquelle votre périphérique (souris ou clavier) communique sa position ou son état à votre PC. À 1000 Hz, votre souris envoie 1000 rapports par seconde. À 4000 Hz, c'est 4 fois plus.",
-      "## La différence est-elle perceptible ?",
-      "Entre 125 Hz et 1000 Hz, la différence est flagrante et visible à l'œil nu. Entre 1000 Hz et 4000 Hz, elle devient plus subtile mais reste mesurable. Au-delà de 4000 Hz, seuls les joueurs les plus compétitifs et les plus entraînés pourront percevoir une différence.",
-      "## L'impact sur les performances système",
-      "Un polling rate élevé consomme davantage de ressources CPU. À 8000 Hz, certains systèmes peuvent voir leur framerate baisser de 5-10% dans les jeux les plus exigeants. Il est donc crucial de trouver le bon équilibre entre réactivité et performance globale.",
-      "## Notre recommandation",
-      "Pour la majorité des joueurs, 1000 Hz reste le sweet spot parfait. Si vous jouez en compétitif sur un PC puissant, 4000 Hz offre un avantage mesurable. Réservez le 8000 Hz aux configurations haut de gamme avec un budget confortable."
-    ],
-    category: "Tech",
-    tag: "Tech",
-    date: "2026-02-05",
-    readTime: "6 min",
-    author: "Marie Dupont",
-    image: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=800&q=80"
-  },
-  {
     slug: "lubrifier-switches-pro",
     title: "Modding : lubrifier ses switches comme un pro",
     excerpt: "Le lubing est l'upgrade la plus satisfaisante pour votre clavier. Voici notre méthode étape par étape pour un résultat parfait.",
