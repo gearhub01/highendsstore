@@ -14,8 +14,10 @@ import { toast } from "@/hooks/use-toast";
 import { Plus, Pencil, Trash2, LogOut, Shield, Loader2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import type { Tables, TablesInsert } from "@/integrations/supabase/types";
+import AffiliateClicks from "@/components/admin/AffiliateClicks";
 
 type ContentTable = "guides" | "articles" | "comparisons" | "reviews" | "categories";
+type AdminTab = ContentTable | "clicks";
 
 const tabConfig: { key: ContentTable; label: string }[] = [
   { key: "articles", label: "Articles" },
@@ -28,7 +30,7 @@ const tabConfig: { key: ContentTable; label: string }[] = [
 const Admin = () => {
   const { user, isAdmin, loading: authLoading, signOut } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<ContentTable>("articles");
+  const [activeTab, setActiveTab] = useState<AdminTab>("articles");
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
