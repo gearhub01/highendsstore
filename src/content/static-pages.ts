@@ -33,6 +33,25 @@ export interface StaticPage {
 
 export const STATIC_PAGES: StaticPage[] = [
   {
+    slug: "meilleure-souris-gaming-fps",
+    href: "/guides/meilleure-souris-gaming-fps",
+    title: "Meilleure souris gaming FPS 2026",
+    excerpt: "Ce que jouent réellement 940 pros de CS2, et pourquoi la souris la plus utilisée n'est pas la plus légère.",
+    category: "guide",
+    updatedAt: "2026-09-24",
+    image: "https://images.unsplash.com/photo-1527814050087-3793815479db?w=800&h=500&fit=crop",
+    tag: "Nouveau",
+  },
+  {
+    slug: "144hz-vs-240hz",
+    href: "/comparaison/144hz-vs-240hz",
+    title: "144 Hz vs 240 Hz : la différence vaut-elle le coup ?",
+    excerpt: "2,8 ms d'écart, les études NVIDIA et le piège du framerate : les chiffres, sans le marketing.",
+    category: "comparison",
+    updatedAt: "2026-09-24",
+    image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=800&h=500&fit=crop",
+  },
+  {
     slug: "best-gaming-keyboards",
     href: "/guides/best-gaming-keyboards",
     title: "Meilleurs claviers gaming 2026",

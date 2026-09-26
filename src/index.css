@@ -142,3 +142,18 @@
     background-clip: text;
   }
 }
+
+/* Articles éditoriaux importés en HTML */
+.editorial { @apply text-muted-foreground leading-relaxed; }
+.editorial h2 { @apply text-2xl font-display font-bold text-foreground mt-10 mb-4; }
+.editorial h3 { @apply text-lg font-display font-semibold text-foreground mt-6 mb-3; }
+.editorial p { @apply mb-4; }
+.editorial strong { @apply text-foreground; }
+.editorial ul, .editorial ol { @apply mb-4 pl-6 space-y-2; }
+.editorial ul { @apply list-disc; }
+.editorial ol { @apply list-decimal; }
+.editorial a { @apply text-primary underline underline-offset-2 hover:opacity-80; }
+.editorial table { @apply w-full text-sm my-6 border border-border rounded-lg overflow-hidden block overflow-x-auto; }
+.editorial th { @apply bg-muted/50 text-foreground text-left font-semibold px-3 py-2; }
+.editorial td { @apply px-3 py-2 border-t border-border; }
+.editorial blockquote { @apply border-l-4 border-primary pl-4 italic my-6; }

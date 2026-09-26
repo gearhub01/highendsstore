@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import EditorialPage from "./pages/EditorialPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ConsentProvider } from "@/hooks/use-consent";
 import CookieConsent from "@/components/CookieConsent";
@@ -40,6 +41,9 @@ const App = () => (
             <Route path="/reviews/wooting-80he" element={<ProductReview />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/guides" element={<Guides />} />
+            <Route path="/blog/polling-rate-2026" element={<EditorialPage />} />
+            <Route path="/guides/meilleure-souris-gaming-fps" element={<EditorialPage />} />
+            <Route path="/comparaison/144hz-vs-240hz" element={<EditorialPage />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
