@@ -7,6 +7,23 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useArticles, FALLBACK_IMAGE, type DbArticle } from "@/hooks/use-content";
 import SEOHead from "@/components/SEOHead";
 import { useTranslation } from "react-i18next";
+import { EDITORIAL_ARTICLES, parseEditorial } from "@/content/editorial";
+
+const ces = EDITORIAL_ARTICLES.find((article) => article.path === "/blog/ces-2026-neuf-mois-apres");
+const cesArticle: DbArticle | null = ces ? {
+  id: "editorial-ces-2026",
+  title: parseEditorial(ces.raw).title,
+  slug: "ces-2026-neuf-mois-apres",
+  excerpt: ces.seoDescription,
+  content: null,
+  image: null,
+  category: "Actu",
+  tag: "Actu",
+  read_time: "10 min",
+  author: "Équipe Highends Store",
+  date: ces.date,
+  published: true,
+} : null;
 
 const categoryIcon: Record<string, typeof TrendingUp> = {
   Tendance: TrendingUp,
@@ -68,7 +85,11 @@ const BlogCard = ({ article, featured = false }: { article: DbArticle; featured?
 const Blog = () => {
   const { t } = useTranslation();
   const { data: articles = [], isLoading } = useArticles();
-  const [featured, ...rest] = articles;
+  const visibleArticles = [
+    ...(cesArticle ? [cesArticle] : []),
+    ...articles.filter((article) => article.slug !== "ces-2026-meilleurs-peripheriques" && article.slug !== "ces-2026-neuf-mois-apres"),
+  ];
+  const [featured, ...rest] = visibleArticles;
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,7 +99,7 @@ const Blog = () => {
         type="website"
         canonicalPath="/blog"
         /* Listing vide → pas d'indexation, mais les liens restent suivis. */
-        noindex={!isLoading && articles.length === 0}
+        noindex={!isLoading && visibleArticles.length === 0}
       />
       <Navbar />
       <main className="pt-24 pb-16">
@@ -113,7 +134,7 @@ const Blog = () => {
             </div>
           )}
 
-          {!isLoading && articles.length === 0 && (
+          {!isLoading && visibleArticles.length === 0 && (
             <p className="text-muted-foreground">{t("ui.emptyArticles")}</p>
           )}
 

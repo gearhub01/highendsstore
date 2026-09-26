@@ -51,6 +51,7 @@ const entries: SitemapEntry[] = [
           : "0.8",
     lastmod: p.updatedAt,
   })),
+  { path: "/blog/ces-2026-neuf-mois-apres", changefreq: "monthly", priority: "0.7", lastmod: "2026-09-24" },
   { path: "/mentions-legales", changefreq: "yearly", priority: "0.3" },
   { path: "/politique-confidentialite", changefreq: "yearly", priority: "0.3" },
   { path: "/divulgation-affiliation", changefreq: "yearly", priority: "0.3" },
@@ -102,7 +103,7 @@ async function fetchPublishedArticles(): Promise<SitemapEntry[]> {
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
     const rows = (await res.json()) as { slug: string; updated_at?: string; date?: string }[]
     return rows
-      .filter((r) => r.slug && !EXCLUDED_SLUG_PATTERNS.some((p) => p.test(r.slug)))
+      .filter((r) => r.slug && r.slug !== "ces-2026-meilleurs-peripheriques" && !EXCLUDED_SLUG_PATTERNS.some((p) => p.test(r.slug)))
       .map((r) => ({
         path: `/blog/${r.slug}`,
         changefreq: "monthly" as const,
@@ -142,7 +143,7 @@ const blogEntries = await fetchPublishedArticles()
 // /guides et /reviews listent désormais toujours les pages statiques : elles
 // sont incluses en dur plus haut. Seul /blog reste conditionnel (rien à lister).
 const listingEntries: SitemapEntry[] = []
-if (blogEntries.length > 0) {
+  if (blogEntries.length > 0 || entries.some((e) => e.path.startsWith("/blog/"))) {
   listingEntries.push({ path: "/blog", changefreq: "weekly", priority: "0.8" })
 }
 

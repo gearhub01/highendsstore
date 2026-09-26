@@ -3,6 +3,7 @@ import souris from "./meilleure-souris-gaming-fps.html?raw";
 import hz from "./144hz-vs-240hz.html?raw";
 import lube from "./lubrifier-switches.html?raw";
 import claviers from "./claviers-gaming-comparatif.html?raw";
+import ces from "./ces-2026-neuf-mois-apres.html?raw";
 
 /** Articles éditoriaux fournis en HTML (source unique : les fichiers .html du dossier). */
 export interface EditorialArticle {
@@ -15,6 +16,14 @@ export interface EditorialArticle {
 }
 
 export const EDITORIAL_ARTICLES: EditorialArticle[] = [
+  {
+    path: "/blog/ces-2026-neuf-mois-apres",
+    section: { label: "Blog", href: "/blog" },
+    seoTitle: "CES 2026, neuf mois après : qu'est-ce qui est sorti ?",
+    seoDescription: "Le bilan que personne ne fait : sur toutes les annonces de janvier, ce qui est livré, ce qui n'existe qu'ailleurs, et ce qui reste un prototype.",
+    date: "2026-09-24",
+    raw: ces,
+  },
   {
     path: "/blog/polling-rate-2026",
     section: { label: "Blog", href: "/blog" },

@@ -23,12 +23,13 @@ const searchableContent = [
   // Comparaisons
   { type: "Comparaison", icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
   // Blog (dynamic from data)
-  ...blogArticles.map((a) => ({
+  ...blogArticles.filter((a) => a.slug !== "ces-2026-meilleurs-peripheriques").map((a) => ({
     type: "Article" as const,
     icon: a.category === "Tendance" ? TrendingUp : a.category === "Tech" ? Cpu : a.category === "Tuto" ? Wrench : Newspaper,
     label: a.title,
     href: `/blog/${a.slug}`,
   })),
+  { type: "Article", icon: Newspaper, label: "CES 2026, neuf mois après : ce qui est réellement arrivé dans vos mains", href: "/blog/ces-2026-neuf-mois-apres" },
 ];
 
 const iconMap: Record<string, typeof BookOpen> = { Guide: BookOpen, Review: Star, Comparaison: GitCompareArrows, Article: Newspaper };

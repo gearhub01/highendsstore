@@ -46,6 +46,8 @@ const App = () => (
             <Route path="/guides/meilleure-souris-gaming-fps" element={<EditorialPage />} />
             <Route path="/comparaison/144hz-vs-240hz" element={<EditorialPage />} />
             <Route path="/blog/lubrifier-switches" element={<EditorialPage />} />
+            <Route path="/blog/ces-2026-neuf-mois-apres" element={<EditorialPage />} />
+            <Route path="/blog/ces-2026-meilleurs-peripheriques" element={<Navigate to="/blog/ces-2026-neuf-mois-apres" replace />} />
             {/* Redirection permanente : ancien article polling rate fusionné dans le nouvel article éditorial */}
             <Route path="/blog/choisir-polling-rate-2026" element={<Navigate to="/blog/polling-rate-2026" replace />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
