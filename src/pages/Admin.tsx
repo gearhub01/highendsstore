@@ -74,7 +74,9 @@ const Admin = () => {
   };
 
   const handleSave = async () => {
+    if (activeTab === "clicks") return;
     const { id, created_at, updated_at, ...rest } = form;
+
 
     if (editingItem) {
       const { error } = await supabase.from(activeTab).update(rest).eq("id", editingItem.id);
