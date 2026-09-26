@@ -272,6 +272,27 @@ const IphoneArticle = () => {
                       </ul>
                     )}
 
+                    {/* Liens marchands (accessoires Amazon) */}
+                    {section.shopLinks && (
+                      <ul className="mb-4 space-y-1">
+                        {section.shopLinks.map((l) => (
+                          <li key={l.href}>
+                            <a
+                              href={l.href}
+                              target="_blank"
+                              rel="sponsored nofollow noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                            >
+                              {l.label} <ArrowRight className="h-3.5 w-3.5" />
+                            </a>
+                            {l.note && (
+                              <span className="ml-1 text-sm text-muted-foreground">— {l.note}</span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
                     {/* CTA Amazon : affiché uniquement quand showCta est true,
                         pour ne pas surcharger la lecture (un CTA par plusieurs sections). */}
                     {section.showCta &&
