@@ -65,6 +65,12 @@ export interface ArticleSection {
   /** Liens internes contextuels affichés en fin de section. */
   links?: { label: string; href: string }[];
   /**
+   * Liens marchands externes (accessoires Amazon) affichés en fin de section.
+   * Rendus en lien sortant avec rel="sponsored nofollow noopener".
+   * AUCUN prix ne doit figurer dans le libellé.
+   */
+  shopLinks?: { label: string; href: string; note?: string }[];
+  /**
    * Liens Amazon spécifiques à cette section.
    * S'ils ne sont pas renseignés, l'article utilise ses liens généraux (`amazon`).
    */
