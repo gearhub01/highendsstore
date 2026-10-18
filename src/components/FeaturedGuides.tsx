@@ -22,7 +22,7 @@ const FeaturedGuides = () => {
       readTime: "12 min",
       category: t("cats.mice"),
       trending: true,
-      href: "/guides",
+      href: "/guides/meilleure-souris-gaming-fps",
     },
     {
       tag: t("featured.tags.review"),
@@ -40,7 +40,7 @@ const FeaturedGuides = () => {
       readTime: "8 min",
       category: t("cats.monitors"),
       trending: false,
-      href: "/guides",
+      href: "/comparaison/144hz-vs-240hz",
     },
   ];
 

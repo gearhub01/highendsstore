@@ -14,7 +14,7 @@ const CategoryGrid = () => {
   const { t } = useTranslation();
   const categories = [
     { icon: Keyboard, key: "keyboards", count: 15, href: "/guides/best-gaming-keyboards" },
-    { icon: Mouse, key: "mice", count: 12, href: "/guides" },
+    { icon: Mouse, key: "mice", count: 12, href: "/guides/meilleure-souris-gaming-fps" },
     { icon: Headphones, key: "headsets", count: 10, href: "/guides" },
     { icon: Monitor, key: "monitors", count: 8, href: "/guides" },
     { icon: Video, key: "streaming", count: 6, href: "/guides" },
