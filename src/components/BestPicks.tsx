@@ -6,7 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 const picks = [
   { rank: 1, name: "Wooting 80HE", category: "Clavier Gaming", rating: 9.6, highlight: "Meilleur clavier Hall Effect", href: "/reviews/wooting-80he" },
   { rank: 2, name: "LG 27GR95QE", category: "Moniteur OLED", rating: 9.5, highlight: "Meilleur moniteur OLED gaming", href: "/guides" },
-  { rank: 3, name: "Razer Viper V3 Pro", category: "Souris Gaming", rating: 9.4, highlight: "Meilleure souris sans-fil 2026", href: "/guides" },
+  { rank: 3, name: "Razer Viper V3 Pro", category: "Souris Gaming", rating: 9.4, highlight: "Meilleure souris sans-fil 2026", href: "/guides/meilleure-souris-gaming-fps" },
   { rank: 4, name: "SteelSeries Arctis Nova Pro", category: "Casque Gaming", rating: 9.2, highlight: "Meilleur son spatial gaming", href: "/guides" },
   { rank: 5, name: "iPhone 18 Pro", category: "Webcam 4K & Streaming", rating: 9.3, highlight: "La webcam ultime de votre setup PC", href: "/iphone-18-pro/webcam-4k-pc" },
   { rank: 6, name: "UGREEN Uno Hub USB-C", category: "Accessoire iPhone", rating: 9.1, highlight: "Le hub HDMI 4K60 pour iPhone 18 Pro", href: "/iphone-18-pro/accessoires-usb-c" },

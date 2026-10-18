@@ -34,7 +34,7 @@ const Footer = () => {
             <h4 className="font-display text-xs font-semibold tracking-widest uppercase mb-4 text-foreground">{t("footer.resources")}</h4>
             <ul className="space-y-2 text-xs text-muted-foreground">
               <li><Link to="/guides" className="hover:text-primary transition-colors">{t("footer.allGuides")}</Link></li>
-              <li><Link to="/comparaison/gaming-keyboards" className="hover:text-primary transition-colors">{t("footer.comparisons")}</Link></li>
+              <li><Link to="/comparaisons" className="hover:text-primary transition-colors">{t("footer.comparisons")}</Link></li>
               <li><Link to="/reviews/wooting-80he" className="hover:text-primary transition-colors">{t("footer.reviews")}</Link></li>
               <li><Link to="/blog" className="hover:text-primary transition-colors">{t("footer.blog")}</Link></li>
             </ul>

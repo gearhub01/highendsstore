@@ -15,13 +15,13 @@ import { useTranslation } from "react-i18next";
 const searchableContent = [
   // Guides
   { type: "Guide", icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards" },
-  { type: "Guide", icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides" },
+  { type: "Guide", icon: Mouse, label: "Meilleurs Souris FPS 2026", href: "/guides/meilleure-souris-gaming-fps" },
   { type: "Guide", icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides" },
   { type: "Guide", icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides" },
   // Reviews
   { type: "Review", icon: Star, label: "Test du Wooting 80HE", href: "/reviews/wooting-80he" },
   // Comparaisons
-  { type: "Comparaison", icon: GitCompareArrows, label: "Claviers Gaming — Wooting vs Razer vs Keychron", href: "/comparaison/gaming-keyboards" },
+  { type: "Comparaison", icon: GitCompareArrows, label: "Claviers Gaming — SteelSeries vs Logitech vs Corsair", href: "/comparaison/gaming-keyboards" },
   // Blog (dynamic from data)
   ...blogArticles.filter((a) => a.slug !== "ces-2026-meilleurs-peripheriques").map((a) => ({
     type: "Article" as const,

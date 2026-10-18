@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const categories = [
     { icon: Keyboard, label: t("cats.keyboards"), href: "/guides/best-gaming-keyboards", count: t("nav.countGuides", { count: 15 }) },
-    { icon: Mouse, label: t("cats.mice"), href: "/guides", count: t("nav.countGuides", { count: 12 }) },
+    { icon: Mouse, label: t("cats.mice"), href: "/guides/meilleure-souris-gaming-fps", count: t("nav.countGuides", { count: 12 }) },
     { icon: Headphones, label: t("cats.headsets"), href: "/guides", count: t("nav.countGuides", { count: 10 }) },
     { icon: Monitor, label: t("cats.monitors"), href: "/guides", count: t("nav.countGuides", { count: 8 }) },
     { icon: Video, label: t("cats.streaming"), href: "/guides", count: t("nav.countGuides", { count: 6 }) },
@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const guides = [
     { icon: Keyboard, label: "Meilleurs Claviers Gaming 2026", href: "/guides/best-gaming-keyboards", tag: t("nav.top5") },
-    { icon: Mouse, label: "Meilleures Souris FPS 2026", href: "/guides", tag: t("nav.soon") },
+    { icon: Mouse, label: "Meilleures Souris FPS 2026", href: "/guides/meilleure-souris-gaming-fps", tag: t("nav.new", "Nouveau") },
     { icon: Headphones, label: "Meilleurs Casques Gaming 2026", href: "/guides", tag: t("nav.soon") },
     { icon: Monitor, label: "Meilleurs Moniteurs 4K 2026", href: "/guides", tag: t("nav.soon") },
   ];
