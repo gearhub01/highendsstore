@@ -87,6 +87,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.highends.store/a-propos</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.highends.store/contact</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://www.highends.store/mentions-legales</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -156,6 +166,12 @@
   <url>
     <loc>https://www.highends.store/blog/lubrifier-switches</loc>
     <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.highends.store/blog/hall-effect-vs-mecanique</loc>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

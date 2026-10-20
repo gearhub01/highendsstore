@@ -47,7 +47,8 @@ const Footer = () => {
               <li><Link to="/politique-confidentialite" className="hover:text-primary transition-colors">{t("footer.privacy")}</Link></li>
               <li><Link to="/divulgation-affiliation" className="hover:text-primary transition-colors">{t("footer.affiliate")}</Link></li>
               <li><button type="button" onClick={openBanner} className="hover:text-primary transition-colors">Gérer les cookies</button></li>
-              <li><a href="mailto:contact@highends.store" className="hover:text-primary transition-colors">{t("footer.contact")}</a></li>
+              <li><Link to="/a-propos" className="hover:text-primary transition-colors">À propos</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">{t("footer.contact")}</Link></li>
             </ul>
           </div>
         </div>

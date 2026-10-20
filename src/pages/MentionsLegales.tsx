@@ -42,7 +42,7 @@ const MentionsLegales = () => (
           <section className="mb-10">
             <h2 className="text-xl font-display font-bold text-foreground mb-3">Politique de Confidentialité</h2>
             <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-              Nous respectons votre vie privée. Les seules données collectées sont celles que vous nous fournissez volontairement (ex : inscription newsletter). Nous n'utilisons pas de cookies de tracking tiers.
+              Nous respectons votre vie privée. Les cookies de mesure d'audience et d'affiliation ne sont déposés qu'avec votre accord, modifiable à tout moment via « Gérer les cookies » en bas de page. Le détail figure dans notre politique de confidentialité.
             </p>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Si vous vous inscrivez à notre newsletter, votre email est stocké de manière sécurisée et utilisé uniquement pour vous envoyer nos derniers guides et deals. Vous pouvez vous désinscrire à tout moment.
