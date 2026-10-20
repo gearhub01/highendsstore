@@ -29,7 +29,7 @@ const PolitiqueConfidentialite = () => (
               <li>Éditeur : <strong className="text-foreground">[À COMPLÉTER : nom de l'éditeur]</strong></li>
               <li>Adresse : <strong className="text-foreground">[À COMPLÉTER : adresse]</strong></li>
               <li>SIRET : <strong className="text-foreground">[À COMPLÉTER : numéro SIRET]</strong></li>
-              <li>E-mail de contact : <strong className="text-foreground">[À COMPLÉTER : e-mail de contact]</strong></li>
+              <li>E-mail de contact : <strong className="text-foreground">contact@highends.store</strong></li>
             </ul>
           </section>
 
@@ -42,7 +42,7 @@ const PolitiqueConfidentialite = () => (
               <strong className="text-foreground">Cookies d'affiliation.</strong> Lorsque vous cliquez sur un lien partenaire (notamment Amazon), ce partenaire peut déposer un cookie sur votre navigateur afin d'attribuer l'achat au site. Highends Store ne dépose pas lui-même ce cookie et n'a pas accès à vos données d'achat chez le partenaire.
             </p>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              <strong className="text-foreground">Formulaire de contact.</strong> [À COMPLÉTER : données du formulaire de contact, s'il existe — sinon supprimer ce paragraphe]
+              <strong className="text-foreground">Formulaire de contact.</strong> Lorsque vous utilisez la page contact, nous recueillons votre nom, votre adresse e-mail, l'objet et le contenu de votre message, uniquement pour vous répondre.
             </p>
           </section>
 
@@ -65,9 +65,9 @@ const PolitiqueConfidentialite = () => (
           <section className="mb-10">
             <h2 className="text-xl font-display font-bold text-foreground mb-3">5. Durées de conservation</h2>
             <ul className="text-muted-foreground text-sm leading-relaxed list-disc pl-5 space-y-1">
-              <li>Données de mesure d'audience (Google Analytics 4) : <strong className="text-foreground">[À COMPLÉTER : durée de conservation, ex. 14 mois]</strong> ;</li>
+              <li>Données de mesure d'audience (Google Analytics 4) : <strong className="text-foreground">13 mois maximum pour les cookies, 14 mois pour les données associées</strong> ;</li>
               <li>Cookies d'affiliation : durée fixée par le partenaire (généralement 24 heures pour Amazon) ;</li>
-              <li>Demandes de contact : <strong className="text-foreground">[À COMPLÉTER : durée de conservation]</strong>.</li>
+              <li>Demandes de contact : <strong className="text-foreground">3 ans à compter du dernier échange</strong>.</li>
             </ul>
           </section>
 
@@ -93,7 +93,7 @@ const PolitiqueConfidentialite = () => (
               Vous disposez des droits d'accès, de rectification, d'effacement, d'opposition, de portabilité et de limitation du traitement de vos données. Pour les exercer, écrivez à :
             </p>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              <strong className="text-foreground">[À COMPLÉTER : e-mail de contact]</strong>. Une réponse vous sera apportée dans un délai maximum d'un mois.
+              <strong className="text-foreground">contact@highends.store</strong>. Une réponse vous sera apportée dans un délai maximum d'un mois.
             </p>
           </section>
 

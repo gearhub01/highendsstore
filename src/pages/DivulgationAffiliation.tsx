@@ -50,7 +50,7 @@ const DivulgationAffiliation = () => (
           <section className="mb-10">
             <h2 className="text-xl font-display font-bold text-foreground mb-3">Questions</h2>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Pour toute question sur notre politique d'affiliation : <strong className="text-foreground">[À COMPLÉTER : e-mail de contact]</strong>.
+              Pour toute question sur notre politique d'affiliation : <strong className="text-foreground">contact@highends.store</strong>.
             </p>
           </section>
         </article>

@@ -6,6 +6,10 @@ import EditorialPage from "./pages/EditorialPage";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ConsentProvider } from "@/hooks/use-consent";
 import CookieConsent from "@/components/CookieConsent";
+import Analytics from "@/components/Analytics";
+import SchemaGlobal from "@/components/SchemaGlobal";
+import APropos from "./pages/APropos";
+import Contact from "./pages/Contact";
 import Index from "./pages/Index";
 import BuyingGuide from "./pages/BuyingGuide";
 import ProductReview from "./pages/ProductReview";
@@ -55,6 +59,8 @@ const App = () => (
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
             <Route path="/divulgation-affiliation" element={<DivulgationAffiliation />} />
+            <Route path="/a-propos" element={<APropos />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             {/* Collection temporaire iPhone 18 Pro */}
@@ -64,6 +70,8 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <CookieConsent />
+          <Analytics />
+          <SchemaGlobal />
         </BrowserRouter>
       </ConsentProvider>
     </TooltipProvider>

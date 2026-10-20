@@ -52,6 +52,8 @@ const entries: SitemapEntry[] = [
     lastmod: p.updatedAt,
   })),
   { path: "/blog/ces-2026-neuf-mois-apres", changefreq: "monthly", priority: "0.7", lastmod: "2026-09-24" },
+  { path: "/a-propos", changefreq: "yearly", priority: "0.4" },
+  { path: "/contact", changefreq: "yearly", priority: "0.4" },
   { path: "/mentions-legales", changefreq: "yearly", priority: "0.3" },
   { path: "/politique-confidentialite", changefreq: "yearly", priority: "0.3" },
   { path: "/divulgation-affiliation", changefreq: "yearly", priority: "0.3" },
